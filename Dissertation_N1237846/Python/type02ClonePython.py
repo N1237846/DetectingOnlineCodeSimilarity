@@ -1,166 +1,165 @@
 import os
-import re
+import shutil
+import parso
+import builtins
+import sys
+import pkgutil
 import random
-import string
 
-def generate_meaningful_name(prefix, index):
-    """
-    Generate a new, meaningful variable name based on a prefix and index.
-    
-    Parameters:
-    - prefix: str, the base prefix for the variable name
-    - index: int, the index used to ensure uniqueness
-    
-    Returns:
-    - str, the new variable name
-    """
-    prefixes = ['data', 'value', 'item', 'result', 'temp', 'counter', 'index', 'value', 'number', 'flag']
-    return f'{random.choice(prefixes)}_{index}'
+# A preset list of meaningful comments to replace existing comments
+meaningful_comments = [
+    "# This is a crucial part of the algorithm",
+    "# Optimization needed here",
+    "# Temporary workaround",
+    "# Review this section carefully",
+    "# Consider edge cases",
+    "# This function could be optimized further",
+    "# Ensure this works with the latest API changes",
+    "# Refactor if necessary",
+    "# Legacy code, consider updating",
+    "# Potential performance bottleneck"
+]
 
-def rename_user_defined_functions_and_references(content, suffix):
-    """
-    Rename user-defined functions and their references by appending the length of the function name as a suffix.
-    
-    Parameters:
-    - content: str, the original content of the script
-    - suffix: str, the suffix to add to each user-defined function name
-    
-    Returns:
-    - str, the modified content with renamed functions and updated references
-    """
-    function_pattern = r'\bdef\s+([a-zA-Z_][a-zA-Z0-9_]*)\b'
-    reserved_words = set([
-        'async', 'await', 'print', 'threading', 'asyncio', 'get_event_loop', 'wait', 'sleep'
-    ])
-    function_names = {}
+def get_standard_library_names():
+    """Returns a set of all top-level names in the standard library."""
+    stdlib_names = set(sys.builtin_module_names)
+    for module_info in pkgutil.iter_modules():
+        stdlib_names.add(module_info.name)
+    for module in sys.modules:
+        if module in stdlib_names:
+            continue
+        try:
+            imported_module = __import__(module)
+            for attr in dir(imported_module):
+                stdlib_names.add(attr)
+        except ImportError:
+            continue
+    return stdlib_names
 
-    def rename_function(match):
-        function_name = match.group(1)
-        if function_name not in reserved_words:
-            new_name = f'{function_name}_{len(function_name)}{suffix}'
-            function_names[function_name] = new_name
-            return f'def {new_name}'
-        return match.group(0)
+def modify_code(code):
+    tree = parso.parse(code)
+    built_in_names = set(dir(builtins))
+    stdlib_names = get_standard_library_names()
+    imported_names = set()
+    preserved_import_statements = []
 
-    # Rename functions and store their new names
-    content = re.sub(function_pattern, rename_function, content)
-    
-    # Update function references
-    for old_name, new_name in function_names.items():
-        content = re.sub(r'\b' + re.escape(old_name) + r'\b', new_name, content)
-    
-    return content
+    def track_imports_and_functions(node):
+        if node.type in {'import_from', 'import_name'}:
+            preserved_import_statements.append((node.start_pos, node.get_code().strip()))
+            for name in node.get_defined_names():
+                imported_names.add(name.value)
+                parts = name.value.split('.')
+                imported_names.add(parts[0])
+                imported_names.add(name.value)
+        if hasattr(node, 'children'):
+            for child in node.children:
+                track_imports_and_functions(child)
+        elif node.type == 'atom_expr':
+            # Track function calls to avoid renaming them
+            if node.children and isinstance(node.children[0], parso.python.tree.Name):
+                function_call_name = node.children[0].value
+                imported_names.add(function_call_name)
 
-def replace_variable_names(content):
-    """
-    Replace variable names with new, meaningful names, excluding library functions and method names.
-    
-    Parameters:
-    - content: str, the original content of the script
-    
-    Returns:
-    - str, the modified content with replaced variable names
-    """
-    variable_pattern = r'\b([a-zA-Z_][a-zA-Z0-9_]*)\b'
-    reserved_words = set([
-        'def', 'class', 'if', 'else', 'elif', 'for', 'while', 'return', 'import', 'from', 
-        'as', 'with', 'pass', 'break', 'continue', 'try', 'except', 'finally', 'raise', 
-        'yield', 'assert', 'lambda', 'True', 'False', 'None', 'and', 'or', 'not', 'is', 'in',
-        'async', 'await', 'print', 'threading', 'asyncio', 'get_event_loop', 'wait', 'sleep'
-    ])
-    variable_names = {}
-    index = 1
+    def should_rename(node):
+        """Determine if a node should be renamed."""
+        if node.type != 'name':
+            return False
 
-    def replace(match):
-        nonlocal index
-        word = match.group(0)
-        if word not in reserved_words and not word.startswith('__'):
-            if word not in variable_names:
-                new_name = generate_meaningful_name(word, index)
-                variable_names[word] = new_name
-                index += 1
-            return variable_names[word]
-        return word
+        # Skip renaming if it's a built-in, standard library, or an imported name
+        if node.value in built_in_names or node.value in stdlib_names or node.value in imported_names:
+            return False
 
-    return re.sub(variable_pattern, replace, content)
+        # For dot-notated imports, ensure the entire path is preserved
+        code = node.get_code()
+        for imp_name in imported_names:
+            if code == imp_name or code.startswith(imp_name + '.'):
+                return False
 
-def replace_or_delete_comments(content):
-    """
-    Replace comments with new, meaningful comments or delete them entirely based on random choice.
-    
-    Parameters:
-    - content: str, the original content of the script
-    
-    Returns:
-    - str, the modified content with either replaced or deleted comments
-    """
-    comment_pattern = r'(#.*)'
+        return True
 
-    def replace_or_delete_comment(match):
-        # Randomly decide whether to replace or delete the comment
-        if random.choice([True, False]):  # 50% chance to replace or delete
-            comment = match.group(0)
-            new_comment = random.choice([
-                "# Initialize the variable",
-                "# Perform some calculation",
-                "# Handle the exception",
-                "# Define a new function",
-                "# Set up the environment",
-                "# Execute the logic",
-                "# Wait for the operation to complete",
-                "# Log the information",
-                "# Close the resources",
-                "# Check for errors",
-                "# Prepare the output",
-                "# Process the input data",
-                "# Update the status",
-                "# Manage the state",
-                "# Run the main loop"
-            ])
-            return f'# {new_comment}'
-        else:
-            return ''  # Delete the comment
+    def rename_variable(node):
+        if hasattr(node, 'children'):
+            for child in node.children:
+                rename_variable(child)
+        if should_rename(node):
+            node.value = 'cloned_' + node.value
 
-    return re.sub(comment_pattern, replace_or_delete_comment, content)
+    def modify_comments_in_prefix(prefix):
+        lines = prefix.splitlines(keepends=True)
+        modified_lines = []
+        for line in lines:
+            stripped_line = line.strip()
+            if stripped_line.startswith('#'):
+                action = random.choice(["delete", "replace", "keep"])
+                if action == "replace":
+                    modified_lines.append(' ' * (len(line) - len(stripped_line)) + random.choice(meaningful_comments) + "\n")
+                elif action == "delete":
+                    continue
+                else:
+                    modified_lines.append(line)
+            else:
+                modified_lines.append(line)
+        return ''.join(modified_lines)
 
-def create_type_2_clones(source_dir, destination_dir, num_clones):
-    """
-    Create Type 2 clones of all Python scripts from the source directory to the destination directory.
-    
-    Parameters:
-    - source_dir: str, the directory containing the original Python scripts
-    - destination_dir: str, the directory where the clones will be saved
-    - num_clones: int, the number of times each script should be cloned
-    """
-    # Ensure the destination directory exists
-    os.makedirs(destination_dir, exist_ok=True)
-    
-    # List all Python scripts in the source directory
-    scripts = [f for f in os.listdir(source_dir) if f.endswith('.py')]
-    
-    # Clone each script the specified number of times with transformations
-    for script in scripts:
-        script_path = os.path.join(source_dir, script)
-        with open(script_path, 'r', encoding='utf-8') as file:
-            content = file.read()
-        
-        for i in range(num_clones):
-            clone_name = f"{os.path.splitext(script)[0]}_clone_{i + 1}.py"
-            clone_path = os.path.join(destination_dir, clone_name)
-            
-            # Apply transformations
-            modified_content = rename_user_defined_functions_and_references(content, f'_{i + 1}')
-            modified_content = replace_variable_names(modified_content)
-            modified_content = replace_or_delete_comments(modified_content)
-            
-            with open(clone_path, 'w', encoding='utf-8') as clone_file:
-                clone_file.write(modified_content)
-    
-    print(f"Successfully created {num_clones} Type 2 clones for each of {len(scripts)} scripts.")
+    def modify_prefixes(node):
+        if hasattr(node, 'prefix'):
+            node.prefix = modify_comments_in_prefix(node.prefix)
+        if hasattr(node, 'children'):
+            for child in node.children:
+                modify_prefixes(child)
 
-# Example usage
-source_directory = 'python_scripts_dataset'  # Update this path
-destination_directory = 'type02SamplePython'  # Update this path
-number_of_clones = 1  # Set the number of clones you want for each script
+    # Track all import statements and function calls to preserve them
+    track_imports_and_functions(tree)
 
-create_type_2_clones(source_directory, destination_directory, number_of_clones)
+    # Traverse the AST and apply changes, skipping preserved import statements and function calls
+    rename_variable(tree)
+    modify_prefixes(tree)
+
+    # Generate the modified code
+    modified_code = tree.get_code().splitlines()
+
+    # Reinsert the preserved import statements exactly as they were
+    for pos, statement in preserved_import_statements:
+        line_number = pos[0] - 1  # Convert 1-based line number to 0-based index
+        modified_code[line_number] = statement
+
+    return "\n".join(modified_code)
+
+def clone_python_file(src_file_path, dst_file_path):
+    with open(src_file_path, 'r', encoding='utf-8') as src_file:
+        original_code = src_file.read()
+
+    # Modify the code
+    modified_code = modify_code(original_code)
+
+    # Write the modified code to the destination file
+    with open(dst_file_path, 'w', encoding='utf-8') as dst_file:
+        dst_file.write(modified_code)
+
+def clone_folder(src_folder, dst_folder):
+    if not os.path.exists(dst_folder):
+        os.makedirs(dst_folder)
+
+    for root, dirs, files in os.walk(src_folder):
+        relative_path = os.path.relpath(root, src_folder)
+        clone_root = os.path.join(dst_folder, relative_path)
+
+        for dir_name in dirs:
+            os.makedirs(os.path.join(clone_root, dir_name), exist_ok=True)
+
+        for file_name in files:
+            src_file_path = os.path.join(root, file_name)
+            dst_file_path = os.path.join(clone_root, file_name)
+
+            if file_name.endswith('.py'):
+                clone_python_file(src_file_path, dst_file_path)
+            else:
+                shutil.copy2(src_file_path, dst_file_path)
+
+if __name__ == "__main__":
+    src_folder = "python_scripts_dataset"
+    dst_folder = "type02SamplePython"
+
+    clone_folder(src_folder, dst_folder)
+
+    print(f"Cloning completed. All files and folders from '{src_folder}' have been cloned to '{dst_folder}'.")
