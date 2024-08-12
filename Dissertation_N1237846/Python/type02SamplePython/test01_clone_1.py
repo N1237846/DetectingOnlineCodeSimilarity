@@ -1,0 +1,1 @@
+print('value_1, result_2!')

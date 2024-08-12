@@ -23,7 +23,7 @@ def copy_python_scripts(src_folder1, src_folder2, dest_folder):
 
 # Example usage
 src_folder1 = 'python_scripts_dataset'
-src_folder2 = 'type01SamplePython'
-dest_folder = 'Type01CombinePythonDataset'
+src_folder2 = 'type02SamplePython'
+dest_folder = 'Type02CombinePythonDataset'
 
 copy_python_scripts(src_folder1, src_folder2, dest_folder)
