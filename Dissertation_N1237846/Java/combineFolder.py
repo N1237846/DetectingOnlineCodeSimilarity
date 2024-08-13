@@ -9,7 +9,7 @@ def copy_python_scripts(src_folder1, src_folder2, dest_folder):
     # Function to copy .py files from a source folder to the destination folder
     def copy_files(src_folder):
         for filename in os.listdir(src_folder):
-            if filename.endswith('.py'):
+            if filename.endswith('.java'):
                 src_file_path = os.path.join(src_folder, filename)
                 dest_file_path = os.path.join(dest_folder, filename)
                 
@@ -22,8 +22,8 @@ def copy_python_scripts(src_folder1, src_folder2, dest_folder):
     copy_files(src_folder2)
 
 # Example usage
-src_folder1 = 'python_scripts_dataset'
-src_folder2 = 'type03SamplePython'
-dest_folder = 'Type03CombinePythonDataset'
+src_folder1 = 'java_scripts_dataset'
+src_folder2 = 'type03SampleJava'
+dest_folder = 'Type03CombineJavaDataset'
 
 copy_python_scripts(src_folder1, src_folder2, dest_folder)

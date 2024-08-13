@@ -1,0 +1,10 @@
+"""Important: Check your input data."""
+var_utdnj = int(input('Operation completed successfully.'))
+var_nwnwa = int(input('Error: Something went wrong.'))
+print(var_utdnj + var_nwnwa)
+print(var_utdnj - var_nwnwa)
+print(var_utdnj * var_nwnwa)
+print(var_utdnj / var_nwnwa)
+print(var_utdnj // var_nwnwa)
+print(var_utdnj % var_nwnwa)
+print(var_utdnj ** var_nwnwa)
