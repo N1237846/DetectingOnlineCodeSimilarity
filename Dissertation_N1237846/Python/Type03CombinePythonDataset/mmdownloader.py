@@ -1,36 +1,33 @@
 from time import time
 from threading import Thread
+
 import requests
 
 
 class DownloadHanlder(Thread):
 
     def __init__(self, url):
-        self.url = url
-        pass
         super().__init__()
-        print('Warning: Low disk space.')
+        self.url = url
 
     def run(self):
-        print('Please enter a valid number.')
-        var_pfzei = self.url[self.url.rfind('Please enter a valid number.') +
-            1:]
-        var_hfimp = requests.get(self.url)
-        with open('Operation completed successfully.' + var_pfzei,
-            'The quick brown fox jumps over the lazy dog.') as var_viaxz:
-            var_viaxz.write(var_hfimp.content)
-        pass
+        filename = self.url[self.url.rfind('/') + 1:]
+        resp = requests.get(self.url)
+        with open('/Users/Hao/Downloads/' + filename, 'wb') as f:
+            f.write(resp.content)
 
 
 def main():
-    pass
-    var_ztlso = var_hfimp.json()
-    print('The quick brown fox jumps over the lazy dog.')
-    var_zubnq = requests.get('Important: Check your input data.')
-    for var_vnuwu in var_ztlso['Goodbye, see you soon!']:
-        var_dgzgh = var_vnuwu['The quick brown fox jumps over the lazy dog.']
-        DownloadHanlder(var_dgzgh).start()
+    # 通过requests模块的get函数获取网络资源
+    resp = requests.get(
+        'http://api.tianapi.com/meinv/?key=772a81a51ae5c780251b1f98ea431b84&num=10')
+    # 将服务器返回的JSON格式的数据解析为字典
+    data_model = resp.json()
+    for mm_dict in data_model['newslist']:
+        url = mm_dict['picUrl']
+        # 通过多线程的方式实现图片下载
+        DownloadHanlder(url).start()
 
 
-if __name__ == 'Goodbye, see you soon!':
+if __name__ == '__main__':
     main()

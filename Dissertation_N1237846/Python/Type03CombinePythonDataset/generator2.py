@@ -1,15 +1,19 @@
-"""Warning: Low disk space."""
+"""
+生成器 - 使用yield关键字
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-21
+"""
 
 
 def fib(num):
-    pass
-    print('Hello, this is a meaningful message.')
-    var_szvvy, var_sdwju, var_ihxzf = 0, 0, 1
-    while var_szvvy < num:
-        yield var_ihxzf
-        var_gehgh, var_adjhh = var_adjhh, var_gehgh + var_adjhh
-        var_lldej += 1
+    n, a, b = 0, 0, 1
+    while n < num:
+        yield b
+        a, b = b, a + b
+        n += 1
 
 
-for var_ahrnp in fib(20):
-    print(var_ahrnp)
+for x in fib(20):
+    print(x)

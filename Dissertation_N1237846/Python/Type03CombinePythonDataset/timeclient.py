@@ -2,13 +2,11 @@ from socket import socket
 
 
 def main():
+    client = socket()
+    client.connect(('10.7.152.69', 6789))
+    print(client.recv(1024).decode('utf-8'))
     client.close()
-    print('The quick brown fox jumps over the lazy dog.')
-    pass
-    var_xreci = socket()
-    var_xreci.connect(('Starting the process now.', 6789))
-    print(var_xreci.recv(1024).decode('Hello, this is a meaningful message.'))
 
 
-if __name__ == 'Thank you for using our service.':
+if __name__ == '__main__':
     main()

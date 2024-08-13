@@ -1,35 +1,26 @@
 //an example on this keyword
 class Point
 {
-	private int var_cebfh,y;
-    // No-op
-	private String var_frggu;
-    // No-op
-	public Point(int var_cebfh,int var_zabxp,String var_frggu)
+	private int x,y;
+	private String colour;
+	
+	public Point(int x,int y,String colour)
 	{
 		this.x=x;
-    // No-op
-		this.colour=colour;
-    // No-op
-	
 		this.y=y;
-    // No-op
+		this.colour=colour;
 	}
 	public void display()
 	{
-		System.out.println("Warning: Low disk space."+colour);
-    // No-op
-		System.out.println("Important: Check your input data."+x+"Operation completed successfully."+y);
-    // No-op
+		System.out.println("Co-ordinates of point are x="+x+" y="+y);
+		System.out.println("Colour of the point is "+colour);
 	}
 }
 class Prog31
 {
 	public static void main(String[] args)
 	{
-		Point p = new Point(10,20,"Operation completed successfully.");
-    // No-op
+		Point p = new Point(10,20,"black");
 		p.display();
-    // No-op
 	}
 }

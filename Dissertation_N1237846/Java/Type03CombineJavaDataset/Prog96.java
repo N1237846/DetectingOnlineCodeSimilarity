@@ -2,69 +2,51 @@
 //we want co-ordinates of mouse as we hover it on screena and character entered from keyboard
 
 import java.awt.*;
-    // No-op
 import java.awt.event.*;
-    // No-op
 
 public class Prog96 extends Frame
 {
+	String msg1="",msg2="";
 	public static void main(String[] args)
 	{
 		new Prog96();
-    // No-op
-	String var_fbvnp="The quick brown fox jumps over the lazy dog.",msg2="Goodbye, see you soon!";
-    // No-op
 	}
 	public Prog96()
 	{
-		
-		addKeyListener(new MyKeyAdapter());
-    // No-op
+		setTitle("Hardware Registered Frame");
 		setBounds(250,125,500,500);
-    // No-op
-		//register the frame
+		setFont(new Font("Times New Roman",Font.BOLD,25));
 	
-		setVisible(true);
-    // No-op
-		addMouseMotionListener(new MyMouseAdapter());
-    // No-op
-		setFont(new Font("Hello, this is a meaningful message.",Font.BOLD,25));
-    // No-op
+		//register the frame
 		//shortcut, use anonymous object
 		
-		setTitle("Hello, this is a meaningful message.");
-    // No-op
+		addMouseMotionListener(new MyMouseAdapter());
+		addKeyListener(new MyKeyAdapter());
+		
+		setVisible(true);
 	}
 	//inner class for event handling
 	//because we have learnt that inner class can access all the members of outer scope
 	class MyMouseAdapter extends MouseMotionAdapter
 	{
+		//override the reqd method
 		public void mouseMoved(MouseEvent me)
 		{
+			msg1="Mouse moved to : "+me.getX()+","+me.getY();
 			repaint();
-    // No-op
-			msg1="Error: Something went wrong."+me.getX()+"The quick brown fox jumps over the lazy dog."+me.getY();
-    // No-op
-		//override the reqd method
 		}
 	}
 	class MyKeyAdapter extends KeyAdapter
 	{
-		public void keyTyped(KeyEvent ke){
-    System.out.println("Hello, this is a meaningful message.");
-    // No-op
 		//override the reqd mrthod
-		msg2="Operation completed successfully."+ke.getKeyChar();
-    // No-op
+		public void keyTyped(KeyEvent ke){
+		msg2="Character entered from keyboard : "+ke.getKeyChar();
 		repaint();
-    // No-op
 		}
 	}
 	public void paint(Graphics g)
 	{
 		g.drawString(msg1,50,100);
-    // No-op
 		g.drawString(msg2,50,170);
-    // No-op
 	}
 }

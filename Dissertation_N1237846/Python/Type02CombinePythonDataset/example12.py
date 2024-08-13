@@ -7,59 +7,59 @@
 from abc import ABCMeta, abstractmethod
 
 
-class cloned_Employee(cloned_metaclass=ABCMeta):
+class Employee(metaclass=ABCMeta):
     """员工(抽象类)"""
 
-    def cloned___init__(cloned_self, name):
-        cloned_self.name = name
+    def __init__(self, name):
+        self.name = name
 
     @abstractmethod
-    def cloned_get_salary(cloned_self):
+    def get_salary(self):
         """结算月薪(抽象方法)"""
         pass
 
 
-class cloned_Manager(cloned_Employee):
+class Manager(Employee):
     """部门经理"""
 
-    def cloned_get_salary(cloned_self):
+    def get_salary(self):
         return 15000.0
 
 
-class cloned_Programmer(cloned_Employee):
+class Programmer(Employee):
     """程序员"""
 
-    def cloned___init__(cloned_self, name, cloned_working_hour=0):
-        cloned_self.cloned_working_hour = cloned_working_hour
-        super().cloned___init__(name)
+    def __init__(self, name, working_hour=0):
+        self.working_hour = working_hour
+        super().__init__(name)
 
-    def cloned_get_salary(cloned_self):
-        return 200.0 * cloned_self.cloned_working_hour
+    def get_salary(self):
+        return 200.0 * self.working_hour
 
 
-class cloned_Salesman(cloned_Employee):
+class Salesman(Employee):
     """销售员"""
 
-    def cloned___init__(cloned_self, name, cloned_sales=0.0):
-        cloned_self.cloned_sales = cloned_sales
-        super().cloned___init__(name)
+    def __init__(self, name, sales=0.0):
+        self.sales = sales
+        super().__init__(name)
 
-    def cloned_get_salary(cloned_self):
-        return 1800.0 + cloned_self.cloned_sales * 0.05
+    def get_salary(self):
+        return 1800.0 + self.sales * 0.05
 
 
-class cloned_EmployeeFactory():
+class EmployeeFactory():
     """创建员工的工厂（工厂模式 - 通过工厂实现对象使用者和对象之间的解耦合）"""
 
     @staticmethod
-    def cloned_create(cloned_emp_type, *cloned_args, **cloned_kwargs):
+    def create(emp_type, *args, **kwargs):
         """创建员工"""
-        cloned_emp_type = cloned_emp_type.cloned_upper()
-        cloned_emp = None
-        if cloned_emp_type == 'M':
-            cloned_emp = cloned_Manager(*cloned_args, **cloned_kwargs)
-        elif cloned_emp_type == 'P':
-            cloned_emp = cloned_Programmer(*cloned_args, **cloned_kwargs)
-        elif cloned_emp_type == 'S':
-            cloned_emp = cloned_Salesman(*cloned_args, **cloned_kwargs)
-        return cloned_emp
+        emp_type = emp_type.upper()
+        emp = None
+        if emp_type == 'M':
+            emp = Manager(*args, **kwargs)
+        elif emp_type == 'P':
+            emp = Programmer(*args, **kwargs)
+        elif emp_type == 'S':
+            emp = Salesman(*args, **kwargs)
+        return emp

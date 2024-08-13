@@ -10,51 +10,52 @@ from time import sleep
 from threading import Thread, Lock
 
 
-class cloned_Account(object):
+class Account(object):
 
-    def cloned___init__(cloned_self):
-        cloned_self.cloned__balance = 0
-        cloned_self.cloned__lock = Lock()
+    def __init__(self):
+        self._balance = 0
+        self._lock = Lock()
 
-    def cloned_deposit(cloned_self, cloned_money):
-         # Consider edge cases
-        cloned_self.cloned__lock.cloned_acquire()
+    def deposit(self, money):
+        # 先获取锁才能执行后续的代码
+        self._lock.acquire()
         try:
-            cloned_new_balance = cloned_self.cloned__balance + cloned_money
+            new_balance = self._balance + money
             sleep(0.01)
-            cloned_self.cloned__balance = cloned_new_balance
+            self._balance = new_balance
         finally:
-            cloned_self.cloned__lock.cloned_release()
+            # 这段代码放在finally中保证释放锁的操作一定要执行
+            self._lock.release()
 
     @property
-    def cloned_balance(cloned_self):
-        return cloned_self.cloned__balance
+    def balance(self):
+        return self._balance
 
 
-class cloned_AddMoneyThread(Thread):
+class AddMoneyThread(Thread):
 
-    def cloned___init__(cloned_self, cloned_account, cloned_money):
-        super().cloned___init__()
-        cloned_self.cloned__account = cloned_account
-        cloned_self.cloned__money = cloned_money
+    def __init__(self, account, money):
+        super().__init__()
+        self._account = account
+        self._money = money
 
-    def cloned_run(cloned_self):
-        cloned_self.cloned__account.cloned_deposit(cloned_self.cloned__money)
+    def run(self):
+        self._account.deposit(self._money)
 
 
-def cloned_main():
-    cloned_account = cloned_Account()
-    cloned_threads = []
+def main():
+    account = Account()
+    threads = []
     # 创建100个存款的线程向同一个账户中存钱
-    for cloned__ in range(100):
-        cloned_t = cloned_AddMoneyThread(cloned_account, 1)
-        cloned_threads.cloned_append(cloned_t)
-        cloned_t.cloned_start()
-     # Legacy code, consider updating
-    for cloned_t in cloned_threads:
-        cloned_t.cloned_join()
-    print('账户余额为: ￥%d元' % cloned_account.cloned_balance)
+    for _ in range(100):
+        t = AddMoneyThread(account, 1)
+        threads.append(t)
+        t.start()
+    # 等所有存款的线程都执行完毕∫
+    for t in threads:
+        t.join()
+    print('账户余额为: ￥%d元' % account.balance)
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

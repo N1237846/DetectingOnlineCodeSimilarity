@@ -4,70 +4,71 @@
 import turtle
 
 
-def cloned_draw_rectangle(cloned_x, cloned_y, cloned_width, cloned_height):
+def draw_rectangle(x, y, width, height):
     """绘制矩形"""
-    turtle.cloned_goto(cloned_x, cloned_y)
-    turtle.cloned_pencolor('red')
-    turtle.cloned_fillcolor('red')
-    turtle.cloned_begin_fill()
-    for cloned_i in range(2):
-        turtle.cloned_forward(cloned_width)
-        turtle.cloned_left(90)
-        turtle.cloned_forward(cloned_height)
-        turtle.cloned_left(90)
-    turtle.cloned_end_fill()
+    turtle.goto(x, y)
+    turtle.pencolor('red')
+    turtle.fillcolor('red')
+    turtle.begin_fill()
+    for i in range(2):
+        turtle.forward(width)
+        turtle.left(90)
+        turtle.forward(height)
+        turtle.left(90)
+    turtle.end_fill()
 
 
-def cloned_draw_star(cloned_x, cloned_y, cloned_radius):
+def draw_star(x, y, radius):
     """绘制五角星"""
-    turtle.cloned_setpos(cloned_x, cloned_y)
-    cloned_pos1 = turtle.cloned_pos()
-    turtle.cloned_circle(-cloned_radius, 72)
-    cloned_pos2 = turtle.cloned_pos()
-    turtle.cloned_circle(-cloned_radius, 72)
-    cloned_pos3 = turtle.cloned_pos()
-    turtle.cloned_circle(-cloned_radius, 72)
-    cloned_pos4 = turtle.cloned_pos()
-    turtle.cloned_circle(-cloned_radius, 72)
-    cloned_pos5 = turtle.cloned_pos()
-    turtle.cloned_color('yellow', 'yellow')
-    turtle.cloned_begin_fill()
-    turtle.cloned_goto(cloned_pos3)
-    turtle.cloned_goto(cloned_pos1)
-    turtle.cloned_goto(cloned_pos4)
-    turtle.cloned_goto(cloned_pos2)
-    turtle.cloned_goto(cloned_pos5)
-    turtle.cloned_end_fill()
+    turtle.setpos(x, y)
+    pos1 = turtle.pos()
+    turtle.circle(-radius, 72)
+    pos2 = turtle.pos()
+    turtle.circle(-radius, 72)
+    pos3 = turtle.pos()
+    turtle.circle(-radius, 72)
+    pos4 = turtle.pos()
+    turtle.circle(-radius, 72)
+    pos5 = turtle.pos()
+    turtle.color('yellow', 'yellow')
+    turtle.begin_fill()
+    turtle.goto(pos3)
+    turtle.goto(pos1)
+    turtle.goto(pos4)
+    turtle.goto(pos2)
+    turtle.goto(pos5)
+    turtle.end_fill()
 
 
-def cloned_main():
+def main():
     """主程序"""
-    turtle.cloned_speed(12)
-    turtle.cloned_penup()
-    cloned_x, cloned_y = -270, -180
-     # Potential performance bottleneck
-    cloned_width, cloned_height = 540, 360
-    cloned_draw_rectangle(cloned_x, cloned_y, cloned_width, cloned_height)
-     # This is a crucial part of the algorithm
-    cloned_pice = 22
-    cloned_center_x, cloned_center_y = cloned_x + 5 * cloned_pice, cloned_y + cloned_height - cloned_pice * 5
-    turtle.cloned_goto(cloned_center_x, cloned_center_y)
-    turtle.cloned_left(90)
-    turtle.cloned_forward(cloned_pice * 3)
-    turtle.cloned_right(90)
-    cloned_draw_star(turtle.cloned_xcor(), turtle.cloned_ycor(), cloned_pice * 3)
-    cloned_x_poses, cloned_y_poses = [10, 12, 12, 10], [2, 4, 7, 9]
-    for cloned_x_pos, cloned_y_pos in zip(cloned_x_poses, cloned_y_poses):
-        turtle.cloned_goto(cloned_x + cloned_x_pos * cloned_pice, cloned_y + cloned_height - cloned_y_pos * cloned_pice)
-        turtle.cloned_left(turtle.cloned_towards(cloned_center_x, cloned_center_y) - turtle.cloned_heading())
-        turtle.cloned_forward(cloned_pice)
-        turtle.cloned_right(90)
-        cloned_draw_star(turtle.cloned_xcor(), turtle.cloned_ycor(), cloned_pice)
+    turtle.speed(12)
+    turtle.penup()
+    x, y = -270, -180
+    # 画国旗主体
+    width, height = 540, 360
+    draw_rectangle(x, y, width, height)
+    # 画大星星
+    pice = 22
+    center_x, center_y = x + 5 * pice, y + height - pice * 5
+    turtle.goto(center_x, center_y)
+    turtle.left(90)
+    turtle.forward(pice * 3)
+    turtle.right(90)
+    draw_star(turtle.xcor(), turtle.ycor(), pice * 3)
+    x_poses, y_poses = [10, 12, 12, 10], [2, 4, 7, 9]
+    # 画小星星
+    for x_pos, y_pos in zip(x_poses, y_poses):
+        turtle.goto(x + x_pos * pice, y + height - y_pos * pice)
+        turtle.left(turtle.towards(center_x, center_y) - turtle.heading())
+        turtle.forward(pice)
+        turtle.right(90)
+        draw_star(turtle.xcor(), turtle.ycor(), pice)
     # 隐藏海龟
-    turtle.cloned_ht()
+    turtle.ht()
     # 显示绘图窗口
-    turtle.cloned_mainloop()
+    turtle.mainloop()
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

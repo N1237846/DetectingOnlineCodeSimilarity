@@ -9,66 +9,66 @@ Date: 2018-03-12
 from math import gcd
 
 
-class cloned_Rational(object):
+class Rational(object):
 
-    def cloned___init__(cloned_self, cloned_num, cloned_den=1):
-        if cloned_den == 0:
+    def __init__(self, num, den=1):
+        if den == 0:
             raise ValueError('分母不能为0')
-        cloned_self.cloned__num = cloned_num
-        cloned_self.cloned__den = cloned_den
-        cloned_self.cloned_normalize()
+        self._num = num
+        self._den = den
+        self.normalize()
 
-    def cloned_simplify(cloned_self):
-        cloned_x = abs(cloned_self.cloned__num)
-        cloned_y = abs(cloned_self.cloned__den)
-        cloned_factor = gcd(cloned_x, cloned_y)
-        if cloned_factor > 1:
-            cloned_self.cloned__num //= cloned_factor
-            cloned_self.cloned__den //= cloned_factor
-        return cloned_self
+    def simplify(self):
+        x = abs(self._num)
+        y = abs(self._den)
+        factor = gcd(x, y)
+        if factor > 1:
+            self._num //= factor
+            self._den //= factor
+        return self
 
-    def cloned_normalize(cloned_self):
-        if cloned_self.cloned__den < 0:
-            cloned_self.cloned__den = -cloned_self.cloned__den
-            cloned_self.cloned__num = -cloned_self.cloned__num
-        return cloned_self
+    def normalize(self):
+        if self._den < 0:
+            self._den = -self._den
+            self._num = -self._num
+        return self
 
-    def cloned___add__(cloned_self, cloned_other):
-        cloned_new_num = cloned_self.cloned__num * cloned_other.cloned__den + cloned_other.cloned__num * cloned_self.cloned__den
-        cloned_new_den = cloned_self.cloned__den * cloned_other.cloned__den
-        return cloned_Rational(cloned_new_num, cloned_new_den).cloned_simplify().cloned_normalize()
+    def __add__(self, other):
+        new_num = self._num * other._den + other._num * self._den
+        new_den = self._den * other._den
+        return Rational(new_num, new_den).simplify().normalize()
 
-    def cloned___sub__(cloned_self, cloned_other):
-        cloned_new_num = cloned_self.cloned__num * cloned_other.cloned__den - cloned_other.cloned__num * cloned_self.cloned__den
-        cloned_new_den = cloned_self.cloned__den * cloned_other.cloned__den
-        return cloned_Rational(cloned_new_num, cloned_new_den).cloned_simplify().cloned_normalize()
+    def __sub__(self, other):
+        new_num = self._num * other._den - other._num * self._den
+        new_den = self._den * other._den
+        return Rational(new_num, new_den).simplify().normalize()
 
-    def cloned___mul__(cloned_self, cloned_other):
-        cloned_new_num = cloned_self.cloned__num * cloned_other.cloned__num
-        cloned_new_den = cloned_self.cloned__den * cloned_other.cloned__den
-        return cloned_Rational(cloned_new_num, cloned_new_den).cloned_simplify().cloned_normalize()
+    def __mul__(self, other):
+        new_num = self._num * other._num
+        new_den = self._den * other._den
+        return Rational(new_num, new_den).simplify().normalize()
 
-    def cloned___truediv__(cloned_self, cloned_other):
-        cloned_new_num = cloned_self.cloned__num * cloned_other.cloned__den
-        cloned_new_den = cloned_self.cloned__den * cloned_other.cloned__num
-        return cloned_Rational(cloned_new_num, cloned_new_den).cloned_simplify().cloned_normalize()
+    def __truediv__(self, other):
+        new_num = self._num * other._den
+        new_den = self._den * other._num
+        return Rational(new_num, new_den).simplify().normalize()
 
-    def cloned___str__(cloned_self):
-        if cloned_self.cloned__num == 0:
+    def __str__(self):
+        if self._num == 0:
             return '0'
-        elif cloned_self.cloned__den == 1:
-            return str(cloned_self.cloned__num)
+        elif self._den == 1:
+            return str(self._num)
         else:
-            return '(%d/%d)' % (cloned_self.cloned__num, cloned_self.cloned__den)
+            return '(%d/%d)' % (self._num, self._den)
 
 
 if __name__ == '__main__':
-    cloned_r1 = cloned_Rational(2, 3)
-    print(cloned_r1)
-    cloned_r2 = cloned_Rational(6, -8)
-    print(cloned_r2)
-    print(cloned_r2.cloned_simplify())
-    print('%s + %s = %s' % (cloned_r1, cloned_r2, cloned_r1 + cloned_r2))
-    print('%s - %s = %s' % (cloned_r1, cloned_r2, cloned_r1 - cloned_r2))
-    print('%s * %s = %s' % (cloned_r1, cloned_r2, cloned_r1 * cloned_r2))
-    print('%s / %s = %s' % (cloned_r1, cloned_r2, cloned_r1 / cloned_r2))
+    r1 = Rational(2, 3)
+    print(r1)
+    r2 = Rational(6, -8)
+    print(r2)
+    print(r2.simplify())
+    print('%s + %s = %s' % (r1, r2, r1 + r2))
+    print('%s - %s = %s' % (r1, r2, r1 - r2))
+    print('%s * %s = %s' % (r1, r2, r1 * r2))
+    print('%s / %s = %s' % (r1, r2, r1 / r2))

@@ -7,16 +7,16 @@ Date: 2018-03-13
 """
 
 
-def cloned_f1():
+def f1():
     raise AssertionError('发生异常')
 
 
-def cloned_f2():
-    cloned_f1()
+def f2():
+    f1()
 
 
-def cloned_f3():
-    cloned_f2()
+def f3():
+    f2()
 
 
-cloned_f3()
+f3()

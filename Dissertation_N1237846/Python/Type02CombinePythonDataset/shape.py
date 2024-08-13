@@ -14,51 +14,51 @@ from abc import ABCMeta, abstractmethod
 from math import pi
 
 
-class cloned_Shape(object, cloned_metaclass=ABCMeta):
+class Shape(object, metaclass=ABCMeta):
 
     @abstractmethod
-    def cloned_perimeter(cloned_self):
+    def perimeter(self):
         pass
 
     @abstractmethod
-    def cloned_area(cloned_self):
+    def area(self):
         pass
 
 
-class cloned_Circle(cloned_Shape):
+class Circle(Shape):
 
-    def cloned___init__(cloned_self, cloned_radius):
-        cloned_self.cloned__radius = cloned_radius
+    def __init__(self, radius):
+        self._radius = radius
 
-    def cloned_perimeter(cloned_self):
-        return 2 * pi * cloned_self.cloned__radius
+    def perimeter(self):
+        return 2 * pi * self._radius
 
-    def cloned_area(cloned_self):
-        return pi * cloned_self.cloned__radius ** 2
+    def area(self):
+        return pi * self._radius ** 2
 
-    def cloned___str__(cloned_self):
+    def __str__(self):
         return '我是一个圆'
 
 
-class cloned_Rect(cloned_Shape):
+class Rect(Shape):
 
-    def cloned___init__(cloned_self, cloned_width, cloned_height):
-        cloned_self.cloned__width = cloned_width
-        cloned_self.cloned__height = cloned_height
+    def __init__(self, width, height):
+        self._width = width
+        self._height = height
 
-    def cloned_perimeter(cloned_self):
-        return 2 * (cloned_self.cloned__width + cloned_self.cloned__height)
+    def perimeter(self):
+        return 2 * (self._width + self._height)
 
-    def cloned_area(cloned_self):
-        return cloned_self.cloned__width * cloned_self.cloned__height
+    def area(self):
+        return self._width * self._height
 
-    def cloned___str__(cloned_self):
+    def __str__(self):
         return '我是一个矩形'
 
 
 if __name__ == '__main__':
-    cloned_shapes = [cloned_Circle(5), cloned_Circle(3.2), cloned_Rect(3.2, 6.3)]
-    for cloned_shape in cloned_shapes:
-        print(cloned_shape)
-        print('周长:', cloned_shape.cloned_perimeter())
-        print('面积:', cloned_shape.cloned_area())
+    shapes = [Circle(5), Circle(3.2), Rect(3.2, 6.3)]
+    for shape in shapes:
+        print(shape)
+        print('周长:', shape.perimeter())
+        print('面积:', shape.area())

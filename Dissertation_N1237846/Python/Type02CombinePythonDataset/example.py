@@ -1,47 +1,47 @@
 import cProfile
 
 
- # Refactor if necessary
-def cloned_is_prime(cloned_num):
-    for cloned_factor in range(2, int(cloned_num ** 0.5) + 1):
-        if cloned_num % cloned_factor == 0:
+# @profile
+def is_prime(num):
+    for factor in range(2, int(num ** 0.5) + 1):
+        if num % factor == 0:
             return False
     return True
 
 
-class cloned_PrimeIter:
+class PrimeIter:
 
-    def cloned___init__(cloned_self, cloned_total):
-        cloned_self.cloned_counter = 0
-        cloned_self.cloned_current = 1
-        cloned_self.cloned_total = cloned_total
+    def __init__(self, total):
+        self.counter = 0
+        self.current = 1
+        self.total = total
 
-    def cloned___iter__(cloned_self):
-        return cloned_self
+    def __iter__(self):
+        return self
 
-    def cloned___next__(cloned_self):
-        if cloned_self.cloned_counter < cloned_self.cloned_total:
-            cloned_self.cloned_current += 1
-            while not cloned_is_prime(cloned_self.cloned_current):
-                cloned_self.cloned_current += 1
-            cloned_self.cloned_counter += 1
-            return cloned_self.cloned_current
+    def __next__(self):
+        if self.counter < self.total:
+            self.current += 1
+            while not is_prime(self.current):
+                self.current += 1
+            self.counter += 1
+            return self.current
         raise StopIteration()
 
 
 @profile
-def cloned_eat_memory():
-    cloned_items = []
-    for cloned__ in range(1000000):
-        cloned_items.cloned_append(object())
-    return cloned_items
+def eat_memory():
+    items = []
+    for _ in range(1000000):
+        items.append(object())
+    return items
 
 
-def cloned_main():
-    cloned_eat_memory()
-     # Potential performance bottleneck
-     # Review this section carefully
+def main():
+    eat_memory()
+    # list(PrimeIter(1000))
+    # cProfile.run('list(PrimeIter(10000))')
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

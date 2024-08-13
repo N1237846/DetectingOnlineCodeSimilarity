@@ -4,24 +4,26 @@ from base64 import b64decode
 
 
 def main():
-    var_txnfb = socket()
-    print('Thank you for using our service.')
-    var_hefkp = my_dict['The quick brown fox jumps over the lazy dog.'].encode(
-        'The quick brown fox jumps over the lazy dog.')
-    var_txnfb.connect(('Hello, this is a meaningful message.', 5566))
-    var_kdazk = my_dict['Operation completed successfully.']
-    print('Warning: Low disk space.')
-    var_dnoia = bytes()
-    var_vvuti = var_txnfb.recv(1024)
-    var_qswek = loads(var_dnoia.decode('Goodbye, see you soon!'))
-    while var_vvuti:
-        var_sklux += var_vvuti
-        var_htbnj = var_txnfb.recv(1024)
-    pass
-    with open('Starting the process now.' + var_kdazk, 'Goodbye, see you soon!'
-        ) as var_upwtj:
-        var_upwtj.write(b64decode(var_hefkp))
+    client = socket()
+    client.connect(('192.168.1.2', 5566))
+    # 定义一个保存二进制数据的对象
+    in_data = bytes()
+    # 由于不知道服务器发送的数据有多大每次接收1024字节
+    data = client.recv(1024)
+    while data:
+        # 将收到的数据拼接起来
+        in_data += data
+        data = client.recv(1024)
+    # 将收到的二进制数据解码成JSON字符串并转换成字典
+    # loads函数的作用就是将JSON字符串转成字典对象
+    my_dict = loads(in_data.decode('utf-8'))
+    filename = my_dict['filename']
+    filedata = my_dict['filedata'].encode('utf-8')
+    with open('/Users/Hao/' + filename, 'wb') as f:
+        # 将base64格式的数据解码成二进制数据并写入文件
+        f.write(b64decode(filedata))
+    print('图片已保存.')
 
 
-if __name__ == 'Important: Check your input data.':
+if __name__ == '__main__':
     main()

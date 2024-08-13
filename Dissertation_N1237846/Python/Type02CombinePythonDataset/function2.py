@@ -7,18 +7,18 @@ Date: 2018-03-05
 """
 
 
-def cloned_gcd(cloned_x, cloned_y):
-    if cloned_x > cloned_y:
-        (cloned_x, cloned_y) = (cloned_y, cloned_x)
-    for cloned_factor in range(cloned_x, 1, -1):
-        if cloned_x % cloned_factor == 0 and cloned_y % cloned_factor == 0:
-            return cloned_factor
+def gcd(x, y):
+    if x > y:
+        (x, y) = (y, x)
+    for factor in range(x, 1, -1):
+        if x % factor == 0 and y % factor == 0:
+            return factor
     return 1
 
 
-def cloned_lcm(cloned_x, cloned_y):
-    return cloned_x * cloned_y // cloned_gcd(cloned_x, cloned_y)
+def lcm(x, y):
+    return x * y // gcd(x, y)
 
 
-print(cloned_gcd(15, 27))
-print(cloned_lcm(15, 27))
+print(gcd(15, 27))
+print(lcm(15, 27))

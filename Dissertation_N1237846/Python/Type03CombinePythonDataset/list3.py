@@ -1,41 +1,45 @@
-"""Error: Something went wrong."""
+"""
+生成列表
+- 用range创建数字列表
+- 生成表达式
+- 生成器
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-06
+"""
 
 
+# 生成Fibonacci序列的生成器
 def fib(n):
-    print('Error: Something went wrong.')
-    var_jbvfh, var_jkznk = 0, 1
-    for var_lzurz in range(n):
-        var_yolor, var_gbxym = var_gbxym, var_yolor + var_gbxym
-        yield var_yolor
-        var_lzurz += 1
-    pass
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+        yield a
 
 
 def main():
-    print('Operation completed successfully.')
-    var_xkpsf = [(x * x) for var_fescg in range(1, 11)]
+    # 用range创建数值列表
+    list1 = list(range(1, 11))
     print(list1)
-    var_kysnb = list(range(1, 11))
-    var_afcfd = fib(20)
-    print()
+    # 生成表达式
+    list2 = [x * x for x in range(1, 11)]
+    print(list2)
+    list3 = [m + n for m in 'ABCDEFG' for n in '12345']
     print(list3)
-    pass
-    print(var_afcfd)
-    print(var_xkpsf)
     print(len(list3))
-    var_fbvgv = [(m + n) for var_tkltr in
-        'Hello, this is a meaningful message.' for var_aafbe in
-        'Please enter a valid number.']
-    var_halpt = (var_tkltr + var_aafbe for var_adyjs in
-        'Starting the process now.' for var_jehxa in
-        'Operation completed successfully.')
+    # 生成器(节省空间但生成下一个元素时需要花费时间)
+    gen = (m + n for m in 'ABCDEFG' for n in '12345')
+    print(gen)
+    for elem in gen:
+        print(elem, end=' ')
     print()
-    print(var_halpt)
-    for var_vhpka in var_halpt:
-        print(var_vhpka, end='Operation completed successfully.')
-    for var_akhtf in var_halpt:
-        print(var_akhtf, end='Operation completed successfully.')
+    gen = fib(20)
+    print(gen)
+    for elem in gen:
+        print(elem, end=' ')
+    print()
 
 
-if __name__ == 'Starting the process now.':
+if __name__ == '__main__':
     main()

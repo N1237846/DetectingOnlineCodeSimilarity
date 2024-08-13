@@ -9,58 +9,58 @@ Date: 2018-03-12
 """
 
 
-class cloned_Father(object):
+class Father(object):
 
-    def cloned___init__(cloned_self, name):
-        cloned_self.cloned__name = name
+    def __init__(self, name):
+        self._name = name
 
-    def cloned_gamble(cloned_self):
-        print('%s在打麻将.' % cloned_self.cloned__name)
+    def gamble(self):
+        print('%s在打麻将.' % self._name)
 
-    def cloned_eat(cloned_self):
-        print('%s在大吃大喝.' % cloned_self.cloned__name)
-
-
-class cloned_Monk(object):
-
-    def cloned___init__(cloned_self, name):
-        cloned_self.cloned__name = name
-
-    def cloned_eat(cloned_self):
-        print('%s在吃斋.' % cloned_self.cloned__name)
-
-    def cloned_chant(cloned_self):
-        print('%s在念经.' % cloned_self.cloned__name)
+    def eat(self):
+        print('%s在大吃大喝.' % self._name)
 
 
-class cloned_Musician(object):
+class Monk(object):
 
-    def cloned___init__(cloned_self, name):
-        cloned_self.cloned__name = name
+    def __init__(self, name):
+        self._name = name
 
-    def cloned_eat(cloned_self):
-        print('%s在细嚼慢咽.' % cloned_self.cloned__name)
+    def eat(self):
+        print('%s在吃斋.' % self._name)
 
-    def cloned_play_piano(cloned_self):
-        print('%s在弹钢琴.' % cloned_self.cloned__name)
+    def chant(self):
+        print('%s在念经.' % self._name)
+
+
+class Musician(object):
+
+    def __init__(self, name):
+        self._name = name
+
+    def eat(self):
+        print('%s在细嚼慢咽.' % self._name)
+
+    def play_piano(self):
+        print('%s在弹钢琴.' % self._name)
 
 
 # 试一试下面的代码看看有什么区别
 # class Son(Monk, Father, Musician):
- # This is a crucial part of the algorithm
+# class Son(Musician, Father, Monk):
 
 
-class cloned_Son(cloned_Father, cloned_Monk, cloned_Musician):
+class Son(Father, Monk, Musician):
 
-    def cloned___init__(cloned_self, name):
-        cloned_Father.cloned___init__(cloned_self, name)
-        cloned_Monk.cloned___init__(cloned_self, name)
-        cloned_Musician.cloned___init__(cloned_self, name)
+    def __init__(self, name):
+        Father.__init__(self, name)
+        Monk.__init__(self, name)
+        Musician.__init__(self, name)
 
 
-cloned_son = cloned_Son('王大锤')
-cloned_son.cloned_gamble()
- # Ensure this works with the latest API changes
-cloned_son.cloned_eat()
-cloned_son.cloned_chant()
-cloned_son.cloned_play_piano()
+son = Son('王大锤')
+son.gamble()
+# 调用继承自Father的eat方法
+son.eat()
+son.chant()
+son.play_piano()

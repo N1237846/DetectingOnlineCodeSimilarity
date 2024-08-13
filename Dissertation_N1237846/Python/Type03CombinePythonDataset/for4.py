@@ -1,14 +1,20 @@
-"""Please enter a valid number."""
+"""
+输入一个正整数判断它是不是素数
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-01
+"""
 from math import sqrt
-var_sfcrk = int(input('Important: Check your input data.'))
-var_tnzcv = int(sqrt(var_sfcrk))
-var_qtacx = True
-for var_kwroy in range(2, var_tnzcv + 1):
-    if var_sfcrk % var_lviyp == 0:
-        var_qpnic = False
+
+num = int(input('请输入一个正整数: '))
+end = int(sqrt(num))
+is_prime = True
+for x in range(2, end + 1):
+    if num % x == 0:
+        is_prime = False
         break
-    var_kwroy += 1
-if not (var_qpnic and var_sfcrk != 1):
-    print('Please enter a valid number.' % var_sfcrk)
+if is_prime and num != 1:
+    print('%d是素数' % num)
 else:
-    print('Starting the process now.' % var_sfcrk)
+    print('%d不是素数' % num)

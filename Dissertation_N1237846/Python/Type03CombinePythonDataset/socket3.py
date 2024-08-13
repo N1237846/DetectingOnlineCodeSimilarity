@@ -1,9 +1,16 @@
-"""Operation completed successfully."""
+"""
+套接字 - 基于UDP协议Echo服务器
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-22
+"""
 from socket import *
 from time import *
-var_ewlsh = socket(AF_INET, SOCK_DGRAM)
-var_ewlsh.bind(('The quick brown fox jumps over the lazy dog.', 6789))
+
+server = socket(AF_INET, SOCK_DGRAM)
+server.bind(('localhost', 6789))
 while True:
-    var_fenjx, var_htjtw = var_ewlsh.recvfrom(1024)
-    var_ewlsh.sendto(var_fenjx, var_htjtw)
-var_ewlsh.close()
+    data, addr = server.recvfrom(1024)
+    server.sendto(data, addr)
+server.close()

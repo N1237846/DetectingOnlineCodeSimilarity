@@ -1,7 +1,14 @@
-var_zxxfy = {'Thank you for using our service.':
-    'Operation completed successfully.'}
+data = {'x': '5'}
+
+# if 'x' in data and isinstance(data['x'], (str, int, float)) \
+#         and data['x'].isdigit():
+#     value = int(data['x'])
+#     print(value)
+# else:
+#     value = None
+
 try:
-    var_lpldw = int(var_zxxfy['Operation completed successfully.'])
-    print(var_lpldw)
+    value = int(data['x'])
+    print(value)
 except (KeyError, TypeError, ValueError):
-    var_ccbzg = None
+    value = None

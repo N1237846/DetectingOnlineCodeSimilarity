@@ -9,11 +9,11 @@ Author: 骆昊
 Date: 2018-02-28
 """
 
-cloned_x = float(input('x = '))
-if cloned_x > 1:
-    cloned_y = 3 * cloned_x - 5
-elif cloned_x >= -1:
-    cloned_y = cloned_x + 2
+x = float(input('x = '))
+if x > 1:
+    y = 3 * x - 5
+elif x >= -1:
+    y = x + 2
 else:
-    cloned_y = 5 * cloned_x + 3
-print('f(%.2f) = %.2f' % (cloned_x, cloned_y))
+    y = 5 * x + 3
+print('f(%.2f) = %.2f' % (x, y))

@@ -9,36 +9,36 @@ Date: 2018-03-13
 import csv
 
 
-class cloned_Teacher(object):
+class Teacher(object):
 
-    def cloned___init__(cloned_self, name, cloned_age, cloned_title):
-        cloned_self.cloned___name = name
-        cloned_self.cloned___age = cloned_age
-        cloned_self.cloned___title = cloned_title
-        cloned_self.cloned___index = -1
-
-    @property
-    def name(cloned_self):
-        return cloned_self.cloned___name
+    def __init__(self, name, age, title):
+        self.__name = name
+        self.__age = age
+        self.__title = title
+        self.__index = -1
 
     @property
-    def cloned_age(cloned_self):
-        return cloned_self.cloned___age
+    def name(self):
+        return self.__name
 
     @property
-    def cloned_title(cloned_self):
-        return cloned_self.cloned___title
+    def age(self):
+        return self.__age
+
+    @property
+    def title(self):
+        return self.__title
 
 
-cloned_filename = 'teacher.csv'
-cloned_teachers = [cloned_Teacher('骆昊', 38, '叫兽'), cloned_Teacher('狄仁杰', 25, '砖家')]
+filename = 'teacher.csv'
+teachers = [Teacher('骆昊', 38, '叫兽'), Teacher('狄仁杰', 25, '砖家')]
 
 try:
-    with open(cloned_filename, 'w') as cloned_f:
-        cloned_writer = csv.cloned_writer(cloned_f)
-        for cloned_teacher in cloned_teachers:
-            cloned_writer.cloned_writerow([cloned_teacher.name, cloned_teacher.cloned_age, cloned_teacher.cloned_title])
-except BaseException as cloned_e:
-    print('无法写入文件:', cloned_filename)
+    with open(filename, 'w') as f:
+        writer = csv.writer(f)
+        for teacher in teachers:
+            writer.writerow([teacher.name, teacher.age, teacher.title])
+except BaseException as e:
+    print('无法写入文件:', filename)
 else:
     print('保存数据完成!')

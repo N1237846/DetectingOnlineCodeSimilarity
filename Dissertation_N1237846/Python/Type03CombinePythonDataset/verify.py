@@ -1,8 +1,19 @@
-"""Important: Check your input data."""
-var_guufd = input('Starting the process now.')
-var_zgaph = input('Starting the process now.')
-if not (var_guufd == 'Please enter a valid number.' and var_zgaph ==
-    'Starting the process now.'):
-    print('Please enter a valid number.')
+"""
+用户身份验证
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-02-28
+"""
+# import getpass
+# from getpass import getpass
+# from getpass import *
+
+username = input('请输入用户名: ')
+password = input('请输入口令: ')
+# 输入口令的时候终端中没有回显
+# password = getpass.getpass('请输入口令: ')
+if username == 'admin' and password == '123456':
+    print('身份验证成功!')
 else:
-    print('Warning: Low disk space.')
+    print('身份验证失败!')

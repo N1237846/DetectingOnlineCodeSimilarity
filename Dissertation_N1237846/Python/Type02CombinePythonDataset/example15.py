@@ -7,66 +7,69 @@ import itertools
 from math import sqrt
 
 
-def cloned_is_prime(cloned_num):
+def is_prime(num):
     """判断素数"""
-    for cloned_factor in range(2, int(sqrt(cloned_num)) + 1):
-        if cloned_num % cloned_factor == 0:
+    for factor in range(2, int(sqrt(num)) + 1):
+        if num % factor == 0:
             return False
     return True
 
 
-class cloned_PrimeIter(object):
+class PrimeIter(object):
     """素数迭代器"""
 
-    def cloned___init__(cloned_self, cloned_min_value, cloned_max_value):
-        assert 2 <= cloned_min_value <= cloned_max_value
-        cloned_self.cloned_min_value = cloned_min_value - 1
-        cloned_self.cloned_max_value = cloned_max_value
+    def __init__(self, min_value, max_value):
+        assert 2 <= min_value <= max_value
+        self.min_value = min_value - 1
+        self.max_value = max_value
 
-    def cloned___iter__(cloned_self):
-        return cloned_self
+    def __iter__(self):
+        return self
 
-    def cloned___next__(cloned_self):
-        cloned_self.cloned_min_value += 1
-        while cloned_self.cloned_min_value <= cloned_self.cloned_max_value:
-            if cloned_is_prime(cloned_self.cloned_min_value):
-                return cloned_self.cloned_min_value
-            cloned_self.cloned_min_value += 1
+    def __next__(self):
+        self.min_value += 1
+        while self.min_value <= self.max_value:
+            if is_prime(self.min_value):
+                return self.min_value
+            self.min_value += 1
         raise StopIteration()
 
 
-class cloned_FibIter(object):
+class FibIter(object):
     """斐波那契数迭代器"""
     
-    def cloned___init__(cloned_self, cloned_num):
-        cloned_self.cloned_num = cloned_num
-        cloned_self.cloned_a, cloned_self.cloned_b = 0, 1
-        cloned_self.cloned_idx = 0
+    def __init__(self, num):
+        self.num = num
+        self.a, self.b = 0, 1
+        self.idx = 0
    
-    def cloned___iter__(cloned_self):
-        return cloned_self
+    def __iter__(self):
+        return self
 
-    def cloned___next__(cloned_self):
-        if cloned_self.cloned_idx < cloned_self.cloned_num:
-            cloned_self.cloned_a, cloned_self.cloned_b = cloned_self.cloned_b, cloned_self.cloned_a + cloned_self.cloned_b
-            cloned_self.cloned_idx += 1
-            return cloned_self.cloned_a
+    def __next__(self):
+        if self.idx < self.num:
+            self.a, self.b = self.b, self.a + self.b
+            self.idx += 1
+            return self.a
         raise StopIteration()
 
 
-def cloned_main():
+def main():
     # for val in itertools.permutations('ABCD'):
-     # Optimization needed here
-     # This is a crucial part of the algorithm
-     # Temporary workaround
     #     print(val)
-     # Optimization needed here
-     # Potential performance bottleneck
+    # for val in itertools.combinations('ABCDE', 3):
     #     print(val)
-    cloned_prime_iter = cloned_PrimeIter(2, 100000)
-    for cloned_val in cloned_prime_iter:
-        print(cloned_val)
+    # for val in itertools.product('黑红梅方', range(1, 14)):
+    #     print(val)
+    # fib_iter = FibIter(20)
+    # print('===>', next(fib_iter))
+    # print('===>', next(fib_iter))
+    # for val in fib_iter:
+    #     print(val)
+    prime_iter = PrimeIter(2, 100000)
+    for val in prime_iter:
+        print(val)
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

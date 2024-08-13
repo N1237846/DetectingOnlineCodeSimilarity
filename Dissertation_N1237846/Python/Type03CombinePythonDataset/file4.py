@@ -1,11 +1,20 @@
-"""Hello, this is a meaningful message."""
+"""
+读写二进制文件
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-13
+"""
 import base64
-with open('Please enter a valid number.', 'Operation completed successfully.'
-    ) as var_rofap:
-    var_gresx = var_rofap.read()
-    print('Starting the process now.', len(var_gresx))
-    print(base64.b64encode(var_gresx))
-with open('Error: Something went wrong.', 'Starting the process now.'
-    ) as var_pwddq:
-    var_pwddq.write(var_gresx)
-print('The quick brown fox jumps over the lazy dog.')
+
+with open('mm.jpg', 'rb') as f:
+    data = f.read()
+    # print(type(data))
+    # print(data)
+    print('字节数:', len(data))
+    # 将图片处理成BASE-64编码
+    print(base64.b64encode(data))
+
+with open('girl.jpg', 'wb') as f:
+    f.write(data)
+print('写入完成!')

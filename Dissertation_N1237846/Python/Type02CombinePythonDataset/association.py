@@ -9,63 +9,63 @@ Date: 2018-03-12
 from math import sqrt
 
 
-class cloned_Point(object):
+class Point(object):
 
-    def cloned___init__(cloned_self, cloned_x=0, cloned_y=0):
-        cloned_self.cloned__x = cloned_x
-        cloned_self.cloned__y = cloned_y
+    def __init__(self, x=0, y=0):
+        self._x = x
+        self._y = y
 
-    def cloned_move_to(cloned_self, cloned_x, cloned_y):
-        cloned_self.cloned__x = cloned_x
-        cloned_self.cloned__y = cloned_y
+    def move_to(self, x, y):
+        self._x = x
+        self._y = y
 
-    def cloned_move_by(cloned_self, cloned_dx, cloned_dy):
-        cloned_self.cloned__x += cloned_dx
-        cloned_self.cloned__y += cloned_dy
+    def move_by(self, dx, dy):
+        self._x += dx
+        self._y += dy
 
-    def cloned_distance_to(cloned_self, cloned_other):
-        cloned_dx = cloned_self.cloned__x - cloned_other.cloned__x
-        cloned_dy = cloned_self.cloned__y - cloned_other.cloned__y
-        return sqrt(cloned_dx ** 2 + cloned_dy ** 2)
+    def distance_to(self, other):
+        dx = self._x - other._x
+        dy = self._y - other._y
+        return sqrt(dx ** 2 + dy ** 2)
 
-    def cloned___str__(cloned_self):
-        return '(%s, %s)' % (str(cloned_self.cloned__x), str(cloned_self.cloned__y))
+    def __str__(self):
+        return '(%s, %s)' % (str(self._x), str(self._y))
 
 
-class cloned_Line(object):
+class Line(object):
 
-    def cloned___init__(cloned_self, cloned_start=cloned_Point(0, 0), cloned_end=cloned_Point(0, 0)):
-        cloned_self.cloned__start = cloned_start
-        cloned_self.cloned__end = cloned_end
-
-    @property
-    def cloned_start(cloned_self):
-        return cloned_self.cloned__start
-
-    @cloned_start.cloned_setter
-    def cloned_start(cloned_self, cloned_start):
-        cloned_self.cloned__start = cloned_start
+    def __init__(self, start=Point(0, 0), end=Point(0, 0)):
+        self._start = start
+        self._end = end
 
     @property
-    def cloned_end(cloned_self):
-        return cloned_self.cloned_end
+    def start(self):
+        return self._start
 
-    @cloned_end.cloned_setter
-    def cloned_end(cloned_self, cloned_end):
-        cloned_self.cloned__end = cloned_end
+    @start.setter
+    def start(self, start):
+        self._start = start
 
     @property
-    def cloned_length(cloned_self):
-        return cloned_self.cloned__start.cloned_distance_to(cloned_self.cloned__end)
+    def end(self):
+        return self.end
+
+    @end.setter
+    def end(self, end):
+        self._end = end
+
+    @property
+    def length(self):
+        return self._start.distance_to(self._end)
 
 
 if __name__ == '__main__':
-    cloned_p1 = cloned_Point(3, 5)
-    print(cloned_p1)
-    cloned_p2 = cloned_Point(-2, -1.5)
-    print(cloned_p2)
-    cloned_line = cloned_Line(cloned_p1, cloned_p2)
-    print(cloned_line.cloned_length)
-    cloned_line.cloned_start.cloned_move_to(2, 1)
-    cloned_line.cloned_end = cloned_Point(1, 2)
-    print(cloned_line.cloned_length)
+    p1 = Point(3, 5)
+    print(p1)
+    p2 = Point(-2, -1.5)
+    print(p2)
+    line = Line(p1, p2)
+    print(line.length)
+    line.start.move_to(2, 1)
+    line.end = Point(1, 2)
+    print(line.length)

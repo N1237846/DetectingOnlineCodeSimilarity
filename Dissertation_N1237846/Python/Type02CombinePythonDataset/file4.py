@@ -7,13 +7,14 @@ Date: 2018-03-13
 """
 import base64
 
-with open('mm.jpg', 'rb') as cloned_f:
-    cloned_data = cloned_f.read()
+with open('mm.jpg', 'rb') as f:
+    data = f.read()
+    # print(type(data))
     # print(data)
-    print('字节数:', len(cloned_data))
-     # Refactor if necessary
-    print(base64.cloned_b64encode(cloned_data))
+    print('字节数:', len(data))
+    # 将图片处理成BASE-64编码
+    print(base64.b64encode(data))
 
-with open('girl.jpg', 'wb') as cloned_f:
-    cloned_f.write(cloned_data)
+with open('girl.jpg', 'wb') as f:
+    f.write(data)
 print('写入完成!')

@@ -10,57 +10,57 @@ from time import sleep
 import threading
 
 
-class cloned_Account():
+class Account():
     """银行账户"""
 
-    def cloned___init__(cloned_self, cloned_balance=0):
-        cloned_self.cloned_balance = cloned_balance
-        cloned_lock = threading.cloned_Lock()
-        cloned_self.cloned_condition = threading.cloned_Condition(cloned_lock)
+    def __init__(self, balance=0):
+        self.balance = balance
+        lock = threading.Lock()
+        self.condition = threading.Condition(lock)
 
-    def cloned_withdraw(cloned_self, cloned_money):
+    def withdraw(self, money):
         """取钱"""
-        with cloned_self.cloned_condition:
-            while cloned_money > cloned_self.cloned_balance:
-                cloned_self.cloned_condition.cloned_wait()
-            cloned_new_balance = cloned_self.cloned_balance - cloned_money
+        with self.condition:
+            while money > self.balance:
+                self.condition.wait()
+            new_balance = self.balance - money
             sleep(0.001)
-            cloned_self.cloned_balance = cloned_new_balance
+            self.balance = new_balance
 
-    def cloned_deposit(cloned_self, cloned_money):
+    def deposit(self, money):
         """存钱"""
-        with cloned_self.cloned_condition:
-            cloned_new_balance = cloned_self.cloned_balance + cloned_money
+        with self.condition:
+            new_balance = self.balance + money
             sleep(0.001)
-            cloned_self.cloned_balance = cloned_new_balance
-            cloned_self.cloned_condition.cloned_notify_all()
+            self.balance = new_balance
+            self.condition.notify_all()
 
 
-def cloned_add_money(cloned_account):
+def add_money(account):
     while True:
-        cloned_money = randint(5, 10)
-        cloned_account.cloned_deposit(cloned_money)
-        print(threading.cloned_current_thread().name,
-              ':', cloned_money, '====>', cloned_account.cloned_balance)
+        money = randint(5, 10)
+        account.deposit(money)
+        print(threading.current_thread().name,
+              ':', money, '====>', account.balance)
         sleep(0.5)
 
 
-def cloned_sub_money(cloned_account):
+def sub_money(account):
     while True:
-        cloned_money = randint(10, 30)
-        cloned_account.cloned_withdraw(cloned_money)
-        print(threading.cloned_current_thread().name,
-              ':', cloned_money, '<====', cloned_account.cloned_balance)
+        money = randint(10, 30)
+        account.withdraw(money)
+        print(threading.current_thread().name,
+              ':', money, '<====', account.balance)
         sleep(1)
 
 
-def cloned_main():
-    cloned_account = cloned_Account()
-    with ThreadPoolExecutor(cloned_max_workers=10) as cloned_pool:
-        for cloned__ in range(5):
-            cloned_pool.cloned_submit(cloned_add_money, cloned_account)
-            cloned_pool.cloned_submit(cloned_sub_money, cloned_account)
+def main():
+    account = Account()
+    with ThreadPoolExecutor(max_workers=10) as pool:
+        for _ in range(5):
+            pool.submit(add_money, account)
+            pool.submit(sub_money, account)
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

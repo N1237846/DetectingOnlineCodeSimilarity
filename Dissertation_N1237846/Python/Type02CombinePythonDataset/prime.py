@@ -8,11 +8,11 @@ Date: 2018-03-02
 
 import math
 
-for cloned_num in range(2, 100):
-    cloned_is_prime = True
-    for cloned_factor in range(2, int(math.cloned_sqrt(cloned_num)) + 1):
-        if cloned_num % cloned_factor == 0:
-            cloned_is_prime = False
+for num in range(2, 100):
+    is_prime = True
+    for factor in range(2, int(math.sqrt(num)) + 1):
+        if num % factor == 0:
+            is_prime = False
             break
-    if cloned_is_prime:
-        print(cloned_num, cloned_end=' ')
+    if is_prime:
+        print(num, end=' ')

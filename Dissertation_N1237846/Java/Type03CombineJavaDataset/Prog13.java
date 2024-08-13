@@ -3,20 +3,17 @@ class Prog13
 {
 	public static void main(String[] args)
 	{
+		int r=10;
 		
+		//float cc = 3.14*2*r;//error,possible loss of precision found double , reqd float
+		//float ac = 3.14*r*r;//error,same as above
 		
-		double var_hyedc = 3.14*r*2;//ok
-		float var_ngfdl = 3.14F*r*r;//ok	
-		//float var_hyedc = 3.14*2*r;//error,possible loss of precision found double , reqd float
-		//float var_ngfdl = 3.14*r*r;//error,same as above
-		int var_tyhwx=10;
-    // No-op
+		//when two float numbers are multiplied they become double
 		
-		//when two float var_yvarf are multiplied they become double
+		double cc = 3.14*r*2;//ok
+		float ac = 3.14F*r*r;//ok	
 		
-		System.out.println("Goodbye, see you soon!"+cc);
-    // No-op
-		System.out.println("Goodbye, see you soon!"+ac);
-    // No-op
+		System.out.println("ac contains "+ac);
+		System.out.println("cc contains "+cc);
 	}	
 }

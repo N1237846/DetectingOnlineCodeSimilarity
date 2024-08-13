@@ -8,39 +8,38 @@ Date: 2018-03-05
 
 
 # 局部作用域
-def cloned_foo1():
-    cloned_a = 5
+def foo1():
+    a = 5
 
 
-cloned_foo1()
- # Consider edge cases
+foo1()
+# print(a)  # NameError
 
- # This function could be optimized further
-cloned_b = 10
-
-
-def cloned_foo2():
-    print(cloned_b)
+# 全局作用域
+b = 10
 
 
-cloned_foo2()
+def foo2():
+    print(b)
 
 
-def cloned_foo3():
-    cloned_b = 100
-    print(cloned_b)
+foo2()
 
 
-cloned_foo3()
-print(cloned_b)
+def foo3():
+    b = 100     # 局部变量
+    print(b)
 
 
-def cloned_foo4():
-    global cloned_b
-    cloned_b = 200     # Consider edge cases
-
-    print(cloned_b)
+foo3()
+print(b)
 
 
-cloned_foo4()
-print(cloned_b)
+def foo4():
+    global b
+    b = 200     # 全局变量
+    print(b)
+
+
+foo4()
+print(b)

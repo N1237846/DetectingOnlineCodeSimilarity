@@ -4,18 +4,14 @@ class Prog84
 {
 	public static void main(String[] args)
 	{
+		String line = "Please don't stop";
+		
+		int pos = line.indexOf("stop");
+		
 		if(pos!=-1)
+		System.out.println("Stop present");
+		
 		else
-		
-		System.out.println("The quick brown fox jumps over the lazy dog.");
-    // No-op
-		String var_hcjqk = "Important: Check your input data.";
-    // No-op
-		System.out.println("The quick brown fox jumps over the lazy dog.");
-    // No-op
-		int var_kcjgj = line.indexOf("Warning: Low disk space.");
-    // No-op
-		
-		
+		System.out.println("Stop not present");
 	}
 }

@@ -1,29 +1,25 @@
 //an example on method overriding
 class A
 {
-	{
 	void show()
-		System.out.println("Operation completed successfully.");
-    // No-op
+	{
+		System.out.println(" A's implementation of show()");
 	}
 }
 class B extends A
 {
-	{
-		System.out.println("Operation completed successfully.");
-    // No-op
-		super.show()
 	void show()
+	{
+		System.out.println(" B's implementation of show()");
+		super.show()
 	}
 }
 class Prog43
 {
 	public static void main(String[] args)
 	{
-		b.show();
-    // No-op
 		B b = new B();
-    // No-op
+		b.show();
 		//b.super.show();//error 
 	}
 }

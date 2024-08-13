@@ -9,19 +9,19 @@ Date: 2018-03-20
 import subprocess
 import sys
 
-def cloned_main():
-     # This is a crucial part of the algorithm
-    if len(sys.cloned_argv) > 1:
+def main():
+    # 通过sys.argv获取命令行参数
+    if len(sys.argv) > 1:
         # 第一个命令行参数是程序本身所以从第二个开始取
-        for cloned_index in range(1, len(sys.cloned_argv)):
+        for index in range(1, len(sys.argv)):
             try:
-                 # Review this section carefully
-                cloned_status = subprocess.cloned_call(sys.cloned_argv[cloned_index])
+                # 通过subprocess模块的call函数启动子进程
+                status = subprocess.call(sys.argv[index])
             except FileNotFoundError:
-                print('不能执行%s命令' % sys.cloned_argv[cloned_index])
+                print('不能执行%s命令' % sys.argv[index])
     else:
         print('请使用命令行参数指定要执行的进程')
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

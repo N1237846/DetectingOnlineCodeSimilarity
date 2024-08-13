@@ -6,18 +6,18 @@ Author: 骆昊
 Date: 2018-03-21
 """
 
-cloned_seq = [cloned_x * cloned_x for cloned_x in range(10)]
-print(cloned_seq)
+seq = [x * x for x in range(10)]
+print(seq)
 
-cloned_gen = (cloned_x * cloned_x for cloned_x in range(10))
-print(cloned_gen)
-for cloned_x in cloned_gen:
-    print(cloned_x)
+gen = (x * x for x in range(10))
+print(gen)
+for x in gen:
+    print(x)
 
-cloned_num = 10
-cloned_gen = (cloned_x ** cloned_y for cloned_x, cloned_y in zip(range(1, cloned_num), range(cloned_num - 1, 0, -1)))
-print(cloned_gen)
-cloned_n = 1
-while cloned_n < cloned_num:
-    print(next(cloned_gen))
-    cloned_n += 1
+num = 10
+gen = (x ** y for x, y in zip(range(1, num), range(num - 1, 0, -1)))
+print(gen)
+n = 1
+while n < num:
+    print(next(gen))
+    n += 1

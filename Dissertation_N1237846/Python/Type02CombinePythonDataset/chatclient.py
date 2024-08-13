@@ -2,33 +2,33 @@ from socket import socket
 from threading import Thread
 
 
-def cloned_main():
+def main():
 
-    class cloned_RefreshScreenThread(Thread):
+    class RefreshScreenThread(Thread):
 
-        def cloned___init__(cloned_self, cloned_client):
-            super().cloned___init__()
-            cloned_self.cloned__client = cloned_client
+        def __init__(self, client):
+            super().__init__()
+            self._client = client
 
-        def cloned_run(cloned_self):
-            while cloned_running:
-                cloned_data = cloned_self.cloned__client.cloned_recv(1024)
-                print(cloned_data.cloned_decode('utf-8'))
+        def run(self):
+            while running:
+                data = self._client.recv(1024)
+                print(data.decode('utf-8'))
 
-    cloned_nickname = input('请输入你的昵称: ')
-    cloned_myclient = socket()
-    cloned_myclient.cloned_connect(('10.7.189.118', 12345))
-    cloned_running = True
-    cloned_RefreshScreenThread(cloned_myclient).cloned_start()
-    while cloned_running:
-        cloned_content = input('请发言: ')
-        if cloned_content == 'byebye':
-            cloned_myclient.cloned_send(cloned_content.cloned_encode('utf-8'))
-            cloned_running = False
+    nickname = input('请输入你的昵称: ')
+    myclient = socket()
+    myclient.connect(('10.7.189.118', 12345))
+    running = True
+    RefreshScreenThread(myclient).start()
+    while running:
+        content = input('请发言: ')
+        if content == 'byebye':
+            myclient.send(content.encode('utf-8'))
+            running = False
         else:
-            cloned_msg = cloned_nickname + ': ' + cloned_content
-            cloned_myclient.cloned_send(cloned_msg.cloned_encode('utf-8'))
+            msg = nickname + ': ' + content
+            myclient.send(msg.encode('utf-8'))
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

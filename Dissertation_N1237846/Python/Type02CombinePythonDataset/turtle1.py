@@ -11,15 +11,15 @@ Date: 2018-03-14
 
 import turtle
 
-turtle.cloned_pensize(3)
-turtle.cloned_penup()
-turtle.cloned_goto(-180, 150)
-turtle.cloned_pencolor('red')
-turtle.cloned_fillcolor('yellow')
-turtle.cloned_pendown()
-turtle.cloned_begin_fill()
-for cloned__ in range(36):
-    turtle.cloned_forward(200)
-    turtle.cloned_right(170)
-turtle.cloned_end_fill()
-turtle.cloned_mainloop()
+turtle.pensize(3)
+turtle.penup()
+turtle.goto(-180, 150)
+turtle.pencolor('red')
+turtle.fillcolor('yellow')
+turtle.pendown()
+turtle.begin_fill()
+for _ in range(36):
+    turtle.forward(200)
+    turtle.right(170)
+turtle.end_fill()
+turtle.mainloop()

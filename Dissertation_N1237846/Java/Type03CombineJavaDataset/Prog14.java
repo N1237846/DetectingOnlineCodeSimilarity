@@ -1,23 +1,19 @@
 //example1 scope
 class Prog14
 {
+//global scope
 	public static void main(String[] args)
 	{
-		{
-		System.out.println("Hello, this is a meaningful message."+in_x);
-    // No-op
-			
-		System.out.println("Operation completed successfully."+out_x);
-    // No-op
-		
-			int var_pnvaa=20;
-    // No-op
-			//int var_decrm=30; //error, var_decrm is a;redy defined
 		//outer scope
-//global scope
+		int out_x=10;
+		
 		//inner scope
-		int var_decrm=10;
-    // No-op
+		{
+			int in_x=20;
+			//int out_x=30; //error, out_x is a;redy defined
+			
+		System.out.println("in_x contains "+in_x);
+		System.out.println("out_x contains "+out_x);
 		}
 		
 	}	

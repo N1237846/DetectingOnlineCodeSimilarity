@@ -9,12 +9,12 @@ Date: 2018-03-02
 """
 import math
 
-for cloned_num in range(2, 10000):
-    cloned_result = 0
-    for cloned_factor in range(1, int(math.cloned_sqrt(cloned_num)) + 1):
-        if cloned_num % cloned_factor == 0:
-            cloned_result += cloned_factor
-            if cloned_factor > 1 and cloned_num // cloned_factor != cloned_factor:
-                cloned_result += cloned_num // cloned_factor
-    if cloned_result == cloned_num:
-        print(cloned_num)
+for num in range(2, 10000):
+    result = 0
+    for factor in range(1, int(math.sqrt(num)) + 1):
+        if num % factor == 0:
+            result += factor
+            if factor > 1 and num // factor != factor:
+                result += num // factor
+    if result == num:
+        print(num)

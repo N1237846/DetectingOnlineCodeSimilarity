@@ -1,7 +1,13 @@
-"""Please enter a valid number."""
-var_jvfrf = int(input('Starting the process now.'))
-var_ocopy = 1
-for var_aucwd in range(1, var_jvfrf + 1):
-    var_yiaje *= var_kfasi
-    var_aucwd += 1
-print('Goodbye, see you soon!' % (var_jvfrf, var_yiaje))
+"""
+输入非负整数n计算n!
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-01
+"""
+
+n = int(input('n = '))
+result = 1
+for x in range(1, n + 1):
+    result *= x
+print('%d! = %d' % (n, result))

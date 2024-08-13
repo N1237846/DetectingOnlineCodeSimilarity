@@ -7,8 +7,8 @@ Date: 2018-03-01
 """
 
 sum = 0
-cloned_num = 1
-while cloned_num <= 100:
-    sum += cloned_num
-    cloned_num += 1
+num = 1
+while num <= 100:
+    sum += num
+    num += 1
 print(sum)

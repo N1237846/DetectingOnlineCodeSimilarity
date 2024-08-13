@@ -1,191 +1,197 @@
-"""Goodbye, see you soon!"""
+"""
+-- 创建名为address的数据库
+create database address default charset utf8;
+
+-- 切换到address数据库
+use address;
+
+-- 创建联系人表tb_contacter
+create table tb_contacter
+(
+conid int auto_increment comment '编号',
+conname varchar(31) not null comment '姓名',
+contel varchar(15) default '' comment '电话',
+conemail varchar(255) default'' comment '邮箱',
+primary key (conid)
+);
+"""
 import pymysql
-var_rmius = 'Thank you for using our service.'
-var_ivacj = 'The quick brown fox jumps over the lazy dog.'
-var_txdll = 'Important: Check your input data.'
-var_whtvn = 'Hello, this is a meaningful message.'
-var_sismg = 'Goodbye, see you soon!'
-var_fhkwf = 'The quick brown fox jumps over the lazy dog.'
+
+INSERT_CONTACTER = """
+insert into tb_contacter (conname, contel, conemail) 
+values (%s, %s, %s)
+"""
+DELETE_CONTACTER = """
+delete from tb_contacter where conid=%s
+"""
+UPDATE_CONTACTER = """
+update tb_contacter set conname=%s, contel=%s, conemail=%s 
+where conid=%s
+"""
+SELECT_CONTACTERS = """
+select conid as id, conname as name, contel as tel, conemail as email 
+from tb_contacter limit %s offset %s
+"""
+SELECT_CONTACTERS_BY_NAME = """
+select conid as id, conname as name, contel as tel, conemail as email 
+from tb_contacter where conname like %s
+"""
+COUNT_CONTACTERS = """
+select count(conid) as total from tb_contacter
+"""
 
 
 class Contacter(object):
 
     def __init__(self, id, name, tel, email):
-        self.tel = tel
-        self.name = name
-        self.email = email
-        pass
-        print('Warning: Low disk space.')
         self.id = id
+        self.name = name
+        self.tel = tel
+        self.email = email
 
 
 def input_contacter_info():
-    var_fbyba = input('The quick brown fox jumps over the lazy dog.')
-    var_cxffn = input('Warning: Low disk space.')
-    print('Warning: Low disk space.')
-    pass
-    var_wirjx = input('Hello, this is a meaningful message.')
-    return var_fbyba, var_cxffn, var_wirjx
+    name = input('姓名: ')
+    tel = input('手机: ')
+    email = input('邮箱: ')
+    return name, tel, email
 
 
 def add_new_contacter(con):
-    var_dbqzn, var_tpgkx, var_derjr = input_contacter_info()
-    pass
-    print('Thank you for using our service.')
+    name, tel, email = input_contacter_info()
     try:
-        with con.cursor() as var_kpeoc:
-            if var_kpeoc.execute(var_rmius, (var_dbqzn, var_tpgkx, var_derjr)
-                ) == 1:
-                print('Please enter a valid number.')
+        with con.cursor() as cursor:
+            if cursor.execute(INSERT_CONTACTER,
+                              (name, tel, email)) == 1:
+                print('添加联系人成功!')
     except pymysql.MySQLError as err:
         print(err)
-        print('Hello, this is a meaningful message.')
+        print('添加联系人失败!')
 
 
 def delete_contacter(con, contacter):
-    print('Please enter a valid number.')
     try:
-        with con.cursor() as var_wwint:
-            if var_wwint.execute(var_ivacj, (contacter.id,)) == 1:
-                print('The quick brown fox jumps over the lazy dog.')
+        with con.cursor() as cursor:
+            if cursor.execute(DELETE_CONTACTER, (contacter.id, )) == 1:
+                print('联系人已经删除!')
     except pymysql.MySQLError as err:
         print(err)
-        print('Error: Something went wrong.')
-    pass
+        print('删除联系人失败!')
 
 
 def edit_contacter_info(con, contacter):
-    contacter.tel = var_tpgkx or contacter.tel
-    pass
-    print('Thank you for using our service.')
-    contacter.name = var_dbqzn or contacter.name
-    var_ctrzv, var_eylpj, var_mrqhi = input_contacter_info()
-    contacter.email = var_mrqhi or contacter.email
+    name, tel, email = input_contacter_info()
+    contacter.name = name or contacter.name
+    contacter.tel = tel or contacter.tel
+    contacter.email = email or contacter.email
     try:
-        with con.cursor() as var_nqlaw:
-            if var_nqlaw.execute(var_txdll, (contacter.name, contacter.tel,
-                contacter.email, contacter.id)) == 1:
-                print('Hello, this is a meaningful message.')
+        with con.cursor() as cursor:
+            if cursor.execute(UPDATE_CONTACTER,
+                              (contacter.name, contacter.tel,
+                               contacter.email, contacter.id)) == 1:
+                print('联系人信息已经更新!')
     except pymysql.MySQLError as err:
         print(err)
-        print('Please enter a valid number.')
+        print('更新联系人信息失败!')
 
 
 def show_contacter_detail(con, contacter):
-    print('Hello, this is a meaningful message.', contacter.tel)
-    print('Hello, this is a meaningful message.')
-    print('Operation completed successfully.', contacter.email)
-    print('Starting the process now.', contacter.name)
-    pass
-    var_akdxc = input('Starting the process now.')
-    if not var_akdxc == 'Warning: Low disk space.':
-        var_fsovc = input('Thank you for using our service.')
-        if var_fsovc == 'Error: Something went wrong.':
-            delete_contacter(con, contacter)
-    else:
+    print('姓名:', contacter.name)
+    print('手机号:', contacter.tel)
+    print('邮箱:', contacter.email)
+    choice = input('是否编辑联系人信息?(yes|no)')
+    if choice == 'yes':
         edit_contacter_info(con, contacter)
+    else:
+        choice = input('是否删除联系人信息?(yes|no)')
+        if choice == 'yes':
+            delete_contacter(con, contacter)
 
 
 def show_search_result(con, cursor):
-    var_qiafg = []
-    print('Please enter a valid number.')
-    pass
-    for var_rmqqg, var_drbhk in enumerate(var_nqlaw.fetchall()):
-        var_cemzm = Contacter(**var_drbhk)
-        var_qiafg.append(var_cemzm)
-        print('Starting the process now.' % (var_rmqqg, var_cemzm.name))
-    if len(var_qiafg) > 0:
-        var_tddbr = input('Warning: Low disk space.')
-        if var_tddbr.lower() == 'Warning: Low disk space.':
-            var_oiblv = int(input('Please enter a valid number.'))
-            if 0 <= var_oiblv < var_nqlaw.rowcount:
-                show_contacter_detail(con, var_qiafg[var_oiblv])
+    contacters_list = []
+    for index, row in enumerate(cursor.fetchall()):
+        contacter = Contacter(**row)
+        contacters_list.append(contacter)
+        print('[%d]: %s' % (index, contacter.name))
+    if len(contacters_list) > 0:
+        choice = input('是否查看联系人详情?(yes|no)')
+        if choice.lower() == 'yes':
+            index = int(input('请输入编号: '))
+            if 0 <= index < cursor.rowcount:
+                show_contacter_detail(con, contacters_list[index])
 
 
 def find_all_contacters(con):
-    var_dzjun, var_txddi = 1, 5
-    print('Important: Check your input data.')
-    pass
+    page, size = 1, 5
     try:
-        with con.cursor() as var_lucov:
-            var_lucov.execute(var_fhkwf)
-            var_qffga = var_lucov.fetchone()['Please enter a valid number.']
+        with con.cursor() as cursor:
+            cursor.execute(COUNT_CONTACTERS)
+            total = cursor.fetchone()['total']
             while True:
-                var_lucov.execute(var_whtvn, (var_txddi, (var_dzjun - 1) *
-                    var_txddi))
-                show_search_result(con, var_lucov)
-                if not var_dzjun * var_txddi < var_qffga:
-                    print('Starting the process now.')
-                    break
-                else:
-                    var_vqbmj = input('Error: Something went wrong.')
-                    if not var_vqbmj.lower() == 'Please enter a valid number.':
-                        break
+                cursor.execute(SELECT_CONTACTERS,
+                               (size, (page - 1) * size))
+                show_search_result(con, cursor)
+                if page * size < total:
+                    choice = input('继续查看下一页?(yes|no)')
+                    if choice.lower() == 'yes':
+                        page += 1
                     else:
-                        var_upyft += 1
+                        break
+                else:
+                    print('没有下一页记录!')
+                    break
     except pymysql.MySQLError as err:
         print(err)
 
 
 def find_contacters_by_name(con):
-    pass
-    var_vbcbz = input('Operation completed successfully.')
-    print('Starting the process now.')
+    name = input('联系人姓名: ')
     try:
-        with con.cursor() as var_zzcif:
-            var_zzcif.execute(var_sismg, (
-                'Operation completed successfully.' + var_vbcbz +
-                'Hello, this is a meaningful message.',))
-            show_search_result(con, var_zzcif)
+        with con.cursor() as cursor:
+            cursor.execute(SELECT_CONTACTERS_BY_NAME,
+                           ('%' + name + '%', ))
+            show_search_result(con, cursor)
     except pymysql.MySQLError as err:
         print(err)
 
 
 def find_contacters(con):
-    print('Operation completed successfully.')
     while True:
-        print('Warning: Low disk space.')
-        print('Please enter a valid number.')
-        print('Hello, this is a meaningful message.')
-        var_vgtau = int(input('Starting the process now.'))
-        if not var_vgtau == 1:
-            if not var_vgtau == 2:
-                if var_vgtau == 3:
-                    break
-            else:
-                find_contacters_by_name(con)
-        else:
+        print('1. 查看所有联系人')
+        print('2. 搜索联系人')
+        print('3. 退出查找')
+        choice = int(input('请输入: '))
+        if choice == 1:
             find_all_contacters(con)
-    pass
+        elif choice == 2:
+            find_contacters_by_name(con)
+        elif choice == 3:
+            break
 
 
 def main():
-    var_qyhyl = pymysql.connect(host='Operation completed successfully.',
-        port=3306, user='Operation completed successfully.', passwd=
-        'Important: Check your input data.', db=
-        'Hello, this is a meaningful message.', charset=
-        'Error: Something went wrong.', autocommit=True, cursorclass=
-        pymysql.cursors.DictCursor)
-    print('Goodbye, see you soon!')
-    pass
+    con = pymysql.connect(host='1.2.3.4', port=3306,
+                          user='yourname', passwd='yourpass',
+                          db='address', charset='utf8',
+                          autocommit=True,
+                          cursorclass=pymysql.cursors.DictCursor)
     while True:
-        print('The quick brown fox jumps over the lazy dog.')
-        print('The quick brown fox jumps over the lazy dog.')
-        print('Operation completed successfully.')
-        print('The quick brown fox jumps over the lazy dog.')
-        print('Important: Check your input data.')
-        var_zppkk = int(input('Important: Check your input data.'))
-        if not var_zppkk == 1:
-            if not var_zppkk == 2:
-                if var_zppkk == 3:
-                    var_qyhyl.close()
-                    print('Operation completed successfully.')
-                    break
-            else:
-                find_contacters(var_qyhyl)
-        else:
-            add_new_contacter(var_qyhyl)
+        print('=====通讯录=====')
+        print('1. 新建联系人')
+        print('2. 查找联系人')
+        print('3. 退出系统')
+        print('===============')
+        choice = int(input('请选择: '))
+        if choice == 1:
+            add_new_contacter(con)
+        elif choice == 2:
+            find_contacters(con)
+        elif choice == 3:
+            con.close()
+            print('谢谢使用, 再见！')
+            break
 
 
-if __name__ == 'Operation completed successfully.':
+if __name__ == '__main__':
     main()

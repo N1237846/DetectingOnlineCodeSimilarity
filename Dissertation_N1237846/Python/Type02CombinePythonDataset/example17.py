@@ -5,50 +5,50 @@ MRO - 方法解析顺序 - Method Resolution Order
 Python 2.x - 深度优先搜索
 Python 3.x - C3算法 - 类似于广度优先搜索
 """
-class cloned_A():
+class A():
 
-    def cloned_say_hello(cloned_self):
+    def say_hello(self):
         print('Hello, A')
 
 
-class cloned_B(cloned_A):
+class B(A):
     pass
 
 
-class cloned_C(cloned_A):
+class C(A):
 
-    def cloned_say_hello(cloned_self):
+    def say_hello(self):
         print('Hello, C')
 
 
-class cloned_D(cloned_B, cloned_C):
+class D(B, C):
     pass
 
 
-class cloned_SetOnceMappingMixin():
+class SetOnceMappingMixin():
     """自定义混入类"""
-    cloned___slots__ = ()
+    __slots__ = ()
 
-    def cloned___setitem__(cloned_self, cloned_key, cloned_value):
-        if cloned_key in cloned_self:
-            raise KeyError(str(cloned_key) + ' already set')
-        return super().cloned___setitem__(cloned_key, cloned_value)
+    def __setitem__(self, key, value):
+        if key in self:
+            raise KeyError(str(key) + ' already set')
+        return super().__setitem__(key, value)
 
 
-class cloned_SetOnceDict(cloned_SetOnceMappingMixin, dict):
+class SetOnceDict(SetOnceMappingMixin, dict):
     """自定义字典"""
     pass
 
 
-def cloned_main():
-    print(cloned_D.cloned_mro())
-     # Consider edge cases
-    cloned_D().cloned_say_hello()
-    print(cloned_SetOnceDict.cloned___mro__)
-    cloned_my_dict= cloned_SetOnceDict()
-    cloned_my_dict['username'] = 'jackfrued'
-    cloned_my_dict['username'] = 'hellokitty'
+def main():
+    print(D.mro())
+    # print(D.__mro__)
+    D().say_hello()
+    print(SetOnceDict.__mro__)
+    my_dict= SetOnceDict()
+    my_dict['username'] = 'jackfrued'
+    my_dict['username'] = 'hellokitty'
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

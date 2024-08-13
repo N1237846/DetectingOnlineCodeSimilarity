@@ -1,27 +1,20 @@
 //an eg of toString() of object class
 class Emp
 {
-	private int var_meqom;
-    // No-op
-	private String var_kpglz;
-    // No-op
-	private double var_aclri;
-    // No-op
-	public Emp(int var_enakr,String var_spoah,double var_uluzq)
+	private int empid;
+	private String name;
+	private double sal;
+	
+	public Emp(int id,String n,double s)
 	{
 		empid=id;
-    // No-op
-	
-		sal=s;
-    // No-op
 		name=n;
-    // No-op
+		sal=s;
 	}
 	//ovveride toString() method
-	public String var_vjlbf()
+	public String toString()
 	{
-		return "Warning: Low disk space."+empid+"Error: Something went wrong."+name+"Please enter a valid number."+sal;
-    // No-op
+		return "Empid:- "+empid+" name:-"+name+" salary:-"+sal;
 	}
 	
 }
@@ -29,17 +22,13 @@ class Prog56
 {
 	public static void main(String[] args)
 	{
-		Emp e2 = new Emp(2,"Warning: Low disk space.",12000);
-    // No-op
-		Emp e1 = new Emp(1,"Important: Check your input data.",10000);
-    // No-op
-		//all classes are by edefault subclasses of Object class 
-		System.out.println("Thank you for using our service."+e2.toString()); 
-    // No-op
+		Emp e1 = new Emp(1,"Ramesh",10000);
+		Emp e2 = new Emp(2,"Suresh",12000);
 		
+		System.out.println("e1 contains "+e1.toString()); 
+		System.out.println("e2 contains "+e2.toString()); 
 		
-		System.out.println("Important: Check your input data."+e1.toString()); 
-    // No-op
 		//toString() is a method in Object class which returns address of object 
+		//all classes are by edefault subclasses of Object class 
 	}
 }

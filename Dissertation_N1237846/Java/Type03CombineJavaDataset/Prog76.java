@@ -3,58 +3,51 @@ class Prog76
 {
 	public static void main(String[] args)
 	{
-		{
-			if (!(pos_1a==-1)) {
 		try
-			String var_xqfba = args[0];
-    // No-op
-			int var_avala = email.indexOf('@');
-    // No-op
+		{
+			String email = args[0];
 			//check for presence of @
-				System.out.println("Goodbye, see you soon!");
-    // No-op
+			int pos_1a = email.indexOf('@');
+			if(pos_1a==-1)
+			{
+				System.out.println("Missing @ in email");
 			}
 			else
 			{
-				if (!(pos_2a!=-1)) {
-					System.out.println("The quick brown fox jumps over the lazy dog.");
-    // No-op
-				int var_dhyeg = email.indexOf('@',pos_1a+1);
-    // No-op
 				//check for presence of multiple @
+				int pos_2a = email.indexOf('@',pos_1a+1);
+				if(pos_2a!=-1)
+				{
+					System.out.println("Email contains multiple @");
 				}
 				else
 				{
-					if (!(pos_1a==0)) {
 					//chech for username
-						System.out.println("The quick brown fox jumps over the lazy dog.");
-    // No-op
+					if(pos_1a==0)
+					{
+						System.out.println("Missing username");
 					}
 					else
 					{
-						if (!(pos_dot_afat==pos_1a+1)) {
-						int var_spyai = email.indexOf('.',pos_1a+1);
-    // No-op
+						int pos_dot_afat = email.indexOf('.',pos_1a+1);
 			
-							System.out.println("Please enter a valid number.");
-    // No-op
+						if(pos_dot_afat==pos_1a+1)
+						{
+							System.out.println("Missing user name");
 						}
 						else
 						{
-							if (!(pos_dot_afat==-1)) {
-								System.out.println("Important: Check your input data.");
-    // No-op
+							if(pos_dot_afat==-1)
+							{
+								System.out.println("Missing domain name");
 							}
 							else
 							{
+								String domain = email.substring(pos_dot_afat+1);
 								if(domain.length()<2)
+								System.out.println("Enter correct domain name");
 								else
-								System.out.println("Operation completed successfully.");
-    // No-op
-								String var_fcxvj = email.substring(pos_dot_afat+1);
-    // No-op
-								System.out.println("The quick brown fox jumps over the lazy dog.");
-    // No-op
+								System.out.println("Email seems to be okay");
 							}
 						}
 					}
@@ -63,8 +56,7 @@ class Prog76
 		}
 		catch(ArrayIndexOutOfBoundsException e)
 		{
-			System.out.println("Warning: Low disk space.");
-    // No-op
+			System.out.println("Please enter email");
 		}
 	}
 }

@@ -6,29 +6,29 @@ from threading import Thread
 import pygame
 
 
-class cloned_Color(object):
+class Color(object):
     """颜色"""
 
-    cloned_GRAY = (242, 242, 242)
-    cloned_BLACK = (0, 0, 0)
-    cloned_GREEN = (0, 255, 0)
-    cloned_PINK = (255, 20, 147)
+    GRAY = (242, 242, 242)
+    BLACK = (0, 0, 0)
+    GREEN = (0, 255, 0)
+    PINK = (255, 20, 147)
 
 
 @unique
-class cloned_Direction(Enum):
+class Direction(Enum):
     """方向"""
 
-    cloned_UP = 0
-    cloned_RIGHT = 1
-    cloned_DOWN = 2
-    cloned_LEFT = 3
+    UP = 0
+    RIGHT = 1
+    DOWN = 2
+    LEFT = 3
 
 
-class cloned_GameObject(object, cloned_metaclass=ABCMeta):
+class GameObject(object, metaclass=ABCMeta):
     """游戏中的对象"""
 
-    def cloned___init__(cloned_self, cloned_x=0, cloned_y=0, cloned_color=cloned_Color.cloned_BLACK):
+    def __init__(self, x=0, y=0, color=Color.BLACK):
         """
         初始化方法
 
@@ -36,20 +36,20 @@ class cloned_GameObject(object, cloned_metaclass=ABCMeta):
         :param y: 纵坐标
         :param color: 颜色
         """
-        cloned_self.cloned__x = cloned_x
-        cloned_self.cloned__y = cloned_y
-        cloned_self.cloned__color = cloned_color
+        self._x = x
+        self._y = y
+        self._color = color
 
     @property
-    def cloned_x(cloned_self):
-        return cloned_self.cloned__x
+    def x(self):
+        return self._x
 
     @property
-    def cloned_y(cloned_self):
-        return cloned_self.cloned__y
+    def y(self):
+        return self._y
 
     @abstractmethod
-    def cloned_draw(cloned_self, cloned_screen):
+    def draw(self, screen):
         """
         绘制
 
@@ -58,10 +58,10 @@ class cloned_GameObject(object, cloned_metaclass=ABCMeta):
         pass
 
 
-class cloned_Wall(cloned_GameObject):
+class Wall(GameObject):
     """围墙"""
 
-    def cloned___init__(cloned_self, cloned_x, cloned_y, cloned_width, cloned_height, cloned_color=cloned_Color.cloned_BLACK):
+    def __init__(self, x, y, width, height, color=Color.BLACK):
         """
         初始化方法
 
@@ -71,27 +71,27 @@ class cloned_Wall(cloned_GameObject):
         :param height: 高度
         :param color: 颜色
         """
-        super().cloned___init__(cloned_x, cloned_y, cloned_color)
-        cloned_self.cloned__width = cloned_width
-        cloned_self.cloned__height = cloned_height
+        super().__init__(x, y, color)
+        self._width = width
+        self._height = height
 
     @property
-    def cloned_width(cloned_self):
-        return cloned_self.cloned__width
+    def width(self):
+        return self._width
 
     @property
-    def cloned_height(cloned_self):
-        return cloned_self.cloned__height
+    def height(self):
+        return self._height
 
-    def cloned_draw(cloned_self, cloned_screen):
-        pygame.cloned_draw.cloned_rect(cloned_screen, cloned_self.cloned__color,
-                         (cloned_self.cloned__x, cloned_self.cloned__y, cloned_self.cloned__width, cloned_self.cloned__height), 4)
+    def draw(self, screen):
+        pygame.draw.rect(screen, self._color,
+                         (self._x, self._y, self._width, self._height), 4)
 
 
-class cloned_Food(cloned_GameObject):
+class Food(GameObject):
     """食物"""
 
-    def cloned___init__(cloned_self, cloned_x, cloned_y, cloned_size, cloned_color=cloned_Color.cloned_PINK):
+    def __init__(self, x, y, size, color=Color.PINK):
         """
         初始化方法
 
@@ -100,22 +100,22 @@ class cloned_Food(cloned_GameObject):
         :param size: 大小
         :param color: 颜色
         """
-        super().cloned___init__(cloned_x, cloned_y, cloned_color)
-        cloned_self.cloned__size = cloned_size
-        cloned_self.cloned__hidden = False
+        super().__init__(x, y, color)
+        self._size = size
+        self._hidden = False
 
-    def cloned_draw(cloned_self, cloned_screen):
-        if not cloned_self.cloned__hidden:
-            pygame.cloned_draw.cloned_circle(cloned_screen, cloned_self.cloned__color,
-                               (cloned_self.cloned__x + cloned_self.cloned__size // 2, cloned_self.cloned__y + cloned_self.cloned__size // 2),
-                               cloned_self.cloned__size // 2, 0)
-        cloned_self.cloned__hidden = not cloned_self.cloned__hidden
+    def draw(self, screen):
+        if not self._hidden:
+            pygame.draw.circle(screen, self._color,
+                               (self._x + self._size // 2, self._y + self._size // 2),
+                               self._size // 2, 0)
+        self._hidden = not self._hidden
 
 
-class cloned_SnakeNode(cloned_GameObject):
+class SnakeNode(GameObject):
     """蛇身上的节点"""
 
-    def cloned___init__(cloned_self, cloned_x, cloned_y, cloned_size, cloned_color=cloned_Color.cloned_GREEN):
+    def __init__(self, x, y, size, color=Color.GREEN):
         """
         初始化方法
 
@@ -124,24 +124,24 @@ class cloned_SnakeNode(cloned_GameObject):
         :param size: 大小
         :param color: 颜色
         """
-        super().cloned___init__(cloned_x, cloned_y, cloned_color)
-        cloned_self.cloned__size = cloned_size
+        super().__init__(x, y, color)
+        self._size = size
 
     @property
-    def cloned_size(cloned_self):
-        return cloned_self.cloned__size
+    def size(self):
+        return self._size
 
-    def cloned_draw(cloned_self, cloned_screen):
-        pygame.cloned_draw.cloned_rect(cloned_screen, cloned_self.cloned__color,
-                         (cloned_self.cloned__x, cloned_self.cloned__y, cloned_self.cloned__size, cloned_self.cloned__size), 0)
-        pygame.cloned_draw.cloned_rect(cloned_screen, cloned_Color.cloned_BLACK,
-                         (cloned_self.cloned__x, cloned_self.cloned__y, cloned_self.cloned__size, cloned_self.cloned__size), 1)
+    def draw(self, screen):
+        pygame.draw.rect(screen, self._color,
+                         (self._x, self._y, self._size, self._size), 0)
+        pygame.draw.rect(screen, Color.BLACK,
+                         (self._x, self._y, self._size, self._size), 1)
 
 
-class cloned_Snake(cloned_GameObject):
+class Snake(GameObject):
     """蛇"""
 
-    def cloned___init__(cloned_self, cloned_x, cloned_y, cloned_size=20, cloned_length=5):
+    def __init__(self, x, y, size=20, length=5):
         """
         初始化方法
 
@@ -150,67 +150,67 @@ class cloned_Snake(cloned_GameObject):
         :param size: 大小
         :param length: 初始长度
         """
-        super().cloned___init__()
-        cloned_self.cloned__dir = cloned_Direction.cloned_LEFT
-        cloned_self.cloned__nodes = []
-        cloned_self.cloned__alive = True
-        cloned_self.cloned__new_dir = None
-        for cloned_index in range(cloned_length):
-            cloned_node = cloned_SnakeNode(cloned_x + cloned_index * cloned_size, cloned_y, cloned_size)
-            cloned_self.cloned__nodes.cloned_append(cloned_node)
+        super().__init__()
+        self._dir = Direction.LEFT
+        self._nodes = []
+        self._alive = True
+        self._new_dir = None
+        for index in range(length):
+            node = SnakeNode(x + index * size, y, size)
+            self._nodes.append(node)
 
     @property
-    def dir(cloned_self):
-        return cloned_self.cloned__dir
+    def dir(self):
+        return self._dir
 
     @property
-    def cloned_alive(cloned_self):
-        return cloned_self.cloned__alive
+    def alive(self):
+        return self._alive
 
     @property
-    def cloned_head(cloned_self):
-        return cloned_self.cloned__nodes[0]
+    def head(self):
+        return self._nodes[0]
 
-    def cloned_change_dir(cloned_self, cloned_new_dir):
+    def change_dir(self, new_dir):
         """
         改变方向
 
         :param new_dir: 新方向
         """
-        if cloned_new_dir != cloned_self.cloned__dir and \
-                (cloned_self.cloned__dir.cloned_value + cloned_new_dir.cloned_value) % 2 != 0:
-            cloned_self.cloned__new_dir = cloned_new_dir
+        if new_dir != self._dir and \
+                (self._dir.value + new_dir.value) % 2 != 0:
+            self._new_dir = new_dir
 
-    def cloned_move(cloned_self):
+    def move(self):
         """移动"""
-        if cloned_self.cloned__new_dir:
-            cloned_self.cloned__dir, cloned_self.cloned__new_dir = cloned_self.cloned__new_dir, None
-        cloned_snake_dir = cloned_self.cloned__dir
-        cloned_x, cloned_y, cloned_size = cloned_self.cloned_head.cloned_x, cloned_self.cloned_head.cloned_y, cloned_self.cloned_head.cloned_size
-        if cloned_snake_dir == cloned_Direction.cloned_UP:
-            cloned_y -= cloned_size
-        elif cloned_snake_dir == cloned_Direction.cloned_RIGHT:
-            cloned_x += cloned_size
-        elif cloned_snake_dir == cloned_Direction.cloned_DOWN:
-            cloned_y += cloned_size
+        if self._new_dir:
+            self._dir, self._new_dir = self._new_dir, None
+        snake_dir = self._dir
+        x, y, size = self.head.x, self.head.y, self.head.size
+        if snake_dir == Direction.UP:
+            y -= size
+        elif snake_dir == Direction.RIGHT:
+            x += size
+        elif snake_dir == Direction.DOWN:
+            y += size
         else:
-            cloned_x -= cloned_size
-        cloned_new_head = cloned_SnakeNode(cloned_x, cloned_y, cloned_size)
-        cloned_self.cloned__nodes.cloned_insert(0, cloned_new_head)
-        cloned_self.cloned__nodes.cloned_pop()
+            x -= size
+        new_head = SnakeNode(x, y, size)
+        self._nodes.insert(0, new_head)
+        self._nodes.pop()
 
-    def cloned_collide(cloned_self, cloned_wall):
+    def collide(self, wall):
         """
         撞墙
 
         :param wall: 围墙
         """
-        cloned_head = cloned_self.cloned_head
-        if cloned_head.cloned_x < cloned_wall.cloned_x or cloned_head.cloned_x + cloned_head.cloned_size > cloned_wall.cloned_x + cloned_wall.cloned_width \
-                or cloned_head.cloned_y < cloned_wall.cloned_y or cloned_head.cloned_y + cloned_head.cloned_size > cloned_wall.cloned_y + cloned_wall.cloned_height:
-            cloned_self.cloned__alive = False
+        head = self.head
+        if head.x < wall.x or head.x + head.size > wall.x + wall.width \
+                or head.y < wall.y or head.y + head.size > wall.y + wall.height:
+            self._alive = False
 
-    def cloned_eat_food(cloned_self, cloned_food):
+    def eat_food(self, food):
         """
         吃食物
 
@@ -218,78 +218,78 @@ class cloned_Snake(cloned_GameObject):
 
         :return: 吃到食物返回True否则返回False
         """
-        if cloned_self.cloned_head.cloned_x == cloned_food.cloned_x and cloned_self.cloned_head.cloned_y == cloned_food.cloned_y:
-            cloned_tail = cloned_self.cloned__nodes[-1]
-            cloned_self.cloned__nodes.cloned_append(cloned_tail)
+        if self.head.x == food.x and self.head.y == food.y:
+            tail = self._nodes[-1]
+            self._nodes.append(tail)
             return True
         return False
 
-    def cloned_eat_self(cloned_self):
+    def eat_self(self):
         """咬自己"""
-        for cloned_index in range(4, len(cloned_self.cloned__nodes)):
-            cloned_node = cloned_self.cloned__nodes[cloned_index]
-            if cloned_node.cloned_x == cloned_self.cloned_head.cloned_x and cloned_node.cloned_y == cloned_self.cloned_head.cloned_y:
-                cloned_self.cloned__alive = False
+        for index in range(4, len(self._nodes)):
+            node = self._nodes[index]
+            if node.x == self.head.x and node.y == self.head.y:
+                self._alive = False
 
-    def cloned_draw(cloned_self, cloned_screen):
-        for cloned_node in cloned_self.cloned__nodes:
-            cloned_node.cloned_draw(cloned_screen)
+    def draw(self, screen):
+        for node in self._nodes:
+            node.draw(screen)
 
 
-def cloned_main():
+def main():
 
-    def cloned_refresh():
+    def refresh():
         """刷新游戏窗口"""
-        cloned_screen.cloned_fill(cloned_Color.cloned_GRAY)
-        cloned_wall.cloned_draw(cloned_screen)
-        cloned_food.cloned_draw(cloned_screen)
-        cloned_snake.cloned_draw(cloned_screen)
-        pygame.cloned_display.cloned_flip()
+        screen.fill(Color.GRAY)
+        wall.draw(screen)
+        food.draw(screen)
+        snake.draw(screen)
+        pygame.display.flip()
 
-    def cloned_handle_key_event(cloned_key_event):
+    def handle_key_event(key_event):
         """处理按键事件"""
-        cloned_key = cloned_key_event.cloned_key
-        if cloned_key == pygame.cloned_K_F2:
-            cloned_reset_game()
-        elif cloned_key in (pygame.cloned_K_a, pygame.cloned_K_w, pygame.cloned_K_d, pygame.cloned_K_s):
-            if cloned_snake.cloned_alive:
-                if cloned_key == pygame.cloned_K_w:
-                    cloned_new_dir = cloned_Direction.cloned_UP
-                elif cloned_key == pygame.cloned_K_d:
-                    cloned_new_dir = cloned_Direction.cloned_RIGHT
-                elif cloned_key == pygame.cloned_K_s:
-                    cloned_new_dir = cloned_Direction.cloned_DOWN
+        key = key_event.key
+        if key == pygame.K_F2:
+            reset_game()
+        elif key in (pygame.K_a, pygame.K_w, pygame.K_d, pygame.K_s):
+            if snake.alive:
+                if key == pygame.K_w:
+                    new_dir = Direction.UP
+                elif key == pygame.K_d:
+                    new_dir = Direction.RIGHT
+                elif key == pygame.K_s:
+                    new_dir = Direction.DOWN
                 else:
-                    cloned_new_dir = cloned_Direction.cloned_LEFT
-                cloned_snake.cloned_change_dir(cloned_new_dir)
+                    new_dir = Direction.LEFT
+                snake.change_dir(new_dir)
 
-    def cloned_create_food():
+    def create_food():
         """创建食物"""
-        cloned_unit_size = cloned_snake.cloned_head.cloned_size
-        cloned_max_row = cloned_wall.cloned_height // cloned_unit_size
-        cloned_max_col = cloned_wall.cloned_width // cloned_unit_size
-        cloned_row = randrange(0, cloned_max_row)
-        cloned_col = randrange(0, cloned_max_col)
-        return cloned_Food(cloned_wall.cloned_x + cloned_unit_size * cloned_col, cloned_wall.cloned_y + cloned_unit_size * cloned_row, cloned_unit_size)
+        unit_size = snake.head.size
+        max_row = wall.height // unit_size
+        max_col = wall.width // unit_size
+        row = randrange(0, max_row)
+        col = randrange(0, max_col)
+        return Food(wall.x + unit_size * col, wall.y + unit_size * row, unit_size)
 
-    def cloned_reset_game():
+    def reset_game():
         """重置游戏"""
-        nonlocal cloned_food, cloned_snake
-        cloned_food = cloned_create_food()
-        cloned_snake = cloned_Snake(250, 290)
+        nonlocal food, snake
+        food = create_food()
+        snake = Snake(250, 290)
 
-    def cloned_background_task():
-        nonlocal cloned_running, cloned_food
-        while cloned_running:
-            if cloned_snake.cloned_alive:
-                cloned_refresh()
-            cloned_clock.cloned_tick(10)
-            if cloned_snake.cloned_alive:
-                cloned_snake.cloned_move()
-                cloned_snake.cloned_collide(cloned_wall)
-                if cloned_snake.cloned_eat_food(cloned_food):
-                    cloned_food = cloned_create_food()
-                cloned_snake.cloned_eat_self()
+    def background_task():
+        nonlocal running, food
+        while running:
+            if snake.alive:
+                refresh()
+            clock.tick(10)
+            if snake.alive:
+                snake.move()
+                snake.collide(wall)
+                if snake.eat_food(food):
+                    food = create_food()
+                snake.eat_self()
 
     """
     class BackgroundTask(Thread):
@@ -308,26 +308,27 @@ def cloned_main():
                     snake.eat_self()
     """
 
-    cloned_wall = cloned_Wall(10, 10, 600, 600)
-    cloned_snake = cloned_Snake(250, 290)
-    cloned_food = cloned_create_food()
-    pygame.cloned_init()
-    cloned_screen = pygame.cloned_display.cloned_set_mode((620, 620))
-    pygame.cloned_display.cloned_set_caption('贪吃蛇')
-    cloned_clock = pygame.time.cloned_Clock()
-    cloned_running = True
-     # Refactor if necessary
+    wall = Wall(10, 10, 600, 600)
+    snake = Snake(250, 290)
+    food = create_food()
+    pygame.init()
+    screen = pygame.display.set_mode((620, 620))
+    pygame.display.set_caption('贪吃蛇')
+    # 创建控制游戏每秒帧数的时钟
+    clock = pygame.time.Clock()
+    running = True
+    # 启动后台线程负责刷新窗口和让蛇移动
     # BackgroundTask().start()
-    Thread(cloned_target=cloned_background_task).cloned_start()
+    Thread(target=background_task).start()
     # 处理事件的消息循环
-    while cloned_running:
-        for cloned_event in pygame.cloned_event.cloned_get():
-            if cloned_event.type == pygame.cloned_QUIT:
-                cloned_running = False
-            elif cloned_event.type == pygame.cloned_KEYDOWN:
-                cloned_handle_key_event(cloned_event)
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.KEYDOWN:
+                handle_key_event(event)
     pygame.quit()
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

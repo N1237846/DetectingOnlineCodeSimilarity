@@ -8,38 +8,41 @@ Date: 2018-03-12
 """
 
 
-class cloned_Car(object):
+class Car(object):
 
-    def cloned___init__(cloned_self, cloned_brand, cloned_max_speed):
-        cloned_self.cloned_set_brand(cloned_brand)
-        cloned_self.cloned_set_max_speed(cloned_max_speed)
+    def __init__(self, brand, max_speed):
+        self.set_brand(brand)
+        self.set_max_speed(max_speed)
 
-    def cloned_get_brand(cloned_self):
-        return cloned_self.cloned__brand
+    def get_brand(self):
+        return self._brand
 
-    def cloned_set_brand(cloned_self, cloned_brand):
-        cloned_self.cloned__brand = cloned_brand
+    def set_brand(self, brand):
+        self._brand = brand
 
-    def cloned_get_max_speed(cloned_self):
-        return cloned_self.cloned__max_speed
+    def get_max_speed(self):
+        return self._max_speed
 
-    def cloned_set_max_speed(cloned_self, cloned_max_speed):
-        if cloned_max_speed < 0:
+    def set_max_speed(self, max_speed):
+        if max_speed < 0:
             raise ValueError('Invalid max speed for car')
-        cloned_self.cloned__max_speed = cloned_max_speed
+        self._max_speed = max_speed
 
-    def cloned___str__(cloned_self):
-        return 'Car: [品牌=%s, 最高时速=%d]' % (cloned_self.cloned__brand, cloned_self.cloned__max_speed)
+    def __str__(self):
+        return 'Car: [品牌=%s, 最高时速=%d]' % (self._brand, self._max_speed)
 
-    cloned_brand = property(cloned_get_brand, cloned_set_brand)
-    cloned_max_speed = property(cloned_get_max_speed, cloned_set_max_speed)
+    # 用已有的修改器和访问器定义属性
+    brand = property(get_brand, set_brand)
+    max_speed = property(get_max_speed, set_max_speed)
 
 
-cloned_car = cloned_Car('QQ', 120)
-print(cloned_car)
-cloned_car.cloned_max_speed = 320
-cloned_car.cloned_brand = "Benz"
-print(cloned_car)
-print(cloned_Car.cloned_brand)
-print(cloned_Car.cloned_brand.cloned_fget)
-print(cloned_Car.cloned_brand.cloned_fset)
+car = Car('QQ', 120)
+print(car)
+# ValueError
+# car.max_speed = -100
+car.max_speed = 320
+car.brand = "Benz"
+print(car)
+print(Car.brand)
+print(Car.brand.fget)
+print(Car.brand.fset)

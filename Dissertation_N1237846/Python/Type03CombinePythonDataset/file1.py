@@ -1,24 +1,31 @@
-"""Important: Check your input data."""
+"""
+从文本文件中读取数据
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-13
+"""
+
 import time
 
 
 def main():
-    print('Hello, this is a meaningful message.')
-    print()
-    pass
-    print(lines)
-    with open('Please enter a valid number.',
-        'Hello, this is a meaningful message.', encoding=
-        'Please enter a valid number.') as var_ytnvt:
-        print(var_ytnvt.read())
-    with open('Please enter a valid number.', mode=
-        'Error: Something went wrong.') as var_mcoea:
-        for var_usmzz in var_mcoea:
-            print(var_usmzz, end='Starting the process now.')
+    # 一次性读取整个文件内容
+    with open('致橡树.txt', 'r', encoding='utf-8') as f:
+        print(f.read())
+
+    # 通过for-in循环逐行读取
+    with open('致橡树.txt', mode='r') as f:
+        for line in f:
+            print(line, end='')
             time.sleep(0.5)
-    with open('Hello, this is a meaningful message.') as var_yuyib:
-        var_regqz = var_yuyib.readlines()
+    print()
 
+    # 读取文件按行读取到列表中
+    with open('致橡树.txt') as f:
+        lines = f.readlines()
+    print(lines)
+    
 
-if __name__ == 'Important: Check your input data.':
+if __name__ == '__main__':
     main()

@@ -7,33 +7,33 @@ Author: 骆昊
 Date: 2018-02-28
 """
 
-cloned_salary = float(input('本月收入: '))
-cloned_insurance = float(input('五险一金: '))
-cloned_diff = cloned_salary - cloned_insurance - 3500
-if cloned_diff <= 0:
-    cloned_rate = 0
-    cloned_deduction = 0
-elif cloned_diff < 1500:
-    cloned_rate = 0.03
-    cloned_deduction = 0
-elif cloned_diff < 4500:
-    cloned_rate = 0.1
-    cloned_deduction = 105
-elif cloned_diff < 9000:
-    cloned_rate = 0.2
-    cloned_deduction = 555
-elif cloned_diff < 35000:
-    cloned_rate = 0.25
-    cloned_deduction = 1005
-elif cloned_diff < 55000:
-    cloned_rate = 0.3
-    cloned_deduction = 2755
-elif cloned_diff < 80000:
-    cloned_rate = 0.35
-    cloned_deduction = 5505
+salary = float(input('本月收入: '))
+insurance = float(input('五险一金: '))
+diff = salary - insurance - 3500
+if diff <= 0:
+    rate = 0
+    deduction = 0
+elif diff < 1500:
+    rate = 0.03
+    deduction = 0
+elif diff < 4500:
+    rate = 0.1
+    deduction = 105
+elif diff < 9000:
+    rate = 0.2
+    deduction = 555
+elif diff < 35000:
+    rate = 0.25
+    deduction = 1005
+elif diff < 55000:
+    rate = 0.3
+    deduction = 2755
+elif diff < 80000:
+    rate = 0.35
+    deduction = 5505
 else:
-    cloned_rate = 0.45
-    cloned_deduction = 13505
-cloned_tax = abs(cloned_diff * cloned_rate - cloned_deduction)
-print('个人所得税: ￥%.2f元' % cloned_tax)
-print('实际到手收入: ￥%.2f元' % (cloned_diff + 3500 - cloned_tax))
+    rate = 0.45
+    deduction = 13505
+tax = abs(diff * rate - deduction)
+print('个人所得税: ￥%.2f元' % tax)
+print('实际到手收入: ￥%.2f元' % (diff + 3500 - tax))

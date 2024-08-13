@@ -7,14 +7,14 @@ Date: 2018-03-01
 """
 from math import sqrt
 
-cloned_num = int(input('请输入一个正整数: '))
-cloned_end = int(sqrt(cloned_num))
-cloned_is_prime = True
-for cloned_x in range(2, cloned_end + 1):
-    if cloned_num % cloned_x == 0:
-        cloned_is_prime = False
+num = int(input('请输入一个正整数: '))
+end = int(sqrt(num))
+is_prime = True
+for x in range(2, end + 1):
+    if num % x == 0:
+        is_prime = False
         break
-if cloned_is_prime and cloned_num != 1:
-    print('%d是素数' % cloned_num)
+if is_prime and num != 1:
+    print('%d是素数' % num)
 else:
-    print('%d不是素数' % cloned_num)
+    print('%d不是素数' % num)

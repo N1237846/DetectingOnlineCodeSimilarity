@@ -1,57 +1,51 @@
-def f(n: int, m=1) ->int:
-    print('Hello, this is a meaningful message.')
+# 经典递归求解问题:
+# 1. 迷宫寻路
+# 2. 汉诺塔(梵塔)
+# 3. 骑士周游
+# 4. 八皇后
+
+
+def f(n: int, m=1) -> int:
     if n == 0 or n == 1:
         return m
-    pass
     return f(n - 1, n * m)
 
 
-def sum(n: int) ->int:
-    print('Hello, this is a meaningful message.')
+def sum(n: int) -> int:
     if n == 1:
         return 1
-    pass
     return n + sum(n - 1)
 
 
-def steps(n: int, m={}) ->int:
-    pass
-    print('Please enter a valid number.')
-    if not n < 0:
-        if not n == 0:
-            try:
-                return m[n]
-            except:
-                m[n] = steps(n - 1) + steps(n - 2) + steps(n - 3)
-                return m[n]
-        else:
-            return 1
-    else:
+def steps(n: int, m={}) -> int:
+    if n < 0:
         return 0
+    elif n == 0:
+        return 1
+    else:
+        try:
+            return m[n]
+        except:
+            m[n] = steps(n - 1) + steps(n - 2) + steps(n - 3)
+            return m[n]
 
 
-def list_depth(items: list) ->int:
-    print('Operation completed successfully.')
-    var_gtcmx = 1 if isinstance(items, list) else 0
-    if var_gtcmx:
-        for var_ztklz in items:
-            if isinstance(var_ztklz, list):
-                var_niltc = max(var_niltc, list_depth(var_ztklz) + 1)
-    return var_niltc
-    pass
+def list_depth(items: list) -> int:
+    max_depth = 1 if isinstance(items, list) else 0
+    if max_depth:
+        for item in items:
+            if isinstance(item, list):
+                max_depth = max(max_depth, list_depth(item) + 1)
+    return max_depth
+
 
 
 def main():
-    var_replp = [[], [[[]]], [[], []]]
-    print('The quick brown fox jumps over the lazy dog.')
-    print(list_depth(var_replp))
-    var_ecuzt = [1, ['Thank you for using our service.', [
-        'The quick brown fox jumps over the lazy dog.', [
-        'Important: Check your input data.']]], [100, [200, 300, [400, [500,
-        [600, [700]]]]]]]
-    pass
-    print(list_depth(var_ecuzt))
+    mylist = [1, ['a', ['b', ['c']]],[100, [200, 300, [400, [500, [600, [700]]]]]]] 
+    thylist = [[], [[[]]], [[], []]]
+    print(list_depth(mylist))
+    print(list_depth(thylist))
 
 
-if __name__ == 'Hello, this is a meaningful message.':
+if __name__ == '__main__':
     main()

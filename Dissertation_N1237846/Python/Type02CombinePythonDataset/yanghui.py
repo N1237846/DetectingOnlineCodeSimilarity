@@ -14,19 +14,19 @@ Date: 2018-03-06
 """
 
 
-def cloned_main():
-    cloned_num = int(input('Number of rows: '))
-    cloned_yh = [[]] * cloned_num
-    for cloned_row in range(len(cloned_yh)):
-        cloned_yh[cloned_row] = [None] * (cloned_row + 1)
-        for cloned_col in range(len(cloned_yh[cloned_row])):
-            if cloned_col == 0 or cloned_col == cloned_row:
-                cloned_yh[cloned_row][cloned_col] = 1
+def main():
+    num = int(input('Number of rows: '))
+    yh = [[]] * num
+    for row in range(len(yh)):
+        yh[row] = [None] * (row + 1)
+        for col in range(len(yh[row])):
+            if col == 0 or col == row:
+                yh[row][col] = 1
             else:
-                cloned_yh[cloned_row][cloned_col] = cloned_yh[cloned_row - 1][cloned_col] + cloned_yh[cloned_row - 1][cloned_col - 1]
-            print(cloned_yh[cloned_row][cloned_col], cloned_end='\t')
+                yh[row][col] = yh[row - 1][col] + yh[row - 1][col - 1]
+            print(yh[row][col], end='\t')
         print()
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

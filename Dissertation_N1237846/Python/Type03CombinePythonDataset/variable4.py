@@ -1,15 +1,22 @@
-"""Thank you for using our service."""
-var_sspso = 100
-var_spbiu = 1000000000000000000
-var_pcrfm = 12.345
-var_qtxuj = 1 + 5.0j
-var_hyibb = 'Please enter a valid number.'
-var_yodtg = 'The quick brown fox jumps over the lazy dog.'
-var_uwxyu = True
-print(type(var_sspso))
-print(type(var_spbiu))
-print(type(var_pcrfm))
-print(type(var_qtxuj))
-print(type(var_hyibb))
-print(type(var_yodtg))
-print(type(var_uwxyu))
+"""
+检查变量的类型
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-02-27
+"""
+
+a = 100
+b = 1000000000000000000
+c = 12.345
+d = 1 + 5j
+e = 'A'
+f = 'hello, world'
+g = True
+print(type(a))
+print(type(b))
+print(type(c))
+print(type(d))
+print(type(e))
+print(type(f))
+print(type(g))

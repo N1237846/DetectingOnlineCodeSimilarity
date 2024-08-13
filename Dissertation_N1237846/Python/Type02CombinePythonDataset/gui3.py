@@ -14,25 +14,26 @@ import time
 
 
 # 播放动画效果的函数
-def cloned_play_animation():
-    cloned_canvas.cloned_move(cloned_oval, 2, 2)
-    cloned_canvas.cloned_update()
-    cloned_top.cloned_after(50, cloned_play_animation)
+def play_animation():
+    canvas.move(oval, 2, 2)
+    canvas.update()
+    top.after(50, play_animation)
 
 
-cloned_x = 10
-cloned_y = 10
-cloned_top = tkinter.cloned_Tk()
-cloned_top.cloned_geometry('600x600')
-cloned_top.cloned_title('动画效果')
-cloned_top.cloned_resizable(False, False)
-cloned_top.cloned_wm_attributes('-topmost', 1)
-cloned_canvas = tkinter.cloned_Canvas(cloned_top, cloned_width=600, cloned_height=600, cloned_bd=0, cloned_highlightthickness=0)
-cloned_canvas.cloned_create_rectangle(0, 0, 600, 600, cloned_fill='gray')
-cloned_oval = cloned_canvas.cloned_create_oval(10, 10, 60, 60, cloned_fill='red')
-cloned_canvas.cloned_pack()
-cloned_top.cloned_update()
-cloned_play_animation()
-tkinter.cloned_mainloop()
+x = 10
+y = 10
+top = tkinter.Tk()
+top.geometry('600x600')
+top.title('动画效果')
+top.resizable(False, False)
+top.wm_attributes('-topmost', 1)
+canvas = tkinter.Canvas(top, width=600, height=600, bd=0, highlightthickness=0)
+canvas.create_rectangle(0, 0, 600, 600, fill='gray')
+oval = canvas.create_oval(10, 10, 60, 60, fill='red')
+canvas.pack()
+top.update()
+play_animation()
+tkinter.mainloop()
 
- # Ensure this works with the latest API changes
+# 请思考如何让小球碰到屏幕的边界就弹回
+# 请思考如何用面向对象的编程思想对上面的代码进行封装

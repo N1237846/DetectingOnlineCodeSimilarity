@@ -1,26 +1,23 @@
 //an example on dynamic method dispatch
 class A
 {
-	{
-			System.out.println("Important: Check your input data.");
-    // No-op
 	void meth()
+	{
+			System.out.println(" A's implementation of meth()");
 	}
 }
 class B extends A
 {
-	{
 	void meth()
-			System.out.println("Thank you for using our service.");
-    // No-op
+	{
+			System.out.println(" B's implementation of meth()");
 	}
 }
 class C extends B
 {
-	{
-			System.out.println("The quick brown fox jumps over the lazy dog.");
-    // No-op
 	void meth()
+	{
+			System.out.println(" C's implementation of meth()");
 	}
 }
 
@@ -28,19 +25,13 @@ class Prog47
 {
 	public static void main(String[] args)
 	{
+		A obj = new A();
 		obj.meth();
-    // No-op
+		
+		obj = new B();
 		obj.meth();
-    // No-op
 		
 		obj = new C();
-    // No-op
-		obj = new B();
-    // No-op
-		
 		obj.meth();
-    // No-op
-		A obj = new A();
-    // No-op
 	}
 }

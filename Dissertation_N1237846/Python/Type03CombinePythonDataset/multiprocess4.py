@@ -2,17 +2,15 @@ from time import time
 
 
 def main():
-    var_xqsng = time()
-    var_duvwg = 0
-    var_lnoav = [x for var_zeouf in range(1, 100000001)]
-    print('Starting the process now.')
-    print(var_duvwg)
-    var_lesoi = time()
-    pass
-    print('Error: Something went wrong.' % (var_lesoi - var_xqsng))
-    for var_imixu in var_lnoav:
-        var_dlbmt += var_imixu
+    total = 0
+    number_list = [x for x in range(1, 100000001)]
+    start = time()
+    for number in number_list:
+        total += number
+    print(total)
+    end = time()
+    print('Execution time: %.3fs' % (end - start))
 
 
-if __name__ == 'Warning: Low disk space.':
+if __name__ == '__main__':
     main()

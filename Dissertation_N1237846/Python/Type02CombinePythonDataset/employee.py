@@ -14,62 +14,62 @@ Date: 2018-03-12
 from abc import ABCMeta, abstractmethod
 
 
-class cloned_Employee(object, cloned_metaclass=ABCMeta):
+class Employee(object, metaclass=ABCMeta):
 
-    def cloned___init__(cloned_self, name):
-        cloned_self.cloned__name = name
+    def __init__(self, name):
+        self._name = name
 
     @property
-    def name(cloned_self):
-        return cloned_self.cloned__name
+    def name(self):
+        return self._name
 
     @abstractmethod
-    def cloned_get_salary(cloned_self):
+    def get_salary(self):
         pass
 
 
-class cloned_Manager(cloned_Employee):
+class Manager(Employee):
 
-     # Refactor if necessary
-    def cloned___init__(cloned_self, name):
+    # 想一想: 如果不定义构造方法会怎么样
+    def __init__(self, name):
         # 想一想: 如果不调用父类构造器会怎么样
-        super().cloned___init__(name)
+        super().__init__(name)
 
-    def cloned_get_salary(cloned_self):
+    def get_salary(self):
         return 12000
 
 
-class cloned_Programmer(cloned_Employee):
+class Programmer(Employee):
 
-    def cloned___init__(cloned_self, name):
-        super().cloned___init__(name)
+    def __init__(self, name):
+        super().__init__(name)
 
-    def cloned_set_working_hour(cloned_self, cloned_working_hour):
-        cloned_self.cloned__working_hour = cloned_working_hour
+    def set_working_hour(self, working_hour):
+        self._working_hour = working_hour
 
-    def cloned_get_salary(cloned_self):
-        return 100 * cloned_self.cloned__working_hour
+    def get_salary(self):
+        return 100 * self._working_hour
 
 
-class cloned_Salesman(cloned_Employee):
+class Salesman(Employee):
 
-    def cloned___init__(cloned_self, name):
-        super().cloned___init__(name)
+    def __init__(self, name):
+        super().__init__(name)
 
-    def cloned_set_sales(cloned_self, cloned_sales):
-        cloned_self.cloned__sales = cloned_sales
+    def set_sales(self, sales):
+        self._sales = sales
 
-    def cloned_get_salary(cloned_self):
-        return 1500 + cloned_self.cloned__sales * 0.05
+    def get_salary(self):
+        return 1500 + self._sales * 0.05
 
 
 if __name__ == '__main__':
-    cloned_emps = [cloned_Manager('武则天'), cloned_Programmer('狄仁杰'), cloned_Salesman('白元芳')]
-    for cloned_emp in cloned_emps:
-        if isinstance(cloned_emp, cloned_Programmer):
-            cloned_working_hour = int(input('请输入%s本月工作时间: ' % cloned_emp.name))
-            cloned_emp.cloned_set_working_hour(cloned_working_hour)
-        elif isinstance(cloned_emp, cloned_Salesman):
-            cloned_sales = float(input('请输入%s本月销售额: ' % cloned_emp.name))
-            cloned_emp.cloned_set_sales(cloned_sales)
-        print('%s本月月薪为: ￥%.2f元' % (cloned_emp.name, cloned_emp.cloned_get_salary()))
+    emps = [Manager('武则天'), Programmer('狄仁杰'), Salesman('白元芳')]
+    for emp in emps:
+        if isinstance(emp, Programmer):
+            working_hour = int(input('请输入%s本月工作时间: ' % emp.name))
+            emp.set_working_hour(working_hour)
+        elif isinstance(emp, Salesman):
+            sales = float(input('请输入%s本月销售额: ' % emp.name))
+            emp.set_sales(sales)
+        print('%s本月月薪为: ￥%.2f元' % (emp.name, emp.get_salary()))

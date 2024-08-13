@@ -11,35 +11,35 @@ from time import time, sleep
 import threading
 
 
-class cloned_DownloadTask(threading.cloned_Thread):
+class DownloadTask(threading.Thread):
 
-    def cloned___init__(cloned_self, cloned_filename):
-        super().cloned___init__()
-        cloned_self.cloned__filename = cloned_filename
+    def __init__(self, filename):
+        super().__init__()
+        self._filename = filename
 
-    def cloned_run(cloned_self):
-        print('开始下载%s...' % cloned_self.cloned__filename)
-        cloned_time_to_download = randint(5, 10)
-        print('剩余时间%d秒.' % cloned_time_to_download)
-        sleep(cloned_time_to_download)
-        print('%s下载完成!' % cloned_self.cloned__filename)
+    def run(self):
+        print('开始下载%s...' % self._filename)
+        time_to_download = randint(5, 10)
+        print('剩余时间%d秒.' % time_to_download)
+        sleep(time_to_download)
+        print('%s下载完成!' % self._filename)
 
 
-def cloned_main():
-    cloned_start = time()
-     # Legacy code, consider updating
+def main():
+    start = time()
+    # 将多个下载任务放到多个线程中执行
     # 通过自定义的线程类创建线程对象 线程启动后会回调执行run方法
-    cloned_thread1 = cloned_DownloadTask('Python从入门到住院.pdf')
-    cloned_thread1.cloned_start()
-    cloned_thread2 = cloned_DownloadTask('Peking Hot.avi')
-    cloned_thread2.cloned_start()
-    cloned_thread1.cloned_join()
-    cloned_thread2.cloned_join()
-    cloned_end = time()
-    print('总共耗费了%.3f秒' % (cloned_end - cloned_start))
+    thread1 = DownloadTask('Python从入门到住院.pdf')
+    thread1.start()
+    thread2 = DownloadTask('Peking Hot.avi')
+    thread2.start()
+    thread1.join()
+    thread2.join()
+    end = time()
+    print('总共耗费了%.3f秒' % (end - start))
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()
 
 # 请注意通过threading.Thread创建的线程默认是非守护线程

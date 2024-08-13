@@ -2,48 +2,50 @@ import time
 from threading import Thread, Lock
 
 
-class cloned_Account(object):
+class Account(object):
 
-    def cloned___init__(cloned_self, cloned_balance=0):
-        cloned_self.cloned__balance = cloned_balance
-        cloned_self.cloned__lock = Lock()
+    def __init__(self, balance=0):
+        self._balance = balance
+        self._lock = Lock()
 
     @property
-    def cloned_balance(cloned_self):
-        return cloned_self.cloned__balance
+    def balance(self):
+        return self._balance
 
-    def cloned_deposit(cloned_self, cloned_money):
-        if cloned_money > 0:
-            cloned_self.cloned__lock.cloned_acquire()
+    def deposit(self, money):
+        # 当多个线程同时访问一个资源的时候 就有可能因为竞争资源导致资源的状态错误
+        # 被多个线程访问的资源我们通常称之为临界资源 对临界资源的访问需要加上保护
+        if money > 0:
+            self._lock.acquire()
             try:
-                cloned_new_balance = cloned_self.cloned__balance + cloned_money
-                time.cloned_sleep(0.01)
-                cloned_self.cloned__balance = cloned_new_balance
+                new_balance = self._balance + money
+                time.sleep(0.01)
+                self._balance = new_balance
             finally:
-                cloned_self.cloned__lock.cloned_release()
+                self._lock.release()
 
 
-class cloned_AddMoneyThread(Thread):
+class AddMoneyThread(Thread):
 
-    def cloned___init__(cloned_self, cloned_account):
-        super().cloned___init__()
-        cloned_self.cloned__account = cloned_account
+    def __init__(self, account):
+        super().__init__()
+        self._account = account
 
-    def cloned_run(cloned_self):
-        cloned_self.cloned__account.cloned_deposit(1)
+    def run(self):
+        self._account.deposit(1)
 
 
-def cloned_main():
-    cloned_account = cloned_Account(1000)
-    cloned_tlist = []
-    for cloned__ in range(100):
-        cloned_t = cloned_AddMoneyThread(cloned_account)
-        cloned_tlist.cloned_append(cloned_t)
-        cloned_t.cloned_start()
-    for cloned_t in cloned_tlist:
-        cloned_t.cloned_join()
-    print('账户余额: %d元' % cloned_account.cloned_balance)
+def main():
+    account = Account(1000)
+    tlist = []
+    for _ in range(100):
+        t = AddMoneyThread(account)
+        tlist.append(t)
+        t.start()
+    for t in tlist:
+        t.join()
+    print('账户余额: %d元' % account.balance)
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

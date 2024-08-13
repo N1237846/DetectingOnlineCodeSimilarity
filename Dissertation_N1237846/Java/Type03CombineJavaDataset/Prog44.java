@@ -1,18 +1,16 @@
 //an example on method overloading
 class A
 {
-	{
 	void show()
-		System.out.println("Starting the process now.");
-    // No-op
+	{
+		System.out.println(" A's implementation of show()");
 	}
 }
 class B extends A
 {
+	void show(String msg)
 	{
-	void show(String var_iwecd)
 		System.out.println(msg);
-    // No-op
 	}	
 }
 class Prog44
@@ -20,10 +18,7 @@ class Prog44
 	public static void main(String[] args)
 	{
 		B b = new B();
-    // No-op
+		b.show("sonamgupta bewafa hai");
 		b.show();
-    // No-op
-		b.show("Thank you for using our service.");
-    // No-op
 	}
 }

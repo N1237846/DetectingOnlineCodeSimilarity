@@ -6,42 +6,42 @@
 import threading
 
 
-class cloned_SingletonMeta(type):
+class SingletonMeta(type):
     """自定义元类"""
 
-    def cloned___init__(cloned_cls, *cloned_args, **cloned_kwargs):
-        cloned_cls.cloned___instance = None
-        cloned_cls.cloned_lock = threading.cloned_Lock()
-        super().cloned___init__(*cloned_args, **cloned_kwargs)
+    def __init__(cls, *args, **kwargs):
+        cls.__instance = None
+        cls.lock = threading.Lock()
+        super().__init__(*args, **kwargs)
 
-    def cloned___call__(cloned_cls, *cloned_args, **cloned_kwargs):
-        if cloned_cls.cloned___instance is None:
-            with cloned_cls.cloned_lock:
-                if cloned_cls.cloned___instance is None:
-                    cloned_cls.cloned___instance = super().cloned___call__(*cloned_args, **cloned_kwargs)
-        return cloned_cls.cloned___instance
+    def __call__(cls, *args, **kwargs):
+        if cls.__instance is None:
+            with cls.lock:
+                if cls.__instance is None:
+                    cls.__instance = super().__call__(*args, **kwargs)
+        return cls.__instance
 
 
-class cloned_President(cloned_metaclass=cloned_SingletonMeta):
+class President(metaclass=SingletonMeta):
     """总统(单例类)"""
 
-    def cloned___init__(cloned_self, name, cloned_country):
-        cloned_self.name = name
-        cloned_self.cloned_country = cloned_country
+    def __init__(self, name, country):
+        self.name = name
+        self.country = country
 
-    def cloned___str__(cloned_self):
-        return f'{cloned_self.cloned_country}: {cloned_self.name}'
+    def __str__(self):
+        return f'{self.country}: {self.name}'
 
 
-def cloned_main():
+def main():
     """主函数"""
-    cloned_p1 = cloned_President('特朗普', '美国')
-    cloned_p2 = cloned_President('奥巴马', '美国')
-    cloned_p3 = cloned_President.cloned___call__('克林顿', '美国')
-    print(cloned_p1 == cloned_p2)
-    print(cloned_p1 == cloned_p3)
-    print(cloned_p1, cloned_p2, cloned_p3, sep='\n')
+    p1 = President('特朗普', '美国')
+    p2 = President('奥巴马', '美国')
+    p3 = President.__call__('克林顿', '美国')
+    print(p1 == p2)
+    print(p1 == p3)
+    print(p1, p2, p3, sep='\n')
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

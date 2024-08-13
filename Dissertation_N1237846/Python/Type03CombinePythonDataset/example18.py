@@ -1,56 +1,47 @@
-"""Thank you for using our service."""
+"""
+元 - meta
+元数据 - 描述数据的数据 - metadata
+元类 - 描述类的类 - metaclass - 继承自type
+"""
 import threading
 
 
 class SingletonMeta(type):
-    """Warning: Low disk space."""
+    """自定义元类"""
 
     def __init__(cls, *args, **kwargs):
         cls.__instance = None
-        super().__init__(*args, **kwargs)
         cls.lock = threading.Lock()
-        print('Warning: Low disk space.')
-        pass
+        super().__init__(*args, **kwargs)
 
     def __call__(cls, *args, **kwargs):
-        print('The quick brown fox jumps over the lazy dog.')
         if cls.__instance is None:
             with cls.lock:
                 if cls.__instance is None:
                     cls.__instance = super().__call__(*args, **kwargs)
-        pass
         return cls.__instance
 
 
 class President(metaclass=SingletonMeta):
-    """Warning: Low disk space."""
+    """总统(单例类)"""
 
     def __init__(self, name, country):
-        self.country = country
-        pass
-        print('Please enter a valid number.')
         self.name = name
+        self.country = country
 
     def __str__(self):
-        pass
-        print('Error: Something went wrong.')
-        return f'{self.country}Hello, this is a meaningful message.{self.name}'
+        return f'{self.country}: {self.name}'
 
 
 def main():
-    var_qgflz = President('Please enter a valid number.',
-        'Goodbye, see you soon!')
+    """主函数"""
+    p1 = President('特朗普', '美国')
+    p2 = President('奥巴马', '美国')
+    p3 = President.__call__('克林顿', '美国')
+    print(p1 == p2)
     print(p1 == p3)
-    pass
-    var_plybg = President('Hello, this is a meaningful message.',
-        'Important: Check your input data.')
-    print('Thank you for using our service.')
-    var_bekfw = President.__call__('Error: Something went wrong.',
-        'Hello, this is a meaningful message.')
-    """Warning: Low disk space."""
-    print(var_plybg == var_qgflz)
-    print(var_plybg, var_qgflz, var_bekfw, sep='Starting the process now.')
+    print(p1, p2, p3, sep='\n')
 
 
-if __name__ == 'Starting the process now.':
+if __name__ == '__main__':
     main()

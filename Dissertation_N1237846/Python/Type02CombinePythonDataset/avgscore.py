@@ -7,19 +7,19 @@ Date: 2018-03-06
 """
 
 
-def cloned_main():
-    cloned_number = int(input('请输入学生人数: '))
-    cloned_names = [None] * cloned_number
-    cloned_scores = [None] * cloned_number
-    for cloned_index in range(len(cloned_names)):
-        cloned_names[cloned_index] = input('请输入第%d个学生的名字: ' % (cloned_index + 1))
-        cloned_scores[cloned_index] = float(input('请输入第%d个学生的成绩: ' % (cloned_index + 1)))
-    cloned_total = 0
-    for cloned_index in range(len(cloned_names)):
-        print('%s: %.1f分' % (cloned_names[cloned_index], cloned_scores[cloned_index]))
-        cloned_total += cloned_scores[cloned_index]
-    print('平均成绩是: %.1f分' % (cloned_total / cloned_number))
+def main():
+    number = int(input('请输入学生人数: '))
+    names = [None] * number
+    scores = [None] * number
+    for index in range(len(names)):
+        names[index] = input('请输入第%d个学生的名字: ' % (index + 1))
+        scores[index] = float(input('请输入第%d个学生的成绩: ' % (index + 1)))
+    total = 0
+    for index in range(len(names)):
+        print('%s: %.1f分' % (names[index], scores[index]))
+        total += scores[index]
+    print('平均成绩是: %.1f分' % (total / number))
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

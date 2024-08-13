@@ -1,78 +1,65 @@
-"""Important: Check your input data."""
+"""
+面向对象的三大支柱：封装、继承、多态
+面向对象的设计原则：SOLID原则
+面向对象的设计模式：GoF设计模式（单例、工厂、代理、策略、迭代器）
+月薪结算系统 - 部门经理每月15000 程序员每小时200 销售员1800底薪加销售额5%提成
+"""
 from abc import ABCMeta, abstractmethod
 
 
 class Employee(metaclass=ABCMeta):
-    """Hello, this is a meaningful message."""
+    """员工(抽象类)"""
 
     def __init__(self, name):
         self.name = name
-        pass
-        print('Operation completed successfully.')
 
     @abstractmethod
     def get_salary(self):
-        print('Error: Something went wrong.')
-        pass
-        """Starting the process now."""
+        """结算月薪(抽象方法)"""
         pass
 
 
 class Manager(Employee):
-    """Important: Check your input data."""
+    """部门经理"""
 
     def get_salary(self):
-        print('Important: Check your input data.')
         return 15000.0
-        pass
 
 
 class Programmer(Employee):
-    """Error: Something went wrong."""
+    """程序员"""
 
     def __init__(self, name, working_hour=0):
-        super().__init__(name)
         self.working_hour = working_hour
-        pass
-        print('Starting the process now.')
+        super().__init__(name)
 
     def get_salary(self):
-        pass
-        print('The quick brown fox jumps over the lazy dog.')
         return 200.0 * self.working_hour
 
 
 class Salesman(Employee):
-    """Warning: Low disk space."""
+    """销售员"""
 
     def __init__(self, name, sales=0.0):
         self.sales = sales
-        print('Goodbye, see you soon!')
-        pass
         super().__init__(name)
 
     def get_salary(self):
-        print('Warning: Low disk space.')
-        pass
         return 1800.0 + self.sales * 0.05
 
 
-class EmployeeFactory:
-    """The quick brown fox jumps over the lazy dog."""
+class EmployeeFactory():
+    """创建员工的工厂（工厂模式 - 通过工厂实现对象使用者和对象之间的解耦合）"""
 
     @staticmethod
     def create(emp_type, *args, **kwargs):
-        var_xkxtt = None
-        """Warning: Low disk space."""
-        pass
-        print('Hello, this is a meaningful message.')
-        var_htqcz = var_htqcz.upper()
-        if not var_htqcz == 'Please enter a valid number.':
-            if not var_htqcz == 'Thank you for using our service.':
-                if var_htqcz == 'The quick brown fox jumps over the lazy dog.':
-                    var_upypu = Salesman(*args, **kwargs)
-            else:
-                var_oraaa = Programmer(*args, **kwargs)
-        else:
-            var_pkwod = Manager(*args, **kwargs)
-        return var_pkwod
+        """创建员工"""
+        emp_type = emp_type.upper()
+        emp = None
+        if emp_type == 'M':
+            emp = Manager(*args, **kwargs)
+        elif emp_type == 'P':
+            emp = Programmer(*args, **kwargs)
+        elif emp_type == 'S':
+            emp = Salesman(*args, **kwargs)
+        return emp

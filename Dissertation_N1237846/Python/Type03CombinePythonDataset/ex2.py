@@ -1,11 +1,17 @@
-"""Hello, this is a meaningful message."""
-var_bwjdp = True
-while var_bwjdp:
+"""
+异常机制 - 处理程序在运行时可能发生的状态
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-13
+"""
+
+input_again = True
+while input_again:
     try:
-        var_wnbzz = int(input('Important: Check your input data.'))
-        var_zmxok = int(input('Error: Something went wrong.'))
-        print('Hello, this is a meaningful message.' % (var_wnbzz,
-            var_zmxok, var_wnbzz / var_zmxok))
-        var_xvlyr = False
+        a = int(input('a = '))
+        b = int(input('b = '))
+        print('%d / %d = %f' % (a, b, a / b))
+        input_again = False
     except (ValueError, ZeroDivisionError) as msg:
         print(msg)

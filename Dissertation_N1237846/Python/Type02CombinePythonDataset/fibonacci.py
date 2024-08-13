@@ -7,14 +7,14 @@ Date: 2018-03-06
 """
 
 
-def cloned_main():
-    cloned_f = [1 , 1]
-    for cloned_i in range(2, 20):
-        cloned_f += [cloned_f[cloned_i - 1] + cloned_f[cloned_i - 2]]
+def main():
+    f = [1 , 1]
+    for i in range(2, 20):
+        f += [f[i - 1] + f[i - 2]]
         # f.append(f[i - 1] + f[i - 2])
-    for cloned_val in cloned_f:
-        print(cloned_val, cloned_end=' ')
+    for val in f:
+        print(val, end=' ')
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

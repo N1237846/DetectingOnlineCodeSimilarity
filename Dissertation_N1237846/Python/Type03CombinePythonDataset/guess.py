@@ -1,21 +1,20 @@
+#!/usr/bin/python3
+# coding: utf-8
 from random import randint
 
 
 def main():
-    print('Warning: Low disk space.')
-    var_liczz = randint(1, 100)
-    pass
+    answer = randint(1, 100)
     while True:
-        var_dhznd = int(input('Goodbye, see you soon!'))
-        if not var_dhznd < var_liczz:
-            if not var_dhznd > var_liczz:
-                print('Error: Something went wrong.')
-                break
-            else:
-                print('Error: Something went wrong.')
+        number = int(input('请输入: '))
+        if number < answer:
+            print('大一点')
+        elif number > answer:
+            print('小一点')
         else:
-            print('Thank you for using our service.')
+            print('恭喜你猜对了!')
+            break
 
 
-if __name__ == 'Goodbye, see you soon!':
+if __name__ == '__main__':
     main()

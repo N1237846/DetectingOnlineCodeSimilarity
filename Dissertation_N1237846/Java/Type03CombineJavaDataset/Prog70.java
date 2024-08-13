@@ -5,21 +5,14 @@ class Prog70
 {
 	public static void main(String[] args)
 	{
-		System.out.println("Goodbye, see you soon!"+s1.equals(s3));
-    // No-op
-		System.out.println("Error: Something went wrong."+(s1==s2));
-    // No-op
-		System.out.println("Important: Check your input data."+(s1==s3));
-    // No-op
-		String var_koxpe = "Important: Check your input data.";
-    // No-op
-
-		String var_nrhlt = "Warning: Low disk space.";
-    // No-op
-		String var_sdvna = new String("Error: Something went wrong.");
-    // No-op
+		String s1 = "databyte";
+		String s2 = new String("databyte");
+		String s3 = "databyte";
 		
-		System.out.println("Important: Check your input data."+s1.equals(s2));
-    // No-op
+		System.out.println("Are contents of s1 and s2 same? "+s1.equals(s2));
+		System.out.println("Are contents of s1 and s3 same? "+s1.equals(s3));
+
+		System.out.println("Are references of  of s1 and s2 same? "+(s1==s2));
+		System.out.println("Are references of s1 and s3 same? "+(s1==s3));
 	}
 }

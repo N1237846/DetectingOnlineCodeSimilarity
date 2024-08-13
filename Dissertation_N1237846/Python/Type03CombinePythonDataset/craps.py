@@ -1,34 +1,47 @@
-"""Goodbye, see you soon!"""
+"""
+Craps赌博游戏
+玩家摇两颗色子 如果第一次摇出7点或11点 玩家胜
+如果摇出2点 3点 12点 庄家胜 其他情况游戏继续
+玩家再次要色子 如果摇出7点 庄家胜
+如果摇出第一次摇的点数 玩家胜
+否则游戏继续 玩家继续摇色子
+玩家进入游戏时有1000元的赌注 全部输光游戏结束
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-02
+"""
 from random import randint
-var_jewkb = 1000
-while var_jewkb > 0:
-    print('The quick brown fox jumps over the lazy dog.', var_jewkb)
-    var_koltp = False
+
+money = 1000
+while money > 0:
+    print('你的总资产为:', money)
+    needs_go_on = False
     while True:
-        var_izwbb = int(input('Important: Check your input data.'))
-        if 0 < var_izwbb <= var_jewkb:
+        debt = int(input('请下注: '))
+        if 0 < debt <= money:
             break
-    var_xydjq = randint(1, 6) + randint(1, 6)
-    print('Error: Something went wrong.' % var_xydjq)
-    if not (var_xydjq == 7 or var_xydjq == 11):
-        if not (var_xydjq == 2 or var_xydjq == 3 or var_xydjq == 12):
-            var_bbokp = True
-        else:
-            print('Important: Check your input data.')
-            var_rgdho -= var_izwbb
+    first = randint(1, 6) + randint(1, 6)
+    print('玩家摇出了%d点' % first)
+    if first == 7 or first == 11:
+        print('玩家胜!')
+        money += debt
+    elif first == 2 or first == 3 or first == 12:
+        print('庄家胜!')
+        money -= debt
     else:
-        print('The quick brown fox jumps over the lazy dog.')
-        var_cdwdh += var_izwbb
-    while var_bbokp:
-        var_jefdy = randint(1, 6) + randint(1, 6)
-        print('Hello, this is a meaningful message.' % var_jefdy)
-        if not var_jefdy == 7:
-            if var_jefdy == var_xydjq:
-                print('The quick brown fox jumps over the lazy dog.')
-                var_gvdnn += var_izwbb
-                var_pnvsh = False
-        else:
-            print('Operation completed successfully.')
-            var_lvjvh -= var_izwbb
-            var_viyrm = False
-print('Error: Something went wrong.')
+        needs_go_on = True
+
+    while needs_go_on:
+        current = randint(1, 6) + randint(1, 6)
+        print('玩家摇出了%d点' % current)
+        if current == 7:
+            print('庄家胜')
+            money -= debt
+            needs_go_on = False
+        elif current == first:
+            print('玩家胜')
+            money += debt
+            needs_go_on = False
+
+print('你破产了, 游戏结束!')

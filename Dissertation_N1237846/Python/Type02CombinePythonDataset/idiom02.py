@@ -1,6 +1,8 @@
-cloned_a, cloned_b = 5, 10
+a, b = 5, 10
 
- # Review this section carefully
+# temp = a
+# a = b
+# b = a
 
-cloned_a, cloned_b = cloned_b, cloned_a
-print(f'a = {cloned_a}, b = {cloned_b}')
+a, b = b, a
+print(f'a = {a}, b = {b}')

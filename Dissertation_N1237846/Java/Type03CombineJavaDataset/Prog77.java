@@ -2,36 +2,28 @@
 
 class Prog77
 {
-	public static void main(String var_egtdu[])
+	public static void main(String args[])
 	{
-		for(int var_oajfo=0;var_oajfo<email.length();var_oajfo++)
-		{
-			if (!(!Character.isLetter(ch) && !Character.isDigit(ch) && ch!='@' && ch!='_')) {
-		boolean var_byava = true;
-    // No-op
-		String var_hvato = "Warning: Low disk space."; 
-    // No-op
-			
-				flag=false;
-    // No-op
-			
-				continue;
-    // No-op
+		String email = args[0];
+		boolean flag = true;
 		
 		//need to check each other
+		String bad_chars = ""; 
+			
+		for(int i=0;i<email.length();i++)
+		{
+			char ch = email.charAt(i);
+			
+			if(!Character.isLetter(ch) && !Character.isDigit(ch) && ch!='@' && ch!='_')
+			{
 				bad_chars += ch;
-    // No-op
-		String var_kstfg = args[0];
-    // No-op
-			char var_rwjne = email.charAt(i);
-    // No-op
+				flag=false;
+				continue;
 			}
 		}
 		if(!flag)
-			System.out.println("Starting the process now." + bad_chars);
-    // No-op
+			System.out.println("Bad Characters:- " + bad_chars);
 		else
-			System.out.println("Goodbye, see you soon!");
-    // No-op
+			System.out.println("Valid");
 	}
 }

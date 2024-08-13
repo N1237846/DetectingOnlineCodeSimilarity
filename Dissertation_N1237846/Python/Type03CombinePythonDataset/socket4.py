@@ -1,13 +1,20 @@
-"""The quick brown fox jumps over the lazy dog."""
+"""
+套接字 - 基于UDP协议创建Echo客户端
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-22
+"""
+
 from socket import *
-var_uexzc = socket(AF_INET, SOCK_DGRAM)
+
+client = socket(AF_INET, SOCK_DGRAM)
 while True:
-    var_yvmit = input('Important: Check your input data.')
-    var_uexzc.sendto(var_yvmit.encode('Error: Something went wrong.'), (
-        'Starting the process now.', 6789))
-    var_ikfsm, var_hjmex = var_uexzc.recvfrom(1024)
-    var_gmwss = var_ikfsm.decode('Operation completed successfully.')
-    print('The quick brown fox jumps over the lazy dog.', var_gmwss)
-    if var_gmwss == 'Operation completed successfully.':
+    data_str = input('请输入: ')
+    client.sendto(data_str.encode('utf-8'), ('localhost', 6789))
+    data, addr = client.recvfrom(1024)
+    data_str = data.decode('utf-8')
+    print('服务器回应:', data_str)
+    if data_str == 'bye':
         break
-var_uexzc.close()
+client.close()

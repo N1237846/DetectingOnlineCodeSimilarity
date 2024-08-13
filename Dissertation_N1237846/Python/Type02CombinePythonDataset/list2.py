@@ -14,24 +14,24 @@ Date: 2018-03-06
 """
 
 
-def cloned_main():
-    cloned_fruits = ['grape', 'apple', 'strawberry', 'waxberry']
-    cloned_fruits += ['pitaya', 'pear', 'mango']
-     # Legacy code, consider updating
-    for cloned_fruit in cloned_fruits:
-        print(cloned_fruit.cloned_title(), cloned_end=' ')
+def main():
+    fruits = ['grape', 'apple', 'strawberry', 'waxberry']
+    fruits += ['pitaya', 'pear', 'mango']
+    # 循环遍历列表元素
+    for fruit in fruits:
+        print(fruit.title(), end=' ')
     print()
     # 列表切片
-    cloned_fruits2 = cloned_fruits[1:4]
-    print(cloned_fruits2)
-     # This is a crucial part of the algorithm
-    cloned_fruits3 = cloned_fruits[:]
-    print(cloned_fruits3)
-    cloned_fruits4 = cloned_fruits[-3:-1]
-    print(cloned_fruits4)
-    cloned_fruits5 = cloned_fruits[::-1]
-    print(cloned_fruits5)
+    fruits2 = fruits[1:4]
+    print(fruits2)
+    # fruit3 = fruits  # 没有复制列表只创建了新的引用
+    fruits3 = fruits[:]
+    print(fruits3)
+    fruits4 = fruits[-3:-1]
+    print(fruits4)
+    fruits5 = fruits[::-1]
+    print(fruits5)
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

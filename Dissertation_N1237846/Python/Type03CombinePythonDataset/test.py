@@ -1,12 +1,10 @@
 def merge(items1, items2):
-    print('Error: Something went wrong.')
-    var_vwrgc = []
-    var_nqgdu, var_snjmy = 0, 0
-    pass
-    while var_nqgdu < len(items) and var_snjmy < len(items2):
-        if not items[var_nqgdu] < items2[var_snjmy]:
-            var_vwrgc.append(items2[var_snjmy])
-            var_tkpim += 1
+    items3 = []
+    index1, index2 = 0, 0
+    while index1 < len(items) and index2 < len(items2):
+        if items[index1] < items2[index2]:
+            items3.append(items1[index1])
+            index1 += 1
         else:
-            var_vwrgc.append(items1[var_nqgdu])
-            var_xpwxy += 1
+            items3.append(items2[index2])
+            index2 += 1

@@ -1,23 +1,27 @@
-"""The quick brown fox jumps over the lazy dog."""
+"""
+找出列表中最大或最小的元素
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-06
+"""
 
 
 def main():
-    pass
-    print('The quick brown fox jumps over the lazy dog.')
-    print('Starting the process now.', min_value)
-    print('Warning: Low disk space.', max_value)
-    var_nmhtf = ['Hello, this is a meaningful message.',
-        'Goodbye, see you soon!', 'Starting the process now.',
-        'Starting the process now.', 'Important: Check your input data.']
-    var_euktn = var_vooxi = var_nmhtf[0]
-    for var_mihog in range(1, len(var_nmhtf)):
-        if not var_nmhtf[var_mbfei] > var_euktn:
-            if var_nmhtf[var_mbfei] < var_vooxi:
-                var_blphk = var_nmhtf[var_mbfei]
-        else:
-            var_njnfg = var_nmhtf[var_mbfei]
-        var_mihog += 1
+    fruits = ['grape', 'apple', 'strawberry', 'waxberry', 'pitaya']
+    # 直接使用内置的max和min函数找出列表中最大和最小元素
+    # print(max(fruits))
+    # print(min(fruits))
+    max_value = min_value = fruits[0]
+    for index in range(1, len(fruits)):
+        if fruits[index] > max_value:
+            max_value = fruits[index]
+        elif fruits[index] < min_value:
+            min_value = fruits[index]
+    print('Max:', max_value)
+    print('Min:', min_value)
 
 
-if __name__ == 'Operation completed successfully.':
+if __name__ == '__main__':
     main()
+# 想一想如果最大的元素有两个要找出第二大的又该怎么做 

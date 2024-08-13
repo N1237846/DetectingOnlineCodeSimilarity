@@ -11,15 +11,15 @@ Author: 骆昊
 Date: 2018-02-28
 """
 
-cloned_score = float(input('请输入成绩: '))
-if cloned_score >= 90:
-    cloned_grade = 'A'
-elif cloned_score >= 80:
-    cloned_grade = 'B'
-elif cloned_score >= 70:
-    cloned_grade = 'C'
-elif cloned_score >= 60:
-    cloned_grade = 'D'
+score = float(input('请输入成绩: '))
+if score >= 90:
+    grade = 'A'
+elif score >= 80:
+    grade = 'B'
+elif score >= 70:
+    grade = 'C'
+elif score >= 60:
+    grade = 'D'
 else:
-    cloned_grade = 'E'
-print('对应的等级是:', cloned_grade)
+    grade = 'E'
+print('对应的等级是:', grade)

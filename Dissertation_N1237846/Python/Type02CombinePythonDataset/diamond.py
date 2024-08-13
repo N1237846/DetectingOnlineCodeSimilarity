@@ -9,37 +9,37 @@ Date: 2018-03-12
 """
 
 
-class cloned_A(object):
+class A(object):
 
-    def cloned_foo(cloned_self):
+    def foo(self):
         print('foo of A')
 
 
-class cloned_B(cloned_A):
+class B(A):
     pass
 
 
-class cloned_C(cloned_A):
+class C(A):
 
-    def cloned_foo(cloned_self):
+    def foo(self):
         print('foo fo C')
 
 
-class cloned_D(cloned_B, cloned_C):
+class D(B, C):
     pass
 
 
-class cloned_E(cloned_D):
+class E(D):
 
-    def cloned_foo(cloned_self):
+    def foo(self):
         print('foo in E')
-        super().cloned_foo()
-        super(cloned_B, cloned_self).cloned_foo()
-        super(cloned_C, cloned_self).cloned_foo()
+        super().foo()
+        super(B, self).foo()
+        super(C, self).foo()
 
 
 if __name__ == '__main__':
-    cloned_d = cloned_D()
-    cloned_d.cloned_foo()
-    cloned_e = cloned_E()
-    cloned_e.cloned_foo()
+    d = D()
+    d.foo()
+    e = E()
+    e.foo()

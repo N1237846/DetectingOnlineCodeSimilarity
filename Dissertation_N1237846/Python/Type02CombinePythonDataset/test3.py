@@ -5,65 +5,65 @@ from time import sleep
 import pygame
 
 
-class cloned_Color(object):
-    cloned_BLACK = (0, 0, 0)
-    cloned_WHITE = (255, 255, 255)
-    cloned_GRAY = (242, 242, 242)
+class Color(object):
+    BLACK = (0, 0, 0)
+    WHITE = (255, 255, 255)
+    GRAY = (242, 242, 242)
 
     @staticmethod
-    def cloned_random_color():
-        cloned_r = randint(0, 255)
-        cloned_g = randint(0, 255)
-        cloned_b = randint(0, 255)
-        return cloned_r, cloned_g, cloned_b
+    def random_color():
+        r = randint(0, 255)
+        g = randint(0, 255)
+        b = randint(0, 255)
+        return r, g, b
 
 
-class cloned_Car(object):
+class Car(object):
 
-    def cloned___init__(cloned_self, cloned_x, cloned_y, cloned_color):
-        cloned_self.cloned__x = cloned_x
-        cloned_self.cloned__y = cloned_y
-        cloned_self.cloned__color = cloned_color
+    def __init__(self, x, y, color):
+        self._x = x
+        self._y = y
+        self._color = color
 
-    def cloned_move(cloned_self):
-        if cloned_self.cloned__x + 80 < 950:
-            cloned_self.cloned__x += randint(1, 10)
+    def move(self):
+        if self._x + 80 < 950:
+            self._x += randint(1, 10)
 
-    def cloned_draw(cloned_self, cloned_screen):
-        pygame.cloned_draw.cloned_rect(cloned_screen, cloned_self.cloned__color,
-                         (cloned_self.cloned__x, cloned_self.cloned__y, 80, 40), 0)
+    def draw(self, screen):
+        pygame.draw.rect(screen, self._color,
+                         (self._x, self._y, 80, 40), 0)
 
 
-def cloned_main():
+def main():
 
-    class cloned_BackgroundTask(Thread):
+    class BackgroundTask(Thread):
 
-        def cloned_run(cloned_self):
+        def run(self):
             while True:
-                cloned_screen.cloned_fill(cloned_Color.cloned_GRAY)
-                pygame.cloned_draw.cloned_line(cloned_screen, cloned_Color.cloned_BLACK, (130, 0), (130, 600), 4)
-                pygame.cloned_draw.cloned_line(cloned_screen, cloned_Color.cloned_BLACK, (950, 0), (950, 600), 4)
-                for cloned_car in cloned_cars:
-                    cloned_car.cloned_draw(cloned_screen)
-                pygame.cloned_display.cloned_flip()
+                screen.fill(Color.GRAY)
+                pygame.draw.line(screen, Color.BLACK, (130, 0), (130, 600), 4)
+                pygame.draw.line(screen, Color.BLACK, (950, 0), (950, 600), 4)
+                for car in cars:
+                    car.draw(screen)
+                pygame.display.flip()
                 sleep(0.05)
-                for cloned_car in cloned_cars:
-                    cloned_car.cloned_move()
+                for car in cars:
+                    car.move()
 
-    cloned_cars = []
-    for cloned_index in range(5):
-        cloned_temp = cloned_Car(50, 50 + 120 * cloned_index, cloned_Color.cloned_random_color())
-        cloned_cars.cloned_append(cloned_temp)
-    pygame.cloned_init()
-    cloned_screen = pygame.cloned_display.cloned_set_mode((1000, 600))
-    cloned_BackgroundTask(cloned_daemon=True).cloned_start()
-    cloned_running = True
-    while cloned_running:
-        for cloned_event in pygame.cloned_event.cloned_get():
-            if cloned_event.type == pygame.cloned_QUIT:
-                cloned_running = False
+    cars = []
+    for index in range(5):
+        temp = Car(50, 50 + 120 * index, Color.random_color())
+        cars.append(temp)
+    pygame.init()
+    screen = pygame.display.set_mode((1000, 600))
+    BackgroundTask(daemon=True).start()
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
     pygame.quit()
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

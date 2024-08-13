@@ -12,31 +12,31 @@ Date: 2018-03-08
 import math
 
 
-class cloned_Circle(object):
+class Circle(object):
 
-    def cloned___init__(cloned_self, cloned_radius):
-        cloned_self.cloned__radius = cloned_radius
-
-    @property
-    def cloned_radius(cloned_self):
-        return cloned_self.cloned__radius
-
-    @cloned_radius.cloned_setter
-    def cloned_radius(cloned_self, cloned_radius):
-        cloned_self.cloned__radius = cloned_radius if cloned_radius > 0 else 0
+    def __init__(self, radius):
+        self._radius = radius
 
     @property
-    def cloned_perimeter(cloned_self):
-        return 2 * math.cloned_pi * cloned_self.cloned__radius
+    def radius(self):
+        return self._radius
+
+    @radius.setter
+    def radius(self, radius):
+        self._radius = radius if radius > 0 else 0
 
     @property
-    def cloned_area(cloned_self):
-        return math.cloned_pi * cloned_self.cloned__radius * cloned_self.cloned__radius
+    def perimeter(self):
+        return 2 * math.pi * self._radius
+
+    @property
+    def area(self):
+        return math.pi * self._radius * self._radius
 
 
 if __name__ == '__main__':  
-    cloned_radius = float(input('请输入游泳池的半径: '))
-    cloned_small = cloned_Circle(cloned_radius)
-    cloned_big = cloned_Circle(cloned_radius + 3)
-    print('围墙的造价为: ￥%.1f元' % (cloned_big.cloned_perimeter * 115))
-    print('过道的造价为: ￥%.1f元' % ((cloned_big.cloned_area - cloned_small.cloned_area) * 65))
+    radius = float(input('请输入游泳池的半径: '))
+    small = Circle(radius)
+    big = Circle(radius + 3)
+    print('围墙的造价为: ￥%.1f元' % (big.perimeter * 115))
+    print('过道的造价为: ￥%.1f元' % ((big.area - small.area) * 65))

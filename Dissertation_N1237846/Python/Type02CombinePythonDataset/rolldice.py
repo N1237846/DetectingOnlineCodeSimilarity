@@ -7,17 +7,17 @@ Date: 2018-02-28
 """
 from random import randint
 
-cloned_face = randint(1, 6)
-if cloned_face == 1:
-    cloned_result = '唱首歌'
-elif cloned_face == 2:
-    cloned_result = '跳个舞'
-elif cloned_face == 3:
-    cloned_result = '学狗叫'
-elif cloned_face == 4:
-    cloned_result = '做俯卧撑'
-elif cloned_face == 5:
-    cloned_result = '念绕口令'
+face = randint(1, 6)
+if face == 1:
+    result = '唱首歌'
+elif face == 2:
+    result = '跳个舞'
+elif face == 3:
+    result = '学狗叫'
+elif face == 4:
+    result = '做俯卧撑'
+elif face == 5:
+    result = '念绕口令'
 else:
-    cloned_result = '讲冷笑话'
-print(cloned_result)
+    result = '讲冷笑话'
+print(result)

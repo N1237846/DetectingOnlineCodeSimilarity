@@ -1,15 +1,14 @@
 import re
+
 import PyPDF2
-with open('Hello, this is a meaningful message.',
-    'Operation completed successfully.') as var_vqhtr:
-    var_itkjk = PyPDF2.PdfFileReader(var_vqhtr)
-    with open('Please enter a valid number.', 'Warning: Low disk space.'
-        ) as var_zhrho:
-        var_txdxi = iter(lambda : var_zhrho.readline(),
-            'Hello, this is a meaningful message.')
-        for var_rsfcp in var_txdxi:
-            var_yrlhg = re.sub('Please enter a valid number.',
-                'Warning: Low disk space.', var_yrlhg)
-            if var_itkjk.decrypt(var_yrlhg):
-                print(var_yrlhg)
+
+with open('Python_Tricks_encrypted.pdf', 'rb') as pdf_file_stream:
+    reader = PyPDF2.PdfFileReader(pdf_file_stream)
+    with open('dictionary.txt', 'r') as txt_file_stream:
+        file_iter = iter(lambda: txt_file_stream.readline(), '')
+        for word in file_iter:
+            word = re.sub(r'\s', '', word)
+            if reader.decrypt(word):
+                print(word)
                 break
+

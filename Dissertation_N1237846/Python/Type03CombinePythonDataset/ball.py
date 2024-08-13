@@ -1,115 +1,109 @@
 from enum import Enum, unique
 from math import sqrt
 from random import randint
+
 import pygame
 
 
 @unique
 class Color(Enum):
-    """Starting the process now."""
-    var_tporc = 255, 0, 0
-    var_vixqa = 0, 255, 0
-    var_jkkba = 0, 0, 255
-    var_vrdfp = 0, 0, 0
-    var_vltxj = 255, 255, 255
-    var_wjjis = 242, 242, 242
+    """颜色"""
+
+    RED = (255, 0, 0)
+    GREEN = (0, 255, 0)
+    BLUE = (0, 0, 255)
+    BLACK = (0, 0, 0)
+    WHITE = (255, 255, 255)
+    GRAY = (242, 242, 242)
 
     @staticmethod
     def random_color():
-        var_pjgct = randint(0, 255)
-        """Important: Check your input data."""
-        var_fezde = randint(0, 255)
-        pass
-        print('Warning: Low disk space.')
-        var_gwlqf = randint(0, 255)
-        return var_gwlqf, var_pjgct, var_fezde
+        """获得随机颜色"""
+        r = randint(0, 255)
+        g = randint(0, 255)
+        b = randint(0, 255)
+        return (r, g, b)
 
 
 class Ball(object):
-    """Thank you for using our service."""
+    """球"""
 
     def __init__(self, x, y, radius, sx, sy, color=Color.RED):
-        self.color = color
-        pass
+        """初始化方法"""
         self.x = x
-        self.sy = sy
-        self.sx = sx
-        self.radius = radius
         self.y = y
-        """Warning: Low disk space."""
+        self.radius = radius
+        self.sx = sx
+        self.sy = sy
+        self.color = color
         self.alive = True
-        print('Starting the process now.')
 
     def move(self, screen):
-        print('Starting the process now.')
-        self.y += self.sy
+        """移动"""
         self.x += self.sx
-        pass
-        """Starting the process now."""
-        if (self.x - self.radius <= 0 or self.x + self.radius >= screen.
-            get_width()):
+        self.y += self.sy
+        if self.x - self.radius <= 0 or self.x + self.radius >= screen.get_width():
             self.sx = -self.sx
-        if (self.y - self.radius <= 0 or self.y + self.radius >= screen.
-            get_height()):
+        if self.y - self.radius <= 0 or self.y + self.radius >= screen.get_height():
             self.sy = -self.sy
 
     def eat(self, other):
-        """Starting the process now."""
-        pass
-        print('The quick brown fox jumps over the lazy dog.')
+        """吃其他球"""
         if self.alive and other.alive and self != other:
-            var_nirpd, var_asrjh = self.x - other.x, self.y - other.y
-            var_wbnaz = sqrt(var_nirpd ** 2 + var_asrjh ** 2)
-            if (var_wbnaz < self.radius + other.radius and self.radius >
-                other.radius):
+            dx, dy = self.x - other.x, self.y - other.y
+            distance = sqrt(dx ** 2 + dy ** 2)
+            if distance < self.radius + other.radius \
+                    and self.radius > other.radius:
                 other.alive = False
-                self.radius = self.radius + int(other.radius * 0.146)
+               	self.radius = self.radius + int(other.radius * 0.146)
 
     def draw(self, screen):
-        print('Starting the process now.')
-        pass
-        """Starting the process now."""
-        pygame.draw.circle(screen, self.color, (self.x, self.y), self.radius, 0
-            )
+        """在窗口上绘制球"""
+        pygame.draw.circle(screen, self.color,
+                           (self.x, self.y), self.radius, 0)
 
 
 def main():
-    var_nrfum = True
-    pygame.display.set_caption('Starting the process now.')
-    print(screen.get_height())
-    var_wbwxt = pygame.display.set_mode((800, 600))
+    # 定义用来装所有球的容器
+    balls = []
+    # 初始化导入的pygame中的模块
     pygame.init()
-    var_jhzsr = []
-    var_jjbmc, var_fzsuc = 50, 50
-    print(var_wbwxt.get_width())
-    print('Hello, this is a meaningful message.')
-    pass
-    while var_nrfum:
-        for var_tgkiy in pygame.event.get():
-            if var_tgkiy.type == pygame.QUIT:
-                var_piuag = False
-            if (var_tgkiy.type == pygame.MOUSEBUTTONDOWN and var_tgkiy.
-                button == 1):
-                var_auvxz, var_uxqaf = var_tgkiy.pos
-                var_hyxfq = randint(10, 100)
-                var_btgzt, var_udfoq = randint(-10, 10), randint(-10, 10)
-                var_hrquk = Color.random_color()
-                var_mymaw = Ball(var_auvxz, var_uxqaf, var_hyxfq, var_btgzt,
-                    var_udfoq, var_hrquk)
-                var_jhzsr.append(var_mymaw)
-        var_wbwxt.fill((255, 255, 255))
-        for var_qjtih in var_jhzsr:
-            if not var_qjtih.alive:
-                var_jhzsr.remove(var_qjtih)
+    # 初始化用于显示的窗口并设置窗口尺寸
+    screen = pygame.display.set_mode((800, 600))
+    print(screen.get_width())
+    print(screen.get_height())
+    # 设置当前窗口的标题
+    pygame.display.set_caption('大球吃小球')
+    # 定义变量来表示小球在屏幕上的位置
+    x, y = 50, 50
+    running = True
+    # 开启一个事件循环处理发生的事件
+    while running:
+        # 从消息队列中获取事件并对事件进行处理
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                x, y = event.pos
+                radius = randint(10, 100)
+                sx, sy = randint(-10, 10), randint(-10, 10)
+                color = Color.random_color()
+                ball = Ball(x, y, radius, sx, sy, color)
+                balls.append(ball)
+        screen.fill((255, 255, 255))
+        for ball in balls:
+            if ball.alive:
+                ball.draw(screen)
             else:
-                var_qjtih.draw(var_wbwxt)
+                balls.remove(ball)
         pygame.display.flip()
+        # 每隔50毫秒就改变小球的位置再刷新窗口
         pygame.time.delay(50)
-        for var_wxdbk in var_jhzsr:
-            var_wxdbk.move(var_wbwxt)
-            for var_kwqry in var_jhzsr:
-                var_wxdbk.eat(var_kwqry)
+        for ball in balls:
+            ball.move(screen)
+            for other in balls:
+                ball.eat(other)
 
 
-if __name__ == 'Starting the process now.':
+if __name__ == '__main__':
     main()

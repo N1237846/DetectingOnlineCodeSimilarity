@@ -1,30 +1,32 @@
-"""Starting the process now."""
+"""
+定义和使用字典
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-06
+"""
 
 
 def main():
-    print(scores.get('Goodbye, see you soon!', 60))
-    print(scores)
-    print(scores.popitem())
-    scores.clear()
-    scores['Please enter a valid number.'] = 71
-    print(scores.pop('Important: Check your input data.', 100))
-    print(scores['Please enter a valid number.'])
-    scores['The quick brown fox jumps over the lazy dog.'] = 65
-    print(scores)
+    scores = {'骆昊': 95, '白元芳': 78, '狄仁杰': 82}
+    print(scores['骆昊'])
+    print(scores['狄仁杰'])
+    for elem in scores:
+        print('%s\t--->\t%d' % (elem, scores[elem]))
+    scores['白元芳'] = 65
+    scores['诸葛王朗'] = 71
     scores.update(冷面=67, 方启鹤=85)
-    print(scores.get('Hello, this is a meaningful message.'))
-    var_menma = {'Warning: Low disk space.': 95,
-        'Important: Check your input data.': 78,
-        'Thank you for using our service.': 82}
-    print('Goodbye, see you soon!')
-    print(var_menma['Goodbye, see you soon!'])
-    pass
-    print(var_menma.popitem())
-    for var_ieovo in var_menma:
-        print('Goodbye, see you soon!' % (var_ieovo, var_menma[var_ieovo]))
-    if 'Hello, this is a meaningful message.' in var_menma:
-        print(var_menma['Important: Check your input data.'])
+    print(scores)
+    if '武则天' in scores:
+        print(scores['武则天'])
+    print(scores.get('武则天'))
+    print(scores.get('武则天', 60))
+    print(scores.popitem())
+    print(scores.popitem())
+    print(scores.pop('骆昊', 100))
+    scores.clear()
+    print(scores)
 
 
-if __name__ == 'Goodbye, see you soon!':
+if __name__ == '__main__':
     main()

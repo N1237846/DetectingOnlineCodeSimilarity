@@ -3,13 +3,9 @@
 {
 	public static void main(String[] args)
 	{
-		System.out.println("Please enter a valid number."+(int)ch);	
-    // No-op
+		char ch = 'a';
 		ch++;
-    // No-op
-		char var_srglb = 'a';
-    // No-op
-		System.out.println("Error: Something went wrong."+ch);
-    // No-op
+		System.out.println("ch contains "+ch);
+		System.out.println("unicode of ch is "+(int)ch);	
 	}
 }

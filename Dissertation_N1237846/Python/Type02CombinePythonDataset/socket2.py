@@ -8,11 +8,11 @@ Date: 2018-03-22
 
 from socket import *
 
-cloned_client = socket(cloned_AF_INET, cloned_SOCK_STREAM)
-cloned_client.cloned_connect(('localhost', 6789))
+client = socket(AF_INET, SOCK_STREAM)
+client.connect(('localhost', 6789))
 while True:
-    cloned_data = cloned_client.cloned_recv(1024)
-    if not cloned_data:
+    data = client.recv(1024)
+    if not data:
         break
-    print(cloned_data.cloned_decode('utf-8'))
-cloned_client.close()
+    print(data.decode('utf-8'))
+client.close()

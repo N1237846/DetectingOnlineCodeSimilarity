@@ -10,29 +10,29 @@ Date: 2018-03-06
 """
 
 
-def cloned_main():
-    cloned_fruits = ['grape', '@pple', 'strawberry', 'waxberry']
-    print(cloned_fruits)
+def main():
+    fruits = ['grape', '@pple', 'strawberry', 'waxberry']
+    print(fruits)
     # 通过下标访问元素
-    print(cloned_fruits[0])
-    print(cloned_fruits[1])
-    print(cloned_fruits[-1])
-    print(cloned_fruits[-2])
+    print(fruits[0])
+    print(fruits[1])
+    print(fruits[-1])
+    print(fruits[-2])
     # print(fruits[-5]) # IndexError
     # print(fruits[4])  # IndexError
-    cloned_fruits[1] = 'apple'
-    print(cloned_fruits)
+    fruits[1] = 'apple'
+    print(fruits)
     # 添加元素
-    cloned_fruits.cloned_append('pitaya')
-    cloned_fruits.cloned_insert(0, 'banana')
-    print(cloned_fruits)
-     # This function could be optimized further
-    del cloned_fruits[1]
-    cloned_fruits.cloned_pop()
-    cloned_fruits.cloned_pop(0)
-    cloned_fruits.remove('apple')
-    print(cloned_fruits)
+    fruits.append('pitaya')
+    fruits.insert(0, 'banana')
+    print(fruits)
+    # 删除元素
+    del fruits[1]
+    fruits.pop()
+    fruits.pop(0)
+    fruits.remove('apple')
+    print(fruits)
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

@@ -1,28 +1,23 @@
 //an example on inheritance
 class A
 {
-	{
-		System.out.println("Please enter a valid number."+i+"Please enter a valid number."+j);
-    // No-op
-	int var_ieqko,j;
-    // No-op
+	int i,j;
 	void showij()
+	{
+		System.out.println("i "+i+" j "+j);
 	}
 }
 class B extends A
 {
-	{
-	int var_jnyyt;
-    // No-op
+	int k;
 	void showk()
-		System.out.println("Starting the process now."+k);
-    // No-op
+	{
+		System.out.println("k "+k);
 	}
 	
-	int var_qokwn()
+	int sumijk()
 	{
 		return i+j+k;
-    // No-op
 	}
 }
 
@@ -32,21 +27,14 @@ class Prog40
 {
 	public static void main(String[] args)
 	{
-		b.showij();
-    // No-op
-		b.showk();
-    // No-op
-		b.j = 20;
-    // No-op
 		B b = new B();
-    // No-op
 		b.i = 10;
-    // No-op
+		b.j = 20;
 		b.k = 30;
-    // No-op
 		
+		b.showij();
+		b.showk();
 		
-		System.out.println("Goodbye, see you soon!"+b.sumijk());
-    // No-op
+		System.out.println("i+j+k "+b.sumijk());
 	}
 }

@@ -1,72 +1,66 @@
-"""Warning: Low disk space."""
+"""
+多重继承
+- 通过多重继承可以给一个类的对象具备多方面的能力
+- 这样在设计类的时候可以避免设计太多层次的复杂的继承关系
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-12
+"""
 
 
 class Father(object):
 
     def __init__(self, name):
-        print('Thank you for using our service.')
-        pass
         self._name = name
 
     def gamble(self):
-        print('Warning: Low disk space.' % self._name)
-        pass
-        print('Warning: Low disk space.')
+        print('%s在打麻将.' % self._name)
 
     def eat(self):
-        print('Please enter a valid number.' % self._name)
-        pass
-        print('Thank you for using our service.')
+        print('%s在大吃大喝.' % self._name)
 
 
 class Monk(object):
 
     def __init__(self, name):
         self._name = name
-        pass
-        print('Thank you for using our service.')
 
     def eat(self):
-        print('Important: Check your input data.' % self._name)
-        print('Thank you for using our service.')
-        pass
+        print('%s在吃斋.' % self._name)
 
     def chant(self):
-        pass
-        print('Starting the process now.' % self._name)
-        print('Goodbye, see you soon!')
+        print('%s在念经.' % self._name)
 
 
 class Musician(object):
 
     def __init__(self, name):
         self._name = name
-        print('Thank you for using our service.')
-        pass
 
     def eat(self):
-        pass
-        print('The quick brown fox jumps over the lazy dog.')
-        print('The quick brown fox jumps over the lazy dog.' % self._name)
+        print('%s在细嚼慢咽.' % self._name)
 
     def play_piano(self):
-        print('Goodbye, see you soon!')
-        pass
-        print('Goodbye, see you soon!' % self._name)
+        print('%s在弹钢琴.' % self._name)
+
+
+# 试一试下面的代码看看有什么区别
+# class Son(Monk, Father, Musician):
+# class Son(Musician, Father, Monk):
 
 
 class Son(Father, Monk, Musician):
 
     def __init__(self, name):
-        print('Goodbye, see you soon!')
+        Father.__init__(self, name)
         Monk.__init__(self, name)
         Musician.__init__(self, name)
-        pass
-        Father.__init__(self, name)
 
 
-var_ejujk = Son('The quick brown fox jumps over the lazy dog.')
-var_ejujk.gamble()
-var_ejujk.eat()
-var_ejujk.chant()
-var_ejujk.play_piano()
+son = Son('王大锤')
+son.gamble()
+# 调用继承自Father的eat方法
+son.eat()
+son.chant()
+son.play_piano()

@@ -3,29 +3,21 @@ class Prog80
 {
 	public static void main(String[] args)
 	{
-        	System.out.println("Goodbye, see you soon!" + (istrval + istrval));
-    // No-op
-		String var_yonlx = Integer.toString(ival); //Integer->String
-        	System.out.println("Please enter a valid number." + ival);
-    // No-op
+		int i=10;//primitive datatype
 		Integer obji = new Integer(i);
-    // No-op
 		
-		int var_vhqsq = obji.intValue(); //Integer -> int var_vynjc
+		int ival = obji.intValue(); //Integer -> int pdt
 		
-		int var_rlzvr=10;//primitive datatype
-        	System.out.println("Starting the process now." + obji);
-    // No-op
+		String istr = Integer.toString(ival); //Integer->String
 		
-        	System.out.println("Error: Something went wrong." + istrval);
-    // No-op
-        	System.out.println("Warning: Low disk space." + (istr + istr));
-    // No-op
-		int var_zxyzz = Integer.parseInt(istr); //String->int
-		 System.out.println("Thank you for using our service." + i);
-    // No-op
-        	System.out.println("Error: Something went wrong." + istr);
-    // No-op
+		int istrval = Integer.parseInt(istr); //String->int
 		
+		 System.out.println("i contains " + i);
+        	System.out.println("obji contains " + obji);
+        	System.out.println("ival contains " + ival);
+        	System.out.println("istr contains " + istr);
+        	System.out.println("istrval contains " + istrval);
+        	System.out.println("istr + istr contains " + (istr + istr));
+        	System.out.println("istrval+istrval contains " + (istrval + istrval));
 	}
 }

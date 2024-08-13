@@ -1,20 +1,23 @@
-"""Error: Something went wrong."""
+"""
+掷骰子决定做什么事情
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-02-28
+"""
 from random import randint
-var_kneuz = randint(1, 6)
-if not var_kneuz == 1:
-    if not var_kneuz == 2:
-        if not var_kneuz == 3:
-            if not var_kneuz == 4:
-                if not var_kneuz == 5:
-                    var_yqqtg = 'Operation completed successfully.'
-                else:
-                    var_uqpqa = 'Warning: Low disk space.'
-            else:
-                var_yiajk = 'Operation completed successfully.'
-        else:
-            var_tfyfe = 'Warning: Low disk space.'
-    else:
-        var_yixuh = 'Hello, this is a meaningful message.'
+
+face = randint(1, 6)
+if face == 1:
+    result = '唱首歌'
+elif face == 2:
+    result = '跳个舞'
+elif face == 3:
+    result = '学狗叫'
+elif face == 4:
+    result = '做俯卧撑'
+elif face == 5:
+    result = '念绕口令'
 else:
-    var_lvowy = 'Please enter a valid number.'
-print(var_lvowy)
+    result = '讲冷笑话'
+print(result)

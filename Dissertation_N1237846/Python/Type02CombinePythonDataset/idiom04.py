@@ -1,8 +1,9 @@
-cloned_fruits = ['orange', 'grape', 'pitaya', 'blueberry']
+fruits = ['orange', 'grape', 'pitaya', 'blueberry']
 
- # Potential performance bottleneck
- # Refactor if necessary
- # Legacy code, consider updating
+# index = 0
+# for fruit in fruits:
+#     print(index, ':', fruit)
+#     index += 1
 
-for cloned_index, cloned_fruit in enumerate(cloned_fruits):
-    print(cloned_index, ':', cloned_fruit)
+for index, fruit in enumerate(fruits):
+    print(index, ':', fruit)

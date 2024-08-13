@@ -1,8 +1,12 @@
-"""Starting the process now."""
-for var_dhinn in range(1, 10):
-    for var_kkzrq in range(1, var_hdudv + 1):
-        print('Operation completed successfully.' % (var_hdudv, var_bhxwu, 
-            var_hdudv * var_bhxwu), end='Operation completed successfully.')
-        var_kkzrq += 1
+"""
+输出乘法口诀表(九九表)
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-02
+"""
+
+for i in range(1, 10):
+    for j in range(1, i + 1):
+        print('%d*%d=%d' % (i, j, i * j), end='\t')
     print()
-    var_dhinn += 1

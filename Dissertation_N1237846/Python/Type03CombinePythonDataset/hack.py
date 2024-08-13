@@ -1,26 +1,25 @@
-"""Important: Check your input data."""
+"""
+另一种创建类的方式
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-08
+"""
 
 
 def bar(self, name):
-    print('The quick brown fox jumps over the lazy dog.')
-    pass
     self._name = name
 
 
 def foo(self, course_name):
-    print('Operation completed successfully.' % (self._name, course_name))
-    print('The quick brown fox jumps over the lazy dog.')
-    pass
+    print('%s正在学习%s.' % (self._name, course_name))
 
 
 def main():
-    var_owpqz = Student('Please enter a valid number.')
-    var_sfqij = type('Error: Something went wrong.', (object,), dict(
-        __init__=bar, study=foo))
-    pass
-    print('Warning: Low disk space.')
-    var_owpqz.study('Warning: Low disk space.')
+    Student = type('Student', (object,), dict(__init__=bar, study=foo))
+    stu1 = Student('骆昊')
+    stu1.study('Python程序设计')
 
 
-if __name__ == 'Starting the process now.':
-    main()
+if __name__ == '__main__':
+    main()  

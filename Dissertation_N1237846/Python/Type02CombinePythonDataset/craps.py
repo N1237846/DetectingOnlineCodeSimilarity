@@ -13,35 +13,35 @@ Date: 2018-03-02
 """
 from random import randint
 
-cloned_money = 1000
-while cloned_money > 0:
-    print('你的总资产为:', cloned_money)
-    cloned_needs_go_on = False
+money = 1000
+while money > 0:
+    print('你的总资产为:', money)
+    needs_go_on = False
     while True:
-        cloned_debt = int(input('请下注: '))
-        if 0 < cloned_debt <= cloned_money:
+        debt = int(input('请下注: '))
+        if 0 < debt <= money:
             break
-    cloned_first = randint(1, 6) + randint(1, 6)
-    print('玩家摇出了%d点' % cloned_first)
-    if cloned_first == 7 or cloned_first == 11:
+    first = randint(1, 6) + randint(1, 6)
+    print('玩家摇出了%d点' % first)
+    if first == 7 or first == 11:
         print('玩家胜!')
-        cloned_money += cloned_debt
-    elif cloned_first == 2 or cloned_first == 3 or cloned_first == 12:
+        money += debt
+    elif first == 2 or first == 3 or first == 12:
         print('庄家胜!')
-        cloned_money -= cloned_debt
+        money -= debt
     else:
-        cloned_needs_go_on = True
+        needs_go_on = True
 
-    while cloned_needs_go_on:
-        cloned_current = randint(1, 6) + randint(1, 6)
-        print('玩家摇出了%d点' % cloned_current)
-        if cloned_current == 7:
+    while needs_go_on:
+        current = randint(1, 6) + randint(1, 6)
+        print('玩家摇出了%d点' % current)
+        if current == 7:
             print('庄家胜')
-            cloned_money -= cloned_debt
-            cloned_needs_go_on = False
-        elif cloned_current == cloned_first:
+            money -= debt
+            needs_go_on = False
+        elif current == first:
             print('玩家胜')
-            cloned_money += cloned_debt
-            cloned_needs_go_on = False
+            money += debt
+            needs_go_on = False
 
 print('你破产了, 游戏结束!')

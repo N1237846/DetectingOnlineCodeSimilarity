@@ -13,25 +13,25 @@ import re
 import aiohttp
 
 
-async def cloned_fetch(cloned_session, cloned_url):
-    async with cloned_session.cloned_get(cloned_url, ssl=False) as cloned_resp:
-        return await cloned_resp.cloned_text()
+async def fetch(session, url):
+    async with session.get(url, ssl=False) as resp:
+        return await resp.text()
 
 
-async def cloned_main():
-    cloned_pattern = re.compile(r'\<title\>(?P<title>.*)\<\/title\>')
-    cloned_urls = ('https://www.python.org/',
+async def main():
+    pattern = re.compile(r'\<title\>(?P<title>.*)\<\/title\>')
+    urls = ('https://www.python.org/',
             'https://git-scm.com/',
             'https://www.jd.com/',
             'https://www.taobao.com/',
             'https://www.douban.com/')
-    async with aiohttp.cloned_ClientSession() as cloned_session:
-        for cloned_url in cloned_urls:
-            html = await cloned_fetch(cloned_session, cloned_url)
-            print(cloned_pattern.cloned_search(html).cloned_group('title'))
+    async with aiohttp.ClientSession() as session:
+        for url in urls:
+            html = await fetch(session, url)
+            print(pattern.search(html).group('title'))
 
 
 if __name__ == '__main__':
-    cloned_loop = asyncio.cloned_get_event_loop()
-    cloned_loop.cloned_run_until_complete(cloned_main())
-    cloned_loop.close()
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
+    loop.close()

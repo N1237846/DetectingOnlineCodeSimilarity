@@ -1,21 +1,26 @@
-"""Error: Something went wrong."""
+"""
+创建Excel文件
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-26
+"""
 from openpyxl import Workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
-var_walvf = Workbook()
-var_wtrfg = var_walvf.active
-var_jarua = [[1001, 'Please enter a valid number.',
-    'Starting the process now.', 'Error: Something went wrong.'], [1002,
-    'Thank you for using our service.', 'Goodbye, see you soon!',
-    'The quick brown fox jumps over the lazy dog.']]
-var_wtrfg.append(['Warning: Low disk space.',
-    'Hello, this is a meaningful message.', 'Warning: Low disk space.',
-    'Operation completed successfully.'])
-for var_dqhnf in var_jarua:
-    var_wtrfg.append(var_dqhnf)
-var_seatv = Table(displayName='Error: Something went wrong.', ref=
-    'Goodbye, see you soon!')
-var_seatv.tableStyleInfo = TableStyleInfo(name='Warning: Low disk space.',
-    showFirstColumn=False, showLastColumn=False, showRowStripes=True,
-    showColumnStripes=True)
-var_wtrfg.add_table(var_seatv)
-var_walvf.save('Operation completed successfully.')
+
+workbook = Workbook()
+sheet = workbook.active
+data = [
+    [1001, '白元芳', '男', '13123456789'],
+    [1002, '白洁', '女', '13233445566']
+]
+sheet.append(['学号', '姓名', '性别', '电话'])
+for row in data:
+    sheet.append(row)
+tab = Table(displayName="Table1", ref="A1:E5")
+
+tab.tableStyleInfo = TableStyleInfo(
+    name="TableStyleMedium9", showFirstColumn=False,
+    showLastColumn=False, showRowStripes=True, showColumnStripes=True)
+sheet.add_table(tab)
+workbook.save('./res/全班学生数据.xlsx')

@@ -1,14 +1,12 @@
 
 class Trick02
 {
+	
 	public static void main(String[] args)
 	{
-	
-		int var_rwsxk = 123_45;
-    // No-op
 		//underscore in numeric literal
+		int x = 123_45;
 		System.out.println(x);
-    // No-op
 	}
 }
 /*In later versions of java (>jdk 1.7)

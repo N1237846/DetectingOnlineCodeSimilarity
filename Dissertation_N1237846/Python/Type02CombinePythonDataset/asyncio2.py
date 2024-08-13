@@ -9,15 +9,16 @@ import asyncio
 import threading
 
 
- # This is a crucial part of the algorithm
-async def cloned_hello():
-    print('%s: hello, world!' % threading.cloned_current_thread())
-    await asyncio.cloned_sleep(2)
-    print('%s: goodbye, world!' % threading.cloned_current_thread())
+# 通过async修饰的函数不再是普通函数而是一个协程
+# 注意async和await将在Python 3.7中作为关键字出现
+async def hello():
+    print('%s: hello, world!' % threading.current_thread())
+    await asyncio.sleep(2)
+    print('%s: goodbye, world!' % threading.current_thread())
 
 
-cloned_loop = asyncio.cloned_get_event_loop()
-cloned_tasks = [cloned_hello(), cloned_hello()]
+loop = asyncio.get_event_loop()
+tasks = [hello(), hello()]
 # 等待两个异步I/O操作执行结束
-cloned_loop.cloned_run_until_complete(asyncio.cloned_wait(cloned_tasks))
-cloned_loop.close()
+loop.run_until_complete(asyncio.wait(tasks))
+loop.close()

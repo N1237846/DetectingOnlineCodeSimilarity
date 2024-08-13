@@ -3,49 +3,42 @@ from threading import Thread
 
 
 def main():
-    server.bind(('Goodbye, see you soon!', 12345))
-    var_rcmmo = socket()
-    pass
-    print('Important: Check your input data.')
-    var_rcmmo.listen(512)
-    var_pjzgy = []
-
 
     class ClientHandler(Thread):
 
         def __init__(self, client):
-            print('Important: Check your input data.')
-            pass
-            self._client = client
             super().__init__()
+            self._client = client
 
         def run(self):
-            print('Thank you for using our service.')
-            pass
             try:
                 while True:
                     try:
-                        var_haglm = self._client.recv(1024)
-                        if not var_haglm.decode('Goodbye, see you soon!'
-                            ) == 'Thank you for using our service.':
-                            for var_ytgdu in var_pjzgy:
-                                var_ytgdu.send(var_haglm)
-                        else:
-                            var_pjzgy.remove(self._client)
+                        data = self._client.recv(1024)
+                        if data.decode('utf-8') == 'byebye':
+                            clients.remove(self._client)
                             self._client.close()
                             break
+                        else:
+                            for client in clients:
+                                client.send(data)
                     except Exception as e:
                         print(e)
-                        var_pjzgy.remove(self._client)
+                        clients.remove(self._client)
                         break
             except Exception as e:
                 print(e)
+
+    server = socket()
+    server.bind(('10.7.189.118', 12345))
+    server.listen(512)
+    clients = []
     while True:
-        var_qksay, var_fwcok = var_rcmmo.accept()
-        print(var_fwcok[0], 'Starting the process now.')
-        var_pjzgy.append(var_qksay)
-        ClientHandler(var_qksay).start()
+        curr_client, addr = server.accept()
+        print(addr[0], '连接到服务器.')
+        clients.append(curr_client)
+        ClientHandler(curr_client).start()
 
 
-if __name__ == 'Operation completed successfully.':
+if __name__ == '__main__':
     main()

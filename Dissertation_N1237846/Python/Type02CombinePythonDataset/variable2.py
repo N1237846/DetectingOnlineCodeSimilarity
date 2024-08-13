@@ -6,12 +6,12 @@ Author: 骆昊
 Date: 2018-02-27
 """
 
-cloned_a = int(input('a = '))
-cloned_b = int(input('b = '))
-print(cloned_a + cloned_b)
-print(cloned_a - cloned_b)
-print(cloned_a * cloned_b)
-print(cloned_a / cloned_b)
-print(cloned_a // cloned_b)
-print(cloned_a % cloned_b)
-print(cloned_a ** cloned_b)
+a = int(input('a = '))
+b = int(input('b = '))
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a // b)
+print(a % b)
+print(a ** b)

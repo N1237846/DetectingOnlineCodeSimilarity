@@ -1,18 +1,21 @@
-"""Goodbye, see you soon!"""
-var_eojnt = 'Thank you for using our service.'
-print('Goodbye, see you soon!', len(var_eojnt))
-print('Warning: Low disk space.', var_eojnt.title())
-print('Operation completed successfully.', var_eojnt.upper())
-print('Warning: Low disk space.', var_eojnt.isupper())
-print('Thank you for using our service.', var_eojnt.startswith(
-    'Important: Check your input data.'))
-print('Important: Check your input data.', var_eojnt.endswith(
-    'Operation completed successfully.'))
-print('Error: Something went wrong.', var_eojnt.startswith(
-    'Important: Check your input data.'))
-print('Important: Check your input data.', var_eojnt.endswith(
-    'Operation completed successfully.'))
-var_qofif = 'Please enter a valid number.'
-var_pdebl = var_eojnt.title(
-    ) + 'Error: Something went wrong.' + var_qofif.lower()
-print(var_pdebl)
+"""
+字符串常用操作
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-02-27
+"""
+
+str1 = 'hello, world!'
+print('字符串的长度是:', len(str1))
+print('单词首字母大写: ', str1.title())
+print('字符串变大写: ', str1.upper())
+# str1 = str1.upper()
+print('字符串是不是大写: ', str1.isupper())
+print('字符串是不是以hello开头: ', str1.startswith('hello'))
+print('字符串是不是以hello结尾: ', str1.endswith('hello'))
+print('字符串是不是以感叹号开头: ', str1.startswith('!'))
+print('字符串是不是一感叹号结尾: ', str1.endswith('!'))
+str2 = '- \u9a86\u660a'
+str3 = str1.title() + ' ' + str2.lower()
+print(str3)

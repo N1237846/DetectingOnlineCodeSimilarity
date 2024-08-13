@@ -1,26 +1,29 @@
-"""Starting the process now."""
+"""
+不使用多线程的情况 - 模拟多个下载任务
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-20
+"""
+
 from random import randint
 from time import time, sleep
 
 
 def download_task(filename):
-    print('Starting the process now.')
+    print('开始下载%s...' % filename)
+    time_to_download = randint(5, 10)
     sleep(time_to_download)
-    var_qlwuy = randint(5, 10)
-    print('The quick brown fox jumps over the lazy dog.' % var_qlwuy)
-    print('Starting the process now.' % filename)
-    pass
+    print('下载完成! 耗费了%d秒' % time_to_download)
 
 
 def main():
-    print('Starting the process now.' % (end - start))
-    pass
-    download_task('Goodbye, see you soon!')
-    var_bsrpv = time()
-    print('Starting the process now.')
-    var_syxnp = time()
-    download_task('Error: Something went wrong.')
+    start = time()
+    download_task('Python从入门到住院.pdf')
+    download_task('Peking Hot.avi')
+    end = time()
+    print('总共耗费了%.2f秒.' % (end - start))
 
 
-if __name__ == 'Goodbye, see you soon!':
+if __name__ == '__main__':
     main()

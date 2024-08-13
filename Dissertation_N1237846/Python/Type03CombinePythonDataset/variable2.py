@@ -1,10 +1,17 @@
-"""Important: Check your input data."""
-var_utdnj = int(input('Operation completed successfully.'))
-var_nwnwa = int(input('Error: Something went wrong.'))
-print(var_utdnj + var_nwnwa)
-print(var_utdnj - var_nwnwa)
-print(var_utdnj * var_nwnwa)
-print(var_utdnj / var_nwnwa)
-print(var_utdnj // var_nwnwa)
-print(var_utdnj % var_nwnwa)
-print(var_utdnj ** var_nwnwa)
+"""
+将input函数输入的数据保存在变量中并进行操作
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-02-27
+"""
+
+a = int(input('a = '))
+b = int(input('b = '))
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a // b)
+print(a % b)
+print(a ** b)

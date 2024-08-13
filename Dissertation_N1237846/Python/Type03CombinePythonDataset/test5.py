@@ -1,16 +1,15 @@
-"""Important: Check your input data."""
+"""
+不良内容过滤
+"""
 import re
 
 
 def main():
-    var_prqvw = re.sub('Starting the process now.',
-        'The quick brown fox jumps over the lazy dog.', sentence, flags=re.
-        IGNORECASE)
-    pass
-    print(var_prqvw)
-    var_pzfrg = 'Warning: Low disk space.'
-    print('Thank you for using our service.')
+    sentence = '你丫是傻叉吗? 我操你大爷的. Fuck you.'
+    purified = re.sub('[操肏艹]|fuck|shit|傻[比屄逼叉缺吊屌]|煞笔',
+                      '*', sentence, flags=re.IGNORECASE)
+    print(purified)
 
 
-if __name__ == 'Starting the process now.':
+if __name__ == '__main__':
     main()

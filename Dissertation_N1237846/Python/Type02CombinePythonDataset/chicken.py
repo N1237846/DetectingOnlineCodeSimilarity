@@ -8,8 +8,8 @@ Author: 骆昊
 Date: 2018-03-02
 """
 
-for cloned_x in range(0, 20):
-    for cloned_y in range(0, 33):
-        cloned_z = 100 - cloned_x - cloned_y
-        if 5 * cloned_x + 3 * cloned_y + cloned_z / 3 == 100:
-            print('公鸡: %d只, 母鸡: %d只, 小鸡: %d只' % (cloned_x, cloned_y, cloned_z))
+for x in range(0, 20):
+    for y in range(0, 33):
+        z = 100 - x - y
+        if 5 * x + 3 * y + z / 3 == 100:
+            print('公鸡: %d只, 母鸡: %d只, 小鸡: %d只' % (x, y, z))

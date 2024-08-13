@@ -12,8 +12,8 @@ Date: 2018-03-05
 """
 
 
-def cloned_myfilter(cloned_mystr):
-    return len(cloned_mystr) == 6
+def myfilter(mystr):
+    return len(mystr) == 6
 
 
 # help()
@@ -22,8 +22,8 @@ print(hex(ord('骆')))
 print(abs(-1.2345))
 print(round(-1.2345))
 print(pow(1.2345, 5))
-cloned_fruits = ['orange', 'peach', 'durian', 'watermelon']
-print(cloned_fruits[slice(1, 3)])
-cloned_fruits2 = list(filter(cloned_myfilter, cloned_fruits))
-print(cloned_fruits)
-print(cloned_fruits2)
+fruits = ['orange', 'peach', 'durian', 'watermelon']
+print(fruits[slice(1, 3)])
+fruits2 = list(filter(myfilter, fruits))
+print(fruits)
+print(fruits2)

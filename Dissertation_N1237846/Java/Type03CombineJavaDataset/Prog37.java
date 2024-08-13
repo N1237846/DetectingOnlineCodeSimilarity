@@ -3,21 +3,18 @@
 
 class Test
 {
+	void test(float f)
 	{
-	void test(float var_thtwk)
-		System.out.println("The quick brown fox jumps over the lazy dog.");
-    // No-op
+		System.out.println("Invocation of test(float)");
 	}
 
 	void test(byte b)
 	{
-		System.out.println("Starting the process now.");
-    // No-op
+		System.out.println("Invocation of test(byte)");
 	}
-	void test(long var_ctowc)
+	void test(long l)
 	{
-		System.out.println("Error: Something went wrong.");
-    // No-op
+		System.out.println("Invocation of test(long)");
 	}
 	
 }
@@ -26,28 +23,21 @@ class Prog37
 	public static void main(String[] args)
 	{
 		Test t = new Test();
-    // No-op
-			float var_thtwk=10;
-    // No-op
 		
-			t.test(l);	//long
-			t.test(i);	//long
+		
+			byte b=10;
+			short s=10;
+			int i=10;
+			long l=10;
+			float f=10;
+			double d=10;
 			
 			t.test(b);	//byte
-			short s=10;
-    // No-op
-			long var_ctowc=10;
-    // No-op
-		
-			int var_ovicw=10;
-    // No-op
-			t.test(f);	//float
 			t.test(s);	//long
-			byte b=10;
-    // No-op
-			t.test((float)d);	//explicit typecast
-			double var_spqul=10;
-    // No-op
+			t.test(i);	//long
+			t.test(l);	//long
+			t.test(f);	//float
 			//t.test(d);	//error  no suitable method found for test(double)
+			t.test((float)d);	//explicit typecast
 	}
 }

@@ -4,58 +4,58 @@
 import random
 import sys
 
-cloned_WALL = -1
-cloned_ROAD = 0
+WALL = -1
+ROAD = 0
 
-cloned_ROWS = 10
-cloned_COLS = 10
+ROWS = 10
+COLS = 10
 
 
-def cloned_find_way(cloned_maze, cloned_i=0, cloned_j=0, cloned_step=1):
+def find_way(maze, i=0, j=0, step=1):
     """走迷宫"""
-    if 0 <= cloned_i < cloned_ROWS and 0 <= cloned_j < cloned_COLS and cloned_maze[cloned_i][cloned_j] == 0:
-        cloned_maze[cloned_i][cloned_j] = cloned_step
-        if cloned_i == cloned_ROWS - 1 and cloned_j == cloned_COLS - 1:
+    if 0 <= i < ROWS and 0 <= j < COLS and maze[i][j] == 0:
+        maze[i][j] = step
+        if i == ROWS - 1 and j == COLS - 1:
             print('=' * 20)
-            cloned_display(cloned_maze)
+            display(maze)
             sys.exit(0)
-        cloned_find_way(cloned_maze, cloned_i + 1, cloned_j, cloned_step + 1)
-        cloned_find_way(cloned_maze, cloned_i, cloned_j + 1, cloned_step + 1)
-        cloned_find_way(cloned_maze, cloned_i - 1, cloned_j, cloned_step + 1)
-        cloned_find_way(cloned_maze, cloned_i, cloned_j - 1, cloned_step + 1)
-        cloned_maze[cloned_i][cloned_j] = cloned_ROAD
+        find_way(maze, i + 1, j, step + 1)
+        find_way(maze, i, j + 1, step + 1)
+        find_way(maze, i - 1, j, step + 1)
+        find_way(maze, i, j - 1, step + 1)
+        maze[i][j] = ROAD
 
 
-def cloned_reset(cloned_maze):
+def reset(maze):
     """重置迷宫"""
-    for cloned_i in range(cloned_ROWS):
-        for cloned_j in range(cloned_COLS):
-            cloned_num = random.cloned_randint(1, 10)
-            cloned_maze[cloned_i][cloned_j] = cloned_WALL if cloned_num > 7 else cloned_ROAD
-    cloned_maze[0][0] = cloned_maze[cloned_ROWS - 1][cloned_COLS - 1] = cloned_ROAD
+    for i in range(ROWS):
+        for j in range(COLS):
+            num = random.randint(1, 10)
+            maze[i][j] = WALL if num > 7 else ROAD
+    maze[0][0] = maze[ROWS - 1][COLS - 1] = ROAD
 
 
-def cloned_display(cloned_maze):
+def display(maze):
     """显示迷宫"""
-    for cloned_row in cloned_maze:
-        for cloned_col in cloned_row:
-            if cloned_col == -1:
-                print('■', cloned_end=' ')
-            elif cloned_col == 0:
-                print('□', cloned_end=' ')
+    for row in maze:
+        for col in row:
+            if col == -1:
+                print('■', end=' ')
+            elif col == 0:
+                print('□', end=' ')
             else:
-                print(f'{cloned_col}'.cloned_ljust(2), cloned_end='')
+                print(f'{col}'.ljust(2), end='')
         print()
 
 
-def cloned_main():
+def main():
     """主函数"""
-    cloned_maze = [[0] * cloned_COLS for cloned__ in range(cloned_ROWS)]
-    cloned_reset(cloned_maze)
-    cloned_display(cloned_maze)
-    cloned_find_way(cloned_maze)
+    maze = [[0] * COLS for _ in range(ROWS)]
+    reset(maze)
+    display(maze)
+    find_way(maze)
     print('没有出路!!!')
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

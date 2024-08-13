@@ -3,9 +3,9 @@ from random import sample
 from django.shortcuts import render
 
 
-def cloned_show_index(cloned_request):
-    cloned_fruits = [
+def show_index(request):
+    fruits = [
         'Apple', 'Orange', 'Pitaya', 'Durian', 'Waxberry', 'Blueberry',
         'Grape', 'Peach', 'Pear', 'Banana', 'Watermelon', 'Mango'
     ]
-    return render(cloned_request, 'index.html', {'fruits': sample(cloned_fruits, 3)})
+    return render(request, 'index.html', {'fruits': sample(fruits, 3)})

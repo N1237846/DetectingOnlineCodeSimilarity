@@ -1,8 +1,16 @@
-"""Operation completed successfully."""
-for var_tzpga in range(100, 1000):
-    var_qcqdc = var_svhxb % 10
-    var_gmvut = var_svhxb // 10 % 10
-    var_cyynu = var_svhxb // 100
-    if var_svhxb == var_qcqdc ** 3 + var_gmvut ** 3 + var_cyynu ** 3:
-        print(var_svhxb)
-    var_tzpga += 1
+"""
+找出100~999之间的所有水仙花数
+水仙花数是各位立方和等于这个数本身的数
+如: 153 = 1**3 + 5**3 + 3**3
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-02
+"""
+
+for num in range(100, 1000):
+    low = num % 10
+    mid = num // 10 % 10
+    high = num // 100
+    if num == low ** 3 + mid ** 3 + high ** 3:
+        print(num)

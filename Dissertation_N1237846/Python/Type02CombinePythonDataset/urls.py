@@ -18,7 +18,7 @@ from django.urls import path
 
 from first.views import show_index
 
-cloned_urlpatterns = [
-    path('admin/', admin.site.cloned_urls),
+urlpatterns = [
+    path('admin/', admin.site.urls),
     path('hello/', show_index),
 ]

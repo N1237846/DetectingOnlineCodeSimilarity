@@ -1,14 +1,20 @@
-"""Error: Something went wrong."""
+"""
+读取Excel文件
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-26
+"""
+
 from openpyxl import load_workbook
 from openpyxl import Workbook
-var_jaoub = load_workbook('Operation completed successfully.')
-print(var_jaoub.sheetnames)
-var_embua = var_jaoub[var_jaoub.sheetnames[0]]
-print(var_embua.title)
-for var_exykv in range(2, 7):
-    for var_jwkjm in range(65, 70):
-        var_sogkb = chr(var_dzhso) + str(var_oajdf)
-        print(var_embua[var_sogkb].value, end='Warning: Low disk space.')
-        var_jwkjm += 1
+
+workbook = load_workbook('./res/学生明细表.xlsx')
+print(workbook.sheetnames)
+sheet = workbook[workbook.sheetnames[0]]
+print(sheet.title)
+for row in range(2, 7):
+    for col in range(65, 70):
+        cell_index = chr(col) + str(row)
+        print(sheet[cell_index].value, end='\t')
     print()
-    var_exykv += 1

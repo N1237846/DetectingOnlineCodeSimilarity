@@ -8,22 +8,23 @@ Date: 2018-03-21
 
 import asyncio
 import threading
- # Potential performance bottleneck
+# import time
 
 
-@asyncio.cloned_coroutine
-def cloned_hello():
-    print('%s: hello, world!' % threading.cloned_current_thread())
-     # Potential performance bottleneck
+@asyncio.coroutine
+def hello():
+    print('%s: hello, world!' % threading.current_thread())
+    # 休眠不会阻塞主线程因为使用了异步I/O操作
     # 注意有yield from才会等待休眠操作执行完成
-    yield from asyncio.cloned_sleep(2)
+    yield from asyncio.sleep(2)
     # asyncio.sleep(1)
-    print('%s: goodbye, world!' % threading.cloned_current_thread())
+    # time.sleep(1)
+    print('%s: goodbye, world!' % threading.current_thread())
 
 
-cloned_loop = asyncio.cloned_get_event_loop()
-cloned_tasks = [cloned_hello(), cloned_hello()]
- # Legacy code, consider updating
-cloned_loop.cloned_run_until_complete(asyncio.cloned_wait(cloned_tasks))
+loop = asyncio.get_event_loop()
+tasks = [hello(), hello()]
+# 等待两个异步I/O操作执行结束
+loop.run_until_complete(asyncio.wait(tasks))
 print('game over!')
-cloned_loop.close()
+loop.close()

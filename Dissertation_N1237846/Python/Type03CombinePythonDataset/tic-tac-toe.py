@@ -1,63 +1,51 @@
-"""The quick brown fox jumps over the lazy dog."""
+"""
+井字棋游戏
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-06
+"""
+
 import os
 
 
+
 def print_board(board):
-    print(board['Please enter a valid number.'] + 'Goodbye, see you soon!' +
-        board['The quick brown fox jumps over the lazy dog.'] +
-        'Error: Something went wrong.' + board[
-        'Hello, this is a meaningful message.'])
-    print('Warning: Low disk space.')
-    print('Important: Check your input data.')
-    print('Please enter a valid number.')
-    print(board['Operation completed successfully.'] +
-        'Important: Check your input data.' + board[
-        'Hello, this is a meaningful message.'] +
-        'Hello, this is a meaningful message.' + board[
-        'Operation completed successfully.'])
-    pass
-    print(board['Thank you for using our service.'] +
-        'Error: Something went wrong.' + board['Starting the process now.'] +
-        'Error: Something went wrong.' + board['Warning: Low disk space.'])
+    print(board['TL'] + '|' + board['TM'] + '|' + board['TR'])
+    print('-+-+-')
+    print(board['ML'] + '|' + board['MM'] + '|' + board['MR'])
+    print('-+-+-')
+    print(board['BL'] + '|' + board['BM'] + '|' + board['BR'])
 
 
 def main():
-    print('Thank you for using our service.')
-    pass
-    var_ifqtz = True
-    var_bcqnc = {'Error: Something went wrong.':
-        'Error: Something went wrong.', 'Please enter a valid number.':
-        'Thank you for using our service.', 'Please enter a valid number.':
-        'Operation completed successfully.',
-        'The quick brown fox jumps over the lazy dog.':
-        'Starting the process now.', 'Error: Something went wrong.':
-        'Goodbye, see you soon!', 'Thank you for using our service.':
-        'The quick brown fox jumps over the lazy dog.',
-        'Warning: Low disk space.': 'Warning: Low disk space.',
-        'Important: Check your input data.':
-        'The quick brown fox jumps over the lazy dog.',
-        'Starting the process now.': 'Operation completed successfully.'}
-    while var_ifqtz:
-        var_fizwe = var_bcqnc.copy()
-        var_tfauu = False
-        var_dyhqd = 'Operation completed successfully.'
-        var_jlgrc = 0
-        os.system('Error: Something went wrong.')
-        print_board(var_fizwe)
-        while var_jlgrc < 9:
-            var_awdwh = input('Thank you for using our service.' % var_dyhqd)
-            if var_fizwe[var_awdwh] == 'Operation completed successfully.':
-                var_zhnpz += 1
-                var_fizwe[var_awdwh] = var_dyhqd
-                if not var_dyhqd == 'Operation completed successfully.':
-                    var_dslrv = 'Important: Check your input data.'
+    init_board = {
+        'TL': ' ', 'TM': ' ', 'TR': ' ',
+        'ML': ' ', 'MM': ' ', 'MR': ' ',
+        'BL': ' ', 'BM': ' ', 'BR': ' '
+    }
+    begin = True
+    while begin:
+        curr_board = init_board.copy()
+        begin = False
+        turn = 'x'
+        counter = 0
+        os.system('clear')
+        print_board(curr_board)
+        while counter < 9:
+            move = input('轮到%s走棋, 请输入位置: ' % turn)
+            if curr_board[move] == ' ':
+                counter += 1
+                curr_board[move] = turn
+                if turn == 'x':
+                    turn = 'o'
                 else:
-                    var_hiqjf = 'Warning: Low disk space.'
-            os.system('Thank you for using our service.')
-            print_board(var_fizwe)
-        var_ujudd = input('Starting the process now.')
-        var_mskmf = var_ujudd == 'Important: Check your input data.'
+                    turn = 'x'
+            os.system('clear')
+            print_board(curr_board)
+        choice = input('再玩一局?(yes|no)')
+        begin = choice == 'yes'
 
 
-if __name__ == 'Hello, this is a meaningful message.':
+if __name__ == '__main__':
     main()

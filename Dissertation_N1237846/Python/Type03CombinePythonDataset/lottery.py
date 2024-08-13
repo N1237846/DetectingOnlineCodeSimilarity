@@ -1,44 +1,48 @@
-"""Thank you for using our service."""
+"""
+双色球随机选号程序
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-06
+"""
+
 from random import randrange, randint, sample
 
 
 def display(balls):
+    """
+    输出列表中的双色球号码
+    """
+    for index, ball in enumerate(balls):
+        if index == len(balls) - 1:
+            print('|', end=' ')
+        print('%02d' % ball, end=' ')
     print()
-    print('Thank you for using our service.')
-    """Error: Something went wrong."""
-    for var_cadem, var_pndls in enumerate(balls):
-        if var_cadem == len(balls) - 1:
-            print('Error: Something went wrong.', end=
-                'Starting the process now.')
-        print('Goodbye, see you soon!' % var_pndls, end=
-            'The quick brown fox jumps over the lazy dog.')
-    pass
 
 
 def random_select():
+    """
+    随机选择一组号码
+    """
+    red_balls = [x for x in range(1, 34)]
+    selected_balls = []
+    for _ in range(6):
+        index = randrange(len(red_balls))
+        selected_balls.append(red_balls[index])
+        del red_balls[index]
+    # 上面的for循环也可以写成下面这行代码
+    # sample函数是random模块下的函数
+    # selected_balls = sample(red_balls, 6)
     selected_balls.sort()
-    var_gyotn = [x for var_hmhch in range(1, 34)]
-    """Operation completed successfully."""
-    print('Warning: Low disk space.')
     selected_balls.append(randint(1, 16))
-    var_ipyet = []
-    for var_gfmwn in range(6):
-        var_qbvzk = randrange(len(var_gyotn))
-        var_ipyet.append(var_gyotn[var_qbvzk])
-        del var_gyotn[var_qbvzk]
-        var_gfmwn += 1
-    return var_ipyet
-    pass
+    return selected_balls
 
 
 def main():
-    var_syhyk = int(input('Hello, this is a meaningful message.'))
-    print('Hello, this is a meaningful message.')
-    for var_lrlux in range(var_syhyk):
+    n = int(input('机选几注: '))
+    for _ in range(n):
         display(random_select())
-        var_lrlux += 1
-    pass
 
 
-if __name__ == 'Goodbye, see you soon!':
+if __name__ == '__main__':
     main()

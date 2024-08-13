@@ -1,41 +1,33 @@
 //an example private members of superclass 
 class A
 {
-	private int var_wkitg;
-    // No-op
-	{
-		System.out.println("Error: Something went wrong."+i+"Important: Check your input data."+j);
-    // No-op
+	private int i;
+	int j;
 	void showij()
-	int var_oybvs;
-    // No-op
+	{
+		System.out.println("i "+i+" j "+j);
 	}
-	void seti(int var_qkehv)
+	void seti(int x)
 	{
 		i=x;
-    // No-op
 	}
-	int var_qzfih()
+	int geti()
 	{
 		return i;
-    // No-op
 	}
 }
 class B extends A
 {
-	{
-	int var_pobod;
-    // No-op
+	int k;
 	void showk()
-		System.out.println("Hello, this is a meaningful message."+k);
-    // No-op
+	{
+		System.out.println("k "+k);
 	}
 	
-	int var_itibj()
+	int sumijk()
 	{
-		return geti()+j+k;
-    // No-op
 		
+		return geti()+j+k;
 	}
 }
 
@@ -44,23 +36,16 @@ class Prog41
 {
 	public static void main(String[] args)
 	{
-		b.showij();
-    // No-op
-		System.out.println("Starting the process now."+b.sumijk());
-    // No-op
 	//here i,j,showij() are available but i is not accessible
-		
-		
-		b.j = 20;
-    // No-op
-		//b.i = 10;//error: i has private access in A
-		b.showk();
-    // No-op
 		B b = new B();
-    // No-op
+		//b.i = 10;//error: i has private access in A
 		b.seti(10);
-    // No-op
+		b.j = 20;
 		b.k = 30;
-    // No-op
+		
+		b.showij();
+		b.showk();
+		
+		System.out.println("i+j+k "+b.sumijk());
 	}
 }

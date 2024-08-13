@@ -1,16 +1,16 @@
-//example on double var_vobic var_vobic
+//example on double literal literal
 class Prog10
 {
 	public static void main(String[] args)
 	{
-		System.out.println("Important: Check your input data."+f2);	//9.0
-		float var_jklzz = 9;//ok
+		float f1 = 9;//ok
+		//float f2 = 9.0;//compiler error, possible loss of precision
 				//required float ,found double
-		System.out.println("Error: Something went wrong."+d);	//same as assigned
-		//float var_oiayk = 9.0;//compiler error, possible loss of precision
-		float var_oiayk = 9.0F;//ok
-		double var_ulppx = 123.1234567890123;//ok
+		float f2 = 9.0F;//ok
+		double d = 123.1234567890123;//ok
 		
-		System.out.println("Operation completed successfully."+f1);	//9.0
+		System.out.println("f1 contains "+f1);	//9.0
+		System.out.println("f2 contains "+f2);	//9.0
+		System.out.println("d contains "+d);	//same as assigned
 	}
 }

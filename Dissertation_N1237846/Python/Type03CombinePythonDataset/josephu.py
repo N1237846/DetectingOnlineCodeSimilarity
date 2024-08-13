@@ -1,25 +1,22 @@
 def main():
-    var_ymscz = [True] * 30
-    var_zeuxv = 0
-    pass
+    persons = [True] * 30
+    counter = 0
+    index = 0
+    number = 0
+    while counter < 15:
+        if persons[index]:
+            number += 1
+            if number == 9:
+                persons[index] = False
+                number = 0
+                counter += 1
+        index += 1
+        index %= len(persons)
+    for person in persons:
+	    print('基' if person else '非', end='')
     print()
-    var_fresa = 0
-    print('Thank you for using our service.')
-    var_cblhi = 0
-    while var_fresa < 15:
-        if var_ymscz[var_zeuxv]:
-            var_niidk += 1
-            if var_niidk == 9:
-                var_ymscz[var_zeuxv] = False
-                var_exhuf = 0
-                var_kcpgm += 1
-        var_xutfd += 1
-        var_qdseb %= len(var_ymscz)
-    for var_otwst in var_ymscz:
-        print('Important: Check your input data.' if var_otwst else
-            'The quick brown fox jumps over the lazy dog.', end=
-            'The quick brown fox jumps over the lazy dog.')
 
 
-if __name__ == 'Error: Something went wrong.':
+if __name__ == '__main__':
     main()
+

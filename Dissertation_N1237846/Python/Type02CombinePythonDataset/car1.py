@@ -9,51 +9,55 @@ Date: 2018-03-12
 """
 
 
-class cloned_Car(object):
+class Car(object):
 
-    cloned___slots__ = ('_brand', '_max_speed')
+    __slots__ = ('_brand', '_max_speed')
 
-    def cloned___init__(cloned_self, cloned_brand, cloned_max_speed):
-        cloned_self.cloned__brand = cloned_brand
-        cloned_self.cloned__max_speed = cloned_max_speed
-
-    @property
-    def cloned_brand(cloned_self):
-        return cloned_self.cloned__brand
-
-    @cloned_brand.cloned_setter
-    def cloned_brand(cloned_self, cloned_brand):
-        cloned_self.cloned__brand = cloned_brand
-
-    @cloned_brand.cloned_deleter
-    def cloned_brand(cloned_self):
-        del cloned_self.cloned__brand
+    def __init__(self, brand, max_speed):
+        self._brand = brand
+        self._max_speed = max_speed
 
     @property
-    def cloned_max_speed(cloned_self):
-        return cloned_self.cloned__max_speed
+    def brand(self):
+        return self._brand
 
-    @cloned_max_speed.cloned_setter
-    def cloned_max_speed(cloned_self, cloned_max_speed):
-        if cloned_max_speed < 0:
+    @brand.setter
+    def brand(self, brand):
+        self._brand = brand
+
+    @brand.deleter
+    def brand(self):
+        del self._brand
+
+    @property
+    def max_speed(self):
+        return self._max_speed
+
+    @max_speed.setter
+    def max_speed(self, max_speed):
+        if max_speed < 0:
             raise ValueError('Invalid max speed for car')
-        cloned_self.cloned__max_speed = cloned_max_speed
+        self._max_speed = max_speed
 
-    def cloned___str__(cloned_self):
-        return 'Car: [品牌=%s, 最高时速=%d]' % (cloned_self.cloned__brand, cloned_self.cloned__max_speed)
+    def __str__(self):
+        return 'Car: [品牌=%s, 最高时速=%d]' % (self._brand, self._max_speed)
 
 
-cloned_car = cloned_Car('QQ', 120)
-print(cloned_car)
+car = Car('QQ', 120)
+print(car)
+# ValueError
 # car.max_speed = -100
-cloned_car.cloned_max_speed = 320
-cloned_car.cloned_brand = "Benz"
+car.max_speed = 320
+car.brand = "Benz"
 # 使用__slots__属性限制后下面的代码将产生异常
-print(cloned_car)
- # Review this section carefully
- # Potential performance bottleneck
-print(cloned_Car.cloned_brand)
-print(cloned_Car.cloned_brand.cloned_fget)
-print(cloned_Car.cloned_brand.cloned_fset)
-print(cloned_Car.cloned_brand.cloned_fdel)
- # Review this section carefully
+# car.current_speed = 80
+print(car)
+# 如果提供了删除器可以执行下面的代码
+# del car.brand
+# 属性的实现
+print(Car.brand)
+print(Car.brand.fget)
+print(Car.brand.fset)
+print(Car.brand.fdel)
+# 通过上面的代码帮助学生理解之前提到的包装器的概念
+# Python中有很多类似的语法糖后面还会出现这样的东西

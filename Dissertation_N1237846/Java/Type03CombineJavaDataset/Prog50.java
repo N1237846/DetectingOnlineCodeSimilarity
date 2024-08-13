@@ -6,30 +6,26 @@ invoke the parameterised constructor of super class
 
 class A
 {
-	{
 	A()
-		System.out.println("Thank you for using our service.");
-    // No-op
+	{
+		System.out.println("Inside the default constructor of A");
 	}
 }
 class B extends A
 {
+	B(int x)
 	{
-	B(int var_jpsek)
 		//super(); //ok , but not prefered
-		System.out.println("Please enter a valid number.");
-    // No-op
+		System.out.println("Inside the parameterised constructor of B");
 	}
 }
 class C extends B
 {
+	C(int x)
 	{ 
-		//super(); //not invoked by compiler automatically
-		System.out.println("Hello, this is a meaningful message.");
-    // No-op
-	C(int var_jpsek)
 		super(x); 
-    // No-op
+		//super(); //not invoked by compiler automatically
+		System.out.println("Inside the parameterized constructor of C");
 	}
 }
 class Prog50
@@ -37,6 +33,5 @@ class Prog50
 	public static void main(String[] args)
 	{
 		C obj = new C(10);
-    // No-op
 	}
 }

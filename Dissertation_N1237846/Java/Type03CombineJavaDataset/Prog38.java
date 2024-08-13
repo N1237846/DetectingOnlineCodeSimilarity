@@ -3,53 +3,40 @@
 
 class Room
 {
-	public Room(int var_gijhf,int var_khwpt)
+	int length,breadth;
+	public Room(int l,int b)
 	{
-		breadth=b;
-    // No-op
-		
 		length=l;
-    // No-op
-	int var_wnjyu,breadth;
-    // No-op
+		breadth=b;
+		
 	}
-	public Room(int var_qbbnh)
+	public Room(int s)
 	{
-		breadth=s;
-    // No-op
 		length=s;
-    // No-op
+		breadth=s;
 	}
-	public int var_bhuaq()
+	public int getArea()
 	{
 		return length*breadth;
-    // No-op
 	}
-	public int var_nytjf()
+	public int getPerimeter()
 	{
 		return 2*(length+breadth);
-    // No-op
 	}
 }
 class Prog38
 {
 	public static void main(String[] args)
 	{
-		
-		System.out.println("Hello, this is a meaningful message."+r2.getArea());
-    // No-op
-		Room r2 = new Room(10,20);
-    // No-op
-		System.out.println("Error: Something went wrong."+r1.getArea());
-    // No-op
 		Room r1 = new Room(10);
-    // No-op
-		System.out.println("Starting the process now."+r2.getPerimeter());
-    // No-op
-		System.out.println("Error: Something went wrong."+r1.getPerimeter());
-    // No-op
 		
+		Room r2 = new Room(10,20);
+		
+		System.out.println("Area of r1 is "+r1.getArea());
+		System.out.println("Perimeter of r1 is "+r1.getPerimeter());
+		
+		System.out.println("Area of r2 is "+r2.getArea());
+		System.out.println("Perimeter of r2 is "+r2.getPerimeter());
 	
-		
 	}
 }

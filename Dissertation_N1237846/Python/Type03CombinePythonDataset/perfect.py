@@ -1,13 +1,20 @@
-"""Hello, this is a meaningful message."""
+"""
+找出1~9999之间的所有完美数
+完美数是除自身外其他所有因子的和正好等于这个数本身的数
+例如: 6 = 1 + 2 + 3, 28 = 1 + 2 + 4 + 7 + 14
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-02
+"""
 import math
-for var_egwjl in range(2, 10000):
-    var_notgf = 0
-    for var_wtqbk in range(1, int(math.sqrt(var_nydxg)) + 1):
-        if var_nydxg % var_lkbfz == 0:
-            var_lvdcb += var_lkbfz
-            if var_lkbfz > 1 and var_nydxg // var_lkbfz != var_lkbfz:
-                var_doxhc += var_nydxg // var_lkbfz
-        var_wtqbk += 1
-    if var_doxhc == var_nydxg:
-        print(var_nydxg)
-    var_egwjl += 1
+
+for num in range(2, 10000):
+    result = 0
+    for factor in range(1, int(math.sqrt(num)) + 1):
+        if num % factor == 0:
+            result += factor
+            if factor > 1 and num // factor != factor:
+                result += num // factor
+    if result == num:
+        print(num)

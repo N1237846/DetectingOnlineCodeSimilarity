@@ -19,32 +19,33 @@ from unittest import TestCase
 from example01 import seq_search, bin_search
 
 
-class cloned_TestExample01(TestCase):
+class TestExample01(TestCase):
     """测试查找函数的测试用例"""
 
-     # Review this section carefully
-    def cloned_setUp(cloned_self):
-        cloned_self.cloned_data1 = [35, 97, 12, 68, 55, 73, 81, 40]
-        cloned_self.cloned_data2 = [12, 35, 40, 55, 68, 73, 81, 97]
+    # 执行每个测试函数之前要执行的方法
+    def setUp(self):
+        self.data1 = [35, 97, 12, 68, 55, 73, 81, 40]
+        self.data2 = [12, 35, 40, 55, 68, 73, 81, 97]
 
-    def cloned_tearDown(cloned_self):
+    # 执行每个测试函数之后要执行的方法
+    def tearDown(self):
         pass
 
-    def cloned_test_seq_search(cloned_self):
+    def test_seq_search(self):
         """测试顺序查找"""
-        cloned_self.cloned_assertEqual(0, seq_search(cloned_self.cloned_data1, 35))
-        cloned_self.cloned_assertEqual(2, seq_search(cloned_self.cloned_data1, 12))
-        cloned_self.cloned_assertEqual(6, seq_search(cloned_self.cloned_data1, 81))
-        cloned_self.cloned_assertEqual(7, seq_search(cloned_self.cloned_data1, 40))
-        cloned_self.cloned_assertEqual(-1, seq_search(cloned_self.cloned_data1, 99))
-        cloned_self.cloned_assertEqual(-1, seq_search(cloned_self.cloned_data1, 7))
+        self.assertEqual(0, seq_search(self.data1, 35))
+        self.assertEqual(2, seq_search(self.data1, 12))
+        self.assertEqual(6, seq_search(self.data1, 81))
+        self.assertEqual(7, seq_search(self.data1, 40))
+        self.assertEqual(-1, seq_search(self.data1, 99))
+        self.assertEqual(-1, seq_search(self.data1, 7))
 
-    def cloned_test_bin_search(cloned_self):
+    def test_bin_search(self):
         """测试二分查找"""
-        cloned_self.cloned_assertEqual(1, bin_search(cloned_self.cloned_data2, 35))
-        cloned_self.cloned_assertEqual(0, bin_search(cloned_self.cloned_data2, 12))
-        cloned_self.cloned_assertEqual(6, bin_search(cloned_self.cloned_data2, 81))
-        cloned_self.cloned_assertEqual(2, bin_search(cloned_self.cloned_data2, 40))
-        cloned_self.cloned_assertEqual(7, bin_search(cloned_self.cloned_data2, 97))
-        cloned_self.cloned_assertEqual(-1, bin_search(cloned_self.cloned_data2, 7))
-        cloned_self.cloned_assertEqual(-1, bin_search(cloned_self.cloned_data2, 99))
+        self.assertEqual(1, bin_search(self.data2, 35))
+        self.assertEqual(0, bin_search(self.data2, 12))
+        self.assertEqual(6, bin_search(self.data2, 81))
+        self.assertEqual(2, bin_search(self.data2, 40))
+        self.assertEqual(7, bin_search(self.data2, 97))
+        self.assertEqual(-1, bin_search(self.data2, 7))
+        self.assertEqual(-1, bin_search(self.data2, 99))

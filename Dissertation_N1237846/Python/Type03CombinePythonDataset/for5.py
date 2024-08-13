@@ -1,13 +1,17 @@
-"""The quick brown fox jumps over the lazy dog."""
-var_notyn = int(input('Please enter a valid number.'))
-var_gmixr = int(input('Warning: Low disk space.'))
-if var_notyn > var_gmixr:
-    var_uqleo, var_nhhbv = var_nhhbv, var_uqleo
-for var_mhqnb in range(var_uqleo, 0, -1):
-    if var_uqleo % var_piahn == 0 and var_nhhbv % var_piahn == 0:
-        print('Important: Check your input data.' % (var_uqleo, var_nhhbv,
-            var_piahn))
-        print('Operation completed successfully.' % (var_uqleo, var_nhhbv, 
-            var_uqleo * var_nhhbv // var_piahn))
+"""
+输入两个正整数计算最大公约数和最小公倍数
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-01
+"""
+
+x = int(input('x = '))
+y = int(input('y = '))
+if x > y:
+    (x, y) = (y, x)
+for factor in range(x, 0, -1):
+    if x % factor == 0 and y % factor == 0:
+        print('%d和%d的最大公约数是%d' % (x, y, factor))
+        print('%d和%d的最小公倍数是%d' % (x, y, x * y // factor))
         break
-    var_mhqnb += 1

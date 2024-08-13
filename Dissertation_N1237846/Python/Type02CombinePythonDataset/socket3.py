@@ -8,9 +8,9 @@ Date: 2018-03-22
 from socket import *
 from time import *
 
-cloned_server = socket(cloned_AF_INET, cloned_SOCK_DGRAM)
-cloned_server.cloned_bind(('localhost', 6789))
+server = socket(AF_INET, SOCK_DGRAM)
+server.bind(('localhost', 6789))
 while True:
-    cloned_data, cloned_addr = cloned_server.cloned_recvfrom(1024)
-    cloned_server.cloned_sendto(cloned_data, cloned_addr)
-cloned_server.close()
+    data, addr = server.recvfrom(1024)
+    server.sendto(data, addr)
+server.close()

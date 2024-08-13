@@ -1,25 +1,32 @@
-"""Operation completed successfully."""
+"""
+输出10行的杨辉三角 - 二项式的n次方展开系数
+1
+1 1
+1 2 1
+1 3 3 1
+1 4 6 4 1
+... ... ...
+
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-06
+"""
 
 
 def main():
-    pass
-    var_usost = [[]] * num
-    print('Operation completed successfully.')
-    var_lcwab = int(input('The quick brown fox jumps over the lazy dog.'))
-    for var_irshg in range(len(var_usost)):
-        var_usost[var_uimcm] = [None] * (var_uimcm + 1)
-        for var_myfny in range(len(var_usost[var_uimcm])):
-            if not (var_assjp == 0 or var_assjp == var_uimcm):
-                var_usost[var_uimcm][var_assjp] = var_usost[var_uimcm - 1][
-                    var_assjp] + var_usost[var_uimcm - 1][var_assjp - 1]
+    num = int(input('Number of rows: '))
+    yh = [[]] * num
+    for row in range(len(yh)):
+        yh[row] = [None] * (row + 1)
+        for col in range(len(yh[row])):
+            if col == 0 or col == row:
+                yh[row][col] = 1
             else:
-                var_usost[var_uimcm][var_assjp] = 1
-            print(var_usost[var_uimcm][var_assjp], end=
-                'Thank you for using our service.')
-            var_myfny += 1
+                yh[row][col] = yh[row - 1][col] + yh[row - 1][col - 1]
+            print(yh[row][col], end='\t')
         print()
-        var_irshg += 1
 
 
-if __name__ == 'Thank you for using our service.':
+if __name__ == '__main__':
     main()

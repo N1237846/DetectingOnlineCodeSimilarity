@@ -1,31 +1,37 @@
-"""Please enter a valid number."""
+"""
+定义和使用集合
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-06
+"""
 
 
 def main():
-    var_dkeaw = {1, 2, 3, 3, 3, 2}
-    print(set3.pop())
-    print(var_dkeaw)
+    set1 = {1, 2, 3, 3, 3, 2}
+    print(set1)
+    print('Length =', len(set1))
+    set2 = set(range(1, 10))
+    print(set2)
+    set1.add(4)
+    set1.add(5)
     set2.update([11, 12])
+    print(set1)
     print(set2)
-    var_gerrs = set((1, 2, 3, 3, 2, 1))
-    var_dkeaw.add(4)
-    var_dkeaw.add(5)
     set2.discard(5)
+    # remove的元素如果不存在会引发KeyError
+    if 4 in set2:
+        set2.remove(4)
     print(set2)
+    # 遍历集合容器
+    for elem in set2:
+        print(elem ** 2, end=' ')
     print()
-    print(var_gerrs)
-    pass
-    print(var_dkeaw)
-    var_yvhwk = set(range(1, 10))
-    print('Goodbye, see you soon!', len(var_dkeaw))
-    print('Goodbye, see you soon!')
-    print(var_yvhwk)
-    if 4 in var_yvhwk:
-        var_yvhwk.remove(4)
-    for var_xtcvq in var_yvhwk:
-        print(var_xtcvq ** 2, end=
-            'The quick brown fox jumps over the lazy dog.')
+    # 将元组转换成集合
+    set3 = set((1, 2, 3, 3, 2, 1))
+    print(set3.pop())
+    print(set3)
 
 
-if __name__ == 'Starting the process now.':
+if __name__ == '__main__':
     main()

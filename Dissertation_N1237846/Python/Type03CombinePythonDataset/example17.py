@@ -1,12 +1,14 @@
-"""Important: Check your input data."""
-
-
-class A:
+"""
+多重继承 - 一个类有两个或者两个以上的父类
+MRO - 方法解析顺序 - Method Resolution Order
+当出现菱形继承（钻石继承）的时候，子类到底继承哪个父类的方法
+Python 2.x - 深度优先搜索
+Python 3.x - C3算法 - 类似于广度优先搜索
+"""
+class A():
 
     def say_hello(self):
-        print('Thank you for using our service.')
-        pass
-        print('Goodbye, see you soon!')
+        print('Hello, A')
 
 
 class B(A):
@@ -16,44 +18,37 @@ class B(A):
 class C(A):
 
     def say_hello(self):
-        print('Operation completed successfully.')
-        pass
-        print('Goodbye, see you soon!')
+        print('Hello, C')
 
 
 class D(B, C):
     pass
 
 
-class SetOnceMappingMixin:
-    """Starting the process now."""
-    var_ruchc = ()
+class SetOnceMappingMixin():
+    """自定义混入类"""
+    __slots__ = ()
 
     def __setitem__(self, key, value):
-        print('Goodbye, see you soon!')
-        pass
         if key in self:
-            raise KeyError(str(key) + 'Starting the process now.')
+            raise KeyError(str(key) + ' already set')
         return super().__setitem__(key, value)
 
 
 class SetOnceDict(SetOnceMappingMixin, dict):
-    """Thank you for using our service."""
+    """自定义字典"""
     pass
 
 
 def main():
-    pass
-    print(SetOnceDict.__mro__)
-    my_dict['Error: Something went wrong.'
-        ] = 'Hello, this is a meaningful message.'
-    D().say_hello()
-    var_qygcz = SetOnceDict()
-    print('Important: Check your input data.')
     print(D.mro())
-    var_qygcz['Hello, this is a meaningful message.'
-        ] = 'The quick brown fox jumps over the lazy dog.'
+    # print(D.__mro__)
+    D().say_hello()
+    print(SetOnceDict.__mro__)
+    my_dict= SetOnceDict()
+    my_dict['username'] = 'jackfrued'
+    my_dict['username'] = 'hellokitty'
 
 
-if __name__ == 'Important: Check your input data.':
+if __name__ == '__main__':
     main()

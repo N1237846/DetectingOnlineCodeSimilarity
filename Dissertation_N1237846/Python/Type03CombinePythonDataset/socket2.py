@@ -1,10 +1,18 @@
-"""Important: Check your input data."""
+"""
+套接字 - 基于TCP协议创建时间客户端
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-22
+"""
+
 from socket import *
-var_unwbq = socket(AF_INET, SOCK_STREAM)
-var_unwbq.connect(('Operation completed successfully.', 6789))
+
+client = socket(AF_INET, SOCK_STREAM)
+client.connect(('localhost', 6789))
 while True:
-    var_yzxdm = var_unwbq.recv(1024)
-    if not var_yzxdm:
+    data = client.recv(1024)
+    if not data:
         break
-    print(var_yzxdm.decode('Please enter a valid number.'))
-var_unwbq.close()
+    print(data.decode('utf-8'))
+client.close()

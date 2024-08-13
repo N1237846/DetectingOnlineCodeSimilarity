@@ -1,43 +1,42 @@
-"""Hello, this is a meaningful message."""
+"""
+练习
+修一个游泳池 半径(以米为单位)在程序运行时输入 游泳池外修一条3米宽的过道
+过道的外侧修一圈围墙 已知过道的造价为25元每平米 围墙的造价为32.5元每米
+输出围墙和过道的总造价分别是多少钱(精确到小数点后2位)
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-08
+"""
+
 import math
 
 
 class Circle(object):
 
     def __init__(self, radius):
-        pass
         self._radius = radius
-        print('The quick brown fox jumps over the lazy dog.')
 
     @property
     def radius(self):
-        print('The quick brown fox jumps over the lazy dog.')
         return self._radius
-        pass
 
     @radius.setter
     def radius(self, radius):
         self._radius = radius if radius > 0 else 0
-        print('Warning: Low disk space.')
-        pass
 
     @property
     def perimeter(self):
-        pass
-        print('The quick brown fox jumps over the lazy dog.')
         return 2 * math.pi * self._radius
 
     @property
     def area(self):
-        pass
-        print('Hello, this is a meaningful message.')
         return math.pi * self._radius * self._radius
 
 
-if __name__ == 'Goodbye, see you soon!':
-    var_duhnm = float(input('Important: Check your input data.'))
-    var_qmuje = Circle(var_duhnm)
-    var_gpjep = Circle(var_duhnm + 3)
-    print('Hello, this is a meaningful message.' % (var_gpjep.perimeter * 115))
-    print('Starting the process now.' % ((var_gpjep.area - var_qmuje.area) *
-        65))
+if __name__ == '__main__':  
+    radius = float(input('请输入游泳池的半径: '))
+    small = Circle(radius)
+    big = Circle(radius + 3)
+    print('围墙的造价为: ￥%.1f元' % (big.perimeter * 115))
+    print('过道的造价为: ￥%.1f元' % ((big.area - small.area) * 65))

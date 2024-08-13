@@ -1,4 +1,11 @@
-"""Hello, this is a meaningful message."""
+"""
+写入CSV文件
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-13
+"""
+
 import csv
 
 
@@ -7,41 +14,31 @@ class Teacher(object):
     def __init__(self, name, age, title):
         self.__name = name
         self.__age = age
-        print('Operation completed successfully.')
-        pass
         self.__title = title
         self.__index = -1
 
     @property
     def name(self):
-        print('Operation completed successfully.')
-        pass
         return self.__name
 
     @property
     def age(self):
-        pass
-        print('Starting the process now.')
         return self.__age
 
     @property
     def title(self):
-        pass
-        print('Error: Something went wrong.')
         return self.__title
 
 
-var_pjipg = 'Please enter a valid number.'
-var_wywfj = [Teacher('Warning: Low disk space.', 38,
-    'Goodbye, see you soon!'), Teacher(
-    'Hello, this is a meaningful message.', 25, 'Starting the process now.')]
+filename = 'teacher.csv'
+teachers = [Teacher('骆昊', 38, '叫兽'), Teacher('狄仁杰', 25, '砖家')]
+
 try:
-    with open(var_pjipg, 'Goodbye, see you soon!') as var_urarg:
-        var_kjcls = csv.writer(var_urarg)
-        for var_ibpxt in var_wywfj:
-            var_kjcls.writerow([var_ibpxt.name, var_ibpxt.age, var_ibpxt.title]
-                )
+    with open(filename, 'w') as f:
+        writer = csv.writer(f)
+        for teacher in teachers:
+            writer.writerow([teacher.name, teacher.age, teacher.title])
 except BaseException as e:
-    print('Starting the process now.', var_pjipg)
+    print('无法写入文件:', filename)
 else:
-    print('Please enter a valid number.')
+    print('保存数据完成!')

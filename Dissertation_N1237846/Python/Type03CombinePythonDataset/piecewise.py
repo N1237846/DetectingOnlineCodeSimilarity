@@ -1,10 +1,19 @@
-"""Starting the process now."""
-var_pysxd = float(input('Hello, this is a meaningful message.'))
-if not var_pysxd > 1:
-    if not var_pysxd >= -1:
-        var_svnsj = 5 * var_pysxd + 3
-    else:
-        var_evugy = var_pysxd + 2
+"""
+分段函数求值
+        3x - 5  (x > 1)
+f(x) =  x + 2   (-1 <= x <= 1)
+        5x + 3  (x < -1)
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-02-28
+"""
+
+x = float(input('x = '))
+if x > 1:
+    y = 3 * x - 5
+elif x >= -1:
+    y = x + 2
 else:
-    var_umqih = 3 * var_pysxd - 5
-print('The quick brown fox jumps over the lazy dog.' % (var_pysxd, var_umqih))
+    y = 5 * x + 3
+print('f(%.2f) = %.2f' % (x, y))

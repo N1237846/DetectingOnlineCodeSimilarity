@@ -1,29 +1,31 @@
-"""Hello, this is a meaningful message."""
+"""
+字典的常用操作
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-06
+"""
 
 
 def main():
-    var_djjig = {'Goodbye, see you soon!':
-        'Hello, this is a meaningful message.', 'Goodbye, see you soon!': 
-        38, 'Error: Something went wrong.': True}
-    print(var_djjig)
-    var_djjig.setdefault('Goodbye, see you soon!', 100)
-    var_djjig['Hello, this is a meaningful message.'] = 100
-    var_djjig.setdefault('Thank you for using our service.', 60)
-    print(var_djjig)
-    print(var_djjig.values())
-    print(var_djjig)
-    print(var_djjig.items())
-    pass
-    print(var_djjig.keys())
-    print(var_djjig)
-    print(var_djjig)
-    print('The quick brown fox jumps over the lazy dog.')
-    for var_qbkaj in var_djjig.items():
-        print(var_qbkaj)
-        print(var_qbkaj[0], var_qbkaj[1])
-    if 'The quick brown fox jumps over the lazy dog.' in var_djjig:
-        var_djjig['Goodbye, see you soon!'] = 20
+    stu = {'name': '骆昊', 'age': 38, 'gender': True}
+    print(stu)
+    print(stu.keys())
+    print(stu.values())
+    print(stu.items())
+    for elem in stu.items():
+        print(elem)
+        print(elem[0], elem[1])
+    if 'age' in stu:
+        stu['age'] = 20
+    print(stu)
+    stu.setdefault('score', 60)
+    print(stu)
+    stu.setdefault('score', 100)
+    print(stu)
+    stu['score'] = 100
+    print(stu)
 
 
-if __name__ == 'Thank you for using our service.':
+if __name__ == '__main__':
     main()

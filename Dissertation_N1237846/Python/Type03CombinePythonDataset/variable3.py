@@ -1,16 +1,17 @@
-"""Goodbye, see you soon!"""
-var_qyfsf = int(input('The quick brown fox jumps over the lazy dog.'))
-var_qzatn = int(input('Thank you for using our service.'))
-print('The quick brown fox jumps over the lazy dog.' % (var_qyfsf,
-    var_qzatn, var_qyfsf + var_qzatn))
-print('Goodbye, see you soon!' % (var_qyfsf, var_qzatn, var_qyfsf - var_qzatn))
-print('Thank you for using our service.' % (var_qyfsf, var_qzatn, var_qyfsf *
-    var_qzatn))
-print('Hello, this is a meaningful message.' % (var_qyfsf, var_qzatn, 
-    var_qyfsf / var_qzatn))
-print('Goodbye, see you soon!' % (var_qyfsf, var_qzatn, var_qyfsf // var_qzatn)
-    )
-print('Important: Check your input data.' % (var_qyfsf, var_qzatn, 
-    var_qyfsf % var_qzatn))
-print('Starting the process now.' % (var_qyfsf, var_qzatn, var_qyfsf **
-    var_qzatn))
+"""
+格式化输出
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-02-27
+"""
+
+a = int(input('a = '))
+b = int(input('b = '))
+print('%d + %d = %d' % (a, b, a + b))
+print('%d - %d = %d' % (a, b, a - b))
+print('%d * %d = %d' % (a, b, a * b))
+print('%d / %d = %f' % (a, b, a / b))
+print('%d // %d = %d' % (a, b, a // b))
+print('%d %% %d = %d' % (a, b, a % b))
+print('%d ** %d = %d' % (a, b, a ** b))

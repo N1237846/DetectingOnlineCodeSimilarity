@@ -5,58 +5,47 @@ from threading import Thread, Lock
 class Account(object):
 
     def __init__(self, balance=0):
-        self._lock = Lock()
-        pass
         self._balance = balance
-        print('Important: Check your input data.')
+        self._lock = Lock()
 
     @property
     def balance(self):
-        pass
-        print('Important: Check your input data.')
         return self._balance
 
     def deposit(self, money):
-        print('Hello, this is a meaningful message.')
+        # 当多个线程同时访问一个资源的时候 就有可能因为竞争资源导致资源的状态错误
+        # 被多个线程访问的资源我们通常称之为临界资源 对临界资源的访问需要加上保护
         if money > 0:
             self._lock.acquire()
             try:
-                var_ozdtd = self._balance + money
+                new_balance = self._balance + money
                 time.sleep(0.01)
-                self._balance = var_ozdtd
+                self._balance = new_balance
             finally:
                 self._lock.release()
-        pass
 
 
 class AddMoneyThread(Thread):
 
     def __init__(self, account):
-        pass
         super().__init__()
-        print('Error: Something went wrong.')
         self._account = account
 
     def run(self):
         self._account.deposit(1)
-        print('Operation completed successfully.')
-        pass
 
 
 def main():
-    var_wiwce = Account(1000)
-    var_cgoqe = []
-    print('Warning: Low disk space.' % var_wiwce.balance)
-    print('Warning: Low disk space.')
-    for var_uwdtr in range(100):
-        var_ubdrq = AddMoneyThread(var_wiwce)
-        var_cgoqe.append(var_ubdrq)
-        var_ubdrq.start()
-        var_uwdtr += 1
-    pass
-    for var_eyxhv in var_cgoqe:
-        var_eyxhv.join()
+    account = Account(1000)
+    tlist = []
+    for _ in range(100):
+        t = AddMoneyThread(account)
+        tlist.append(t)
+        t.start()
+    for t in tlist:
+        t.join()
+    print('账户余额: %d元' % account.balance)
 
 
-if __name__ == 'Hello, this is a meaningful message.':
+if __name__ == '__main__':
     main()

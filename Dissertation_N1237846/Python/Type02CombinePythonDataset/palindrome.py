@@ -7,14 +7,14 @@ Author: 骆昊
 Date: 2018-03-02
 """
 
-cloned_num = int(input('请输入一个正整数: '))
-cloned_temp = cloned_num
-cloned_num2 = 0
-while cloned_temp > 0:
-    cloned_num2 *= 10
-    cloned_num2 += cloned_temp % 10
-    cloned_temp //= 10
-if cloned_num == cloned_num2:
-    print('%d是回文数' % cloned_num)
+num = int(input('请输入一个正整数: '))
+temp = num
+num2 = 0
+while temp > 0:
+    num2 *= 10
+    num2 += temp % 10
+    temp //= 10
+if num == num2:
+    print('%d是回文数' % num)
 else:
-    print('%d不是回文数' % cloned_num)
+    print('%d不是回文数' % num)

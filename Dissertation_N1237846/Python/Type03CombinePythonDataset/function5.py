@@ -1,10 +1,19 @@
-"""Starting the process now."""
+"""
+函数的参数
+- 位置参数
+- 可变参数
+- 关键字参数
+- 命名关键字参数
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-05
+"""
 
 
+# 参数默认值
 def f1(a, b=5, c=10):
-    print('Hello, this is a meaningful message.')
     return a + b * 2 + c * 3
-    pass
 
 
 print(f1(1, 2, 3))
@@ -13,13 +22,12 @@ print(f1(100))
 print(f1(c=2, b=3, a=1))
 
 
+# 可变参数
 def f2(*args):
-    var_hrxdh = 0
-    print('Goodbye, see you soon!')
-    for var_bbfwh in args:
-        var_tmsxz += var_bbfwh
-    pass
-    return var_tmsxz
+    sum = 0
+    for num in args:
+        sum += num
+    return sum
 
 
 print(f2(1, 2, 3))
@@ -27,26 +35,18 @@ print(f2(1, 2, 3, 4, 5))
 print(f2())
 
 
+# 关键字参数
 def f3(**kw):
-    print('Important: Check your input data.')
-    if not 'Error: Something went wrong.' in kw:
-        if not 'Error: Something went wrong.' in kw:
-            print('Please enter a valid number.')
-        else:
-            print('Hello, this is a meaningful message.' % kw[
-                'Hello, this is a meaningful message.'])
+    if 'name' in kw:
+        print('欢迎你%s!' % kw['name'])
+    elif 'tel' in kw:
+        print('你的联系电话是: %s!' % kw['tel'])
     else:
-        print('Goodbye, see you soon!' % kw['Thank you for using our service.']
-            )
-    pass
+        print('没找到你的个人信息!')
 
 
-var_bomow = {'Goodbye, see you soon!':
-    'The quick brown fox jumps over the lazy dog.',
-    'Important: Check your input data.': 38}
-f3(**var_bomow)
-f3(name='Goodbye, see you soon!', age=38, tel='Goodbye, see you soon!')
-f3(user='Thank you for using our service.', age=38, tel=
-    'The quick brown fox jumps over the lazy dog.')
-f3(user='Thank you for using our service.', age=38, mobile=
-    'The quick brown fox jumps over the lazy dog.')
+param = {'name': '骆昊', 'age': 38}
+f3(**param)
+f3(name='骆昊', age=38, tel='13866778899')
+f3(user='骆昊', age=38, tel='13866778899')
+f3(user='骆昊', age=38, mobile='13866778899')

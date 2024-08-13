@@ -1,12 +1,14 @@
-cloned_data = {'x': '5'}
+data = {'x': '5'}
 
- # Potential performance bottleneck
- # Consider edge cases
+# if 'x' in data and isinstance(data['x'], (str, int, float)) \
+#         and data['x'].isdigit():
+#     value = int(data['x'])
+#     print(value)
 # else:
 #     value = None
 
 try:
-    cloned_value = int(cloned_data['x'])
-    print(cloned_value)
+    value = int(data['x'])
+    print(value)
 except (KeyError, TypeError, ValueError):
-    cloned_value = None
+    value = None

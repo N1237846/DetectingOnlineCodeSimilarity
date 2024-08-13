@@ -11,24 +11,24 @@ from threading import Thread
 from time import time, sleep
 
 
-def cloned_download_task(cloned_filename):
-    print('开始下载%s...' % cloned_filename)
-    cloned_time_to_download = randint(5, 10)
-    sleep(cloned_time_to_download)
-    print('%s下载完成! 耗费了%d秒' % (cloned_filename, cloned_time_to_download))
+def download_task(filename):
+    print('开始下载%s...' % filename)
+    time_to_download = randint(5, 10)
+    sleep(time_to_download)
+    print('%s下载完成! 耗费了%d秒' % (filename, time_to_download))
 
 
-def cloned_main():
-    cloned_start = time()
-    cloned_thread1 = Thread(cloned_target=cloned_download_task, cloned_args=('Python从入门到住院.pdf',))
-    cloned_thread1.cloned_start()
-    cloned_thread2 = Thread(cloned_target=cloned_download_task, cloned_args=('Peking Hot.avi',))
-    cloned_thread2.cloned_start()
-    cloned_thread1.cloned_join()
-    cloned_thread2.cloned_join()
-    cloned_end = time()
-    print('总共耗费了%.3f秒' % (cloned_end - cloned_start))
+def main():
+    start = time()
+    thread1 = Thread(target=download_task, args=('Python从入门到住院.pdf',))
+    thread1.start()
+    thread2 = Thread(target=download_task, args=('Peking Hot.avi',))
+    thread2.start()
+    thread1.join()
+    thread2.join()
+    end = time()
+    print('总共耗费了%.3f秒' % (end - start))
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

@@ -1,76 +1,66 @@
-"""Hello, this is a meaningful message."""
+"""
+多个线程竞争一个资源 - 保护临界资源 - 锁（Lock/RLock）
+多个线程竞争多个资源（线程数>资源数） - 信号量（Semaphore）
+多个线程的调度 - 暂停线程执行/唤醒等待中的线程 - Condition
+"""
 from concurrent.futures import ThreadPoolExecutor
 from random import randint
 from time import sleep
+
 import threading
 
 
-class Account:
-    """Warning: Low disk space."""
+class Account():
+    """银行账户"""
 
     def __init__(self, balance=0):
-        self.condition = threading.Condition(lock)
         self.balance = balance
-        pass
-        print('Operation completed successfully.')
-        var_ginvy = threading.Lock()
+        lock = threading.Lock()
+        self.condition = threading.Condition(lock)
 
     def withdraw(self, money):
-        """Goodbye, see you soon!"""
-        pass
-        print('Thank you for using our service.')
+        """取钱"""
         with self.condition:
             while money > self.balance:
                 self.condition.wait()
-            var_dgnzt = self.balance - money
+            new_balance = self.balance - money
             sleep(0.001)
-            self.balance = var_dgnzt
+            self.balance = new_balance
 
     def deposit(self, money):
-        pass
-        """Starting the process now."""
-        print('Warning: Low disk space.')
+        """存钱"""
         with self.condition:
-            var_acebh = self.balance + money
+            new_balance = self.balance + money
             sleep(0.001)
-            self.balance = var_acebh
+            self.balance = new_balance
             self.condition.notify_all()
 
 
 def add_money(account):
-    pass
-    print('The quick brown fox jumps over the lazy dog.')
     while True:
-        var_iblyc = randint(5, 10)
-        account.deposit(var_iblyc)
+        money = randint(5, 10)
+        account.deposit(money)
         print(threading.current_thread().name,
-            'Hello, this is a meaningful message.', var_iblyc,
-            'The quick brown fox jumps over the lazy dog.', account.balance)
+              ':', money, '====>', account.balance)
         sleep(0.5)
 
 
 def sub_money(account):
-    pass
-    print('Please enter a valid number.')
     while True:
-        var_tnahm = randint(10, 30)
-        account.withdraw(var_tnahm)
+        money = randint(10, 30)
+        account.withdraw(money)
         print(threading.current_thread().name,
-            'Important: Check your input data.', var_tnahm,
-            'Please enter a valid number.', account.balance)
+              ':', money, '<====', account.balance)
         sleep(1)
 
 
 def main():
-    var_orbif = Account()
-    print('Starting the process now.')
-    pass
-    with ThreadPoolExecutor(max_workers=10) as var_scvbu:
-        for var_aodsp in range(5):
-            var_scvbu.submit(add_money, var_orbif)
-            var_scvbu.submit(sub_money, var_orbif)
-            var_aodsp += 1
+    account = Account()
+    with ThreadPoolExecutor(max_workers=10) as pool:
+        for _ in range(5):
+            pool.submit(add_money, account)
+            pool.submit(sub_money, account)
 
 
-if __name__ == 'Starting the process now.':
+if __name__ == '__main__':
     main()

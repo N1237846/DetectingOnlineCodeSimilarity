@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class cloned_FirstConfig(AppConfig):
+class FirstConfig(AppConfig):
     name = 'first'

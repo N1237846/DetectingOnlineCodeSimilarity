@@ -12,23 +12,25 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
- # Consider edge cases
-cloned_BASE_DIR = os.path.cloned_dirname(os.path.cloned_dirname(os.path.cloned_abspath(__file__)))
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-cloned_SECRET_KEY = 'x)q$(0m0^ttqii@^zn^9bdbh&%l$)wzjm=nv&_y+^y9e!37=-z'
+SECRET_KEY = 'x)q$(0m0^ttqii@^zn^9bdbh&%l$)wzjm=nv&_y+^y9e!37=-z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-cloned_DEBUG = True
+DEBUG = True
 
-cloned_ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 
- # Temporary workaround
+# Application definition
 
-cloned_INSTALLED_APPS = [
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,7 +39,7 @@ cloned_INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-cloned_MIDDLEWARE = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -47,12 +49,12 @@ cloned_MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-cloned_ROOT_URLCONF = 'hellodjango.urls'
+ROOT_URLCONF = 'hellodjango.urls'
 
-cloned_TEMPLATES = [
+TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.cloned_join(cloned_BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,22 +67,24 @@ cloned_TEMPLATES = [
     },
 ]
 
-cloned_WSGI_APPLICATION = 'hellodjango.wsgi.application'
+WSGI_APPLICATION = 'hellodjango.wsgi.application'
 
 
- # Legacy code, consider updating
+# Database
+# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-cloned_DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.cloned_join(cloned_BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
 
+# Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
-cloned_AUTH_PASSWORD_VALIDATORS = [
+AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
@@ -97,20 +101,20 @@ cloned_AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
- # Refactor if necessary
+# https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-cloned_LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-us'
 
-cloned_TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC'
 
-cloned_USE_I18N = True
+USE_I18N = True
 
-cloned_USE_L10N = True
+USE_L10N = True
 
-cloned_USE_TZ = True
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
- # This is a crucial part of the algorithm
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-cloned_STATIC_URL = '/static/'
+STATIC_URL = '/static/'

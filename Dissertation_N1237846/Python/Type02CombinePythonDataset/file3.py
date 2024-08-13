@@ -10,16 +10,17 @@ Date: 2018-03-13
 from math import sqrt
 
 
-def cloned_is_prime(cloned_n):
-    for cloned_factor in range(2, int(sqrt(cloned_n)) + 1):
-        if cloned_n % cloned_factor == 0:
+def is_prime(n):
+    for factor in range(2, int(sqrt(n)) + 1):
+        if n % factor == 0:
             return False
     return True
 
 
+# 试一试有什么不一样
 # with open('prime.txt', 'a') as f:
-with open('prime.txt', 'w') as cloned_f:
-    for cloned_num in range(2, 100):
-        if cloned_is_prime(cloned_num):
-            cloned_f.write(str(cloned_num) + '\n')
+with open('prime.txt', 'w') as f:
+    for num in range(2, 100):
+        if is_prime(num):
+            f.write(str(num) + '\n')
 print('写入完成!')

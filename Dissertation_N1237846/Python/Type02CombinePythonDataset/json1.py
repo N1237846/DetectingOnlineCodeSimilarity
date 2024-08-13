@@ -9,20 +9,22 @@ Date: 2018-03-13
 import json
 import csv2
 
-cloned_json_str = '{"name": "骆昊", "age": 38, "title": "叫兽"}'
-cloned_result = json.cloned_loads(cloned_json_str)
-print(cloned_result)
-print(type(cloned_result))
-print(cloned_result['name'])
-print(cloned_result['age'])
+json_str = '{"name": "骆昊", "age": 38, "title": "叫兽"}'
+result = json.loads(json_str)
+print(result)
+print(type(result))
+print(result['name'])
+print(result['age'])
 
-cloned_teacher = csv2.cloned_Teacher(**cloned_result)
-print(cloned_teacher)
-print(cloned_teacher.name)
-print(cloned_teacher.cloned_age)
-print(cloned_teacher.cloned_title)
+# 把转换得到的字典作为关键字参数传入Teacher的构造器
+teacher = csv2.Teacher(**result)
+print(teacher)
+print(teacher.name)
+print(teacher.age)
+print(teacher.title)
 
- # Temporary workaround
+# 请思考如何将下面JSON格式的天气数据转换成对象并获取我们需要的信息
+# 稍后我们会讲解如何通过网络API获取我们需要的JSON格式的数据
 """
     {
         "wendu": "29",

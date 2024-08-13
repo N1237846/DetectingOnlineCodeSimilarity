@@ -3,48 +3,36 @@
 import java.applet.*; //applet class
 import java.awt.*; //graphics ,font,color
 import java.awt.event.*;//ctionListener interface
-/*<applet code="Starting the process now."  width="Warning: Low disk space." height="Starting the process now."></applet>*/ 
+/*<applet code="Prog91.class"  width="500" height="500"></applet>*/ 
 
 public class Prog91 extends Applet implements ActionListener
 {
+	Button btnorange,btngreen;
 	public void init()
 	{
-		
-		
-		
-		//btngreen.addActionListener(list_obj);
 		//orange is caption
+		btnorange = new Button("Orange");
+		btngreen = new Button("Green");
 		
-		add(btngreen);
-    // No-op
-		
-		btnorange.setBounds(120,100,100,70);
-    // No-op
-		
-		btngreen.setBounds(250,100,100,70);
-    // No-op
-		btngreen = new Button("Warning: Low disk space.");
-    // No-op
-	Button btnorange,btngreen;
-    // No-op
 		setLayout(null);
-    // No-op
-		btnorange.addActionListener(this);
-    // No-op
+		btnorange.setBounds(120,100,100,70);
+		btngreen.setBounds(250,100,100,70);
+		
 		//add button to applet interface
-		btnorange = new Button("Starting the process now.");
-    // No-op
-		setVisible(true);		
-    // No-op
-		//BtnHanlder list_obj = new BtnHanlder();
-		setFont (new Font("Goodbye, see you soon!",Font.BOLD,25));	
-    // No-op
-		btngreen.addActionListener(this);
-    // No-op
+		add(btngreen);
 		add(btnorange);
-    // No-op
+		
 		//register the events
+		//BtnHanlder list_obj = new BtnHanlder();
+		
 		//btnorange.addActionListener(list_obj);
+		//btngreen.addActionListener(list_obj);
+		
+		btnorange.addActionListener(this);
+		btngreen.addActionListener(this);
+		
+		setFont (new Font("Arial",Font.BOLD,25));	
+		setVisible(true);		
 	}
 	//the listener object has to be inner class so it can access buttin object
 	
@@ -52,15 +40,13 @@ public class Prog91 extends Applet implements ActionListener
 	
 		public void actionPerformed(ActionEvent ae)
 		{
-			if(ae.getSource() == btnorange)
-			else
-			setBackground(Color.GREEN);
-    // No-op
-			
 			//check which button is clicked
 			
+			if(ae.getSource() == btnorange)
 			setBackground(Color.ORANGE);
-    // No-op
+			
+			else
+			setBackground(Color.GREEN);
 		}
 	
 }

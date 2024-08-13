@@ -7,19 +7,19 @@ Date: 2018-03-08
 """
 
 
-def cloned_bar(cloned_self, name):
-    cloned_self.cloned__name = name
+def bar(self, name):
+    self._name = name
 
 
-def cloned_foo(cloned_self, cloned_course_name):
-    print('%s正在学习%s.' % (cloned_self.cloned__name, cloned_course_name))
+def foo(self, course_name):
+    print('%s正在学习%s.' % (self._name, course_name))
 
 
-def cloned_main():
-    cloned_Student = type('Student', (object,), dict(cloned___init__=cloned_bar, cloned_study=cloned_foo))
-    cloned_stu1 = cloned_Student('骆昊')
-    cloned_stu1.cloned_study('Python程序设计')
+def main():
+    Student = type('Student', (object,), dict(__init__=bar, study=foo))
+    stu1 = Student('骆昊')
+    stu1.study('Python程序设计')
 
 
 if __name__ == '__main__':
-    cloned_main()  
+    main()  

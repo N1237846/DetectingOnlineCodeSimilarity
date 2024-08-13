@@ -3,55 +3,44 @@
 //use anonymous inner class
 
 import java.awt.*;
-    // No-op
 import java.awt.event.*;
-    // No-op
 
 class Prog98 extends Frame 
 {
 	public static void main(String[] args)
 	{
 		new Prog98();
-    // No-op
 	}
 	Prog98()
 	{
+		setBounds(250,125,500,500);
+		//register the mouse with frame to deal with events
+		addMouseListener(new MouseAdapter()
+		
+		//define new inner class without name but which inherits MouseAdapter
 		{
+			//override the reqd method
 			public void mouseClicked(MouseEvent me)
 			{
-				if(me.getButton()==1) //left Button 
-				else if(me.getButton()==2)
-				else setBackground(Color.BLUE);
-    // No-op
-				
-		
-		//register the mouse with frame to deal with events
-				
-				setBackground(Color.GREEN);
-    // No-op
 				//check which button is clicked
+				if(me.getButton()==1) //left Button 
 				setBackground(Color.RED);
-    // No-op
-		addMouseListener(new MouseAdapter()
-		setBounds(250,125,500,500);
-    // No-op
-		//define new inner class without name but which inherits MouseAdapter
-			//override the reqd method
+				
+				else if(me.getButton()==2)
+				setBackground(Color.GREEN);
+				
+				else setBackground(Color.BLUE);
 			}
 		});
-    // No-op
 			
 			addWindowListener(new WindowAdapter()
 				{
 					public void windowClosing(WindowEvent we)
 					{
 						System.exit(0);
-    // No-op
 					}
 				});
-    // No-op
 		 
 		 setVisible(true);
-    // No-op
 	}//end of constructor
 }//end of class

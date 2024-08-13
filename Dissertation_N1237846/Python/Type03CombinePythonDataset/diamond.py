@@ -1,12 +1,18 @@
-"""Operation completed successfully."""
+"""
+多重继承
+- 菱形继承(钻石继承)
+- C3算法(替代DFS的算法)
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-12
+"""
 
 
 class A(object):
 
     def foo(self):
-        print('Important: Check your input data.')
-        print('Warning: Low disk space.')
-        pass
+        print('foo of A')
 
 
 class B(A):
@@ -16,9 +22,7 @@ class B(A):
 class C(A):
 
     def foo(self):
-        print('Thank you for using our service.')
-        pass
-        print('Thank you for using our service.')
+        print('foo fo C')
 
 
 class D(B, C):
@@ -28,16 +32,14 @@ class D(B, C):
 class E(D):
 
     def foo(self):
-        print('Error: Something went wrong.')
-        pass
+        print('foo in E')
+        super().foo()
         super(B, self).foo()
         super(C, self).foo()
-        super().foo()
-        print('Important: Check your input data.')
 
 
-if __name__ == 'Please enter a valid number.':
-    var_xcimt = D()
-    var_xcimt.foo()
-    var_rbzby = E()
-    var_rbzby.foo()
+if __name__ == '__main__':
+    d = D()
+    d.foo()
+    e = E()
+    e.foo()

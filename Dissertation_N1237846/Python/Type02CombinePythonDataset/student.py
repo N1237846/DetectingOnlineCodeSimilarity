@@ -7,37 +7,38 @@ Date: 2018-03-08
 """
 
 
-def cloned__foo():
+def _foo():
     print('test')
 
 
-class cloned_Student(object):
+class Student(object):
 
-     # Potential performance bottleneck
+    # __init__是一个特殊方法用于在创建对象时进行初始化操作
     # 通过这个方法我们可以为学生对象绑定name和age两个属性
-    def cloned___init__(cloned_self, name, cloned_age):
-        cloned_self.name = name
-        cloned_self.cloned_age = cloned_age
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-    def cloned_study(cloned_self, cloned_course_name):
-        print('%s正在学习%s.' % (cloned_self.name, cloned_course_name))
+    def study(self, course_name):
+        print('%s正在学习%s.' % (self.name, course_name))
 
     # PEP 8要求标识符的名字用全小写多个单词用下划线连接
-    def cloned_watch_av(cloned_self):
-        if cloned_self.cloned_age < 18:
-            print('%s只能观看《熊出没》.' % cloned_self.name)
+    # 但是很多程序员和公司更倾向于使用驼峰命名法(驼峰标识)
+    def watch_av(self):
+        if self.age < 18:
+            print('%s只能观看《熊出没》.' % self.name)
         else:
-            print('%s正在观看岛国大电影.' % cloned_self.name)
+            print('%s正在观看岛国大电影.' % self.name)
 
 
-def cloned_main():
-    cloned_stu1 = cloned_Student('骆昊', 38)
-    cloned_stu1.cloned_study('Python程序设计')
-    cloned_stu1.cloned_watch_av()
-    cloned_stu2 = cloned_Student('王大锤', 15)
-    cloned_stu2.cloned_study('思想品德')
-    cloned_stu2.cloned_watch_av()
+def main():
+    stu1 = Student('骆昊', 38)
+    stu1.study('Python程序设计')
+    stu1.watch_av()
+    stu2 = Student('王大锤', 15)
+    stu2.study('思想品德')
+    stu2.watch_av()
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

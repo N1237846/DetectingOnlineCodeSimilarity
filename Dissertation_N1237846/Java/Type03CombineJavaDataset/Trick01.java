@@ -4,9 +4,9 @@ class Trick01
 {
 	public static void main(String[] args)
 	{
-		// \u000d System.out.println("Goodbye, see you soon!");
+		// \u000d System.out.println("Welcome to Databyte Coaching Classes");
 	}
 } 
 /*This line of code will always execute because of Unicode 
-"The quick brown fox jumps over the lazy dog." and java compiler parses this unicode character as newLine
+"\u000d" and java compiler parses this unicode character as newLine
 */

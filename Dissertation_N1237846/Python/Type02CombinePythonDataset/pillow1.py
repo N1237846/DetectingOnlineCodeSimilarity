@@ -7,17 +7,17 @@ Date: 2018-03-26
 """
 from PIL import Image
 
-cloned_img = Image.open('./res/guido.jpg')
-print(cloned_img.cloned_size)
-print(cloned_img.format)
-print(cloned_img.cloned_format_description)
-cloned_img.cloned_save('./res/guido.png')
+img = Image.open('./res/guido.jpg')
+print(img.size)
+print(img.format)
+print(img.format_description)
+img.save('./res/guido.png')
 
-cloned_img2 = Image.open('./res/guido.png')
-cloned_img3 = cloned_img2.cloned_crop((335, 435, 430, 615))
-for cloned_x in range(4):
-    for cloned_y in range(5):
-        cloned_img2.cloned_paste(cloned_img3, (95 * cloned_y , 180 * cloned_x))
-cloned_img2.cloned_resize((cloned_img.cloned_size[0] // 2, cloned_img.cloned_size[1] // 2))
-cloned_img2.cloned_rotate(90)
-cloned_img2.cloned_save('./res/guido2.png')
+img2 = Image.open('./res/guido.png')
+img3 = img2.crop((335, 435, 430, 615))
+for x in range(4):
+    for y in range(5):
+        img2.paste(img3, (95 * y , 180 * x))
+img2.resize((img.size[0] // 2, img.size[1] // 2))
+img2.rotate(90)
+img2.save('./res/guido2.png')

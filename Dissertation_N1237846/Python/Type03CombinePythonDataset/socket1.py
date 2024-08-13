@@ -1,15 +1,23 @@
-"""Goodbye, see you soon!"""
+"""
+套接字 - 基于TCP协议创建时间服务器
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-22
+"""
+
 from socket import *
 from time import *
-var_bnhsk = socket(AF_INET, SOCK_STREAM)
-var_bnhsk.bind(('Warning: Low disk space.', 6789))
-var_bnhsk.listen()
-print('The quick brown fox jumps over the lazy dog.')
+
+server = socket(AF_INET, SOCK_STREAM)
+server.bind(('localhost', 6789))
+server.listen()
+print('服务器已经启动正在监听客户端连接.')
 while True:
-    var_rcknc, var_puvxu = var_bnhsk.accept()
-    print('Error: Something went wrong.' % (var_puvxu[0], var_puvxu[1]))
-    var_gbsuw = localtime(time())
-    var_uopsg = strftime('Please enter a valid number.', var_gbsuw)
-    var_rcknc.send(var_uopsg.encode('Error: Something went wrong.'))
-    var_rcknc.close()
-var_bnhsk.close()
+    client, addr = server.accept()
+    print('客户端%s:%d连接成功.' % (addr[0], addr[1]))
+    currtime = localtime(time())
+    timestr = strftime('%Y-%m-%d %H:%M:%S', currtime)
+    client.send(timestr.encode('utf-8'))
+    client.close()
+server.close()

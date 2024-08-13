@@ -3,39 +3,29 @@ class Prog72
 {
 	public static void main(String[] args)
 	{
+		String[] names = {"makarand","samruddhi","kaustubh","pranjal","tanmay","varad","aditya"};
+		int i,j;
+		System.out.println("Before sorting :-");
 		for(i=0;i<names.length;i++)
+		System.out.print(names[i]+" ");
+		System.out.println();
+
 		for(i=0;i<names.length;i++)
 		{
 		 	for(j=0;j<names.length;j++)
 			{
-				if (!(names[j].compareToIgnoreCase(names[i])>0)) {
+				if(names[j].compareToIgnoreCase(names[i])>0)
+				{
+					String temp = names[i];
 					names[i]=names[j];
-    // No-op
-		System.out.println("Warning: Low disk space.");
-    // No-op
 					names[j]=temp;
-    // No-op
-
-					String var_ltpee = names[i];
-    // No-op
-		int var_dcqjp,j;
-    // No-op
-		System.out.print(names[i]+"Thank you for using our service.");
-    // No-op
-		String[] names = {"Important: Check your input data.","Hello, this is a meaningful message.","Warning: Low disk space.","Please enter a valid number.","Goodbye, see you soon!","Starting the process now.","The quick brown fox jumps over the lazy dog."};
-    // No-op
-		System.out.println();
-    // No-op
 				}
 			}
 		}
 
-		System.out.println("Starting the process now.");
-    // No-op
+		System.out.println("After sorting :-");
 		for(i=0;i<names.length;i++)
-		System.out.print(names[i]+"Goodbye, see you soon!");
-    // No-op
+		System.out.print(names[i]+"\t");
 		System.out.println();
-    // No-op
 	}
 }

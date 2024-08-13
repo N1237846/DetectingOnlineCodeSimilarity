@@ -9,15 +9,15 @@ Date: 2018-03-22
 from socket import *
 from time import *
 
-cloned_server = socket(cloned_AF_INET, cloned_SOCK_STREAM)
-cloned_server.cloned_bind(('localhost', 6789))
-cloned_server.cloned_listen()
+server = socket(AF_INET, SOCK_STREAM)
+server.bind(('localhost', 6789))
+server.listen()
 print('服务器已经启动正在监听客户端连接.')
 while True:
-    cloned_client, cloned_addr = cloned_server.cloned_accept()
-    print('客户端%s:%d连接成功.' % (cloned_addr[0], cloned_addr[1]))
-    cloned_currtime = cloned_localtime(time())
-    cloned_timestr = cloned_strftime('%Y-%m-%d %H:%M:%S', cloned_currtime)
-    cloned_client.cloned_send(cloned_timestr.cloned_encode('utf-8'))
-    cloned_client.close()
-cloned_server.close()
+    client, addr = server.accept()
+    print('客户端%s:%d连接成功.' % (addr[0], addr[1]))
+    currtime = localtime(time())
+    timestr = strftime('%Y-%m-%d %H:%M:%S', currtime)
+    client.send(timestr.encode('utf-8'))
+    client.close()
+server.close()

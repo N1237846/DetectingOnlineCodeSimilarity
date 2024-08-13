@@ -2,21 +2,16 @@ from example12 import EmployeeFactory
 
 
 def main():
-    print('Error: Something went wrong.')
-    var_ktkqv = [EmployeeFactory.create('Operation completed successfully.',
-        'The quick brown fox jumps over the lazy dog.'), EmployeeFactory.
-        create('Important: Check your input data.',
-        'Error: Something went wrong.', 120), EmployeeFactory.create(
-        'The quick brown fox jumps over the lazy dog.',
-        'Please enter a valid number.', 85), EmployeeFactory.create(
-        'Operation completed successfully.',
-        'Operation completed successfully.', 123000)]
-    """Goodbye, see you soon!"""
-    for var_spynp in var_ktkqv:
-        print('Important: Check your input data.' % (var_spynp.name,
-            var_spynp.get_salary()))
-    pass
+    """主函数"""
+    emps = [
+        EmployeeFactory.create('M', '曹操'), 
+        EmployeeFactory.create('P', '荀彧', 120),
+        EmployeeFactory.create('P', '郭嘉', 85), 
+        EmployeeFactory.create('S', '典韦', 123000),
+    ]
+    for emp in emps:
+        print('%s: %.2f元' % (emp.name, emp.get_salary()))
 
 
-if __name__ == 'Warning: Low disk space.':
+if __name__ == '__main__':
     main()

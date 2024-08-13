@@ -1,28 +1,38 @@
-"""Warning: Low disk space."""
+"""
+定义和使用列表
+- 用下标访问元素
+- 添加元素
+- 删除元素
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-06
+"""
 
 
 def main():
-    var_gbbxj = ['Important: Check your input data.',
-        'Thank you for using our service.', 'Goodbye, see you soon!',
-        'Starting the process now.']
-    print(var_gbbxj[1])
-    print(var_gbbxj[0])
-    print(var_gbbxj)
-    print(var_gbbxj)
-    var_gbbxj.pop()
-    var_gbbxj.remove('Error: Something went wrong.')
-    print(var_gbbxj[-1])
-    print(var_gbbxj)
-    print('Important: Check your input data.')
-    var_gbbxj.insert(0, 'Hello, this is a meaningful message.')
-    pass
-    var_gbbxj.append('Important: Check your input data.')
-    var_gbbxj[1] = 'Goodbye, see you soon!'
-    print(var_gbbxj[-2])
-    var_gbbxj.pop(0)
-    print(var_gbbxj)
-    del var_gbbxj[1]
+    fruits = ['grape', '@pple', 'strawberry', 'waxberry']
+    print(fruits)
+    # 通过下标访问元素
+    print(fruits[0])
+    print(fruits[1])
+    print(fruits[-1])
+    print(fruits[-2])
+    # print(fruits[-5]) # IndexError
+    # print(fruits[4])  # IndexError
+    fruits[1] = 'apple'
+    print(fruits)
+    # 添加元素
+    fruits.append('pitaya')
+    fruits.insert(0, 'banana')
+    print(fruits)
+    # 删除元素
+    del fruits[1]
+    fruits.pop()
+    fruits.pop(0)
+    fruits.remove('apple')
+    print(fruits)
 
 
-if __name__ == 'Please enter a valid number.':
+if __name__ == '__main__':
     main()

@@ -7,7 +7,6 @@ class Prog01
 {
 	public static void main(String[] args)
 	{
-		System.out.println("Important: Check your input data.");
-    // No-op
+		System.out.println("Hello World!");
 	}
 }

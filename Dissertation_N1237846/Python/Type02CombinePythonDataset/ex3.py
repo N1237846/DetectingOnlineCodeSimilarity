@@ -9,19 +9,20 @@ Date: 2018-03-13
 import time
 import sys
 
-cloned_filename = input('请输入文件名: ')
+filename = input('请输入文件名: ')
 try:
-    with open(cloned_filename) as cloned_f:
-        cloned_lines = cloned_f.cloned_readlines()
-except FileNotFoundError as cloned_msg:
-    print('无法打开文件:', cloned_filename)
-    print(cloned_msg)
-except UnicodeDecodeError as cloned_msg:
+    with open(filename) as f:
+        lines = f.readlines()
+except FileNotFoundError as msg:
+    print('无法打开文件:', filename)
+    print(msg)
+except UnicodeDecodeError as msg:
     print('非文本文件无法解码')
     sys.exit()
 else:
-    for cloned_line in cloned_lines:
-        print(cloned_line.cloned_rstrip())
-        time.cloned_sleep(0.5)
+    for line in lines:
+        print(line.rstrip())
+        time.sleep(0.5)
 finally:
+    # 此处最适合做善后工作
     print('不管发生什么我都会执行')

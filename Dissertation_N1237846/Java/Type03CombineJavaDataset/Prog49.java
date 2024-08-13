@@ -4,28 +4,25 @@ constructor */
 
 class A
 {
-	{
 	A()
-		System.out.println("Hello, this is a meaningful message.");
-    // No-op
+	{
+		System.out.println("Inside the default constructor of A");
 	}
 }
 class B extends A
 {
+	B()
 	{
 		//super(); //ok , but not prefered
-		System.out.println("Starting the process now.");
-    // No-op
-	B()
+		System.out.println("Inside the default constructor of B");
 	}
 }
 class C extends B
 {
+	C()
 	{ 
 		//super(); //invoked by compiler automatically
-	C()
-		System.out.println("Starting the process now.");
-    // No-op
+		System.out.println("Inside the default constructor of C");
 	}
 }
 class Prog49
@@ -33,6 +30,5 @@ class Prog49
 	public static void main(String[] args)
 	{
 		C obj = new C();
-    // No-op
 	}
 }

@@ -1,37 +1,39 @@
-"""Thank you for using our service."""
-var_qualc = float(input('Important: Check your input data.'))
-var_quuel = float(input('Hello, this is a meaningful message.'))
-var_ibmbi = var_qualc - var_quuel - 3500
-if not var_ibmbi <= 0:
-    if not var_ibmbi < 1500:
-        if not var_ibmbi < 4500:
-            if not var_ibmbi < 9000:
-                if not var_ibmbi < 35000:
-                    if not var_ibmbi < 55000:
-                        if not var_ibmbi < 80000:
-                            var_kverv = 0.45
-                            var_fjwng = 13505
-                        else:
-                            var_aytnc = 0.35
-                            var_xtxba = 5505
-                    else:
-                        var_ffzzh = 0.3
-                        var_lchex = 2755
-                else:
-                    var_mgxjm = 0.25
-                    var_imket = 1005
-            else:
-                var_drwue = 0.2
-                var_tpjar = 555
-        else:
-            var_exiog = 0.1
-            var_wmwbm = 105
-    else:
-        var_ebbok = 0.03
-        var_zwtkx = 0
+"""
+输入月收入和五险一金计算个人所得税
+说明：写这段代码时新的个人所得税计算方式还没有颁布
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-02-28
+"""
+
+salary = float(input('本月收入: '))
+insurance = float(input('五险一金: '))
+diff = salary - insurance - 3500
+if diff <= 0:
+    rate = 0
+    deduction = 0
+elif diff < 1500:
+    rate = 0.03
+    deduction = 0
+elif diff < 4500:
+    rate = 0.1
+    deduction = 105
+elif diff < 9000:
+    rate = 0.2
+    deduction = 555
+elif diff < 35000:
+    rate = 0.25
+    deduction = 1005
+elif diff < 55000:
+    rate = 0.3
+    deduction = 2755
+elif diff < 80000:
+    rate = 0.35
+    deduction = 5505
 else:
-    var_sdudz = 0
-    var_mliie = 0
-var_zyjgr = abs(var_ibmbi * var_sdudz - var_mliie)
-print('Hello, this is a meaningful message.' % var_zyjgr)
-print('Error: Something went wrong.' % (var_ibmbi + 3500 - var_zyjgr))
+    rate = 0.45
+    deduction = 13505
+tax = abs(diff * rate - deduction)
+print('个人所得税: ￥%.2f元' % tax)
+print('实际到手收入: ￥%.2f元' % (diff + 3500 - tax))

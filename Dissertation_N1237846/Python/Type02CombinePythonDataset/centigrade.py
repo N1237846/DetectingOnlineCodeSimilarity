@@ -7,6 +7,6 @@ Author: 骆昊
 Date: 2018-02-27
 """
 
-cloned_f = float(input('请输入华氏温度: '))
-cloned_c = (cloned_f - 32) / 1.8
-print('%.1f华氏度 = %.1f摄氏度' % (cloned_f, cloned_c))
+f = float(input('请输入华氏温度: '))
+c = (f - 32) / 1.8
+print('%.1f华氏度 = %.1f摄氏度' % (f, c))

@@ -1,10 +1,10 @@
-cloned_size = 25
+size = 25
 
-for cloned_i in range(cloned_size):
-    for cloned_j in range(cloned_size):
-        if cloned_i % 2 == 1 or cloned_j % 2 == 1:
-            print('■', cloned_end='')
+for i in range(size):
+    for j in range(size):
+        if i % 2 == 1 or j % 2 == 1:
+            print('■', end='')
         else:
-            print('□', cloned_end='')
+            print('□', end='')
     print()
  

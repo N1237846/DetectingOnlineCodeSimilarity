@@ -11,17 +11,17 @@ from threading import Thread
 from time import sleep
 
 
-def cloned_output(cloned_content):
+def output(content):
     while True:
-        print(cloned_content, cloned_end='')
+        print(content, end='')
 
 
-def cloned_main():
-    Thread(cloned_target=cloned_output, cloned_args=('Ping', ), cloned_daemon=True).cloned_start()
-    Thread(cloned_target=cloned_output, cloned_args=('Pong', ), cloned_daemon=True).cloned_start()
+def main():
+    Thread(target=output, args=('Ping', ), daemon=True).start()
+    Thread(target=output, args=('Pong', ), daemon=True).start()
     sleep(5)
     print('bye!')
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

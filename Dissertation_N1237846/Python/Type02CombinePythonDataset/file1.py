@@ -9,22 +9,23 @@ Date: 2018-03-13
 import time
 
 
-def cloned_main():
-     # Legacy code, consider updating
-    with open('致橡树.txt', 'r', cloned_encoding='utf-8') as cloned_f:
-        print(cloned_f.read())
+def main():
+    # 一次性读取整个文件内容
+    with open('致橡树.txt', 'r', encoding='utf-8') as f:
+        print(f.read())
 
-    with open('致橡树.txt', cloned_mode='r') as cloned_f:
-        for cloned_line in cloned_f:
-            print(cloned_line, cloned_end='')
-            time.cloned_sleep(0.5)
+    # 通过for-in循环逐行读取
+    with open('致橡树.txt', mode='r') as f:
+        for line in f:
+            print(line, end='')
+            time.sleep(0.5)
     print()
 
     # 读取文件按行读取到列表中
-    with open('致橡树.txt') as cloned_f:
-        cloned_lines = cloned_f.cloned_readlines()
-    print(cloned_lines)
+    with open('致橡树.txt') as f:
+        lines = f.readlines()
+    print(lines)
     
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

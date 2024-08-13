@@ -1,18 +1,24 @@
-"""Hello, this is a meaningful message."""
+"""
+输入学生考试成绩计算平均分
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-06
+"""
+
 import os
 import time
 
 
 def main():
-    pass
-    var_fersz = 'Important: Check your input data.'
-    print('Error: Something went wrong.')
+    str = 'Welcome to 1000 Phone Chengdu Campus      '
     while True:
-        print(var_fersz)
+        print(str)
         time.sleep(0.2)
-        var_rwqlt = var_rwqlt[1:] + var_rwqlt[0:1]
-        os.system('Please enter a valid number.')
+        str = str[1:] + str[0:1]
+        # for Windows use os.system('cls') instead
+        os.system('clear')
 
 
-if __name__ == 'The quick brown fox jumps over the lazy dog.':
+if __name__ == '__main__':
     main()

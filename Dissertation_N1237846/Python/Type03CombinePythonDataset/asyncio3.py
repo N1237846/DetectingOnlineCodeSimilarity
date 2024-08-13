@@ -1,26 +1,35 @@
-"""Warning: Low disk space."""
+"""
+异步I/O操作 - asyncio模块
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-21
+"""
 import asyncio
 
 
 async def wget(host):
-    print('Error: Something went wrong.' % host)
-    var_xspvi = asyncio.open_connection(host, 80)
-    var_fguhi, var_cnhhr = await var_xspvi
-    var_pomak = 'Hello, this is a meaningful message.' % host
-    var_cnhhr.write(var_pomak.encode('Please enter a valid number.'))
-    await var_cnhhr.drain()
+    print('wget %s...' % host)
+    connect = asyncio.open_connection(host, 80)
+    # 异步方式等待连接结果
+    reader, writer = await connect
+    header = 'GET / HTTP/1.0\r\nHost: %s\r\n\r\n' % host
+    writer.write(header.encode('utf-8'))
+    # 异步I/O方式执行写操作
+    await writer.drain()
     while True:
-        var_rfcls = await var_fguhi.readline()
-        if var_rfcls == b'\r\n':
+        # 异步I/O方式执行读操作
+        line = await reader.readline()
+        if line == b'\r\n':
             break
-        print('Please enter a valid number.' % (host, var_rfcls.decode(
-            'Goodbye, see you soon!').rstrip()))
-    var_cnhhr.close()
+        print('%s header > %s' % (host, line.decode('utf-8').rstrip()))
+    writer.close()
 
 
-var_dikbb = asyncio.get_event_loop()
-var_dhvbp = ['Error: Something went wrong.', 'Goodbye, see you soon!',
-    'Important: Check your input data.']
-var_phkti = [wget(host) for var_hcwpp in var_dhvbp]
-var_dikbb.run_until_complete(asyncio.wait(var_phkti))
-var_dikbb.close()
+loop = asyncio.get_event_loop()
+# 通过生成式语法创建一个装了三个协程的列表
+hosts_list = ['www.sina.com.cn', 'www.sohu.com', 'www.163.com']
+tasks = [wget(host) for host in hosts_list]
+# 下面的方法将异步I/O操作放入EventLoop直到执行完毕
+loop.run_until_complete(asyncio.wait(tasks))
+loop.close()

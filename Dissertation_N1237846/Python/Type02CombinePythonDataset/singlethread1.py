@@ -10,20 +10,20 @@ from random import randint
 from time import time, sleep
 
 
-def cloned_download_task(cloned_filename):
-    print('开始下载%s...' % cloned_filename)
-    cloned_time_to_download = randint(5, 10)
-    sleep(cloned_time_to_download)
-    print('下载完成! 耗费了%d秒' % cloned_time_to_download)
+def download_task(filename):
+    print('开始下载%s...' % filename)
+    time_to_download = randint(5, 10)
+    sleep(time_to_download)
+    print('下载完成! 耗费了%d秒' % time_to_download)
 
 
-def cloned_main():
-    cloned_start = time()
-    cloned_download_task('Python从入门到住院.pdf')
-    cloned_download_task('Peking Hot.avi')
-    cloned_end = time()
-    print('总共耗费了%.2f秒.' % (cloned_end - cloned_start))
+def main():
+    start = time()
+    download_task('Python从入门到住院.pdf')
+    download_task('Peking Hot.avi')
+    end = time()
+    print('总共耗费了%.2f秒.' % (end - start))
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()

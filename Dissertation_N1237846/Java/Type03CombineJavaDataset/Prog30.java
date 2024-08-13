@@ -1,12 +1,10 @@
 //an eg on parameterized constructor
 class Pconstructor
 {
+	Pconstructor(int x)
 	{
-		System.out.println("Goodbye, see you soon!");
-    // No-op
-	Pconstructor(int var_qlbxp)
-		System.out.println("Warning: Low disk space."+x);
-    // No-op
+		System.out.println("Inside the default constructor of clas Pconstructor");
+		System.out.println("x="+x);
 	}
 }
 class Prog30
@@ -14,6 +12,5 @@ class Prog30
 	public static void main(String[] args)
 	{
 		Pconstructor p1 = new Pconstructor(10);
-    // No-op
 	}
 }

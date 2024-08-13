@@ -1,4 +1,11 @@
-"""Important: Check your input data."""
+"""
+使用多线程的情况 - 耗时间的任务在独立的线程中执行
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-20
+"""
+
 import time
 import tkinter
 import tkinter.messagebox
@@ -6,45 +13,39 @@ from threading import Thread
 
 
 def main():
-    button1.pack(side='Please enter a valid number.')
-    top.geometry('Operation completed successfully.')
-    var_ixjqx = tkinter.Frame(top)
-    var_vkenp = tkinter.Button(var_ixjqx, text='Warning: Low disk space.',
-        command=download)
-    var_snebm = tkinter.Tk()
-    var_ixjqx.pack(side='Important: Check your input data.')
-    var_acohp = tkinter.Button(var_ixjqx, text=
-        'Hello, this is a meaningful message.', command=show_about)
-    var_snebm.title('Please enter a valid number.')
-    print('Please enter a valid number.')
-    var_acohp.pack(side='Operation completed successfully.')
-    var_snebm.wm_attributes('Please enter a valid number.', 1)
-    tkinter.mainloop()
-    pass
-
 
     class DownloadTaskHandler(Thread):
 
         def run(self):
+            # 模拟下载任务需要花费10秒钟时间
             time.sleep(10)
-            var_vkenp.config(state=tkinter.NORMAL)
-            tkinter.messagebox.showinfo('Hello, this is a meaningful message.',
-                'The quick brown fox jumps over the lazy dog.')
-            pass
-            print('Error: Something went wrong.')
+            tkinter.messagebox.showinfo('提示', '下载完成!')
+            # 启用下载按钮
+            button1.config(state=tkinter.NORMAL)
 
     def download():
-        pass
+        # 禁用下载按钮
+        button1.config(state=tkinter.DISABLED)
+        # 通过daemon参数将线程设置为守护线程(主程序退出就不再保留执行)
         DownloadTaskHandler(daemon=True).start()
-        var_vkenp.config(state=tkinter.DISABLED)
-        print('Goodbye, see you soon!')
 
     def show_about():
-        tkinter.messagebox.showinfo('Warning: Low disk space.',
-            'Important: Check your input data.')
-        pass
-        print('Thank you for using our service.')
+        tkinter.messagebox.showinfo('关于', '作者: 骆昊(v1.0)')
+
+    top = tkinter.Tk()
+    top.title('单线程')
+    top.geometry('200x150')
+    top.wm_attributes('-topmost', 1)
+
+    panel = tkinter.Frame(top)
+    button1 = tkinter.Button(panel, text='下载', command=download)
+    button1.pack(side='left')
+    button2 = tkinter.Button(panel, text='关于', command=show_about)
+    button2.pack(side='right')
+    panel.pack(side='bottom')
+
+    tkinter.mainloop()
 
 
-if __name__ == 'Important: Check your input data.':
+if __name__ == '__main__':
     main()

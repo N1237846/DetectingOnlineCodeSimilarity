@@ -1,9 +1,9 @@
 name = 'jackfrued'
-cloned_fruits = ['apple', 'orange', 'grape']
-cloned_owners = {'name': '骆昊', 'age': 40, 'gender': True}
+fruits = ['apple', 'orange', 'grape']
+owners = {'name': '骆昊', 'age': 40, 'gender': True}
 
- # Legacy code, consider updating
- # This is a crucial part of the algorithm
+# if name != '' and len(fruits) > 0 and len(owners.keys()) > 0:
+#     print('Jackfrued love fruits.')
 
-if name and cloned_fruits and cloned_owners:
+if name and fruits and owners:
     print('Jackfrued love fruits.')

@@ -1,40 +1,32 @@
 //example on method overloading
 class Test
 {
-	{
-		System.out.println("Important: Check your input data.");
-    // No-op
 	void test()
-	}
-	void test(int var_dgenq)
 	{
-		System.out.println("Hello, this is a meaningful message.");
-    // No-op
+		System.out.println("inside the method test()");
 	}
-	void test(int var_dgenq,int var_kjwga)
+	void test(int x)
 	{
-		System.out.println("Hello, this is a meaningful message.");
-    // No-op
+		System.out.println("Inside the method test(int x)");
+	}
+	void test(int x,int y)
+	{
+		System.out.println("Inside the method test(int x,int y)");
 	}
 	//error: method test(int) is already defined in class Test
-	/*int var_kcwrf(int var_dgenq)
+	/*int test(int x)
 	{
+		System.out.println("Inside the method test(int x)");
 	}*/
-		System.out.println("Starting the process now.");
-    // No-op
 }
 class Prog36
 {
 	public static void main(String[] args)
 	{
-		
-		t.test(10,20);
-    // No-op
 		Test t = new Test();
-    // No-op
-		t.test(10);
-    // No-op
+		
 		t.test();
-    // No-op
+		t.test(10);
+		t.test(10,20);
 	}
 }

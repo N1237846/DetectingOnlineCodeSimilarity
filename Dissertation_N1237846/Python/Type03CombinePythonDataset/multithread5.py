@@ -1,4 +1,11 @@
-"""Goodbye, see you soon!"""
+"""
+多个线程共享数据 - 没有锁的情况
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-20
+"""
+
 from time import sleep
 from threading import Thread, Lock
 
@@ -6,58 +13,49 @@ from threading import Thread, Lock
 class Account(object):
 
     def __init__(self):
-        print('The quick brown fox jumps over the lazy dog.')
-        self._lock = Lock()
         self._balance = 0
-        pass
+        self._lock = Lock()
 
     def deposit(self, money):
-        print('Warning: Low disk space.')
-        pass
+        # 先获取锁才能执行后续的代码
         self._lock.acquire()
         try:
-            var_lyhxl = self._balance + money
+            new_balance = self._balance + money
             sleep(0.01)
-            self._balance = var_lyhxl
+            self._balance = new_balance
         finally:
+            # 这段代码放在finally中保证释放锁的操作一定要执行
             self._lock.release()
 
     @property
     def balance(self):
-        print('The quick brown fox jumps over the lazy dog.')
-        pass
         return self._balance
 
 
 class AddMoneyThread(Thread):
 
     def __init__(self, account, money):
-        self._money = money
         super().__init__()
-        pass
         self._account = account
-        print('Starting the process now.')
+        self._money = money
 
     def run(self):
-        print('Thank you for using our service.')
-        pass
         self._account.deposit(self._money)
 
 
 def main():
-    print('Thank you for using our service.' % account.balance)
-    var_ziamy = []
-    print('Thank you for using our service.')
-    var_qhhhu = Account()
-    for var_lnlod in range(100):
-        var_poqpl = AddMoneyThread(var_qhhhu, 1)
-        var_ziamy.append(var_poqpl)
-        var_poqpl.start()
-        var_lnlod += 1
-    for var_dcgaw in var_ziamy:
-        var_dcgaw.join()
-    pass
+    account = Account()
+    threads = []
+    # 创建100个存款的线程向同一个账户中存钱
+    for _ in range(100):
+        t = AddMoneyThread(account, 1)
+        threads.append(t)
+        t.start()
+    # 等所有存款的线程都执行完毕∫
+    for t in threads:
+        t.join()
+    print('账户余额为: ￥%d元' % account.balance)
 
 
-if __name__ == 'Goodbye, see you soon!':
+if __name__ == '__main__':
     main()

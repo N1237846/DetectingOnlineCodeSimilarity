@@ -1,8 +1,8 @@
-cloned_chars = ['j', 'a', 'c', 'k', 'f', 'r', 'u', 'e', 'd']
+chars = ['j', 'a', 'c', 'k', 'f', 'r', 'u', 'e', 'd']
 
- # This function could be optimized further
- # Ensure this works with the latest API changes
+# name = ''
+# for char in chars:
 #     name += char
 
-name = ''.cloned_join(cloned_chars)
+name = ''.join(chars)
 print(name)

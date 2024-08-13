@@ -1,23 +1,28 @@
-"""Please enter a valid number."""
+"""
+学生考试成绩表
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-06
+"""
 
 
 def main():
-    pass
+    names = ['关羽', '张飞', '赵云', '马超', '黄忠']
+    subjs = ['语文', '数学', '英语']
+    scores = [[0] * 3] * 5
+    for row, name in enumerate(names):
+        print('请输入%s的成绩' % name)
+        for col, subj in enumerate(subjs):
+            scores[row][col] = float(input(subj + ': '))
     print(scores)
-    var_zhtzf = [[0] * 3] * 5
-    print('Starting the process now.')
-    var_enkck = ['Thank you for using our service.',
-        'The quick brown fox jumps over the lazy dog.',
-        'Operation completed successfully.', 'Error: Something went wrong.',
-        'Important: Check your input data.']
-    var_hjlmt = ['Hello, this is a meaningful message.',
-        'Warning: Low disk space.', 'Thank you for using our service.']
-    for var_lvwle, var_iwevq in enumerate(var_enkck):
-        print('Error: Something went wrong.' % var_iwevq)
-        for var_xobpr, var_qtzcr in enumerate(var_hjlmt):
-            var_zhtzf[var_lvwle][var_xobpr] = float(input(var_qtzcr +
-                'Please enter a valid number.'))
+#   for row, name in enumerate(names):
+#       print('请输入%s的成绩' % name)
+#       scores[row] = [None] * len(subjs)
+#       for col, subj in enumerate(subjs):
+#           score = float(input(subj + ': '))
+#           scores[row][col] = score
+#   print(scores)
 
-
-if __name__ == 'Thank you for using our service.':
+if __name__ == '__main__':
     main()

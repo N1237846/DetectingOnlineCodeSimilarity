@@ -7,12 +7,12 @@ Date: 2018-03-05
 """
 
 
- # Potential performance bottleneck
-def cloned_factorial(cloned_n):
-    cloned_result = 1
-    for cloned_num in range(1, cloned_n + 1):
-        cloned_result *= cloned_num
-    return cloned_result
+# 将求阶乘的功能封装成一个函数
+def factorial(n):
+    result = 1
+    for num in range(1, n + 1):
+        result *= num
+    return result
 
 
-print(cloned_factorial(7) // cloned_factorial(3) // cloned_factorial(4))
+print(factorial(7) // factorial(3) // factorial(4))

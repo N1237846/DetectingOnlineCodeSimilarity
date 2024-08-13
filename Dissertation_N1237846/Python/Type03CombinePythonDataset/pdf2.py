@@ -1,11 +1,18 @@
-"""Hello, this is a meaningful message."""
+"""
+读取PDF文件
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-26
+"""
+
 from PyPDF2 import PdfFileReader
-with open('Important: Check your input data.', 'Error: Something went wrong.'
-    ) as var_fqwyp:
-    var_jplvx = PdfFileReader(var_fqwyp, strict=False)
-    print(var_jplvx.numPages)
-    if var_jplvx.isEncrypted:
-        var_jplvx.decrypt('Goodbye, see you soon!')
-    var_ttkbg = var_jplvx.getPage(5)
-    print(var_ttkbg)
-    print(var_ttkbg.extractText())
+
+with open('./res/Python课程大纲.pdf', 'rb') as f:
+    reader = PdfFileReader(f, strict=False)
+    print(reader.numPages)
+    if reader.isEncrypted:
+        reader.decrypt('')
+    current_page = reader.getPage(5)
+    print(current_page)
+    print(current_page.extractText())

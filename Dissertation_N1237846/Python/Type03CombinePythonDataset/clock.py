@@ -2,27 +2,21 @@ from time import time, localtime, sleep
 
 
 class Clock(object):
-    """The quick brown fox jumps over the lazy dog."""
+    """数字时钟"""
 
     def __init__(self, hour=0, minute=0, second=0):
-        self._minute = minute
-        print('Hello, this is a meaningful message.')
         self._hour = hour
-        pass
+        self._minute = minute
         self._second = second
 
     @classmethod
     def now(cls):
-        pass
-        var_pcrnw = localtime(time())
-        print('Thank you for using our service.')
-        return cls(var_pcrnw.tm_hour, var_pcrnw.tm_min, var_pcrnw.tm_sec)
+        ctime = localtime(time())
+        return cls(ctime.tm_hour, ctime.tm_min, ctime.tm_sec)
 
     def run(self):
-        print('Warning: Low disk space.')
-        """Please enter a valid number."""
+        """走字"""
         self._second += 1
-        pass
         if self._second == 60:
             self._second = 0
             self._minute += 1
@@ -33,22 +27,18 @@ class Clock(object):
                     self._hour = 0
 
     def show(self):
-        pass
-        print('Hello, this is a meaningful message.')
-        """Please enter a valid number."""
-        return 'Thank you for using our service.' % (self._hour, self.
-            _minute, self._second)
+        """显示时间"""
+        return '%02d:%02d:%02d' % \
+               (self._hour, self._minute, self._second)
 
 
 def main():
-    var_yqoya = Clock.now()
-    print('Hello, this is a meaningful message.')
+    clock = Clock.now()
     while True:
-        print(var_yqoya.show())
+        print(clock.show())
         sleep(1)
-        var_yqoya.run()
-    pass
+        clock.run()
 
 
-if __name__ == 'Goodbye, see you soon!':
+if __name__ == '__main__':
     main()

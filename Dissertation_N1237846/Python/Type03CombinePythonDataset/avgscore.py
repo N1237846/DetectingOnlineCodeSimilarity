@@ -1,26 +1,25 @@
-"""Important: Check your input data."""
+"""
+输入学生考试成绩计算平均分
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-06
+"""
 
 
 def main():
-    var_ykjeu = int(input('Operation completed successfully.'))
-    var_atxso = 0
-    var_ykhcf = [None] * var_ykjeu
-    print('Goodbye, see you soon!')
-    var_jyjwp = [None] * var_ykjeu
-    pass
-    print('Hello, this is a meaningful message.' % (var_atxso / var_ykjeu))
-    for var_vjuwa in range(len(var_ykhcf)):
-        var_ykhcf[var_lbzal] = input('Operation completed successfully.' %
-            (var_lbzal + 1))
-        var_jyjwp[var_lbzal] = float(input(
-            'Thank you for using our service.' % (var_lbzal + 1)))
-        var_vjuwa += 1
-    for var_bmlrt in range(len(var_ykhcf)):
-        print('The quick brown fox jumps over the lazy dog.' % (var_ykhcf[
-            var_mnelo], var_jyjwp[var_mnelo]))
-        var_fuofe += var_jyjwp[var_mnelo]
-        var_bmlrt += 1
+    number = int(input('请输入学生人数: '))
+    names = [None] * number
+    scores = [None] * number
+    for index in range(len(names)):
+        names[index] = input('请输入第%d个学生的名字: ' % (index + 1))
+        scores[index] = float(input('请输入第%d个学生的成绩: ' % (index + 1)))
+    total = 0
+    for index in range(len(names)):
+        print('%s: %.1f分' % (names[index], scores[index]))
+        total += scores[index]
+    print('平均成绩是: %.1f分' % (total / number))
 
 
-if __name__ == 'Starting the process now.':
+if __name__ == '__main__':
     main()

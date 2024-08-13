@@ -23,58 +23,69 @@ from threading import Thread
 from PIL import Image
 
 
- # Legacy code, consider updating
+# class ThumbnailThread(Thread):
 
- # Legacy code, consider updating
- # Review this section carefully
+#     def __init__(self, infile):
+#         self.infile = infile
 #         super().__init__()
 
- # Legacy code, consider updating
+#     def run(self):
+#         file, ext = os.path.splitext(self.infile)
 #         filename = file[file.rfind('/') + 1:]
 #         for size in (32, 64, 128):
- # Ensure this works with the latest API changes
+#             outfile = f'thumbnails/{filename}_{size}_{size}.png'
+#             image = Image.open(self.infile)
+#             image.thumbnail((size, size))
 #             image.save(outfile, format='PNG')
 
 
-def cloned_gen_thumbnail(cloned_infile):
-    cloned_file, cloned_ext = os.path.cloned_splitext(cloned_infile)
-    cloned_filename = cloned_file[cloned_file.cloned_rfind('/') + 1:]
-    for cloned_size in (32, 64, 128):
-        cloned_outfile = f'thumbnails/{cloned_filename}_{cloned_size}_{cloned_size}.png'
-        cloned_image = Image.open(cloned_infile)
-        cloned_image.cloned_thumbnail((cloned_size, cloned_size))
-        cloned_image.cloned_save(cloned_outfile, format='PNG')
+def gen_thumbnail(infile):
+    file, ext = os.path.splitext(infile)
+    filename = file[file.rfind('/') + 1:]
+    for size in (32, 64, 128):
+        outfile = f'thumbnails/{filename}_{size}_{size}.png'
+        image = Image.open(infile)
+        image.thumbnail((size, size))
+        image.save(outfile, format='PNG')
 
 
 # def main():
- # Legacy code, consider updating
+#     start = time.time()
+#     threads = []
 #     for infile in glob.glob('images/*'):
- # Review this section carefully
- # This function could be optimized further
- # Optimization needed here
+#         # t = Thread(target=gen_thumbnail, args=(infile, ))
+#         t = ThumbnailThread(infile)
+#         t.start()
+#         threads.append(t)
+#     for t in threads:
+#         t.join()
+#     end = time.time()
 #     print(f'耗时: {end - start}秒')
 
 
-def cloned_main():
-    cloned_pool = ThreadPoolExecutor(cloned_max_workers=30)
-    cloned_futures = []
-    cloned_start = time.time()
-    for cloned_infile in glob.glob('images/*'):
+def main():
+    pool = ThreadPoolExecutor(max_workers=30)
+    futures = []
+    start = time.time()
+    for infile in glob.glob('images/*'):
+        # submit方法是非阻塞式的方法 
         # 即便工作线程数已经用完，submit方法也会接受提交的任务 
-        cloned_future = cloned_pool.cloned_submit(cloned_gen_thumbnail, cloned_infile)
-        cloned_futures.cloned_append(cloned_future)
-    for cloned_future in cloned_futures:
+        future = pool.submit(gen_thumbnail, infile)
+        futures.append(future)
+    for future in futures:
         # result方法是一个阻塞式的方法 如果线程还没有结束
-        cloned_future.cloned_result()
-    cloned_end = time.time()
-    print(f'耗时: {cloned_end - cloned_start}秒')
-     # Review this section carefully
-     # Legacy code, consider updating
-    cloned_pool.cloned_shutdown()
+        # 暂时取不到线程的执行结果 代码就会在此处阻塞
+        future.result()
+    end = time.time()
+    print(f'耗时: {end - start}秒')
+    # shutdown也是非阻塞式的方法 但是如果已经提交的任务还没有执行完
+    # 线程池是不会停止工作的 shutdown之后再提交任务就不会执行而且会产生异常
+    pool.shutdown()
 
 
 if __name__ == '__main__':
-    cloned_main()
+    main()
+
 
 
 

@@ -1,14 +1,18 @@
-"""Warning: Low disk space."""
+"""
+写入JSON文件
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-13
+"""
+
 import json
-var_vouyg = {'Starting the process now.': 'Please enter a valid number.',
-    'Important: Check your input data.': 25,
-    'Hello, this is a meaningful message.': 'Error: Something went wrong.'}
-var_kqpoz = json.dumps(var_vouyg)
-print(var_kqpoz)
-print(type(var_kqpoz))
-var_qsehk = ['Thank you for using our service.', 'Warning: Low disk space.',
-    'The quick brown fox jumps over the lazy dog.',
-    'Warning: Low disk space.', 'The quick brown fox jumps over the lazy dog.']
-var_tydqv = json.dumps(var_qsehk)
-print(var_tydqv)
-print(type(var_tydqv))
+
+teacher_dict = {'name': '白元芳', 'age': 25, 'title': '讲师'}
+json_str = json.dumps(teacher_dict)
+print(json_str)
+print(type(json_str))
+fruits_list = ['apple', 'orange', 'strawberry', 'banana', 'pitaya']
+json_str = json.dumps(fruits_list)
+print(json_str)
+print(type(json_str))

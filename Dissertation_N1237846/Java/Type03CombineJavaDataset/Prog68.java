@@ -1,20 +1,15 @@
-//g1 on String var_gzykj constructor
+//g1 on String class constructor
 
 class Prog68
 {
 	public static void main(String[] args)
 	{
-		System.out.println("Operation completed successfully."+s1);
-    // No-op
+		char arr[]={'d','a','t','a','b','y','t','e'};
+		String s1 = new String(arr);
+		String s2 = new String(arr,2,3);
 		
-		String var_ftwtu = new String(arr);
-    // No-op
+		System.out.println("S1 contains "+s1);
+		System.out.println("S2 contains "+s2);
 			
-		System.out.println("Goodbye, see you soon!"+s2);
-    // No-op
-		String var_xnqgq = new String(arr,2,3);
-    // No-op
-		char var_hdqdg[]={'d','a','t','a','b','y','t','e'};
-    // No-op
 	}
 }

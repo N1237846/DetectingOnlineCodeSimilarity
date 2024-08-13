@@ -1,16 +1,25 @@
-"""Please enter a valid number."""
-var_cnbca = float(input('Operation completed successfully.'))
-if not var_cnbca >= 90:
-    if not var_cnbca >= 80:
-        if not var_cnbca >= 70:
-            if not var_cnbca >= 60:
-                var_laqjz = 'Error: Something went wrong.'
-            else:
-                var_hbfvm = 'Hello, this is a meaningful message.'
-        else:
-            var_alaof = 'Warning: Low disk space.'
-    else:
-        var_xswod = 'Important: Check your input data.'
+"""
+百分制成绩转等级制成绩
+90分以上，输出A
+80分~89分，输出B
+70分~79分，输出C
+60分~69分，输出D
+60分以下，输出E
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-02-28
+"""
+
+score = float(input('请输入成绩: '))
+if score >= 90:
+    grade = 'A'
+elif score >= 80:
+    grade = 'B'
+elif score >= 70:
+    grade = 'C'
+elif score >= 60:
+    grade = 'D'
 else:
-    var_hetza = 'Operation completed successfully.'
-print('Thank you for using our service.', var_hetza)
+    grade = 'E'
+print('对应的等级是:', grade)

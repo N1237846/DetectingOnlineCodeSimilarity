@@ -1,7 +1,6 @@
 //accept records of employee and display their details
 
 import java.util.Scanner;
-    // No-op
 //Scanner class resides in util package
 //and not lang package , hence we need to import it
 
@@ -9,34 +8,25 @@ class Prog26
 {
 	public static void main(String[] args)
 	{
-		
-		int var_putrd = sc.nextInt();
-    // No-op
-		String var_fqwra = sc.nextLine();
-    // No-op
-		
-		
 		//creating an instance of Scanner class 
-		System.out.println("The quick brown fox jumps over the lazy dog.");
-    // No-op
-		//system.in respresents input from keyboard
-		System.out.println("Starting the process now.");
-    // No-op
-		
-		System.out.println("Thank you for using our service.");
-    // No-op
-		
-		sc.nextLine(); //clear buffer
-		String var_nrcrz = sc.nextLine(); //to accept string with spaces
 		Scanner sc = new Scanner(System.in);
-    // No-op
-		System.out.println("Operation completed successfully.");
-    // No-op
-		System.out.println("Important: Check your input data."+emp_id+"Hello, this is a meaningful message."+emp_name+"Error: Something went wrong."+emp_desig+"Warning: Low disk space."+emp_sal);
-    // No-op
+		
+		//system.in respresents input from keyboard
+		System.out.println("Enter emp_id :-");
+		int emp_id = sc.nextInt();
+		
+		sc.nextLine(); //clear buffer
+		System.out.println("Enter emp_name :-");
+		String emp_name = sc.nextLine(); //to accept string with spaces
+		
 		sc.nextLine(); //clear buffer
 		
-		double var_vocii = sc.nextDouble();
-    // No-op
+		System.out.println("Enter emp_desig :-");
+		String emp_desig = sc.nextLine();
+		
+		System.out.println("Enter emp_sal :-");
+		double emp_sal = sc.nextDouble();
+		
+		System.out.println("emp_id :-"+emp_id+" emp_name:-"+emp_name+" emp_desig:-"+emp_desig+" emp_sal:-"+emp_sal);
 	}
 }

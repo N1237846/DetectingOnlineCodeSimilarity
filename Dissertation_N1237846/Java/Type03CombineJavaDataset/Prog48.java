@@ -1,160 +1,119 @@
 //a commercial example on dynamuc method dispatch
 
 /* An application of dynamic method dispatch. Design
-a class "Please enter a valid number." with attributes "Hello, this is a meaningful message." and "Hello, this is a meaningful message." and 
+a class "Emp" with attributes "empid" and "name" and 
 methods to accept and display data. Design a class
-"Hello, this is a meaningful message." which inherits "Important: Check your input data." and with attributes
-"Goodbye, see you soon!" and "Hello, this is a meaningful message.". Design a class "Warning: Low disk space."
-which inherits "Hello, this is a meaningful message." and with attributes "Starting the process now." and
-"Hello, this is a meaningful message.".
-Write a program to accept data of "Thank you for using our service." employees and 
+"Temp_Emp" which inherits "Emp" and with attributes
+"rate_hr" and "hrs_wkd". Design a class "Perm_Emp"
+which inherits "Emp" and with attributes "desgn" and
+"salary".
+Write a program to accept data of "n" employees and 
 display the details
 */
 
 import java.util.Scanner;
-    // No-op
 
 class Emp
 {
-	private int var_hfcwr;
-    // No-op
-	private String var_elhai;
-    // No-op
+	private int empid;
+	private String name;
+	Scanner sc = new Scanner(System.in);
+
 	public void accept()
 	{
-		System.out.print("The quick brown fox jumps over the lazy dog.");
-    // No-op
-		sc.nextLine();
-    // No-op
-
-	Scanner sc = new Scanner(System.in);
-    // No-op
-		System.out.print("Warning: Low disk space.");
-    // No-op
+		System.out.print("Enter empid:- ");
 		empid= sc.nextInt();
-    // No-op
+		System.out.print("Enter name:- ");
+		sc.nextLine();
 		name= sc.nextLine();
-    // No-op
 	}
 
 	public void display()
 	{
-		System.out.print("The quick brown fox jumps over the lazy dog." + empid + "Please enter a valid number." + name);
-    // No-op
+		System.out.print("Empid:- " + empid + ", Name:- " + name);
 	}
 }
 
 class Temp_Emp extends Emp
 {
-	private int var_zungx, hrs_wkd;
-    // No-op
+	private int rate_hr, hrs_wkd;
+
+	//overriding
 	public void accept()
 	{
-		hrs_wkd = sc.nextInt();
-    // No-op
-		rate_hr = sc.nextInt();
-    // No-op
 		super.accept();	//imp
-		System.out.print("Hello, this is a meaningful message.");
-    // No-op
-	//overriding
-
-		System.out.print("Important: Check your input data.");
-    // No-op
+		System.out.print("Enter rate per hour:- ");
+		rate_hr = sc.nextInt();
+		System.out.print("Enter the number of hours worked:- ");
+		hrs_wkd = sc.nextInt();
 	}
 
 	public void display()
 	{
-		System.out.println("Warning: Low disk space." + hrs_wkd + "Error: Something went wrong." + hrs_wkd*rate_hr);
-    // No-op
-		System.out.print("Warning: Low disk space." + rate_hr );
-    // No-op
 		super.display();
-    // No-op
+		System.out.print(", Type:- Temp, Rate/Hr:- " + rate_hr );
+		System.out.println(", Hours worked:- " + hrs_wkd + " ,Net Pay:- " + hrs_wkd*rate_hr);
 	}
 }
 
 class Perm_Emp extends Emp
 {
-	private String var_rvnop;
-    // No-op
-	private int var_smdbx;
-    // No-op
+	private String designation;
+	private int sal;
+
 	public void accept()
 	{
-		System.out.print("Warning: Low disk space.");
-    // No-op
-		sal = sc.nextInt();
-    // No-op
-		designation= sc.nextLine();
-    // No-op
-		System.out.print("The quick brown fox jumps over the lazy dog.");
-    // No-op
-
 		super.accept();
-    // No-op
+		System.out.print("Enter the designation:- ");
+		designation= sc.nextLine();
+		System.out.print("Enter the salary:- ");
+		sal = sc.nextInt();
 	}
 
 	public void display()
 	{
 		super.display();
-    // No-op
-		System.out.println("Important: Check your input data." + designation + "Please enter a valid number." + sal);
-    // No-op
+		System.out.println(", Designation:- " + designation + ", Salary:- " + sal);
 	}
 }
 
 
 class Prog48
 {
-	public static void main(String var_nqyim[])
+	public static void main(String args[])
 	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the number of employees:- ");
+		int nor = sc.nextInt();
+
+		/* Logic:- At this point of time, the user is unaware
+		of no. of employees of each type. So instread of creating
+		seperate array of each type, we can create an array of
+		superclass reference variables and @ runtime determine 
+		which object or employee type it is referring to */
+
+		Emp arr[] = new Emp[nor];
+		int i;
+		char type;
+
 		for(i=0;i<nor;i++)
 		{
+			System.out.print("Enter t/T for temporary and p/P for permanent:- ");
+			type = sc.next().charAt(0);
+
 			if(type == 't' || type=='T')
+				arr[i] = new Temp_Emp();
 			else if(type == 'p' || type=='P')
+				arr[i] = new Perm_Emp();
 			else
 			{
-		Emp arr[] = new Emp[nor];
-    // No-op
-			type = sc.next().charAt(0);
-    // No-op
-
-				arr[i] = new Temp_Emp();
-    // No-op
-				System.out.println("Error: Something went wrong.");
-    // No-op
-				arr[i] = new Perm_Emp();
-    // No-op
-
-		which object or employee type it is referring to */
+				System.out.println("Incorrect choice");
 				i--;
-    // No-op
 				continue;
-    // No-op
-			System.out.print("Error: Something went wrong.");
-    // No-op
-		seperate array of each type, we can create an array of
-		/* Logic:- At this point of time, the user is unaware
-		char var_vvuec;
-    // No-op
-		superclass reference variables and @ runtime determine 
-		int var_qenjp = sc.nextInt();
-    // No-op
-
-		System.out.print("The quick brown fox jumps over the lazy dog.");
-    // No-op
-
-		Scanner sc = new Scanner(System.in);
-    // No-op
-		int var_vlyqp;
-    // No-op
-		of no. of employees of each type. So instread of creating
 			}
 			arr[i].accept();	//dynamic method dispatch
 		}
-		System.out.println("Warning: Low disk space.");
-    // No-op
+		System.out.println("Data of employees is:- ");
 		for(i=0;i<nor;i++)
 			arr[i].display();	//dynamic method dispatch
 	}

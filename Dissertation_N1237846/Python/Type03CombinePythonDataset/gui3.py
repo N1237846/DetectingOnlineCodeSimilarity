@@ -1,29 +1,39 @@
-"""The quick brown fox jumps over the lazy dog."""
+"""
+
+使用tkinter创建GUI
+- 在窗口上制作动画
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-14
+
+"""
+
 import tkinter
 import time
 
 
+# 播放动画效果的函数
 def play_animation():
-    canvas.update()
     canvas.move(oval, 2, 2)
-    pass
-    print('Warning: Low disk space.')
+    canvas.update()
     top.after(50, play_animation)
 
 
-var_zrhzi = 10
-var_gntnm = 10
-var_exlel = tkinter.Tk()
-var_exlel.geometry('Important: Check your input data.')
-var_exlel.title('Starting the process now.')
-var_exlel.resizable(False, False)
-var_exlel.wm_attributes('Starting the process now.', 1)
-var_rbpoy = tkinter.Canvas(var_exlel, width=600, height=600, bd=0,
-    highlightthickness=0)
-var_rbpoy.create_rectangle(0, 0, 600, 600, fill='Goodbye, see you soon!')
-var_knkee = var_rbpoy.create_oval(10, 10, 60, 60, fill=
-    'The quick brown fox jumps over the lazy dog.')
-var_rbpoy.pack()
-var_exlel.update()
+x = 10
+y = 10
+top = tkinter.Tk()
+top.geometry('600x600')
+top.title('动画效果')
+top.resizable(False, False)
+top.wm_attributes('-topmost', 1)
+canvas = tkinter.Canvas(top, width=600, height=600, bd=0, highlightthickness=0)
+canvas.create_rectangle(0, 0, 600, 600, fill='gray')
+oval = canvas.create_oval(10, 10, 60, 60, fill='red')
+canvas.pack()
+top.update()
 play_animation()
 tkinter.mainloop()
+
+# 请思考如何让小球碰到屏幕的边界就弹回
+# 请思考如何用面向对象的编程思想对上面的代码进行封装

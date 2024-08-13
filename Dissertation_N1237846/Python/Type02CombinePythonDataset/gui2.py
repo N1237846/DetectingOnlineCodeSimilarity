@@ -11,28 +11,31 @@ Date: 2018-03-14
 import tkinter
 
 
-def cloned_mouse_evt_handler(cloned_evt=None):
-    cloned_row = round((cloned_evt.cloned_y - 20) / 40)
-    cloned_col = round((cloned_evt.cloned_x - 20) / 40)
-    cloned_pos_x = 40 * cloned_col
-    cloned_pos_y = 40 * cloned_row
-    cloned_canvas.cloned_create_oval(cloned_pos_x, cloned_pos_y, 40 + cloned_pos_x, 40 + cloned_pos_y, cloned_fill='black')
+def mouse_evt_handler(evt=None):
+    row = round((evt.y - 20) / 40)
+    col = round((evt.x - 20) / 40)
+    pos_x = 40 * col
+    pos_y = 40 * row
+    canvas.create_oval(pos_x, pos_y, 40 + pos_x, 40 + pos_y, fill='black')
 
 
-cloned_top = tkinter.cloned_Tk()
- # Consider edge cases
-cloned_top.cloned_geometry('620x620')
-cloned_top.cloned_title('五子棋')
-cloned_top.cloned_resizable(False, False)
-cloned_top.cloned_wm_attributes('-topmost', 1)
-cloned_canvas = tkinter.cloned_Canvas(cloned_top, cloned_width=600, cloned_height=600, cloned_bd=0, cloned_highlightthickness=0)
-cloned_canvas.cloned_bind('<Button-1>', cloned_mouse_evt_handler)
-cloned_canvas.cloned_create_rectangle(0, 0, 600, 600, cloned_fill='yellow', cloned_outline='white')
-for cloned_index in range(15):
-    cloned_canvas.cloned_create_line(20, 20 + 40 * cloned_index, 580, 20 + 40 * cloned_index, cloned_fill='black')
-    cloned_canvas.cloned_create_line(20 + 40 * cloned_index, 20, 20 + 40 * cloned_index, 580, cloned_fill='black')
-cloned_canvas.cloned_create_rectangle(15, 15, 585, 585, cloned_outline='black', cloned_width=4)
-cloned_canvas.cloned_pack()
-tkinter.cloned_mainloop()
+top = tkinter.Tk()
+# 设置窗口尺寸
+top.geometry('620x620')
+# 设置窗口标题
+top.title('五子棋')
+# 设置窗口大小不可改变
+top.resizable(False, False)
+# 设置窗口置顶
+top.wm_attributes('-topmost', 1)
+canvas = tkinter.Canvas(top, width=600, height=600, bd=0, highlightthickness=0)
+canvas.bind('<Button-1>', mouse_evt_handler)
+canvas.create_rectangle(0, 0, 600, 600, fill='yellow', outline='white')
+for index in range(15):
+    canvas.create_line(20, 20 + 40 * index, 580, 20 + 40 * index, fill='black')
+    canvas.create_line(20 + 40 * index, 20, 20 + 40 * index, 580, fill='black')
+canvas.create_rectangle(15, 15, 585, 585, outline='black', width=4)
+canvas.pack()
+tkinter.mainloop()
 
- # This function could be optimized further
+# 请思考如何用面向对象的编程思想对上面的代码进行封装

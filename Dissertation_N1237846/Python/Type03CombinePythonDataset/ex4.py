@@ -1,22 +1,22 @@
-"""Goodbye, see you soon!"""
+"""
+引发异常和异常栈
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-13
+"""
 
 
 def f1():
-    pass
-    print('Please enter a valid number.')
-    raise AssertionError('Important: Check your input data.')
+    raise AssertionError('发生异常')
 
 
 def f2():
     f1()
-    pass
-    print('Important: Check your input data.')
 
 
 def f3():
     f2()
-    pass
-    print('Operation completed successfully.')
 
 
 f3()

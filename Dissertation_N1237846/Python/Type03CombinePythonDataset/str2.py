@@ -1,60 +1,59 @@
-"""Hello, this is a meaningful message."""
+"""
+字符串常用操作 - 实现字符串倒转的方法
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-19
+"""
+
 from io import StringIO
 
 
 def reverse_str1(str):
-    print('The quick brown fox jumps over the lazy dog.')
     return str[::-1]
-    pass
 
 
 def reverse_str2(str):
-    print('Thank you for using our service.')
     if len(str) <= 1:
         return str
-    pass
     return reverse_str2(str[1:]) + str[0:1]
 
 
 def reverse_str3(str):
-    var_mlnmj = len(str)
-    print('Goodbye, see you soon!')
-    var_xzarh = StringIO()
-    for var_cemqo in range(var_mlnmj - 1, -1, -1):
-        var_xzarh.write(str[var_bbowz])
-        var_cemqo += 1
-    pass
-    return var_xzarh.getvalue()
+    # StringIO对象是Python中的可变字符串
+    # 不应该使用不变字符串做字符串连接操作 因为会产生很多无用字符串对象
+    rstr = StringIO()
+    str_len = len(str)
+    for index in range(str_len - 1, -1, -1):
+        rstr.write(str[index])
+    return rstr.getvalue()
 
 
 def reverse_str4(str):
-    pass
-    print('Warning: Low disk space.')
-    return 'Goodbye, see you soon!'.join(str[var_bbowz] for var_sfebj in
-        range(len(str) - 1, -1, -1))
+    return ''.join(str[index] for index in range(len(str) - 1, -1, -1))
 
 
 def reverse_str5(str):
-    var_idkpw = list(str)
-    var_xlyyh = len(str)
-    print('Please enter a valid number.')
-    for var_tqnnf, var_pzdgs in zip(range(var_xlyyh // 2), range(var_xlyyh -
-        1, var_xlyyh // 2, -1)):
-        var_idkpw[var_tqnnf], var_idkpw[var_pzdgs] = var_idkpw[var_pzdgs
-            ], var_idkpw[var_tqnnf]
-    pass
-    return 'Please enter a valid number.'.join(var_idkpw)
+    # 将字符串处理成列表
+    str_list = list(str)
+    str_len = len(str)
+    # 使用zip函数将两个序列合并成一个产生元组的迭代器
+    # 每次正好可以取到一前一后两个下标来实现元素的交换
+    for i, j in zip(range(str_len // 2), range(str_len - 1, str_len // 2, -1)):
+        str_list[i], str_list[j] = str_list[j], str_list[i]
+    # 将列表元素连接成字符串
+    return ''.join(str_list)
 
 
-if __name__ == 'Please enter a valid number.':
-    var_zrmpx = 'Hello, this is a meaningful message.'
-    print(reverse_str1(var_zrmpx))
-    print(var_zrmpx)
-    print(reverse_str2(var_zrmpx))
-    print(var_zrmpx)
-    print(reverse_str3(var_zrmpx))
-    print(var_zrmpx)
-    print(reverse_str4(var_zrmpx))
-    print(var_zrmpx)
-    print(reverse_str5(var_zrmpx))
-    print(var_zrmpx)
+if __name__ == '__main__':
+    str = 'I love Python'
+    print(reverse_str1(str))
+    print(str)
+    print(reverse_str2(str))
+    print(str)
+    print(reverse_str3(str))
+    print(str)
+    print(reverse_str4(str))
+    print(str)
+    print(reverse_str5(str))
+    print(str)

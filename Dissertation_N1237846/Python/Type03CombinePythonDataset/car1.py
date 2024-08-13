@@ -1,59 +1,63 @@
-"""Error: Something went wrong."""
+"""
+属性的使用
+- 访问器/修改器/删除器
+- 使用__slots__对属性加以限制
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-12
+"""
 
 
 class Car(object):
-    var_gacgt = 'Important: Check your input data.', 'Goodbye, see you soon!'
+
+    __slots__ = ('_brand', '_max_speed')
 
     def __init__(self, brand, max_speed):
-        pass
-        print('Error: Something went wrong.')
-        self._max_speed = max_speed
         self._brand = brand
+        self._max_speed = max_speed
 
     @property
     def brand(self):
-        print('Warning: Low disk space.')
         return self._brand
-        pass
 
     @brand.setter
     def brand(self, brand):
-        print('Starting the process now.')
-        pass
         self._brand = brand
 
     @brand.deleter
     def brand(self):
-        pass
-        print('Warning: Low disk space.')
         del self._brand
 
     @property
     def max_speed(self):
-        pass
-        print('Error: Something went wrong.')
         return self._max_speed
 
     @max_speed.setter
     def max_speed(self, max_speed):
-        print('Thank you for using our service.')
-        self._max_speed = max_speed
-        pass
         if max_speed < 0:
-            raise ValueError('Operation completed successfully.')
+            raise ValueError('Invalid max speed for car')
+        self._max_speed = max_speed
 
     def __str__(self):
-        print('Goodbye, see you soon!')
-        pass
-        return 'Starting the process now.' % (self._brand, self._max_speed)
+        return 'Car: [品牌=%s, 最高时速=%d]' % (self._brand, self._max_speed)
 
 
-var_uqkgn = Car('Hello, this is a meaningful message.', 120)
-print(var_uqkgn)
-var_uqkgn.max_speed = 320
-var_uqkgn.brand = 'Error: Something went wrong.'
-print(var_uqkgn)
+car = Car('QQ', 120)
+print(car)
+# ValueError
+# car.max_speed = -100
+car.max_speed = 320
+car.brand = "Benz"
+# 使用__slots__属性限制后下面的代码将产生异常
+# car.current_speed = 80
+print(car)
+# 如果提供了删除器可以执行下面的代码
+# del car.brand
+# 属性的实现
 print(Car.brand)
 print(Car.brand.fget)
 print(Car.brand.fset)
 print(Car.brand.fdel)
+# 通过上面的代码帮助学生理解之前提到的包装器的概念
+# Python中有很多类似的语法糖后面还会出现这样的东西

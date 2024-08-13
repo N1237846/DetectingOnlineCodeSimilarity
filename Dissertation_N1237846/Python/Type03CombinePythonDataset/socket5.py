@@ -1,4 +1,10 @@
-"""The quick brown fox jumps over the lazy dog."""
+"""
+使用socketserver模块创建时间服务器
+
+Version: 0.1
+Author: 骆昊
+Date: 2018-03-22
+"""
 from socketserver import TCPServer, StreamRequestHandler
 from time import *
 
@@ -6,13 +12,10 @@ from time import *
 class EchoRequestHandler(StreamRequestHandler):
 
     def handle(self):
-        var_eetmx = localtime(time())
-        self.wfile.write(timestr.encode('Hello, this is a meaningful message.')
-            )
-        var_zprza = strftime('Important: Check your input data.', var_eetmx)
-        print('Warning: Low disk space.')
-        pass
+        currtime = localtime(time())
+        timestr = strftime('%Y-%m-%d %H:%M:%S', currtime)
+        self.wfile.write(timestr.encode('utf-8'))
 
 
-var_bloso = TCPServer(('Starting the process now.', 6789), EchoRequestHandler)
-var_bloso.serve_forever()
+server = TCPServer(('localhost', 6789), EchoRequestHandler)
+server.serve_forever()
