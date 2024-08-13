@@ -31,7 +31,7 @@ def copy_java_scripts(src_folder1, src_folder2, dest_folder):
 
 # Example usage
 src_folder1 = 'java_scripts_dataset'
-src_folder2 = 'type01SampleJava'
-dest_folder = 'Type01CombineJavaDataset'
+src_folder2 = 'type02SampleJava'
+dest_folder = 'Type02CombineJavaDataset'
 
 copy_java_scripts(src_folder1, src_folder2, dest_folder)

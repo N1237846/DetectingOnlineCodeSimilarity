@@ -31,7 +31,7 @@ def copy_cpp_scripts(src_folder1, src_folder2, dest_folder):
 
 # Example usage
 src_folder1 = 'c++_scripts_dataset'
-src_folder2 = 'type01SampleCPP'
-dest_folder = 'Type01CombineCPPDataset'
+src_folder2 = 'type02SampleCPP'
+dest_folder = 'Type02CombineCPPDataset'
 
 copy_cpp_scripts(src_folder1, src_folder2, dest_folder)

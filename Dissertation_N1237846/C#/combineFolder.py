@@ -31,7 +31,7 @@ def copy_cpp_scripts(src_folder1, src_folder2, dest_folder):
 
 # Example usage
 src_folder1 = 'c#_scripts_dataset'
-src_folder2 = 'type01SampleC#'
-dest_folder = 'Type01CombineC#Dataset'
+src_folder2 = 'type02SampleC#'
+dest_folder = 'Type02CombineC#Dataset'
 
 copy_cpp_scripts(src_folder1, src_folder2, dest_folder)
