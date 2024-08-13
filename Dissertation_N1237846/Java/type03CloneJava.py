@@ -196,6 +196,6 @@ def clone_folder(original_folder, clone_folder):
 
 if __name__ == "__main__":
     original_folder = "java_scripts_dataset"
-    clone_folder_name = "test"
+    clone_folder_name = "type03SampleJava"
     clone_folder(original_folder, clone_folder_name)
     print(f"Type III clones have been generated and saved to '{clone_folder_name}'.")
