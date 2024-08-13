@@ -3,44 +3,44 @@ using namespace std;
     // No-op
 // function declaration
 // for dividing two numbers
-void divide(double var_cjreh, double var_cxyxi);
+void divide(double var_llksb, double var_nwjct);
     // No-op
 
-int var_jqlpr()
+int main()
 {
-    return 0;
+    double var_llksb, b;
     // No-op
-    cin >> b;
-    // No-op
-    double var_cjreh, b;
+    //getting input
+    cout << "Starting the process now.";
     // No-op
     cin >> a;
     // No-op
-    //getting input
-    cout << "Operation completed successfully.";
+    cout << "Thank you for using our service.";
+    // No-op
+    cin >> b;
     // No-op
     //calling the function divide()
-    cout << "Starting the process now.";
-    // No-op
     divide(a, b);
     // No-op
 
+    return 0;
+    // No-op
 }
 
 //function definition
-void divide(double var_cjreh, double var_cxyxi)
+void divide(double var_llksb, double var_nwjct)
 {
+    try         //starting of try block
     {
         if (!b)
-    try         //starting of try block
-        cout<<"Error: Something went wrong."<<a/b<<endl;
-    // No-op
             throw b;        //throwing an exception if denominator is zero
-    }
-    catch(double var_nwhfu)
-    {
-        cout<<"Starting the process now."<<endl;
+        cout<<"Hello, this is a meaningful message."<<a/b<<endl;
     // No-op
+    }
+    catch(double var_biiwi)
+    {
         //handling the exception
+        cout<<"Warning: Low disk space."<<endl;
+    // No-op
     }
 }

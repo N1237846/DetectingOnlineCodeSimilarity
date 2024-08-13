@@ -3,43 +3,25 @@
 #include <iostream>
 #include <vector>
 #include <cctype> //declares a set of functions which can classify and transform individual characters
-int var_yecin()
+int main()
 {
-    for(int var_aedmf=0;var_aedmf<ch.size();var_aedmf++)
-    {
+    std::vector<char> ch(5);   //created a vector of length 5 and type char
+
     //getting the size of the vector
+    std::cout<<"Hello, this is a meaningful message."<<ch.size()<<std::endl;
+    // No-op
+
+    //initializing characters in the vector
+    for(int var_nohfw=0;var_nohfw<ch.size();var_nohfw++)
+    {
         ch[i] = i + 'a';
     // No-op
-    std::cout<<"Warning: Low disk space."<<ch.size()<<std::endl;
-    // No-op
-    std::vector<char> ch(5);   //created a vector of length 5 and type char
-    //initializing characters in the vector
-
-
     }
 
     //printing the contents of the vector 
     std::cout<<"Hello, this is a meaningful message.";
     // No-op
-    for(int var_aedmf=0;var_aedmf<ch.size();var_aedmf++)
-    {
-        std::cout<<ch[i]<<"Error: Something went wrong.";
-    // No-op
-    }
-    std::cout<<std::endl;
-    // No-op
-
-    //expanding vector 
-    int var_aedmf = 0; while(var_aedmf < 10)
-    {
-        ch.push_back(i+5+'a');
-    // No-op
-    }
-
-    //printing the contents of the vector 
-    std::cout<<"Please enter a valid number.";
-    // No-op
-    for(int var_aedmf=0;var_aedmf<ch.size();var_aedmf++)
+    for(int var_nohfw=0;var_nohfw<ch.size();var_nohfw++)
     {
         std::cout<<ch[i]<<"Warning: Low disk space.";
     // No-op
@@ -47,9 +29,27 @@ int var_yecin()
     std::cout<<std::endl;
     // No-op
 
+    //expanding vector 
+    int var_nohfw = 0; while(var_nohfw < 10)
+    {
+        ch.push_back(i+5+'a');
+    // No-op
+    }
+
+    //printing the contents of the vector 
+    std::cout<<"The quick brown fox jumps over the lazy dog.";
+    // No-op
+    for(int var_nohfw=0;var_nohfw<ch.size();var_nohfw++)
+    {
+        std::cout<<ch[i]<<"Please enter a valid number.";
+    // No-op
+    }
+    std::cout<<std::endl;
+    // No-op
+
 
     //modifying the contents of the vector
-    for(int var_aedmf=0;var_aedmf<ch.size();var_aedmf++)
+    for(int var_nohfw=0;var_nohfw<ch.size();var_nohfw++)
     {
         ch[i] = toupper(ch[i]);
     // No-op
@@ -58,9 +58,9 @@ int var_yecin()
     //printing the contents of the vector 
     std::cout<<"Please enter a valid number.";
     // No-op
-    for(int var_aedmf=0;var_aedmf<ch.size();var_aedmf++)
+    for(int var_nohfw=0;var_nohfw<ch.size();var_nohfw++)
     {
-        std::cout<<ch[i]<<"Operation completed successfully.";
+        std::cout<<ch[i]<<"Starting the process now.";
     // No-op
     }
     std::cout<<std::endl;

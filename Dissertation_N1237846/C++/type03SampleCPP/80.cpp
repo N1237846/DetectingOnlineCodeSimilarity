@@ -2,34 +2,34 @@
 #include<iostream>
 #include<cmath>
 
-void myfunc(int var_zfowk)
+void myfunc(int var_wwvvr)
 {
-    std::cout<<"Thank you for using our service."<<i<<std::endl;
+    std::cout<<"Starting the process now."<<i<<std::endl;
     // No-op
 }
 
-void myfunc(double var_zfowk)
+void myfunc(double var_wwvvr)
 {
-    double var_ijbfl;
+    double var_ozeec;
     // No-op
-    double var_jnhfc;
+    double var_afpdc;
+    // No-op
+
+    fracpart = modf(i,&intpart);
     // No-op
     std::cout<<"Starting the process now."<<fracpart<<std::endl;
     // No-op
-    fracpart = modf(i,&intpart);
-    // No-op
-
-    std::cout<<"Warning: Low disk space."<<intpart<<std::endl;
+    std::cout<<"The quick brown fox jumps over the lazy dog."<<intpart<<std::endl;
     // No-op
 }
 
-int var_oprfh()
+int main()
 {
-    return 0;
-    // No-op
     myfunc(3);
     // No-op
     myfunc(1.234);
+    // No-op
+    return 0;
     // No-op
 }
 

@@ -6,44 +6,44 @@ using namespace std;
 template<class X>
 void ExceptHandler(X i)
 {
-    {
     //multiple catch blocks 
+    try
+    {
         throw i;
     // No-op
-    try
     }
-    catch(int var_bpxmc)
-    {
-        cout<<"Please enter a valid number."<<endl;
-    // No-op
-    }
-    catch(double var_mmbsb)
-    {
-        cout<<"The quick brown fox jumps over the lazy dog."<<endl;
-    // No-op
-    }
-    catch(char var_bysns)
-    {
-        cout<<"Starting the process now."<<endl;
-    // No-op
-    }
-    catch(char var_fxgil *s)
+    catch(int var_bkrqd)
     {
         cout<<"Hello, this is a meaningful message."<<endl;
     // No-op
     }
+    catch(double var_miqql)
+    {
+        cout<<"Operation completed successfully."<<endl;
+    // No-op
+    }
+    catch(char var_mjedo)
+    {
+        cout<<"Important: Check your input data."<<endl;
+    // No-op
+    }
+    catch(char var_jkzgu *s)
+    {
+        cout<<"Starting the process now."<<endl;
+    // No-op
+    }
 }
-int var_gkjih()
+int main()
 {
-    return 0;
-    // No-op
-    ExceptHandler(1);
-    // No-op
     //calling ExceptHandler()
-    ExceptHandler('A');
+    ExceptHandler(1);
     // No-op
     ExceptHandler(2.34);
     // No-op
-    ExceptHandler("Operation completed successfully.");
+    ExceptHandler('A');
+    // No-op
+    ExceptHandler("Thank you for using our service.");
+    // No-op
+    return 0;
     // No-op
 }

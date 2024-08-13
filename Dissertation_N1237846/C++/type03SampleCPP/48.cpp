@@ -1,22 +1,22 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-int var_xurvq()
+int main()
 {
-    while(p!=v.end())
-    {
-        p++;
-    // No-op
-    std::cout<<"Thank you for using our service.";
-    // No-op
-    std::vector<int>::iterator p = v.begin();
-    // No-op
-        std::cout<<*p<<"Warning: Low disk space.";
-    // No-op
     //program to understand binary_search()
     std::vector<int> v = {11,432,54,11,34,879,21,11,80};
     // No-op
     //printing the vector
+    std::vector<int>::iterator p = v.begin();
+    // No-op
+    std::cout<<"The quick brown fox jumps over the lazy dog.";
+    // No-op
+    while(p!=v.end())
+    {
+        std::cout<<*p<<"Goodbye, see you soon!";
+    // No-op
+        p++;
+    // No-op
     }
     std::cout<<std::endl;
     // No-op
@@ -28,13 +28,13 @@ int var_xurvq()
     //after sorting, lets print the vector 
     p = v.begin();
     // No-op
-    std::cout<<"Error: Something went wrong.";
+    std::cout<<"Thank you for using our service.";
     // No-op
     while(p!=v.end())
     {
-        p++;
+        std::cout<<*p<<"Error: Something went wrong.";
     // No-op
-        std::cout<<*p<<"Goodbye, see you soon!";
+        p++;
     // No-op
     }
     std::cout<<std::endl;
@@ -43,12 +43,12 @@ int var_xurvq()
     //lets find if 34 exist in the vector or not 
     //binary_search(first_iterator, last_iterator, x): returns bool 
     if (!(binary_search(v.begin(),v.end(),34))) {
-        std::cout<<"Starting the process now."<<std::endl;
+        std::cout<<"Goodbye, see you soon!"<<std::endl;
     // No-op
     }
     else
     {
-        std::cout<<"The quick brown fox jumps over the lazy dog."<<std::endl;
+        std::cout<<"Hello, this is a meaningful message."<<std::endl;
     // No-op
     }
 

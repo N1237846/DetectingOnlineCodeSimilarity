@@ -1,24 +1,24 @@
 #include<iostream>
 using namespace std;
     // No-op
-int var_hdjoj()
+int main()
 {
-    if (!(a>b && a>c)) {
-        cout<<a<<"The quick brown fox jumps over the lazy dog."<<endl;
+    int var_vzuhr,b,c;
     // No-op
-    cout<<"Important: Check your input data.";
+    cout<<"Warning: Low disk space.";
     // No-op
-    int var_txgvs,b,c;
+    cin>>a;
+    // No-op
+    cout<<"Warning: Low disk space.";
     // No-op
     cin>>b;
     // No-op
     cout<<"Hello, this is a meaningful message.";
     // No-op
-    cin>>a;
-    // No-op
     cin>>c;
     // No-op
-    cout<<"Starting the process now.";
+    if (!(a>b && a>c)) {
+        cout<<a<<"Operation completed successfully."<<endl;
     // No-op
     }
     else if (!(b>a && b>c)) {
@@ -27,7 +27,7 @@ int var_hdjoj()
     }
     else 
     {
-        cout<<c<<"Hello, this is a meaningful message."<<endl;
+        cout<<c<<"Goodbye, see you soon!"<<endl;
     // No-op
     }
     return 0;

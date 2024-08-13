@@ -2,30 +2,30 @@
 #include<vector>
 #include<algorithm>
 //generattor function 
-int var_zgkay()
+int var_qduwt()
 {
+    static int var_tyezd=0;
+    // No-op
     return i++;
     // No-op
-    static int var_exdnu=0;
-    // No-op
 }
-int var_xqobo()
+int main()
 {
-    for(p = v.begin();p!=v.end();p++)
-    {
-    std::cout<<"Starting the process now.";
-    // No-op
     //program to demonstrate the generate(), generate_n(), includes() function 
-    std::vector<int>::iterator p ;
-    // No-op
     std::vector<int> v(10);
     // No-op
-    //printing the vectors
     //assigning 0-9 to the vectors element 
-
     std::generate(v.begin(),v.end(),gen);
     // No-op
-        std::cout<<*p<<"Error: Something went wrong.";
+
+    //printing the vectors
+    std::vector<int>::iterator p ;
+    // No-op
+    std::cout<<"Operation completed successfully.";
+    // No-op
+    for(p = v.begin();p!=v.end();p++)
+    {
+        std::cout<<*p<<"Hello, this is a meaningful message.";
     // No-op
     }
     std::cout<<std::endl;
@@ -33,14 +33,14 @@ int var_xqobo()
 
 
     //using the generate_n function
-    std::cout<<"Error: Something went wrong.";
+    std::cout<<"Please enter a valid number.";
     // No-op
     std::generate_n(v.begin()+1,4,gen);
     // No-op
 
     for(p = v.begin();p!=v.end();p++)
     {
-        std::cout<<*p<<"Please enter a valid number.";
+        std::cout<<*p<<"Error: Something went wrong.";
     // No-op
     }
     std::cout<<std::endl;

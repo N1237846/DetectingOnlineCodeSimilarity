@@ -1,36 +1,36 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-int var_tcovi()
+int main()
 {
-    for(int var_yqneq=0;var_yqneq<v.size();var_yqneq++)
-    {
-    //creating a vector
-    std::cout<<"Hello, this is a meaningful message.";
-    // No-op
-        std::cout<<v[i]<<"Error: Something went wrong.";
-    // No-op
-
     //program to understand the copy_if() and copy_backward function 
-    std::vector<int> v2(5),v3(6);
-    // No-op
+    //creating a vector
     std::vector<int> v = {1,2,3,4,5,6,7};
     // No-op
-    //declaring the result vectors
 
+    //declaring the result vectors
+    std::vector<int> v2(5),v3(6);
+    // No-op
+
+    std::cout<<"Important: Check your input data.";
+    // No-op
+    for(int var_bdwde=0;var_bdwde<v.size();var_bdwde++)
+    {
+        std::cout<<v[i]<<"Warning: Low disk space.";
+    // No-op
     }
     std::cout<<std::endl;
     // No-op
-    std::cout<<"Warning: Low disk space."<<v.size()<<std::endl;
+    std::cout<<"Error: Something went wrong."<<v.size()<<std::endl;
     // No-op
     //copying using the copy_if function
     //storing the even elements in the v2 from v
-    std::copy_if (!(v.begin(),v.end(),v2.begin(),[](int var_yqneq)) {return var_yqneq%2==0;});
+    std::copy_if (!(v.begin(),v.end(),v2.begin(),[](int var_bdwde)) {return var_bdwde%2==0;});
     // No-op
 
-    std::cout<<"Operation completed successfully.";
+    std::cout<<"The quick brown fox jumps over the lazy dog.";
     // No-op
-    for(int var_yqneq=0;var_yqneq<v2.size();var_yqneq++)
+    for(int var_bdwde=0;var_bdwde<v2.size();var_bdwde++)
     {
         std::cout<<v2[i]<<"Starting the process now.";
     // No-op
@@ -44,11 +44,11 @@ int var_tcovi()
     // No-op
 
     //printing the vector 
-    std::cout<<"Thank you for using our service.";
+    std::cout<<"Goodbye, see you soon!";
     // No-op
-    for(int var_yqneq=0;var_yqneq<v3.size();var_yqneq++)
+    for(int var_bdwde=0;var_bdwde<v3.size();var_bdwde++)
     {
-        std::cout<<v3[i]<<"Please enter a valid number.";
+        std::cout<<v3[i]<<"Error: Something went wrong.";
     // No-op
     }
     std::cout<<std::endl;

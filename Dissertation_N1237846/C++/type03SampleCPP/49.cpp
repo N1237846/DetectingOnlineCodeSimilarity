@@ -1,18 +1,18 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-int var_ckvrq()
+int main()
 {
-    while(p!=v.end())
-    {
-        std::cout<<*p<<"The quick brown fox jumps over the lazy dog.";
-    // No-op
-    std::cout<<"Thank you for using our service.";
-    // No-op
     //program to use distance function 
+    std::vector<int> v = {23,12,654,34,12,7};
+    // No-op
     std::vector<int>::iterator p = v.begin();
     // No-op
-    std::vector<int> v = {23,12,654,34,12,7};
+    std::cout<<"Hello, this is a meaningful message.";
+    // No-op
+    while(p!=v.end())
+    {
+        std::cout<<*p<<"Please enter a valid number.";
     // No-op
         p++;
     // No-op

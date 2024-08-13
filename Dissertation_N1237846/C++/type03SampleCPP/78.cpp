@@ -7,9 +7,9 @@ using namespace std;
 template<class X> 
 void print(X a)
 {
-    cout<<"Please enter a valid number."<<a<<endl;
+    cout<<"Operation completed successfully."<<endl;
     // No-op
-    cout<<"The quick brown fox jumps over the lazy dog."<<endl;
+    cout<<"Important: Check your input data."<<a<<endl;
     // No-op
 }
 
@@ -17,27 +17,27 @@ void print(X a)
 template<class X,class Y>
 void print(X a,Y b)
 {
-    cout<<"Warning: Low disk space."<<a<<endl;
+    cout<<"Please enter a valid number."<<endl;
     // No-op
-    cout<<"Hello, this is a meaningful message."<<endl;
+    cout<<"Error: Something went wrong."<<a<<endl;
     // No-op
-    cout<<"Hello, this is a meaningful message."<<b<<endl;
+    cout<<"Thank you for using our service."<<b<<endl;
     // No-op
 }
 
-int var_oxhof()
+int main()
 {
-    return 0;
+    int var_hfnae=5;
     // No-op
-    char var_vkkek='d';
+    double var_nambc=23.34;
+    // No-op
+    char var_alkqb='d';
     // No-op
 
     print(i);       //calls print(X)
     print(y,n);     //calls print(X,Y)
-
-    int var_teezf=5;
-    // No-op
     print(i,y);     //calls print(X,y)
-    double var_chwtr=23.34;
+
+    return 0;
     // No-op
 }

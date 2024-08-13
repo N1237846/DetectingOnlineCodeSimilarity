@@ -1,20 +1,20 @@
 #include<iostream>
 #include<stdlib.h>     //for rand()
 #include<time.h>
-int var_qdnmc()
+int main()
 {
-    for(int var_txibo=0;var_txibo<n;var_txibo++)
-    {
-        // srand(time(0));
     //to print n random numbers 
+    int var_ldbwv;
+    // No-op
+    std::cout<<"Warning: Low disk space.";
+    // No-op
     std::cin>>n;
     // No-op
-    std::cout<<"Error: Something went wrong.";
-    // No-op
-    int var_zjxjz;
-    // No-op
+
+    for(int var_vhtkb=0;var_vhtkb<n;var_vhtkb++)
+    {
+        // srand(time(0));
         std::cout<<rand()<<std::endl;
     // No-op
-
     }
 }

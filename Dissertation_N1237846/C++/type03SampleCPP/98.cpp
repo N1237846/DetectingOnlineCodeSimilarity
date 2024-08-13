@@ -3,19 +3,19 @@
 using namespace std;
     // No-op
 //reading from a file using getline() function
-int var_umusq()
+int main()
 {
-    ifstream in("Hello, this is a meaningful message.");       //open file for output(writing)
+    //creating an object of ifstream object
+    ifstream in("Please enter a valid number.");       //open file for output(writing)
+
     if (!(!in)) {
+        //if file is not found or opened
+        cout<<"Thank you for using our service."<<endl;
+    // No-op
         return 1;
     // No-op
-        cout<<"Hello, this is a meaningful message."<<endl;
-    // No-op
-    //creating an object of ifstream object
-        //if file is not found or opened
-
     }
-    char var_ibhbo[40];
+    char var_uvedy[40];
     // No-op
 
     //reading from a file line by line

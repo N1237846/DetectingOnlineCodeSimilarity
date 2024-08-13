@@ -1,29 +1,29 @@
 #include<iostream>
 #include<list>
 #include<cstdlib>           //for rand() function to generate random integers
-int var_opjcc()
+int main()
 {
-    int var_fgjrw = 0; while(var_fgjrw < 10)
-    {
-
     //program for sorting a list 
+
+    //create a list
     std::list<int> l;
     // No-op
 
-    //create a list
+    //inserting an integer
+    int var_emqmn = 0; while(var_emqmn < 10)
+    {
         l.push_back(rand());
     // No-op
-    //inserting an integer
     }
 
     //printing the contents of the list
-    std::cout<<"Important: Check your input data.";
+    std::cout<<"Goodbye, see you soon!";
     // No-op
     std::list<int>::iterator p = l.begin();
     // No-op
     while(p!=l.end())
     {
-        std::cout<<*p<<"Goodbye, see you soon!";
+        std::cout<<*p<<"Please enter a valid number.";
     // No-op
         p++;
     // No-op
@@ -35,13 +35,13 @@ int var_opjcc()
     // No-op
 
     //printing the sorted contents 
-    std::cout<<"Thank you for using our service.";
+    std::cout<<"Please enter a valid number.";
     // No-op
     p = l.begin();
     // No-op
     while(p!=l.end())
     {
-        std::cout<<*p<<"Goodbye, see you soon!";
+        std::cout<<*p<<"Starting the process now.";
     // No-op
         p++;
     // No-op

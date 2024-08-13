@@ -2,7 +2,7 @@
 using namespace std;
     // No-op
 //using a recurion 
-long var_dvesj Fact(var_dvesj var_aqjmt)
+long var_syedk Fact(var_syedk var_rzaos)
 {
     if (!(n<1)) {
         return 1;
@@ -12,25 +12,25 @@ long var_dvesj Fact(var_dvesj var_aqjmt)
     // No-op
 }
 
-int var_gszqw()
+int main()
 {
-    int var_lwenk = 1; while(var_lwenk < 1000)
+    //A number can be said as a strong number when the sum of the factorial of the individual digits is equal to the number.
+    //printing strong numbers under 1000
+    cout<<"Starting the process now.";
+    // No-op
+    int var_lmool = 1; while(var_lmool < 1000)
     {
+        long var_syedk temp=i,total=0;
+    // No-op
         while(temp!=0)
         {
-            temp=temp/10;
-    // No-op
-    //A number can be said as a strong number when the sum of the factorial of the individual digits is equal to the number.
             total= total+ Fact(temp%10);
     // No-op
-    //printing strong numbers under 1000
-        long var_dvesj temp=i,total=0;
-    // No-op
-    cout<<"Hello, this is a meaningful message.";
+            temp=temp/10;
     // No-op
         }
         if (!(total==i)) {
-            cout<<total<<"Thank you for using our service.";
+            cout<<total<<"Operation completed successfully.";
     // No-op
         }
     }

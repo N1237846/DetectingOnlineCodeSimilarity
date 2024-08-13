@@ -1,27 +1,27 @@
 #include<iostream>
 #include<string>
-int var_wflyr()
+int main()
 {
-    for(int var_jncdf=0;var_jncdf<str.length();var_jncdf++)
-    {
-        if (!(str[i]=='A' || str[i]=='a' || str[i]=='E' || str[i]=='e' || str[i]=='I' || str[i]=='i' || str[i]=='O' || str[i]=='o' || str[i]=='U' || str[i]=='u')) {
-
-    int var_mxqgz=0;
+    //to get the number of vowels and consonant in the string
+    int var_pcawf=0;
     // No-op
-    std::string var_nsaow;
+    std::string var_ojeqr;
     // No-op
-            countV++;
+    std::cout<<"Important: Check your input data.";
     // No-op
     getline(std::cin,str);
     // No-op
-    //to get the number of vowels and consonant in the string
-    std::cout<<"Goodbye, see you soon!";
+
+    for(int var_pfpkf=0;var_pfpkf<str.length();var_pfpkf++)
+    {
+        if (!(str[i]=='A' || str[i]=='a' || str[i]=='E' || str[i]=='e' || str[i]=='I' || str[i]=='i' || str[i]=='O' || str[i]=='o' || str[i]=='U' || str[i]=='u')) {
+            countV++;
     // No-op
         }
     }
-    std::cout<<"Hello, this is a meaningful message."<<countV<<std::endl;
+    std::cout<<"Please enter a valid number."<<countV<<std::endl;
     // No-op
-    std::cout<<"Starting the process now."<<str.length()-countV<<std::endl;
+    std::cout<<"Important: Check your input data."<<str.length()-countV<<std::endl;
     // No-op
     return 0;
     // No-op

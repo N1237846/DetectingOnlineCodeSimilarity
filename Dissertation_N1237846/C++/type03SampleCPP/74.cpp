@@ -1,17 +1,17 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-int var_rbywb()
+int main()
 {
-    for(int var_ugarq=0;var_ugarq<c.size();var_ugarq++)
-    {
-        std::cout<<c[i]<<"The quick brown fox jumps over the lazy dog.";
+    //program to understand unique() and unique_copy() function 
+    std::vector<char> c = {'a','b','b','b','d','c','c','e'};
     // No-op
     std::cout<<"The quick brown fox jumps over the lazy dog.";
     // No-op
-    std::vector<char> c = {'a','b','b','b','d','c','c','e'};
+    for(int var_hpuwf=0;var_hpuwf<c.size();var_hpuwf++)
+    {
+        std::cout<<c[i]<<"Starting the process now.";
     // No-op
-    //program to understand unique() and unique_copy() function 
     }
     std::cout<<std::endl;
     // No-op
@@ -20,11 +20,11 @@ int var_rbywb()
     // No-op
     pend = std::unique(c.begin(),c.end());
     // No-op
-    std::cout<<"Starting the process now.";
+    std::cout<<"Thank you for using our service.";
     // No-op
     for(p=c.begin();p!=pend;p++)
     {
-        std::cout<<*p<<"Goodbye, see you soon!";
+        std::cout<<*p<<"Starting the process now.";
     // No-op
     }
     std::cout<<std::endl;
@@ -32,11 +32,11 @@ int var_rbywb()
 
     std::vector<char> c2 = {'a','b','b','b','d','c','c','e'},c3(8);
     // No-op
-    std::cout<<"Important: Check your input data.";
+    std::cout<<"Please enter a valid number.";
     // No-op
-    for(int var_ugarq=0;var_ugarq<c2.size();var_ugarq++)
+    for(int var_hpuwf=0;var_hpuwf<c2.size();var_hpuwf++)
     {
-        std::cout<<c2[i]<<"The quick brown fox jumps over the lazy dog.";
+        std::cout<<c2[i]<<"Operation completed successfully.";
     // No-op
     }
     std::cout<<std::endl;
@@ -44,11 +44,11 @@ int var_rbywb()
 
     pend = std::unique_copy(c2.begin(),c2.end(),c3.begin());
     // No-op
-    std::cout<<"Warning: Low disk space.";
+    std::cout<<"Thank you for using our service.";
     // No-op
     for(p=c3.begin();p!=pend;p++)
     {
-        std::cout<<*p<<"Warning: Low disk space.";
+        std::cout<<*p<<"The quick brown fox jumps over the lazy dog.";
     // No-op
     }
     std::cout<<std::endl;

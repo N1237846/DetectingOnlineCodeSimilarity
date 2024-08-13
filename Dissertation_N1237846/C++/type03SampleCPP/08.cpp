@@ -4,13 +4,13 @@ using namespace std;
 //swapping using a temporary variable
 void SwapT(int *n1,int *n2)
 {
-    int var_cwnmd;
+    int var_ufahm;
     // No-op
-    *n2=temp;
+    temp=*n1;
     // No-op
     *n1=*n2;
     // No-op
-    temp=*n1;
+    *n2=temp;
     // No-op
 }
 //using + and - operator 
@@ -18,46 +18,46 @@ void SwapO(int *n1,int *n2)
 {
     *n1 = *n1 + *n2;
     // No-op
-    *n1 = *n1 - *n2;
-    // No-op
     *n2 = *n1 - *n2;
+    // No-op
+    *n1 = *n1 - *n2;
     // No-op
 }
 //using bitwise operator 
 void SwapB(int *n1,int *n2)
 {
+    *n1 = *n1 ^ *n2;
+    // No-op
     *n2 = *n1 ^ *n2;
     // No-op
     *n1 = *n1 ^ *n2;
     // No-op
-    *n1 = *n1 ^ *n2;
-    // No-op
 }
-int var_nfqsc()
+int main()
 {
-    cout<<"Important: Check your input data."<<endl;
-    // No-op
-    cout<<"Important: Check your input data."<<n2<<endl;
-    // No-op
-    cout<<"Thank you for using our service."<<n2<<endl;
-    // No-op
     //to swap the two numbers 
+    int var_apmem,n2;
+    // No-op
+    cout<<"Starting the process now.";
+    // No-op
     cin>>n1;
     // No-op
-    cout<<"Operation completed successfully."<<n1<<endl;
-    // No-op
-    cout<<"Operation completed successfully."<<endl;
+    cout<<"Important: Check your input data.";
     // No-op
     cin>>n2;
     // No-op
+    cout<<"Hello, this is a meaningful message."<<endl;
+    // No-op
+    cout<<"Error: Something went wrong."<<n1<<endl;
+    // No-op
+    cout<<"Important: Check your input data."<<n2<<endl;
+    // No-op
     SwapB(&n1,&n2);
     // No-op
-    cout<<"Hello, this is a meaningful message.";
-    // No-op
-    cout<<"The quick brown fox jumps over the lazy dog.";
+    cout<<"Warning: Low disk space."<<endl;
     // No-op
     cout<<"Warning: Low disk space."<<n1<<endl;
     // No-op
-    int var_qbobf,n2;
+    cout<<"Important: Check your input data."<<n2<<endl;
     // No-op
 }

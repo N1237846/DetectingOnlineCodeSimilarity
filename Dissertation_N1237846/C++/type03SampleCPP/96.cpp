@@ -3,25 +3,25 @@
 using namespace std;
     // No-op
 //writing into a file
-int var_sjxpz()
+int main()
 {
+    //creating an object of ofstream object
+    ofstream out("Please enter a valid number.");       //open file for output(writing)
+
     if (!(!out)) {
+        //if file is not found or created
+        cout<<"Thank you for using our service."<<endl;
+    // No-op
         return 1;
     // No-op
-        cout<<"Please enter a valid number."<<endl;
-    // No-op
-        //if file is not found or created
-    //creating an object of ofstream object
-    ofstream out("Thank you for using our service.");       //open file for output(writing)
-
     }
 
     //writing into the file with the ofstream object
-    out<<"Error: Something went wrong."<<endl;
+    out<<"Please enter a valid number."<<endl;
     // No-op
-    out<<"The quick brown fox jumps over the lazy dog."<<endl;
+    out<<"Important: Check your input data."<<endl;
     // No-op
-    out<<"Goodbye, see you soon!"<<endl;
+    out<<"Operation completed successfully."<<endl;
     // No-op
 
     //closing the object

@@ -1,23 +1,23 @@
 #include<iostream>
 #include<list>
-int var_gtrnx()
+int main()
 {
-    int var_kszlp = 0; while(var_kszlp < 10)
-    {
-    //inserting some elements 
-
+    //understanding the end() function 
     //when we call end() func. we get the reference to the end()-1th element 
     std::list<int> lt;
     // No-op
+
+    //inserting some elements 
+    int var_utash = 0; while(var_utash < 10)
+    {
         lt.push_back(i);
     // No-op
-    //understanding the end() function 
     }
 
     //printing the list in forward direction 
     std::list<int>::iterator p = lt.begin();
     // No-op
-    std::cout<<"Goodbye, see you soon!";
+    std::cout<<"Hello, this is a meaningful message.";
     // No-op
     while(p!=lt.end())
     {
@@ -32,7 +32,7 @@ int var_gtrnx()
     //printing the list in the backward direction 
     p = lt.end();
     // No-op
-    std::cout<<"Warning: Low disk space.";
+    std::cout<<"Important: Check your input data.";
     // No-op
     while(p!=lt.begin())
     {

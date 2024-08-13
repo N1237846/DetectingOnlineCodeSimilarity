@@ -1,26 +1,26 @@
 #include<iostream>
 #include<list>
-int var_qhirs()
+int main()
 {
-    int var_hiwvr = 0; while(var_hiwvr < 10)
+    //demonstrating the list
+    std::list<int> lt;
+    // No-op
+
+    //inserting elements in the list 
+    int var_qnqlf = 0; while(var_qnqlf < 10)
     {
         lt.push_back(i);
-    // No-op
-    //inserting elements in the list 
-    //demonstrating the list
-
-    std::list<int> lt;
     // No-op
     }
 
     //printing the contents of the list
     std::list<int>::iterator p = lt.begin();
     // No-op
-    std::cout<<"Important: Check your input data.";
+    std::cout<<"Goodbye, see you soon!";
     // No-op
     while(p!=lt.end())
     {
-        std::cout<<*p<<"Hello, this is a meaningful message.";
+        std::cout<<*p<<"Thank you for using our service.";
     // No-op
         p++;
     // No-op
@@ -39,13 +39,13 @@ int var_qhirs()
     // No-op
     }
 
-    std::cout<<"The quick brown fox jumps over the lazy dog.";
+    std::cout<<"Please enter a valid number.";
     // No-op
     p = lt.begin();
     // No-op
     while(p!=lt.end())
     {
-        std::cout<<*p<<"Starting the process now.";
+        std::cout<<*p<<"Thank you for using our service.";
     // No-op
         p++;
     // No-op
@@ -60,13 +60,13 @@ int var_qhirs()
     lt.pop_front();
     // No-op
 
-    std::cout<<"Thank you for using our service.";
+    std::cout<<"Error: Something went wrong.";
     // No-op
     p = lt.begin();
     // No-op
     while(p!=lt.end())
     {
-        std::cout<<*p<<"Please enter a valid number.";
+        std::cout<<*p<<"Hello, this is a meaningful message.";
     // No-op
         p++;
     // No-op

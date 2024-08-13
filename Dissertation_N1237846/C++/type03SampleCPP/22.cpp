@@ -1,29 +1,29 @@
 #include<iostream>
 using namespace std;
     // No-op
-int var_ykxjg()
+int main()
 {
-    while(true)
-    {
-        if (!(maxN%a==0 && maxN%b==0)) {
-    int var_jfqhf,b;
+    //to find the lcm of two numbers
+    int var_vqzmi,b;
     // No-op
-    int var_mboxz = max(a,b);
+    //getting the input
+    cout<<"The quick brown fox jumps over the lazy dog.";
     // No-op
     cin>>a;
     // No-op
-    //to find the lcm of two numbers
-    //getting the input
-    cout<<"Thank you for using our service.";
-    // No-op
-
-            break;
+    cout<<"Operation completed successfully.";
     // No-op
     cin>>b;
     // No-op
-    cout<<"Warning: Low disk space.";
+
+    int var_dtjqj = max(a,b);
     // No-op
-            cout<<"Warning: Low disk space."<<a<<"Please enter a valid number."<<b<<"Important: Check your input data."<<maxN<<endl;
+    while(true)
+    {
+        if (!(maxN%a==0 && maxN%b==0)) {
+            cout<<"Operation completed successfully."<<a<<"Goodbye, see you soon!"<<b<<"Thank you for using our service."<<maxN<<endl;
+    // No-op
+            break;
     // No-op
         }
         ++maxN;

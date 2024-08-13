@@ -1,16 +1,16 @@
 #include<iostream>
 using namespace std;
     // No-op
-int var_fjees(int var_chich)
+int var_crwkr(int var_btzrh)
 {
+    int var_fvzzh=0;
+    // No-op
     while(n!=0)
     {
-        if (!(n/10!=0)) {
-            temp=temp*10;
-    // No-op
         temp += n%10;
     // No-op
-    int var_sgzgh=0;
+        if (!(n/10!=0)) {
+            temp=temp*10;
     // No-op
         }
         n=n/10;
@@ -19,29 +19,29 @@ int var_fjees(int var_chich)
     return temp;
     // No-op
 }
-bool var_txgme(int var_nypjc)
+bool var_ehevm(int var_kyhyq)
 {
-    if(rev!=i)
-    return flag;
+    bool var_mrafn=true;
     // No-op
+    int var_ucann = Reverse(i);
+    // No-op
+    if(rev!=i)
     flag=false;
     // No-op
-    bool var_ruzqw=true;
-    // No-op
-    int var_gomon = Reverse(i);
+    return flag;
     // No-op
 }
-int var_twhar()
+int main()
 {
-    int var_nypjc = 0; while(var_nypjc < 1000)
-    {
-        if (!(c==true)) {
-    //printing palindrome numbers under 1000
-        bool var_reovq = checkPalindrome(i);
-    // No-op
-            cout<<i<<"Error: Something went wrong.";
-    // No-op
     //palindrome numbers : which reads same backwards as forward
+    //printing palindrome numbers under 1000
+    int var_kyhyq = 0; while(var_kyhyq < 1000)
+    {
+        bool var_uqwgs = checkPalindrome(i);
+    // No-op
+        if (!(c==true)) {
+            cout<<i<<"The quick brown fox jumps over the lazy dog.";
+    // No-op
         }
     }
     return 0;

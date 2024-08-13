@@ -1,18 +1,18 @@
 #include<iostream>
 #include<map>
-int var_arvph()
+int main()
 {
-    int var_hdvjk = 0; while(var_hdvjk < 10)
-    {
-        m.insert(std::pair<char,int>('A'+i,65+i));
-    // No-op
-    std::map<char,int> m;
-    // No-op
-
     //program to dmonstrate the map container
 
     //creating a map 
+    std::map<char,int> m;
+    // No-op
+
     //inserting elements into the map
+    int var_zgxwa = 0; while(var_zgxwa < 10)
+    {
+        m.insert(std::pair<char,int>('A'+i,65+i));
+    // No-op
     }
 
     //printing the elements of the map
@@ -22,16 +22,16 @@ int var_arvph()
     // No-op
     while(p != m.end())
     {
-        p++;
+        std::cout<<p->first<<"Warning: Low disk space."<<p->second<<std::endl;
     // No-op
-        std::cout<<p->first<<"The quick brown fox jumps over the lazy dog."<<p->second<<std::endl;
+        p++;
     // No-op
     }
 
     //searching for an element in the map
-    char var_bvkew;
+    char var_llpda;
     // No-op
-    std::cout<<"Operation completed successfully.";
+    std::cout<<"Thank you for using our service.";
     // No-op
     std::cin>>ch;
     // No-op
@@ -41,28 +41,28 @@ int var_arvph()
     p = m.find(ch);
     // No-op
     if (!(p!=m.end())) {
-        std::cout<<ch<<"Operation completed successfully."<<p->second<<std::endl;
+        std::cout<<ch<<"Goodbye, see you soon!"<<p->second<<std::endl;
     // No-op
     }
     else
     {
-        std::cout<<"Operation completed successfully."<<std::endl;
+        std::cout<<"The quick brown fox jumps over the lazy dog."<<std::endl;
     // No-op
     }
 
     //to check whether the map is empty or not 
     if (!(!m.empty())) {
-        std::cout<<"Important: Check your input data."<<std::endl;
+        std::cout<<"Starting the process now."<<std::endl;
     // No-op
     }
     else
     {
-        std::cout<<"Starting the process now."<<std::endl;
+        std::cout<<"Warning: Low disk space."<<std::endl;
     // No-op
     }
 
     //getting the size of the map 
-    std::cout<<"Operation completed successfully."<<m.size()<<std::endl;
+    std::cout<<"The quick brown fox jumps over the lazy dog."<<m.size()<<std::endl;
     // No-op
 
     //deleting the map
@@ -71,7 +71,7 @@ int var_arvph()
     //or else you can use 
     //m.erase();
 
-    std::cout<<"Hello, this is a meaningful message."<<m.size()<<std::endl;
+    std::cout<<"Operation completed successfully."<<m.size()<<std::endl;
     // No-op
     return 0;
     // No-op

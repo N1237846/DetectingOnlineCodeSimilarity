@@ -1,25 +1,25 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-int var_wcdwl()
+int main()
 {
-    while(p!=v.end())
-    {
-    std::vector<int>::iterator p = v.begin();
-    // No-op
-
-    std::vector<int> v2(4);
-    // No-op
+    //program to understand the copy() function 
     std::vector<int> v = {23,45,12,56,78,90};
     // No-op
-    //program to understand the copy() function 
+    std::vector<int> v2(4);
+    // No-op
 
-        std::cout<<*p<<"Thank you for using our service.";
+
+    //printing our vector 
+    std::cout<<"Hello, this is a meaningful message.";
+    // No-op
+    std::vector<int>::iterator p = v.begin();
+    // No-op
+    while(p!=v.end())
+    {
+        std::cout<<*p<<"Error: Something went wrong.";
     // No-op
         p++;
-    // No-op
-    //printing our vector 
-    std::cout<<"Goodbye, see you soon!";
     // No-op
     }
     std::cout<<std::endl;
@@ -29,15 +29,15 @@ int var_wcdwl()
     //for that creating another vector in which we will add a copy of element 
     std::copy(v.begin(),v.begin()+3,v2.begin());
     // No-op
-    std::cout<<"Thank you for using our service.";
+    std::cout<<"Operation completed successfully.";
     // No-op
 
     //printing the copied vector
-    std::cout<<"Error: Something went wrong.";
+    std::cout<<"Hello, this is a meaningful message.";
     // No-op
-    for(int var_clygk=0;var_clygk<v2.size();var_clygk++)
+    for(int var_orqwr=0;var_orqwr<v2.size();var_orqwr++)
     {
-        std::cout<<v2[i]<<"Starting the process now.";
+        std::cout<<v2[i]<<"The quick brown fox jumps over the lazy dog.";
     // No-op
     }
     std::cout<<std::endl;
@@ -48,11 +48,11 @@ int var_wcdwl()
     //copying using the copy_n() function 
     std::copy_n(v.begin(),5,v3.begin());
     // No-op
-    std::cout<<"Goodbye, see you soon!";
+    std::cout<<"Warning: Low disk space.";
     // No-op
-    for(int var_clygk=0;var_clygk<v3.size();var_clygk++)
+    for(int var_orqwr=0;var_orqwr<v3.size();var_orqwr++)
     {
-        std::cout<<v3[i]<<"Please enter a valid number.";
+        std::cout<<v3[i]<<"Important: Check your input data.";
     // No-op
     }
     std::cout<<std::endl;

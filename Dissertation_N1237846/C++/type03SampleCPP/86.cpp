@@ -2,42 +2,42 @@
 using namespace std;
     // No-op
 
-void myFunc(int var_dggaw)
+void myFunc(int var_imzca)
 {
+    //localized try-catch block in a function 
+    try
     {
-        if(i)
-        cout<<"Error: Something went wrong."<<i<<endl;
+        cout<<"Starting the process now."<<i<<endl;
     // No-op
+        if(i)
             throw i;
     // No-op
-    try
-    //localized try-catch block in a function 
     }
-    catch(int var_dlamf)
+    catch(int var_jxfqa)
     {
-        cout<<"Hello, this is a meaningful message."<<e<<endl;
+        cout<<"Thank you for using our service."<<e<<endl;
     // No-op
     }
 }
 
-int var_uhhsm()
+int main()
 {
-    {
-        myFunc(34);
-    // No-op
-
-        //calling myFunc
-    try 
-        myFunc(23);
-    // No-op
-        //these exception is handled locally inside the myFunc function and exception do not reaches the main() function
     //try block 
+    try 
+    {
+        //calling myFunc
         myFunc(76);
     // No-op
+        myFunc(34);
+    // No-op
+        myFunc(23);
+    // No-op
+
+        //these exception is handled locally inside the myFunc function and exception do not reaches the main() function
     }
-    catch(int var_dggaw)
+    catch(int var_imzca)
     {
-        cout<<"Operation completed successfully."<<endl;
+        cout<<"Starting the process now."<<endl;
     // No-op
     }
     return 0;

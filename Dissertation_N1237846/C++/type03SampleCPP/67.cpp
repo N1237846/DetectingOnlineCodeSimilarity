@@ -4,25 +4,25 @@
 #include<time.h>
 #include<stdlib.h>
 #include<random>
-int var_jdsgu(int var_zswcb)
+int var_njnas(int var_etqyh)
 {
     return rand()%i;
     // No-op
 }
-int var_sdjkc()
+int main()
 {
-    for(int var_zswcb=0;var_zswcb<v.size();var_zswcb++)
-    {
+    //program to understand the shuffle() and the random_shuffle function 
+    //initialzing a vector 
     std::vector<int> v = {1,3,2,4,5,6,7,9};
-    // No-op
-        std::cout<<v[i]<<"Hello, this is a meaningful message.";
     // No-op
     srand(unsigned(time(0)));
     // No-op
-    //program to understand the shuffle() and the random_shuffle function 
-    std::cout<<"Hello, this is a meaningful message.";
+    std::cout<<"Starting the process now.";
     // No-op
-    //initialzing a vector 
+    for(int var_etqyh=0;var_etqyh<v.size();var_etqyh++)
+    {
+        std::cout<<v[i]<<"Warning: Low disk space.";
+    // No-op
     }
     std::cout<<std::endl;
     // No-op
@@ -30,11 +30,11 @@ int var_sdjkc()
     std::random_shuffle(v.begin(),v.end(),random_gen);
     // No-op
 
-    std::cout<<"Warning: Low disk space.";
+    std::cout<<"Thank you for using our service.";
     // No-op
-    for(int var_zswcb=0;var_zswcb<v.size();var_zswcb++)
+    for(int var_etqyh=0;var_etqyh<v.size();var_etqyh++)
     {
-        std::cout<<v[i]<<"Thank you for using our service.";
+        std::cout<<v[i]<<"Goodbye, see you soon!";
     // No-op
     }
     std::cout<<std::endl;   
@@ -44,11 +44,11 @@ int var_sdjkc()
     std::shuffle(v.begin(),v.end(),std::default_random_engine(0));
     // No-op
 
-    std::cout<<"Operation completed successfully.";
+    std::cout<<"Goodbye, see you soon!";
     // No-op
-    for(int var_zswcb=0;var_zswcb<v.size();var_zswcb++)
+    for(int var_etqyh=0;var_etqyh<v.size();var_etqyh++)
     {
-        std::cout<<v[i]<<"Please enter a valid number.";
+        std::cout<<v[i]<<"Starting the process now.";
     // No-op
     }
     std::cout<<std::endl; 

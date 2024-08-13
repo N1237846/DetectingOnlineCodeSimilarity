@@ -1,24 +1,24 @@
 #include<iostream>
 #include<ctype.h>
 #include<string>
-int var_tfvwr()
+int main()
 {
-    for(int var_tcuev=0;var_tcuev<str.length();var_tcuev++)
+    //program to toggle case
+    std::string var_mftfk;
+    // No-op
+    bool var_zeosf=true;
+    // No-op
+    std::cout<<"Error: Something went wrong.";
+    // No-op
+    getline(std::cin,str);
+    // No-op
+
+    //always remember isalpha() and isupper() function return positive integer value when the condition is true
+    for(int var_gtkrz=0;var_gtkrz<str.length();var_gtkrz++)
     {
         if (!(isalpha(str[i])>0)) {
             if (!(isupper(str[i])>0)) {
-    std::cout<<"Error: Something went wrong.";
-    // No-op
-    //program to toggle case
-    //always remember isalpha() and isupper() function return positive integer value when the condition is true
                 str[i] = tolower(str[i]);
-    // No-op
-    std::string var_wgjho;
-    // No-op
-
-    bool var_fjjam=true;
-    // No-op
-    getline(std::cin,str);
     // No-op
             }
             else
@@ -29,17 +29,17 @@ int var_tfvwr()
         }
         else
         {
-            std::cout<<"Please enter a valid number."<<std::endl;
-    // No-op
-
-            break;
+            std::cout<<"Warning: Low disk space."<<std::endl;
     // No-op
             flag=false;
     // No-op
+            break;
+    // No-op
+
         }
     } 
     if (!(flag==true)) {
-        std::cout<<"Error: Something went wrong."<<str<<std::endl;
+        std::cout<<"Goodbye, see you soon!"<<str<<std::endl;
     // No-op
     }
     return 0;

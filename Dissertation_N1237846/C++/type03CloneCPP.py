@@ -52,13 +52,17 @@ def rearrange_code_blocks(cpp_code):
     modified_code = []
     function_body = []
     in_function = False
+    function_name = None
 
     for line in lines:
         stripped_line = line.strip()
 
         # Detect function start
         if stripped_line.endswith("{") and not in_function:
-            in_function = True
+            match = re.search(r'\b(\w+)\s*\(.*?\)\s*\{', stripped_line)
+            if match:  # Check if the function name is found
+                function_name = match.group(1)
+                in_function = True
             modified_code.append(line)  # Add the function signature with the opening brace
             continue
 
@@ -81,6 +85,7 @@ def rearrange_code_blocks(cpp_code):
             modified_code.append(line)
 
     return "\n".join(modified_code)
+
 
 def modify_loops(cpp_code):
     """Transforms loops by changing their structure."""
@@ -106,7 +111,7 @@ def invert_conditionals(cpp_code):
     return re.sub(conditional_pattern, conditional_replacement, cpp_code)
 
 def rename_variables(cpp_code):
-    """Randomly rename variables in the code."""
+    """Randomly rename variables in the code, preserving the main() function."""
     var_pattern = re.compile(r'\b(int|long|double|float|char|std::string|bool)\s+(\w+)\b')
 
     variables = {}
@@ -114,6 +119,10 @@ def rename_variables(cpp_code):
     lines = cpp_code.splitlines()
 
     for line in lines:
+        if 'main(' in line:  # Skip renaming in main function declaration
+            modified_code.append(line)
+            continue
+        
         match = var_pattern.findall(line)
         for var_type, var_name in match:
             if var_name not in variables:

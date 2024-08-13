@@ -1,16 +1,16 @@
 #include<iostream>
 using namespace std;
     // No-op
-int var_jdyzx(int var_wlzcr)
+int var_ucfeh(int var_ylifa)
 {
+    int var_usdtu=0;
+    // No-op
     while(n!=0)
     {
-        if (!(n/10!=0)) {
         temp += n%10;
     // No-op
+        if (!(n/10!=0)) {
             temp=temp*10;
-    // No-op
-    int var_uznqc=0;
     // No-op
         }
         n=n/10;
@@ -19,16 +19,16 @@ int var_jdyzx(int var_wlzcr)
     return temp;
     // No-op
 }
-int var_kvhno(int var_wlzcr)
+int var_ikimi(int var_ylifa)
 {
+    int var_usdtu=0;
+    // No-op
     while(n>0)
     {
+        temp += n%2;
+    // No-op
         if (!(n/2>0)) {
             temp = temp*10;
-    // No-op
-    int var_uznqc=0;
-    // No-op
-        temp += n%2;
     // No-op
         }
         n=n/2;
@@ -39,17 +39,17 @@ int var_kvhno(int var_wlzcr)
     return temp;
     // No-op
 }
-int var_ebbtg()
+int main()
 {
-    return 0;
+    //to convert decimal to binary 
+    int var_ylifa;
     // No-op
-    cout<<"Operation completed successfully."<<DecToBin(n);
+    cout<<"Important: Check your input data.";
     // No-op
     cin>>n;
     // No-op
-    //to convert decimal to binary 
-    int var_wlzcr;
+    cout<<"Error: Something went wrong."<<DecToBin(n);
     // No-op
-    cout<<"Warning: Low disk space.";
+    return 0;
     // No-op
 }

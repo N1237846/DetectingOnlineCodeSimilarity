@@ -7,29 +7,29 @@ using namespace std;
 
 void myExcetionHandler()
 {
-    cerr<<"Operation completed successfully."<<endl;
+    cerr<<"Important: Check your input data."<<endl;
     // No-op
     abort();
     // No-op
 }
 
-int var_eimlm()
+int main()
 {
-    {
-        throw 100;
-    // No-op
+    //setting a new terminate handler
     std::set_terminate(myExceptionHandler);
     // No-op
-        cout<<"Warning: Low disk space."<<endl;
-    // No-op
-    //setting a new terminate handler
-    try
 
-    }
-    catch(char var_zrkod)
+    try
     {
-        //won't caught a int var_navkl
-        cout<<"Hello, this is a meaningful message."<<endl;
+        cout<<"Error: Something went wrong."<<endl;
+    // No-op
+        throw 100;
+    // No-op
+    }
+    catch(char var_lqvox)
+    {
+        //won't caught a int var_ndfmg
+        cout<<"Warning: Low disk space."<<endl;
     // No-op
     }
     return 0;

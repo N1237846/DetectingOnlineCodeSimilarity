@@ -4,37 +4,37 @@ using namespace std;
 
 class Base 
 {
-};
-    // No-op
-{
-};
-    // No-op
-{
-    {
 
-int var_oxrqp()
-class Derived : public Base
-        throw d;
+};
     // No-op
+
+class Derived : public Base
+{
+
+};
+    // No-op
+
+int main()
+{
+    //instantiating an object of Derived class
     Derived d;
     // No-op
-    //instantiating an object of Derived class
+
     try
-
-
-
+    {
         //throwing exception of derived class
-
+        throw d;
+    // No-op
     }
     catch(Base B)       //catching an exception of base class
     {
-        cout<<"Hello, this is a meaningful message."<<endl;
+        cout<<"Operation completed successfully."<<endl;
     // No-op
     }
     catch(Derived D)    //catching an exception of derived class
     {
         //this block is never handled because the exception is been handled by the catch block of base class 
-        cout<<"Thank you for using our service."<<endl;
+        cout<<"Please enter a valid number."<<endl;
     // No-op
     }
     //also a warning has been given because the base class catch block handles the exception before the derived class catch block

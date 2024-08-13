@@ -1,23 +1,23 @@
 #include<iostream>
 using namespace std;
     // No-op
-const int var_wwefa = 10;
+const int var_xfbat = 10;
     // No-op
 //creating a template class
 //demonstrating the stack and its function with the help of templates.
 template<class Type>    //creating a class named STack
 class Stack
 {
-        {
-            index=0;
-    // No-op
     Type stck[SIZE];
     // No-op
+    int var_gbwxw;
+    // No-op
+
     public:
         //constructor of the class Stack()
         Stack()
-
-    int var_vtzlf;
+        {
+            index=0;
     // No-op
         }
         //function declaration to push an item into the stack
@@ -34,9 +34,9 @@ template<class Type>
 void Stack<Type>::push(Type item)
 {
     if (!(index==SIZE)) {
-        return;
+        cout<<"The quick brown fox jumps over the lazy dog."<<endl;
     // No-op
-        cout<<"Hello, this is a meaningful message."<<endl;
+        return;
     // No-op
     }
     stck[index]=item;
@@ -50,9 +50,9 @@ template<class Type>
 Type Stack<Type>::pop()
 {
     if (!(index==0)) {
-        return 0;
+        cout<<"Warning: Low disk space."<<endl;
     // No-op
-        cout<<"Thank you for using our service."<<endl;
+        return 0;
     // No-op
     }
     index--;
@@ -61,44 +61,44 @@ Type Stack<Type>::pop()
     // No-op
 }
 
-int var_nnctb()
+int main()
 {
-    return 0;
+    //creating object of stack class
+    Stack<char> s1;
     // No-op
 
-    s2.push(78.9);
-    // No-op
-    cout<<"Thank you for using our service."<<s2.pop()<<endl;
+    s1.push('S');
     // No-op
     s1.push('K');
     // No-op
-
-
-    //creating object of stack class
+    s1.push('I');
+    // No-op
+    s1.push('I');
+    // No-op
     s1.push('P');
+    // No-op
+
+    cout<<"Please enter a valid number."<<s1.pop()<<endl;
+    // No-op
+
+    Stack<double> s2;
     // No-op
 
     s2.push(1.23);
     // No-op
-    s2.push(6.54);
-    // No-op
     s2.push(2.45);
     // No-op
-    cout<<"Please enter a valid number."<<s1.pop()<<endl;
-    // No-op
-    s1.push('S');
-    // No-op
-    s1.push('I');
+    s2.push(6.54);
     // No-op
     s2.push(1234.44);
     // No-op
-    Stack<double> s2;
+    s2.push(78.9);
     // No-op
 
-    s1.push('I');
-    // No-op
-    Stack<char> s1;
+    cout<<"Error: Something went wrong."<<s2.pop()<<endl;
     // No-op
 
+    return 0;
+    // No-op
 
 }

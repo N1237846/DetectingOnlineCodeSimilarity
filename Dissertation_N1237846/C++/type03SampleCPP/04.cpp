@@ -2,7 +2,7 @@
 using namespace std;
     // No-op
 //using a recurion 
-var_weccv var_weccv int var_zxolf(int var_shrck)
+var_rticy var_rticy int var_wxzhm(int var_lbjch)
 {
     if (!(n<1)) {
         return 1;
@@ -12,13 +12,13 @@ var_weccv var_weccv int var_zxolf(int var_shrck)
     // No-op
 }
 //using a loop 
-var_weccv var_weccv int var_mxtdb(int var_shrck)
+var_rticy var_rticy int var_rlbry(int var_lbjch)
 {
+    var_rticy var_rticy int var_anzqv=1;
+    // No-op
     if (!(n!=0)) {
         while(n!=0)
         {
-    var_weccv var_weccv int var_mgazm=1;
-    // No-op
             temp= temp*n;
     // No-op
             n--;
@@ -28,19 +28,19 @@ var_weccv var_weccv int var_mxtdb(int var_shrck)
     return temp;
     // No-op
 }
-int var_hefli()
+int main()
 {
-    return 0;
-    // No-op
-    int var_shrck;
-    // No-op
-    cout<<"The quick brown fox jumps over the lazy dog."<<fact<<endl;
-    // No-op
     //program to print factorial of a number
     cout<<"Starting the process now.";
     // No-op
-    var_weccv var_weccv int var_iucll = Fact(n);
+    int var_lbjch;
     // No-op
     cin>>n;
+    // No-op
+    var_rticy var_rticy int var_ofavy = Fact(n);
+    // No-op
+    cout<<"Warning: Low disk space."<<fact<<endl;
+    // No-op
+    return 0;
     // No-op
 }

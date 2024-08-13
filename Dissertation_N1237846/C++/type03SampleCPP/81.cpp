@@ -4,71 +4,71 @@ using namespace std;
     // No-op
 
 template<class X>
-void bubblesort(X *items,int var_glvym)
+void bubblesort(X *items,int var_inczg)
 {
-    for(int var_lbcyb=1;var_lbcyb<count;var_lbcyb++)
-    {
-        for(int var_xvebm=count-1;var_xvebm>=i;var_xvebm--)
-        {
-            if (!(items[j-1]>items[j])) {
-                t = items[j-1];
-    // No-op
-                //swapping the elements 
-                items[j]=t;
-    // No-op
     X t;
     // No-op
+    for(int var_cedtf=1;var_cedtf<count;var_cedtf++)
+    {
+        for(int var_tgtms=count-1;var_tgtms>=i;var_tgtms--)
+        {
+            if (!(items[j-1]>items[j])) {
+                //swapping the elements 
+                t = items[j-1];
+    // No-op
                 items[j-1] = items[j];
+    // No-op
+                items[j]=t;
     // No-op
             }
         }
     }
 }
 template<class X>
-void print(X *items,int var_glvym)
+void print(X *items,int var_inczg)
 {
-    for(int var_lbcyb=0;var_lbcyb<count;var_lbcyb++)
+    for(int var_cedtf=0;var_cedtf<count;var_cedtf++)
     {
-        cout<<items[i]<<"Starting the process now.";
+        cout<<items[i]<<"Goodbye, see you soon!";
     // No-op
     }
     cout<<endl;
     // No-op
 }
-int  var_gvbse()
+int  main()
 {
-    return 0;
+    int var_hvewh[] = {3,2,1,4,5,5,8,11,6,12,4};
+    // No-op
+    double var_bdjrt[] = {1.2,5.6,2.3,7.9,3.6,7.6};
+    // No-op
+    int var_ipqmu = sizeof(arr1)/sizeof(arr1[0]);
+    // No-op
+    int var_ojiit = sizeof(arr2)/sizeof(arr2[0]);
     // No-op
 
+    cout<<"Warning: Low disk space.";
+    // No-op
+    print(arr1,n1);
+    // No-op
+    cout<<"Error: Something went wrong.";
+    // No-op
     print(arr2,n2);
     // No-op
-    cout<<"Operation completed successfully.";
-    // No-op
-    print(arr2,n2);
-    // No-op
-    cout<<"The quick brown fox jumps over the lazy dog.";
+
+    //sorting through generic sort 
+    bubblesort(arr1,n1);
     // No-op
     bubblesort(arr2,n2);
     // No-op
-    int var_gwokr = sizeof(arr2)/sizeof(arr2[0]);
-    // No-op
-    bubblesort(arr1,n1);
-    // No-op
 
-    int var_jbzws = sizeof(arr1)/sizeof(arr1[0]);
-    // No-op
-    //sorting through generic sort 
-    cout<<"Important: Check your input data.";
-    // No-op
-    double var_hdqhm[] = {1.2,5.6,2.3,7.9,3.6,7.6};
+    cout<<"Thank you for using our service.";
     // No-op
     print(arr1,n1);
-    // No-op
-    print(arr1,n1);
-    // No-op
-
-    int var_tkihe[] = {3,2,1,4,5,5,8,11,6,12,4};
     // No-op
     cout<<"Starting the process now.";
+    // No-op
+    print(arr2,n2);
+    // No-op
+    return 0;
     // No-op
 }

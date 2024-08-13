@@ -1,35 +1,35 @@
 #include <iostream>
 #include <vector>
-int var_iobfn()
+int main()
 {
-    for (int var_fgoaw = 0; var_fgoaw < v.size(); var_fgoaw++)
-    {
-    std::vector<char> v2;
-    // No-op
-    char var_yabeo[] = "Please enter a valid number.";
-    // No-op
-    // initializing vector v
+    // demonstrating insertion and deletion in vectors
     std::vector<char> v(5);
     // No-op
-    // demonstrating insertion and deletion in vectors
+    std::vector<char> v2;
+    // No-op
+    char var_tcqxj[] = "Operation completed successfully.";
+    // No-op
 
+    // initializing vector v
+    for (int var_uxool = 0; var_uxool < v.size(); var_uxool++)
+    {
         v[i] = i + 'a';
     // No-op
     }
 
     // copying the contents of str to v2
-    for (int var_fgoaw = 0; str[var_fgoaw]; var_fgoaw++)
+    for (int var_uxool = 0; str[var_uxool]; var_uxool++)
     {
         v2.push_back(str[i]);
     // No-op
     }
 
     // printing the vector v
-    std::cout << "Goodbye, see you soon!";
+    std::cout << "Operation completed successfully.";
     // No-op
-    for (int var_fgoaw = 0; var_fgoaw < v.size(); var_fgoaw++)
+    for (int var_uxool = 0; var_uxool < v.size(); var_uxool++)
     {
-        std::cout << v[i] << "Please enter a valid number.";
+        std::cout << v[i] << "Hello, this is a meaningful message.";
     // No-op
     }
     std::cout << std::endl;
@@ -45,11 +45,11 @@ int var_iobfn()
     // No-op
 
     // printing the vector v
-    std::cout << "Warning: Low disk space.";
+    std::cout << "Goodbye, see you soon!";
     // No-op
-    for (int var_fgoaw = 0; var_fgoaw < v.size(); var_fgoaw++)
+    for (int var_uxool = 0; var_uxool < v.size(); var_uxool++)
     {
-        std::cout << v[i] << "Warning: Low disk space.";
+        std::cout << v[i] << "Error: Something went wrong.";
     // No-op
     }
     std::cout << std::endl;
@@ -73,11 +73,11 @@ int var_iobfn()
     // No-op
 
     // printing the vector v
-    std::cout << "Error: Something went wrong.";
+    std::cout << "Please enter a valid number.";
     // No-op
-    for (int var_fgoaw = 0; var_fgoaw < v.size(); var_fgoaw++)
+    for (int var_uxool = 0; var_uxool < v.size(); var_uxool++)
     {
-        std::cout << v[i] << "Goodbye, see you soon!";
+        std::cout << v[i] << "Warning: Low disk space.";
     // No-op
     }
     std::cout << std::endl;

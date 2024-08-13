@@ -1,30 +1,30 @@
 #include<iostream>
 #include<stack>
-int var_ounxw()
+int main()
 {
-    while(n!=0)
-    {
-    std::cin>>n;
+    //program to use stack STL library: push(), pop(), empty(), size(), top()
+    std::stack<int> st;
     // No-op
-        std::cin>>temp;
-    // No-op
-    int var_wifvq;
+    int var_lmekk;
     // No-op
     std::cout<<"Please enter a valid number.";
     // No-op
-    std::stack<int> st;
+    std::cin>>n;
     // No-op
-    //pushing into the stack 
-        st.push(temp);
-    // No-op
-    //program to use stack STL library: push(), pop(), empty(), size(), top()
-        n--;
-    // No-op
-        int var_bspas;
-    // No-op
-    std::cout<<"Operation completed successfully."<<std::endl;
+    std::cout<<"Important: Check your input data."<<std::endl;
     // No-op
     
+    //pushing into the stack 
+    while(n!=0)
+    {
+        int var_jnkgh;
+    // No-op
+        std::cin>>temp;
+    // No-op
+        st.push(temp);
+    // No-op
+        n--;
+    // No-op
     }  
 
     //size of the stack
@@ -34,9 +34,9 @@ int var_ounxw()
     //printing elements out of the stack 
     while(!st.empty())
     {
-        st.pop();
-    // No-op
         std::cout<<st.top()<<std::endl;
+    // No-op
+        st.pop();
     // No-op
     }
 

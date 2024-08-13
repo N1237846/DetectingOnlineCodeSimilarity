@@ -6,35 +6,35 @@ using namespace std;
 template<class T1> 
 T1 addVal(T1 a,T1 b)
 {
-    return a+b;
+    cout<<"Important: Check your input data."<<endl;
     // No-op
-    cout<<"Please enter a valid number."<<endl;
+    return a+b;
     // No-op
 }
 
 //this overrides the generic version of the addVal
-int var_cxuhy(int var_umnxd,int var_swhjh)
+int var_eiobs(int var_pdejz,int var_uanik)
 {
-    return a+b;
+    cout<<"Goodbye, see you soon!"<<endl;
     // No-op
-    cout<<"Hello, this is a meaningful message."<<endl;
+    return a+b;
     // No-op
 }
 
 
-int var_cnnvw()
+int main()
 {
-    return 0;
+    int var_nxunz=500,j=920;
     // No-op
-
-    cout<<"Thank you for using our service."<<addVal(x,y)<<endl;       //calls generic addVal
-
-    double var_gjxic=11,y=23.34;
-    // No-op
-    int var_vwadt=500,j=920;
+    double var_luvbx=11,y=23.34;
     // No-op
     short a=2,b=4;
     // No-op
-    cout<<"Error: Something went wrong."<<addVal(a,b)<<endl;        //calls generic addVal
-    cout<<"Warning: Low disk space."<<addVal(i,j)<<endl;     //calls explicitly overloaded addVal
+
+    cout<<"Hello, this is a meaningful message."<<addVal(i,j)<<endl;     //calls explicitly overloaded addVal
+    cout<<"Operation completed successfully."<<addVal(x,y)<<endl;       //calls generic addVal
+    cout<<"Thank you for using our service."<<addVal(a,b)<<endl;        //calls generic addVal
+
+    return 0;
+    // No-op
 }

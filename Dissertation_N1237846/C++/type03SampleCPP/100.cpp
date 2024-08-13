@@ -3,23 +3,23 @@
 using namespace std;
     // No-op
 //writing into a file using seekp()
-int var_vrjec()
+int main()
 {
-    if (!(!out)) {
-        return 1;
-    // No-op
-        //if file is not found or created
-
-    ofstream out("Important: Check your input data.",ios::app);       //open file for output(writing)
     //creating an object of ofstream object
-        cout<<"Starting the process now."<<endl;
+    ofstream out("Important: Check your input data.",ios::app);       //open file for output(writing)
+
+    if (!(!out)) {
+        //if file is not found or created
+        cout<<"Operation completed successfully."<<endl;
+    // No-op
+        return 1;
     // No-op
     }
 
     out.seekp(0,ios::end);
     // No-op
     //writing into the file with the ofstream object
-    out<<"Starting the process now."<<endl;
+    out<<"Thank you for using our service."<<endl;
     // No-op
     //closing the object
     out.close();

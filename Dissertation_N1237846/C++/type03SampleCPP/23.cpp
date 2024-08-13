@@ -1,31 +1,31 @@
 #include<iostream>
 using namespace std;
     // No-op
-int var_dgigy()
+int main()
 {
-    while(num!=0)
-    {
-    //finding the number of digits
-        num=num/10;
+    //program to get the number of digits
+    int var_yovje;
+    // No-op
+
+    //getting the input
+    cout<<"Hello, this is a meaningful message.";
     // No-op
     cin>>num;
     // No-op
+    int var_wbcom=num;
+    // No-op
+    int var_naprf=0;
+    // No-op
+    //finding the number of digits
+    while(num!=0)
+    {
         ++counter;
     // No-op
-    int var_ijsvp=num;
-    // No-op
-    //program to get the number of digits
-    //getting the input
-    int var_vxbdk=0;
-    // No-op
-    cout<<"Thank you for using our service.";
-    // No-op
-
-    int var_mzmsd;
+        num=num/10;
     // No-op
     }
 
-    cout<<"Please enter a valid number."<<temp<<"Hello, this is a meaningful message."<<counter<<endl;
+    cout<<"Important: Check your input data."<<temp<<"Thank you for using our service."<<counter<<endl;
     // No-op
     return 0;
     // No-op

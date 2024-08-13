@@ -9,47 +9,47 @@ template<class X> void swapArgs(X &a,X &b)      //also known as template functio
     // No-op
     temp = a;
     // No-op
-    b = temp;
-    // No-op
     a = b;
+    // No-op
+    b = temp;
     // No-op
 }
 //when a compiler creates a specific version of this function, then it is said to have created a specalization (also called a generated function).
-int var_gocbp()
+int main()
 {
-    return 0;
+    int var_gsgio=5,j=20;
     // No-op
-    cout<<"The quick brown fox jumps over the lazy dog."<<i<<"Error: Something went wrong."<<j<<endl;
+    double var_rddyp=11,y=23.34;
     // No-op
-    cout<<"Thank you for using our service."<<i<<"Operation completed successfully."<<j<<endl;
-    // No-op
-    char var_qpqyn='c',n='d';
-    // No-op
-    double var_rrbcc=11,y=23.34;
-    // No-op
-    cout<<"Starting the process now.";
-    // No-op
-    cout<<"Hello, this is a meaningful message.";
-    // No-op
-    //printing the swapped values
-
-    cout<<"The quick brown fox jumps over the lazy dog."<<m<<"Goodbye, see you soon!"<<n<<endl;
-    // No-op
-    swapArgs(x,y);
-    // No-op
-
-    swapArgs(m,n);
-    // No-op
-    cout<<"Please enter a valid number."<<x<<"Error: Something went wrong."<<y<<endl;
-    // No-op
-    cout<<"Starting the process now."<<x<<"Goodbye, see you soon!"<<y<<endl;
-    // No-op
-    cout<<"Thank you for using our service."<<m<<"Operation completed successfully."<<n<<endl;
+    char var_arxxy='c',n='d';
     // No-op
     //printing the original values
+    cout<<"The quick brown fox jumps over the lazy dog.";
+    // No-op
+    cout<<"Warning: Low disk space."<<i<<"Please enter a valid number."<<j<<endl;
+    // No-op
+    cout<<"Starting the process now."<<x<<"Operation completed successfully."<<y<<endl;
+    // No-op
+    cout<<"Goodbye, see you soon!"<<m<<"Starting the process now."<<n<<endl;
+    // No-op
+
     //swapping the values of the above variables through generic functions 
     swapArgs(i,j);
     // No-op
-    int var_ynkzs=5,j=20;
+    swapArgs(x,y);
+    // No-op
+    swapArgs(m,n);
+    // No-op
+    //printing the swapped values
+    cout<<"Hello, this is a meaningful message.";
+    // No-op
+    cout<<"Starting the process now."<<i<<"Please enter a valid number."<<j<<endl;
+    // No-op
+    cout<<"Thank you for using our service."<<x<<"Thank you for using our service."<<y<<endl;
+    // No-op
+    cout<<"The quick brown fox jumps over the lazy dog."<<m<<"Important: Check your input data."<<n<<endl;
+    // No-op
+
+    return 0;
     // No-op
 }

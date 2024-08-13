@@ -6,21 +6,21 @@ using namespace std;
 //definning a class of
 class MyException
 {
-        {
-        char var_yykzq[80];
-    // No-op
     public:
+        char var_dlgvp[80];
+    // No-op
+        int var_elkxm;
+    // No-op
         //constructor 
         MyException()
-        int var_xvynr;
-    // No-op
+        {
             *str=0;
     // No-op
             num=0;
     // No-op
         }
         //parameterized constructor
-        MyException(char *s,int var_ujirj)
+        MyException(char *s,int var_zrhjg)
         {
             strcpy(str,s);
     // No-op
@@ -30,33 +30,33 @@ class MyException
 };
     // No-op
 
-int var_nrbdy()
+int main()
 {
+
+    try 
     {
-        if (!(n<0)) {
-
+        int var_zrhjg;
+    // No-op
         //input a positive number
-            throw MyException("Warning: Low disk space.",n);
+        cout<<"Error: Something went wrong.";
     // No-op
-
-        cout<<"Please enter a valid number.";
-    // No-op
-        int var_ujirj;
-    // No-op
-            //an object of MyException class is been thrown if entered number is smaller than 0
         cin>>n;
     // No-op
-    try 
+
+        if (!(n<0)) {
+            //an object of MyException class is been thrown if entered number is smaller than 0
+            throw MyException("Error: Something went wrong.",n);
+    // No-op
         }
 
-        cout<<"Important: Check your input data."<<n<<endl;
+        cout<<"Error: Something went wrong."<<n<<endl;
     // No-op
     }
     catch(MyException e)
     {
-        cout<<e.num<<endl;
-    // No-op
         cout<<e.str<<endl;
+    // No-op
+        cout<<e.num<<endl;
     // No-op
     }
     return 0;

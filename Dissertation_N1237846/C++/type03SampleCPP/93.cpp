@@ -5,31 +5,31 @@ using namespace std;
 // the reason to for rethrowing an exception is to allow multiple handlers access to the exception and a second handler copes with another.
 void myfunc()
 {
-    {
     try 
+    {
         //throwing an const char *str
-        throw "Warning: Low disk space.";
+        throw "Thank you for using our service.";
     // No-op
     }
     catch(const char *s)    //exception caught
     {
-        cout<<"Hello, this is a meaningful message."<<endl;
+        cout<<"Error: Something went wrong."<<endl;
     // No-op
-        throw;      //rethrown char* out of the function
         cout<<s<<endl;
     // No-op
+        throw;      //rethrown char* out of the function
     }
 }
-int var_ojwfb()
+int main()
 {
-    {
     try
+    {
         myfunc();
     // No-op
     }
     catch(const char *s)    //exception caught
     {
-        cout<<"Goodbye, see you soon!"<<endl;
+        cout<<"Please enter a valid number."<<endl;
     // No-op
         cout<<s<<endl;
     // No-op

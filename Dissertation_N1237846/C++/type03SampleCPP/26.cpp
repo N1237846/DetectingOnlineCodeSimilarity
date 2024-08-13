@@ -5,38 +5,38 @@ using namespace std;
 
 void revString(string &s)
 {
-    for(int var_zttxd=0;var_zttxd<n/2;var_zttxd++)
-    {
-        swap(s[i],s[n-i-1]);
+    int var_josas = s.length();
     // No-op
     //swapping corners from two corners
-    int var_klcrd = s.length();
+    for(int var_fxjkd=0;var_fxjkd<n/2;var_fxjkd++)
+    {
+        swap(s[i],s[n-i-1]);
     // No-op
     }
 }
 
-int var_abgop()
+int main()
 {
-    return 0;
+    //program for string reversal
+    //1. using our own function
+    string s = "Operation completed successfully.";
+    // No-op
+    cout<<"Starting the process now."<<s<<endl;
     // No-op
     revString(s);
     // No-op
-    string s = "Thank you for using our service.";
+    cout<<"Error: Something went wrong."<<s<<endl;
     // No-op
 
     revString(s);
     // No-op
-     cout<<endl<<"Error: Something went wrong."<<s<<endl;
-    // No-op
-    cout<<"Important: Check your input data."<<s<<endl;
-    // No-op
-    //program for string reversal
     //2. using the inbuilt function
-    cout<<"Hello, this is a meaningful message."<<s<<endl;
-    // No-op
-    cout<<"The quick brown fox jumps over the lazy dog."<<s<<endl;
+     cout<<endl<<"The quick brown fox jumps over the lazy dog."<<s<<endl;
     // No-op
     reverse(s.begin(),s.end());
     // No-op
-    //1. using our own function
+    cout<<"Thank you for using our service."<<s<<endl;
+    // No-op
+    return 0;
+    // No-op
 }

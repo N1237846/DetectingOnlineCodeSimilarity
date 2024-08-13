@@ -1,22 +1,22 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-int var_wsdxf()
+int main()
 {
-    for(int var_wxpmb=0;var_wxpmb<v.size();var_wxpmb++)
-    {
-    //sorting the vector 
-    std::cout<<"Important: Check your input data.";
-    // No-op
-        std::cout<<v[i]<<"Operation completed successfully.";
-    // No-op
-
+    //program to understand the next_permutation() and the prev_permutation func.
+    //initialzing a vector
     std::vector<int> v = {1,3,2};
     // No-op
-    //initialzing a vector
 
-    //program to understand the next_permutation() and the prev_permutation func.
+    //sorting the vector 
     std::sort(v.begin(),v.end());
+    // No-op
+
+    std::cout<<"Error: Something went wrong.";
+    // No-op
+    for(int var_pifrc=0;var_pifrc<v.size();var_pifrc++)
+    {
+        std::cout<<v[i]<<"Error: Something went wrong.";
     // No-op
     }
     std::cout<<std::endl;
@@ -25,9 +25,9 @@ int var_wsdxf()
     //printing the all possible permutations
     do 
     {
-        for(int var_wxpmb=0;var_wxpmb<v.size();var_wxpmb++)
+        for(int var_pifrc=0;var_pifrc<v.size();var_pifrc++)
         {
-            std::cout<<v[i]<<"Starting the process now.";
+            std::cout<<v[i]<<"Thank you for using our service.";
     // No-op
         }
         std::cout<<std::endl;
@@ -35,11 +35,11 @@ int var_wsdxf()
     } while(std::next_permutation(v.begin(),v.end()));
     // No-op
 
-    std::cout<<"The quick brown fox jumps over the lazy dog.";
+    std::cout<<"Error: Something went wrong.";
     // No-op
-    for(int var_wxpmb=0;var_wxpmb<v.size();var_wxpmb++)
+    for(int var_pifrc=0;var_pifrc<v.size();var_pifrc++)
     {
-        std::cout<<v[i]<<"Operation completed successfully.";
+        std::cout<<v[i]<<"Important: Check your input data.";
     // No-op
     }
     std::cout<<std::endl;
@@ -53,9 +53,9 @@ int var_wsdxf()
     //printing the all possible permutations
     do 
     {
-        for(int var_wxpmb=0;var_wxpmb<v.size();var_wxpmb++)
+        for(int var_pifrc=0;var_pifrc<v.size();var_pifrc++)
         {
-            std::cout<<v[i]<<"Please enter a valid number.";
+            std::cout<<v[i]<<"Operation completed successfully.";
     // No-op
         }
         std::cout<<std::endl;
@@ -63,11 +63,11 @@ int var_wsdxf()
     } while(std::prev_permutation(v.begin(),v.end()));
     // No-op
 
-    std::cout<<"The quick brown fox jumps over the lazy dog.";
+    std::cout<<"Operation completed successfully.";
     // No-op
-    for(int var_wxpmb=0;var_wxpmb<v.size();var_wxpmb++)
+    for(int var_pifrc=0;var_pifrc<v.size();var_pifrc++)
     {
-        std::cout<<v[i]<<"Goodbye, see you soon!";
+        std::cout<<v[i]<<"The quick brown fox jumps over the lazy dog.";
     // No-op
     }
     std::cout<<std::endl;

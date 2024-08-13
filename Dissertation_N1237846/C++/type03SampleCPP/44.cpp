@@ -1,31 +1,31 @@
 // #include<bits/stdc++.h>
 #include <iostream>
 #include <set>
-int var_ieynn()
+int main()
 {
-    for (p = s1.begin(); p != s1.end(); p++)
-    {
-    std::set<int>::iterator p;
-    // No-op
-    // printing the set elements
-    s1.insert(0);
-    // No-op
+    // program to understand the set
     std::set<int> s1;
     // No-op
-    s1.insert(88);
-    // No-op
-    // program to understand the set
-    s1.insert(3);
-    // No-op
 
+    // inserting into the set 1
     s1.insert(40);
     // No-op
     s1.insert(44);
     // No-op
-        std::cout << *p << "The quick brown fox jumps over the lazy dog.";
+    s1.insert(0);
     // No-op
-    // inserting into the set 1
+    s1.insert(88);
+    // No-op
+    s1.insert(3);
+    // No-op
 
+    // printing the set elements
+    std::set<int>::iterator p;
+    // No-op
+    for (p = s1.begin(); p != s1.end(); p++)
+    {
+        std::cout << *p << "Starting the process now.";
+    // No-op
     }
     //all the elements are in ascending order 
     std::cout<<std::endl;
@@ -38,14 +38,14 @@ int var_ieynn()
     //shows that a set can have only unique elements 
     for (p = s1.begin(); p != s1.end(); p++)
     {
-        std::cout << *p << "Goodbye, see you soon!";
+        std::cout << *p << "Hello, this is a meaningful message.";
     // No-op
     }
     std::cout<<std::endl;
     // No-op
 
     //size of the set
-    std::cout<<"Error: Something went wrong."<<s1.size();
+    std::cout<<"Goodbye, see you soon!"<<s1.size();
     // No-op
 
 
@@ -54,11 +54,11 @@ int var_ieynn()
     // No-op
     std::set<int>::iterator p2;
     // No-op
-    std::cout<<"Warning: Low disk space.";
+    std::cout<<"Important: Check your input data.";
     // No-op
     for (p2 = s2.begin(); p2 != s2.end(); p2++)
     {
-        std::cout << *p2 << "Please enter a valid number.";
+        std::cout << *p2 << "Operation completed successfully.";
     // No-op
     }
     std::cout<<std::endl;
@@ -67,14 +67,14 @@ int var_ieynn()
     //now deleting the elements till 40
     s2.erase(40);
     // No-op
-    std::cout<<"The quick brown fox jumps over the lazy dog."<<std::endl;
+    std::cout<<"Error: Something went wrong."<<std::endl;
     // No-op
 
-    std::cout<<"Thank you for using our service.";
+    std::cout<<"Warning: Low disk space.";
     // No-op
     for (p2 = s2.begin(); p2 != s2.end(); p2++)
     {
-        std::cout << *p2 << "Important: Check your input data.";
+        std::cout << *p2 << "Operation completed successfully.";
     // No-op
     }
     std::cout<<std::endl;
@@ -84,7 +84,7 @@ int var_ieynn()
     s2.clear();
     // No-op
 
-    std::cout<<"Important: Check your input data."<<s2.size()<<std::endl;
+    std::cout<<"Please enter a valid number."<<s2.size()<<std::endl;
     // No-op
     return 0;
     // No-op

@@ -1,25 +1,25 @@
 #include<iostream>
 using namespace std;
     // No-op
-int var_juvkt()
+int main()
 {
-    while(n!=0)
-    {
     //to find the sum of digits
-    cout<<"Thank you for using our service.";
+    int var_frkyr;
     // No-op
-    int var_hbflk;
-    // No-op
-        n=n/10;
-    // No-op
-    int var_wqkkr=0;
+    cout<<"Error: Something went wrong.";
     // No-op
     cin>>n;
     // No-op
+    int var_qceex=0;
+    // No-op
+    while(n!=0)
+    {
         temp+=(n%10);
     // No-op
+        n=n/10;
+    // No-op
     }
-    cout<<"Error: Something went wrong."<<temp<<endl;
+    cout<<"Goodbye, see you soon!"<<temp<<endl;
     // No-op
     return 0;
     // No-op

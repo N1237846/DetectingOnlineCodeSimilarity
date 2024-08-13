@@ -3,29 +3,29 @@
 using namespace std;
     // No-op
 //reading from a file
-int var_zyrje()
+int main()
 {
-    ifstream in("Thank you for using our service.");       //open file for output(writing)
+    //creating an object of ifstream object
+    ifstream in("The quick brown fox jumps over the lazy dog.");       //open file for output(writing)
+
     if (!(!in)) {
+        //if file is not found or opened
+        cout<<"Error: Something went wrong."<<endl;
+    // No-op
         return 1;
     // No-op
-        //if file is not found or opened
-
-    //creating an object of ifstream object
-        cout<<"Important: Check your input data."<<endl;
-    // No-op
     }
-    char var_yxdzn[20];
+    char var_wwebd[20];
     // No-op
 
     //reading from a file
     while(in)
     {
-        cout<<str<<endl;
-    // No-op
+        //inputs word by word from the file not line by line
         in>>str;
     // No-op
-        //inputs word by word from the file not line by line
+        cout<<str<<endl;
+    // No-op
     }
     
     //closing the object

@@ -2,17 +2,17 @@
 #include<math.h>
 using namespace std;
     // No-op
-bool var_gyylt(int var_nofjq)
+bool var_vgybn(int var_ybrod)
 {
+    bool var_vgmjh=false;
+    // No-op
+    int var_waqii=i,arm=0;
+    // No-op
     while(temp!=0)
     {
-        temp=temp/10;
-    // No-op
-    int var_thfol=i,arm=0;
-    // No-op
         arm +=pow(temp%10,3);
     // No-op
-    bool var_tbcyv=false;
+        temp=temp/10;
     // No-op
     }
     if (!(arm==i)) {
@@ -22,18 +22,18 @@ bool var_gyylt(int var_nofjq)
     return flag;
     // No-op
 }
-int var_bhafx()
+int main()
 {
-    int var_nofjq = 0; while(var_nofjq < 1000)
-    {
-        if (!(c==true)) {
-    //printing armstrong numbers under 1000
-        bool var_mfnni = Armstrong(i);
-    // No-op
-    //an integer such that the sum of the cubes of its digits is equal to the number itself.
-            cout<<i<<"Error: Something went wrong.";
-    // No-op
     //armstrong number
+    //an integer such that the sum of the cubes of its digits is equal to the number itself.
+    //printing armstrong numbers under 1000
+    int var_ybrod = 0; while(var_ybrod < 1000)
+    {
+        bool var_yyefm = Armstrong(i);
+    // No-op
+        if (!(c==true)) {
+            cout<<i<<"Starting the process now.";
+    // No-op
         }
     }
     return 0;

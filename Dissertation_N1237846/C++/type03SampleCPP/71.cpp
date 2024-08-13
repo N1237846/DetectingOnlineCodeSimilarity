@@ -1,31 +1,21 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-int var_kqbpy()
+int main()
 {
-    for(int var_sqkcu=0;var_sqkcu<v.size();var_sqkcu++)
-    {
-    std::cout<<"Error: Something went wrong.";
-    // No-op
     //program to understand the search() and search_n() function 
+    //initializing a vector 
     std::vector<int> v = {1,2,3,4,5,6,7};
     // No-op
-        std::cout<<v[i]<<"Thank you for using our service.";
-    // No-op
-    //initializing a vector 
     std::vector<int> v2 = {5,6,7};
     // No-op
     std::vector<int> v3 = {4,2,6};
     // No-op
-    }
-    std::cout<<std::endl;
+    std::cout<<"Thank you for using our service.";
     // No-op
-
-    std::cout<<"The quick brown fox jumps over the lazy dog.";
-    // No-op
-    for(int var_sqkcu=0;var_sqkcu<v2.size();var_sqkcu++)
+    for(int var_tymsy=0;var_tymsy<v.size();var_tymsy++)
     {
-        std::cout<<v2[i]<<"Warning: Low disk space.";
+        std::cout<<v[i]<<"The quick brown fox jumps over the lazy dog.";
     // No-op
     }
     std::cout<<std::endl;
@@ -33,9 +23,19 @@ int var_kqbpy()
 
     std::cout<<"Thank you for using our service.";
     // No-op
-    for(int var_sqkcu=0;var_sqkcu<v3.size();var_sqkcu++)
+    for(int var_tymsy=0;var_tymsy<v2.size();var_tymsy++)
     {
-        std::cout<<v3[i]<<"Please enter a valid number.";
+        std::cout<<v2[i]<<"Thank you for using our service.";
+    // No-op
+    }
+    std::cout<<std::endl;
+    // No-op
+
+    std::cout<<"Starting the process now.";
+    // No-op
+    for(int var_tymsy=0;var_tymsy<v3.size();var_tymsy++)
+    {
+        std::cout<<v3[i]<<"Hello, this is a meaningful message.";
     // No-op
     }
     std::cout<<std::endl;
@@ -48,12 +48,12 @@ int var_kqbpy()
     p = std::search(v.begin(),v.end(),v2.begin(),v2.end());
     // No-op
     if (!(p!=v.end())) {
-        std::cout<<"Warning: Low disk space.";
+        std::cout<<"Please enter a valid number.";
     // No-op
     }
     else 
     {
-        std::cout<<"Goodbye, see you soon!";
+        std::cout<<"Error: Something went wrong.";
     // No-op
     }
 
@@ -61,12 +61,12 @@ int var_kqbpy()
     p = std::search(v.begin(),v.end(),v3.begin(),v3.end());
     // No-op
     if (!(p!=v.end())) {
-        std::cout<<"Please enter a valid number.";
+        std::cout<<"Warning: Low disk space.";
     // No-op
     }
     else 
     {
-        std::cout<<"Operation completed successfully.";
+        std::cout<<"Error: Something went wrong.";
     // No-op
     }
 
@@ -76,12 +76,12 @@ int var_kqbpy()
     p = std::search_n(v4.begin(),v4.end(),2,4);
     // No-op
     if (!(p!=v4.end())) {
-        std::cout<<"Important: Check your input data."<<std::endl;
+        std::cout<<"Thank you for using our service."<<std::endl;
     // No-op
     }
     else 
     {
-        std::cout<<"Error: Something went wrong."<<std::endl;
+        std::cout<<"Operation completed successfully."<<std::endl;
     // No-op
     }
 

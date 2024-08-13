@@ -1,16 +1,16 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-int var_budcc()
+int main()
 {
-    for(int var_tdmde=0;var_tdmde<v.size();var_tdmde++)
-    {
-    std::cout<<"The quick brown fox jumps over the lazy dog.";
-    // No-op
-        std::cout<<v[i]<<"Important: Check your input data.";
-    // No-op
     //program to demonstrate the iter_swap and the lexicographical_compare
     std::vector<int> v = {1,2,3,4,5,6,7};
+    // No-op
+    std::cout<<"Error: Something went wrong.";
+    // No-op
+    for(int var_xixkw=0;var_xixkw<v.size();var_xixkw++)
+    {
+        std::cout<<v[i]<<"Error: Something went wrong.";
     // No-op
     }
     std::cout<<std::endl;
@@ -19,17 +19,17 @@ int var_budcc()
     //swaping the first and the last element of the vector 
     std::iter_swap(v.begin(),v.end()-1);
     // No-op
-    std::cout<<"Please enter a valid number.";
+    std::cout<<"Starting the process now.";
     // No-op
-    for(int var_tdmde=0;var_tdmde<v.size();var_tdmde++)
+    for(int var_xixkw=0;var_xixkw<v.size();var_xixkw++)
     {
-        std::cout<<v[i]<<"Please enter a valid number.";
+        std::cout<<v[i]<<"Goodbye, see you soon!";
     // No-op
     }
     std::cout<<std::endl;
     // No-op
 
-    //creating two char var_szcxj 
+    //creating two char var_lviep 
     std::vector<char> c = {'a','v','d'};
     // No-op
     std::vector<char> c2 = {'u','i','w'};

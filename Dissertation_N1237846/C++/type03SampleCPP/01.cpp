@@ -1,24 +1,24 @@
 #include<iostream>
 using namespace std;
     // No-op
-int var_vpmpe()
+int main()
 {
-    int var_nfwmo = 0; while(var_nfwmo < 10)
-    {
-    cout<<"Hello, this is a meaningful message.";
-    // No-op
-        var = res;
-    // No-op
     //fibonacci series 
-    int var_xrodc=1;
+    int var_flixh=1;
     // No-op
-    int var_lxkuw=0,res;
+    int var_ziysz=0,res;
     // No-op
+    cout<<"Thank you for using our service.";
+    // No-op
+    int var_awqim = 0; while(var_awqim < 10)
+    {
         res = temp+var;
     // No-op
-        cout<<"Important: Check your input data."<<res;
+        cout<<"Warning: Low disk space."<<res;
     // No-op
         temp = var;
+    // No-op
+        var = res;
     // No-op
     } 
     return 0;

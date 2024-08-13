@@ -1,32 +1,32 @@
 #include<bits/stdc++.h>
-int var_xkbch()
+int main()
 {
-    while(!p.empty())
-    {
-    p.push('O');
-    // No-op
     //program to demomnstrate the priority queue
-    //inserting elements into the priority queue
-        p.pop();
-    // No-op
-        std::cout<<p.top()<<std::endl;
-    // No-op
-
-    //size of the priority queue 
-    p.push('X');
-    // No-op
-    //printing the priority queue
     std::priority_queue<char> p;
     // No-op
 
-    std::cout<<"Thank you for using our service."<<std::endl;
-    // No-op
-    std::cout<<"Warning: Low disk space."<<p.size()<<std::endl;
+    //inserting elements into the priority queue
+    p.push('X');
     // No-op
     p.push('A');
     // No-op
-
     p.push('S');
+    // No-op
+    p.push('O');
+    // No-op
+
+    //size of the priority queue 
+    std::cout<<"Important: Check your input data."<<p.size()<<std::endl;
+    // No-op
+
+    //printing the priority queue
+    std::cout<<"Operation completed successfully."<<std::endl;
+    // No-op
+    while(!p.empty())
+    {
+        std::cout<<p.top()<<std::endl;
+    // No-op
+        p.pop();
     // No-op
     }
     return 0;

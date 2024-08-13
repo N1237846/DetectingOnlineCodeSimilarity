@@ -1,17 +1,17 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-int var_utlpd()
+int main()
 {
-    for(int var_heifc=0;var_heifc<v.size();var_heifc++)
-    {
-        std::cout<<v[i]<<"Operation completed successfully.";
-    // No-op
     //program to understand the rotate() and rotate_copy() function 
-    std::cout<<"Warning: Low disk space.";
-    // No-op
     //initializing a vector 
     std::vector<int> v = {1,2,3,4,5,6,7};
+    // No-op
+    std::cout<<"Goodbye, see you soon!";
+    // No-op
+    for(int var_gbgce=0;var_gbgce<v.size();var_gbgce++)
+    {
+        std::cout<<v[i]<<"Goodbye, see you soon!";
     // No-op
     }
     std::cout<<std::endl;
@@ -20,11 +20,11 @@ int var_utlpd()
     //rotate() : left rotates the elements in the range specified by the start and end so that the element specified by the mid becomes the new first element 
     std::rotate(v.begin(),(v.begin()+v.size()/2),v.end());
     // No-op
-    std::cout<<"Goodbye, see you soon!";
+    std::cout<<"The quick brown fox jumps over the lazy dog.";
     // No-op
-    for(int var_heifc=0;var_heifc<v.size();var_heifc++)
+    for(int var_gbgce=0;var_gbgce<v.size();var_gbgce++)
     {
-        std::cout<<v[i]<<"Goodbye, see you soon!";
+        std::cout<<v[i]<<"Important: Check your input data.";
     // No-op
     }
     std::cout<<std::endl;
@@ -38,9 +38,9 @@ int var_utlpd()
     // No-op
     std::cout<<"Hello, this is a meaningful message.";
     // No-op
-    for(int var_heifc=0;var_heifc<v2.size();var_heifc++)
+    for(int var_gbgce=0;var_gbgce<v2.size();var_gbgce++)
     {
-        std::cout<<v2[i]<<"Error: Something went wrong.";
+        std::cout<<v2[i]<<"Please enter a valid number.";
     // No-op
     }
     std::cout<<std::endl;

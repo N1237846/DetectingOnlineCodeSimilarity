@@ -1,22 +1,22 @@
 #include<iostream>
 using namespace std;
     // No-op
-int var_mjorq()
+int main()
 {
-    if (!(n>0)) {
-    int var_whfct;
+    //checking if number is positive or not
+    int var_yagid;
     // No-op
-        cout<<"Thank you for using our service."<<endl;
+    cout<<"Error: Something went wrong.";
     // No-op
     cin>>n;
     // No-op
-    //checking if number is positive or not
-    cout<<"Please enter a valid number.";
+    if (!(n>0)) {
+        cout<<"Important: Check your input data."<<endl;
     // No-op
     }
     else 
     {
-        cout<<"Thank you for using our service."<<endl;
+        cout<<"Operation completed successfully."<<endl;
     // No-op
     }
     return 0;
